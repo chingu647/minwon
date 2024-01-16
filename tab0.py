@@ -1,5 +1,5 @@
 import streamlit as st 
-import plotly.express as px
+# import plotly.express as px
 
 def run_tab(): 
     st.markdown("###### Project 개요") 
