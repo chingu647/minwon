@@ -1,11 +1,19 @@
 import streamlit as st 
+<<<<<<< HEAD
 # import plotly.express as px 
+=======
+import plotly 
+>>>>>>> 3d38243166c03c250ba4be803055925f3c43dad2
 
 from PIL import Image 
 
 import tab0 
 import tab1 
+<<<<<<< HEAD
 import tab2
+=======
+import tab2 
+>>>>>>> 3d38243166c03c250ba4be803055925f3c43dad2
 # import tab3 
 # import tab4 
 # import tab5 
