@@ -21,7 +21,8 @@ st.markdown("""---""")
 
 tab_titles = ['Project 개요', '느낀점 부터', 'Project 가설 3가지', '가설1 분석', '가설2 분석', '가설3 분석', '결 론', 'Data source']
 tabs = st.tabs(tab_titles)
-sidebar = st.sidebar
+sbar = st.sidebar
+sbar.title('Iris Species🌸') 
  
 # 각 탭에 콘텐츠 추가
 with tabs[0]: 
