@@ -30,7 +30,7 @@ def run_tab():
     t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.iloc[:5,:1]
     t1_body1_df_gby_kind.columns = ['건수']
-    t1_body1_df_gby_kind['%'] = ( t1_body1_df_gby_kind['건수']/t1_body1_df_gby_kind['건수'].sum() *100).map("{: >3.1f}".format)
+    t1_body1_df_gby_kind['%'] = ( t1_body1_df_gby_kind['건수']/t1_body1_df_gby_kind['건수'].sum() *100).map("{: >.1f}".format)
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body1.table(t1_body1_df_gby_kind) 
 
