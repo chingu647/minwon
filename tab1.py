@@ -74,6 +74,9 @@ def run_tab():
     t1_gpf = t1_gpf[ ['노선번호','X좌표값', 'Y좌표값'] ]
     t1_gpf.columns = ['노선번호','latitude','longitude'] 
 
+
+    t1_gpf = t1_gpf.iloc[:50, :]
+
     base_position = [35.18668601, 126.87954220] 
 
     t1_map = folium.Map( location=base_position, zoom_start=12 ) 
