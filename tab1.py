@@ -75,7 +75,7 @@ def run_tab():
     t1_gpf.columns = ['노선번호','latitude','longitude'] 
 
 
-    t1_gpf = t1_gpf.iloc[:50, :]
+    t1_gpf = t1_gpf.iloc[:5, :]
 
 
     base_position = [35.18668601, 126.87954220] 
