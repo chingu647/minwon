@@ -23,7 +23,7 @@ def run_tab():
     """)
 
     # -----------------------------------------------------------------------  
-    t1_body1.markdown("###### 2023년 이슈 (민원 순위별)") 
+    t1_body1.markdown("###### 2024년 이슈 (민원 순위별)") 
     t1_body1_df = pd.read_csv("data/민원처리현황.csv")
     t1_body1_df = t1_body1_df.query("organ=='광주지사'" )
     t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
@@ -33,7 +33,7 @@ def run_tab():
     t1_body1.table(t1_body1_df_gby_kind) 
 
     # -----------------------------------------------------------------------  
-    t1_body2.markdown("###### 키워드 클라우드") 
+    t1_body2.markdown("###### 2024년 키워드 클라우드") 
     t1_body2_data = {'1':['a','b','c'],
                      'bool':[True, True, False]}
     t1_body2_df = pd.DataFrame(data=t1_body2_data) 
