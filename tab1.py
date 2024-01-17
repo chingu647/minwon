@@ -33,7 +33,7 @@ def run_tab():
     t1_body1.table(t1_body1_df_gby_kind) 
 
     # -----------------------------------------------------------------------  
-    t1_body2.markdown("###### 2024년 키워드 클라우드") 
+    t1_body2.markdown("###### 주요 키워드 클라우드") 
     t1_body2_data = {'1':['a','b','c'],
                      'bool':[True, True, False]}
     t1_body2_df = pd.DataFrame(data=t1_body2_data) 
