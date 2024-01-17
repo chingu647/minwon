@@ -34,6 +34,7 @@ sbar.markdown(r'맞춤형 통계🌸')
 # 각 탭에 콘텐츠 추가
 with tabs[0]: 
     tab0.run_tab()
+    tab0.markdown(r'hello world')
  
 with tabs[1]:
     tab1.run_tab()
