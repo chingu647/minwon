@@ -58,7 +58,7 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
     # map 
-    base_position = [37.18668601, 126.87954223] 
+    base_position = [35.18668601, 126.87954220] 
     map_data = pd.DataFrame(np.random.randn(5,1)/[20,20] + base_position,
         columns=['lat','lon'] 
         ) 
