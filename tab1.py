@@ -87,7 +87,7 @@ def run_tab():
                    style_function=lambda feature: {
                     #    'fillColor': feature['properties']['color'],
                        'color': '#F5F6CE',
-                       'weight': 1,
+                       'weight': 3,
                        'dashArray': '5, 5',
                        'fillOpacity': 0.3, 
                        }
