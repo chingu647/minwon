@@ -29,6 +29,7 @@ def run_tab():
     t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.iloc[:5,:1]
     t1_body1_df_gby_kind.columns = ['횟수']
+    t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='횟수', ascending=False)  
 
     # seoul_23_mean_price_by_gu = seoul_23_df.groupby(by='시군구명').mean(numeric_only=True).sort_values(by='공시지가(원/㎡)', ascending=False)
     t1_body1.table(t1_body1_df_gby_kind) 
