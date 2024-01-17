@@ -80,7 +80,7 @@ def run_tab():
 
     base_position = [35.18668601, 126.87954220] 
 
-    t1_map = folium.Map( location=base_position, zoom_start=12, tiles='cartodbpositron') 
+    t1_map = folium.Map( location=base_position, zoom_start=12, tiles='Stamen Toner') 
 
     for index, row in t1_gpf.iterrows():
         folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
