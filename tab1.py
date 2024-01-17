@@ -25,7 +25,7 @@ def run_tab():
     # -----------------------------------------------------------------------  
     t1_body1.markdown("###### 이달의 이슈") 
     t1_body1_df = pd.read_csv("data/민원처리현황.csv")
-    t1_body1_df = t1_body1_df.query("organ=구례지사" )
+    t1_body1_df = t1_body1_df.query("organ==구례지사" )
     t1_body1.table(t1_body1_df) 
 
     # -----------------------------------------------------------------------  
