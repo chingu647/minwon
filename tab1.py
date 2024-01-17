@@ -1,5 +1,7 @@
 import streamlit as st 
-# import plotly.express as px
+import plotly.express as px
+import pandas as pd
+import numpy as np 
 
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
@@ -21,22 +23,31 @@ def run_tab():
     
     # -----------------------------------------------------------------------  
     t1_body0.markdown("###### 포트홀 민원") 
-    t1_body0.markdown("포트홀 민원") 
-    t1_body0.markdown("포트홀 민원") 
-    t1_body0.markdown("포트홀 민원") 
-    t1_body0.markdown("포트홀 민원") 
-    t1_body0.markdown("포트홀 민원") 
-    t1_body0.markdown("포트홀 민원") 
-    t1_body0.markdown("포트홀 민원") 
+    t1_body0_data = {'1':['a','b','c'],
+                     'bool':[True, True, False]}
+    t1_dody0_df = pd.DataFrame(data=t1_body0_data) 
+    t1_body0.write(t1_dody0_df) 
 
     # -----------------------------------------------------------------------  
     t1_body1.markdown("###### 휴게소 민원") 
+    t1_body1_data = {'1':['a','b','c'],
+                     'bool':[True, True, False]}
+    t1_dody1_df = pd.DataFrame(data=t1_body1_data) 
+    t1_body1.write(t1_dody1_df) 
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 서비스 민원") 
+    t1_body2_data = {'1':['a','b','c'],
+                     'bool':[True, True, False]}
+    t1_dody2_df = pd.DataFrame(data=t1_body2_data) 
+    t1_body2.write(t1_dody2_df) 
 
     # -----------------------------------------------------------------------  
     t1_body3.markdown("###### 서비스2 민원") 
+    t1_body3_data = {'1':['a','b','c'],
+                     'bool':[True, True, False]}
+    t1_dody3_df = pd.DataFrame(data=t1_body3_data) 
+    t1_body3.write(t1_dody3_df) 
 
     # -----------------------------------------------------------------------  
     t1_body4.markdown("###### 기타 민원") 
