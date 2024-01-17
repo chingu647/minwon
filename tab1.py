@@ -2,6 +2,7 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 import numpy as np 
+import geopandas as gpd 
 
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
@@ -58,10 +59,19 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
     # map 
+    # base_position = [35.18668601, 126.87954220] 
+    # map_data = pd.DataFrame(np.random.randn(5,1)/[20,20] + base_position,
+    #     columns=['lat','lon'] 
+    #     ) 
+    # #print(map_data) 
+    # t1_tail1.code('con11.map(map_data)')
+    # t1_tail1.map(map_data) 
+
+    # map 
     base_position = [35.18668601, 126.87954220] 
     map_data = pd.DataFrame(np.random.randn(5,1)/[20,20] + base_position,
         columns=['lat','lon'] 
         ) 
     #print(map_data) 
     t1_tail1.code('con11.map(map_data)')
-    t1_tail1.map(map_data) 
+    t1_tail1.map(map_data)    
