@@ -79,7 +79,7 @@ def run_tab():
     for index, row in t1_gpf.iterrows():
         folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],
                             radius=1,
-                            color='pink',
+                            color='blue',
                             fill=True,
                             fill_opacity=1.0
                             ).add_to(t1_map)
