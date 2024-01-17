@@ -83,7 +83,15 @@ def run_tab():
 
 
     t1_gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
-    folium.GeoJson(t1_gpf_line).add_to(t1_map)
+    folium.GeoJson(t1_gpf_line,
+                   style_function=lambda feature: {
+                    #    'fillColor': feature['properties']['color'],
+                       'color': 'black',
+                       'weight': 2,
+                       'dashArray': '5, 5',
+                       'fillOpacity': 0.7, 
+                       }
+                    ).add_to(t1_map)
 
 
     for index, row in t1_gpf_point.iterrows():
