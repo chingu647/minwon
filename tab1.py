@@ -41,7 +41,7 @@ def run_tab():
     t1_body2.table(t1_body2_df) 
 
     # -----------------------------------------------------------------------  
-    t1_body5.markdown("###### 노선별 민원 현황") 
+    t1_body5.markdown("###### 노선별 민원 발생현황") 
     t1_body5_df = pd.read_csv("data/민원처리현황.csv")
     t1_body5_df = t1_body5_df.query("organ=='광주지사'" )
     t1_body5_df_gby_kind = t1_body5_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
