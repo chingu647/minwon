@@ -27,7 +27,7 @@ def run_tab():
     t1_body1_df = pd.read_csv("data/민원처리현황.csv")
     t1_body1_df = t1_body1_df.query("organ=='구례지사'" )
     t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False).transpose()
-    t1_body1_df_gby_kind = t1_body1_df_gby_kind.iloc[:1,1:5]
+    t1_body1_df_gby_kind = t1_body1_df_gby_kind.iloc[:1,1:5].style.hide(axis='index')
 
     # seoul_23_mean_price_by_gu = seoul_23_df.groupby(by='시군구명').mean(numeric_only=True).sort_values(by='공시지가(원/㎡)', ascending=False)
     t1_body1.table(t1_body1_df_gby_kind) 
