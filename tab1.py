@@ -79,7 +79,7 @@ def run_tab():
 
     base_position = [35.18668601, 126.87954220] 
 
-    t1_map = folium.Map( location=base_position, zoom_start=12, tiles='Stamentoner') 
+    t1_map = folium.Map( location=base_position, zoom_start=12) #, tiles='Stamentoner') 
 
 
     t1_gpf_line = gpd.read_file("data/ex_point_KWANGJU.shp") 
