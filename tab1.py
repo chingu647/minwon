@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np 
 import geopandas as gpd 
 import folium 
+from streamlit_folium import folium_static 
 
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
@@ -75,7 +76,7 @@ def run_tab():
 
     t1_map = folium.Map( location=[t1_gpf['latitude'].mean(), t1_gpf['longitude'].mean()], zoom_start=12 ) 
 
-    st.folium_chart(t1_map, width=800, height=600)
+    st.folium_static(t1_map, width=800, height=600)
 
     # t1_tail1.dataframe(t1_gpf) 
 
