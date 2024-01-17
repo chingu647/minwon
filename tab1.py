@@ -88,7 +88,7 @@ def run_tab():
 
 
 
-    folium_static(t1_map, width='100%') #, height=str(80))
+    folium_static(t1_map, width=int(0.8 * t1_head1.width)) #, height=str(80))
 
     # t1_tail1.dataframe(t1_gpf) 
 
