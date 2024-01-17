@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np 
 import geopandas as gpd 
 import folium 
+import streamlit_folium as st_folium 
 from streamlit_folium import folium_static 
 
 def run_tab(): 
@@ -89,7 +90,9 @@ def run_tab():
 
     temp_width = t1_head1.width
     t1_head1.write(temp_width)
-    folium_static(t1_map, width=int(st.columns()[0].width)) #, height=str(80))
+    
+    # folium_static(t1_map, width=int( st.columns()[0].width )) #, height=str(80))
+    st_folium(t1_map) #, height=str(80))
 
     # t1_tail1.dataframe(t1_gpf) 
 
