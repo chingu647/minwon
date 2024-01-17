@@ -76,6 +76,15 @@ def run_tab():
 
     t1_map = folium.Map( location=[t1_gpf['latitude'].mean(), t1_gpf['longitude'].mean()], zoom_start=12 ) 
 
+    for index, row in t1_gpf.iterrows():
+        folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],
+                            radius=1,
+                            color='pink',
+                            fill=True,
+                            fill_opacity=1.0
+                            ).add_to(t1_map)
+
+
     folium_static(t1_map, width=800, height=600)
 
     # t1_tail1.dataframe(t1_gpf) 
