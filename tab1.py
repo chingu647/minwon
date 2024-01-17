@@ -12,6 +12,8 @@ def run_tab():
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
     t1_body0, t1_body1, t1_body2, t1_body3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    
+    t1_body4, t1_body5, t1_body6 = st.columns( [0.001, 0.998, 0.001] )
 
     t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] )
 
@@ -37,6 +39,16 @@ def run_tab():
                      'bool':[True, True, False]}
     t1_body2_df = pd.DataFrame(data=t1_body2_data) 
     t1_body2.table(t1_body2_df) 
+
+    # -----------------------------------------------------------------------  
+    t1_body5.markdown("###### 노선별 민원 현황") 
+    t1_body5_df = pd.read_csv("data/민원처리현황.csv")
+    t1_body5_df = t1_body5_df.query("organ=='광주지사'" )
+    t1_body5_df_gby_kind = t1_body5_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
+    t1_body5_df_gby_kind = t1_body5_df_gby_kind.iloc[:5,:1]
+    t1_body5_df_gby_kind.columns = ['건수']
+    t1_body5_df_gby_kind = t1_body5_df_gby_kind.sort_values(by='건수', ascending=False)  
+    t1_body5.table(t1_body5_df_gby_kind) 
 
     # -----------------------------------------------------------------------  
     # map 
