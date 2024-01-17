@@ -86,8 +86,8 @@ def run_tab():
     folium.GeoJson(t1_gpf_line,
                    style_function=lambda feature: {
                     #    'fillColor': feature['properties']['color'],
-                       'color': 'black',
-                       'weight': 2,
+                       'color': 'yellow',
+                       'weight': 1,
                        'dashArray': '5, 5',
                        'fillOpacity': 0.7, 
                        }
