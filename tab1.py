@@ -79,12 +79,18 @@ def run_tab():
     t1_map = folium.Map( location=base_position, zoom_start=12 ) 
 
     for index, row in t1_gpf.iterrows():
-        folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],
-                            radius=1,
-                            color='blue',
-                            fill=True,
-                            fill_opacity=1.0
-                            ).add_to(t1_map)
+        folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
+                            radius=1,            # 원 반지름
+                            color='blue',        # 원 테두리 색상
+                            fill=True,           # 원 채움
+                            fill_opacity=1.0     # 원 채움 투명도
+                            ).add_to(t1_map) 
+        
+        folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
+                      icon=folium.DivIcon(                              # 값 표시방식
+                          html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
+                      ).add_to(t1_map) 
+
 
 
     folium_static(t1_map) #, width=800, height=600)
