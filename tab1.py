@@ -88,9 +88,7 @@ def run_tab():
                       ).add_to(t1_map) 
 
 
-    temp_width = t1_head1.width
-    t1_head1.write(temp_width)
-    
+   
     # folium_static(t1_map, width=int( st.columns()[0].width )) #, height=str(80))
     st_folium(t1_map) #, height=str(80))
 
