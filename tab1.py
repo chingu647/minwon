@@ -93,8 +93,9 @@ def run_tab():
         folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
                       popup=row['노선번호'],
                       tooltip=row['latitude'],
-                      icon=folium.DivIcon(                              # 값 표시방식
-                          html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
+                      icon=folium.Icon('red', icon='star'), 
+                    #   icon=folium.DivIcon(                              # 값 표시방식
+                    #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                       ).add_to(t1_map) 
 
 
