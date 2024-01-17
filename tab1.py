@@ -75,7 +75,7 @@ def run_tab():
 
     t1_map = folium.Map( location=[t1_gpf['latitude'].mean(), t1_gpf['longitude'].mean()], zoom_start=12 ) 
 
-    t1_map.components.v1.html(t1_map._repr_html_(), width=800, height=600)
+    t1_tail1.folium_chart(t1_map, width=800, height=600)
 
     # t1_tail1.dataframe(t1_gpf) 
 
