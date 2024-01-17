@@ -89,7 +89,7 @@ def run_tab():
                        'color': '#F5F6CE',
                        'weight': 1,
                        'dashArray': '5, 5',
-                       'fillOpacity': 0.7, 
+                       'fillOpacity': 0.9, 
                        }
                     ).add_to(t1_map)
 
