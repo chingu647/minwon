@@ -68,9 +68,9 @@ def run_tab():
     # t1_tail1.map(map_data) 
 
     # map 
-    # t1_gpf = gpd.read_file("data/ex_point_KWANGJU.geojson")
-    t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
-                   'longitude':[126.87954220,126.87554220,126.87964220]}
+    t1_gpf = gpd.read_file("data/ex_point_KWANGJU.geojson")
+    # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
+    #                'longitude':[126.87954220,126.87554220,126.87964220]}
     t1_gpf_df = pd.DataFrame(t1_gpf)   
     t1_tail1.write(t1_gpf_df) 
 
