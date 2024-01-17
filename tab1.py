@@ -88,7 +88,7 @@ def run_tab():
                       ).add_to(t1_map) 
 
     
-    folium_static(t1_map, width=800) #, height=str(80))
+    folium_static(t1_map, width=300) #, height=str(80))
 
      # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
     #                'longitude':[126.87954220,126.87554220,126.87964220]}
