@@ -77,6 +77,7 @@ def run_tab():
 
     t1_gpf = t1_gpf.iloc[:50, :]
 
+
     base_position = [35.18668601, 126.87954220] 
 
     t1_map = folium.Map( location=base_position, zoom_start=0.1 ) 
@@ -90,6 +91,8 @@ def run_tab():
                             ).add_to(t1_map) 
         
         folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
+                      popup=row['노선번호'],
+                      tooltip=row['latitude'],
                       icon=folium.DivIcon(                              # 값 표시방식
                           html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                       ).add_to(t1_map) 
