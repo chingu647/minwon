@@ -29,7 +29,7 @@ def run_tab():
     # t1_body1_df_gby_kind = t1_body1_df.groupby(by='kind').count().sort_values(by='kind', ascending=False)
 
     # seoul_23_mean_price_by_gu = seoul_23_df.groupby(by='시군구명').mean(numeric_only=True).sort_values(by='공시지가(원/㎡)', ascending=False)
-    t1_body1.table(t1_body1_df_gby_kind) 
+    t1_body1.table(t1_body1_df) 
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 키워드 클라우드") 
