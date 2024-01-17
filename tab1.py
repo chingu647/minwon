@@ -73,7 +73,7 @@ def run_tab():
     t1_gpf = t1_gpf[ ['노선번호','X좌표값', 'Y좌표값'] ]
     t1_gpf.columns = ['노선번호','latitude','longitude'] 
 
-    t1_map = folium.Map( location=[t1_gpf['latitude'].mean(), t1_gpf['longitude'].mean()], zoom_start=2 ) 
+    t1_map = folium.Map( location=[t1_gpf['latitude'].mean(), t1_gpf['longitude'].mean()], zoom_start=12 ) 
 
     t1_map.components.v1.html(t1_map._repr_html_(), width=800, height=600)
 
