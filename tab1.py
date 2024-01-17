@@ -68,10 +68,9 @@ def run_tab():
     # t1_tail1.map(map_data) 
 
     # map 
+    t1_gpd_file = gpd.read_file('data/ex_point_KWANGJU.geojson')
+    t1_gpd_df = pd.DataFrame(t1_gpd_file) 
+
     base_position = [35.18668601, 126.87954220] 
-    map_data = pd.DataFrame(np.random.randn(5,1)/[20,20] + base_position,
-        columns=['lat','lon'] 
-        ) 
-    #print(map_data) 
-    t1_tail1.code('con11.map(map_data)')
-    t1_tail1.map(map_data)    
+
+    t1_tail1.map(t1_gpd_df)    
