@@ -23,7 +23,7 @@ def run_tab():
     """)
 
     # -----------------------------------------------------------------------  
-    t1_body1.markdown("###### 이달의 이슈 (민원 순위별)") 
+    t1_body1.markdown("###### 2023년 이슈 (민원 순위별)") 
     t1_body1_df = pd.read_csv("data/민원처리현황.csv")
     t1_body1_df = t1_body1_df.query("organ=='광주지사'" )
     t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
