@@ -2,7 +2,12 @@ import streamlit as st
 # import plotly.express as px
 
 def run_tab(): 
-    st.markdown("###### Project 개요") 
+    # layout 
+    emp0, head0, emp1 = st.columns( [0.1, 1.0, 0.1] )
+    emp0, con10, con11, emp1 = st.columns( [0.1, 0.5, 0.5, 0.1] )
+    emp0, tail0, emp1 = st.columns( [0.1, 1.0, 0.1] ) 
+
+    head0.markdown("###### Project 개요") 
     st.markdown(r"""
 	1. 현대 사회에서 부동산은 모든 사람들의 관심사항이 되었으며, 특히 서울시 소재 부동산 가격에 대한 관심은 매우 크다고 할 수 있습니다.
 	2. 이번 프로젝트에서는 서울시 구별로 부동산 가격차이를 데이터 시각화를 통해 알아보고, 회귀모델을 통해 주요 원인을 찾아보고자 합니다.
