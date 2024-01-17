@@ -87,14 +87,12 @@ def run_tab():
                     #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                       ).add_to(t1_map) 
 
+    st_folium(t1_map)
 
    
     # folium_static(t1_map, width=int( st.columns()[0].width )) #, height=str(80))
-    st_folium(t1_map) #, height=str(80))
 
-    # t1_tail1.dataframe(t1_gpf) 
-
-    # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
+     # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
     #                'longitude':[126.87954220,126.87554220,126.87964220]}
     # t1_gpf_df = gpd.GeoDataFrame(t1_gpf) 
     # t1_tail1.dataframe(t1_gpf_df)   
