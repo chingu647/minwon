@@ -26,7 +26,7 @@ def run_tab():
     t1_body1_data = {'1':['a','b','c'],
                      'bool':[True, True, False]}
     t1_body1_df = pd.DataFrame(data=t1_body1_data) 
-    t1_body1.write(t1_body1_df) 
+    t1_body1.table(t1_body1_df) 
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 키워드 클라우드") 
