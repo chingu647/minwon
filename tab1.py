@@ -73,8 +73,9 @@ def run_tab():
     t1_tail1.write(t1_gpf) 
     # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
     #                'longitude':[126.87954220,126.87554220,126.87964220]}
-    t1_gpf_df = gpd.GeoDataFrame(t1_gpf)   
+    t1_gpf_df = gpd.GeoDataFrame(t1_gpf) 
+    t1_tail1.write(t1_gpf_df)   
 
     # base_position = [35.18668601, 126.87954220] 
 
-    t1_tail1.map(t1_gpf_df)  
+    # t1_tail1.map(t1_gpf_df)  
