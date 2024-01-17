@@ -4,10 +4,10 @@ import streamlit as st
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
     head0, head1, head2 = st.columns( [0.2, 0.6, 0.2] )
-    headt0,headt1,headt2= st.columns( [0.0, 1.0, 0.0] )
+    headt0,headt1,headt2= st.columns( [0.01, 0.98, 0.01] )
 
     body0, body1, body2 = st.columns( [0.2, 0.6, 0.2] )
-    bodyt0,bodyt1,bodyt2= st.columns( [0.1, 0.9, 1.0] )
+    bodyt0,bodyt1,bodyt2= st.columns( [0.01, 0.98, 0.01] )
 
     tail0, tail1, tail2 = st.columns( [0.2, 0.6, 0.2] ) 
 
