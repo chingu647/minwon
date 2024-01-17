@@ -9,7 +9,7 @@ def run_tab():
     
     t1_body0, t1_body1, t1_body2, t1_body3, t1_body4 = st.columns( [0.2, 0.2, 0.2, 0.2, 0.2] )
 
-    t1_tail0, t1_tail1, t1_tail2, tail3, t1_t1_tail4 = st.columns( [0.2, 0.2, 0.2, 0.2, 0.2] )
+    t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.899, 0.1] )
 
     # -----------------------------------------------------------------------  
     t1_head1.markdown("###### 주요 민원별 현황") 
@@ -25,29 +25,43 @@ def run_tab():
     t1_body0.markdown("###### 포트홀 민원") 
     t1_body0_data = {'1':['a','b','c'],
                      'bool':[True, True, False]}
-    t1_dody0_df = pd.DataFrame(data=t1_body0_data) 
-    t1_body0.write(t1_dody0_df) 
+    t1_body0_df = pd.DataFrame(data=t1_body0_data) 
+    t1_body0.write(t1_body0_df) 
 
     # -----------------------------------------------------------------------  
     t1_body1.markdown("###### 휴게소 민원") 
     t1_body1_data = {'1':['a','b','c'],
                      'bool':[True, True, False]}
-    t1_dody1_df = pd.DataFrame(data=t1_body1_data) 
-    t1_body1.write(t1_dody1_df) 
+    t1_body1_df = pd.DataFrame(data=t1_body1_data) 
+    t1_body1.write(t1_body1_df) 
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 서비스 민원") 
     t1_body2_data = {'1':['a','b','c'],
                      'bool':[True, True, False]}
-    t1_dody2_df = pd.DataFrame(data=t1_body2_data) 
-    t1_body2.write(t1_dody2_df) 
+    t1_body2_df = pd.DataFrame(data=t1_body2_data) 
+    t1_body2.write(t1_body2_df) 
 
     # -----------------------------------------------------------------------  
     t1_body3.markdown("###### 서비스2 민원") 
     t1_body3_data = {'1':['a','b','c'],
                      'bool':[True, True, False]}
-    t1_dody3_df = pd.DataFrame(data=t1_body3_data) 
-    t1_body3.write(t1_dody3_df) 
+    t1_body3_df = pd.DataFrame(data=t1_body3_data) 
+    t1_body3.write(t1_body3_df) 
 
     # -----------------------------------------------------------------------  
     t1_body4.markdown("###### 기타 민원") 
+    t1_body4_data = {'1':['a','b','c'],
+                     'bool':[True, True, False]}
+    t1_body4_df = pd.DataFrame(data=t1_body4_data) 
+    t1_body4.write(t1_body4_df) 
+
+    # -----------------------------------------------------------------------  
+    # map 
+    base_position = [37.5073423, 127.0572734] 
+    map_data = pd.DataFrame(np.random.randn(5,1)/[20,20] + base_position,
+        columns=['lat','lon'] 
+        ) 
+    #print(map_data) 
+    t1_tail1.code('con11.map(map_data)')
+    t1_tail1.map(map_data) 
