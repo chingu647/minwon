@@ -9,7 +9,14 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
     head0.markdown("###### 오늘의 이슈") 
-
+    head0.markdown("오늘의 이슈") 
+    head0.markdown("오늘의 이슈") 
+    head0.markdown("오늘의 이슈") 
+    head0.markdown("오늘의 이슈") 
+    head0.markdown("오늘의 이슈") 
+    head0.markdown("오늘의 이슈") 
+    head0.markdown("오늘의 이슈") 
+    head0.markdown("오늘의 이슈") 
 
     # -----------------------------------------------------------------------  
     head1.markdown("###### 민원건수 현황") 
