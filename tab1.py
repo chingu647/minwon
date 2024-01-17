@@ -80,4 +80,4 @@ def run_tab():
 
     # base_position = [35.18668601, 126.87954220] 
 
-    # t1_tail1.map(t1_gpf_df)  
+    t1_tail1.map(t1_gpf)  
