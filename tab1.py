@@ -73,6 +73,7 @@ def run_tab():
     #                'longitude':[126.87954220,126.87554220,126.87964220]}
     t1_gpf_df = pd.DataFrame(t1_gpf) 
 
-    base_position = [35.18668601, 126.87954220] 
+    # base_position = [35.18668601, 126.87954220] 
 
-    t1_tail1.map(t1_gpf_df)    
+    # t1_tail1.map(t1_gpf_df)    
+    t1_tail1.dataframe(t1_gpf_df) 
