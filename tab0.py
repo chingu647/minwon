@@ -4,9 +4,11 @@ import streamlit as st
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
     head0, head1, head2 = st.columns( [0.2, 0.6, 0.2] )
-    headt = st.columns([1.0])
+    headt0,headt1,headt2= st.columns( [0.1, 0.9, 1.0] )
+
     body0, body1, body2 = st.columns( [0.2, 0.6, 0.2] )
-    bodyt = st.columns([1.0])
+    bodyt0,bodyt1,bodyt2= st.columns( [0.1, 0.9, 1.0] )
+
     tail0, tail1, tail2 = st.columns( [0.2, 0.6, 0.2] ) 
 
     # -----------------------------------------------------------------------  
@@ -26,7 +28,7 @@ def run_tab():
     head2.markdown("###### 지사.노선별 현황") 
     
     # -----------------------------------------------------------------------  
-    headt.markdown("""---""")     
+    headt1.markdown("""---""")     
     # -----------------------------------------------------------------------  
     body0.markdown("###### 민원 키워드 클라우드") 
 
