@@ -12,7 +12,7 @@ def run_tab():
     t0_tail0, t0_tail1, t0_tail2 = st.columns( [0.2, 0.6, 0.2] ) 
 
     # -----------------------------------------------------------------------  
-    t0_head0.markdown("###### 이달의 이슈 (순위별 현황)") 
+    t0_head0.markdown("###### 이달의 이슈") 
     t0_head0.markdown("오늘의 이슈") 
     t0_head0.markdown("오늘의 이슈") 
     t0_head0.markdown("오늘의 이슈") 
