@@ -24,9 +24,7 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
     t1_body1.markdown("###### 이달의 이슈") 
-    t1_body1_data = {'1':['a','b','c'],
-                     'bool':[True, True, False]}
-    t1_body1_df = pd.DataFrame(data=t1_body1_data) 
+    t1_body1_df = pd.read_csv("data/민원처리현황.csv")
     t1_body1.table(t1_body1_df) 
 
     # -----------------------------------------------------------------------  
