@@ -3,6 +3,7 @@ import plotly.express as px
 import pandas as pd
 import numpy as np 
 import geopandas as gpd 
+import folium 
 
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
@@ -70,7 +71,11 @@ def run_tab():
     # map 
     t1_gpf = gpd.read_file("data/ex_point_KWANGJU.geojson")
     t1_gpf = t1_gpf[ ['노선번호','X좌표값', 'Y좌표값'] ]
-    t1_gpf.columns = ['노선번호','latitude','longitude']
+    t1_gpf.columns = ['노선번호','latitude','longitude'] 
+
+    t1_map = folium.Map( location=[t1_gpf['latitude'].mean, t1_gpf['longitude'].mean()], zoom_start=2 )
+    t1_tail1.components.v1.html(t1_map._repr_html_(), width=800, height=600)
+
     # t1_tail1.dataframe(t1_gpf) 
 
     # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
@@ -80,4 +85,4 @@ def run_tab():
 
     # base_position = [35.18668601, 126.87954220] 
 
-    t1_tail1.map(t1_gpf)  
+    # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
