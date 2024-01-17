@@ -74,17 +74,17 @@ def run_tab():
     t1_gpf_point = t1_gpf_point[ ['노선번호','X좌표값', 'Y좌표값'] ]
     t1_gpf_point.columns = ['노선번호','latitude','longitude'] 
 
-    t1_gpf_line = gpd.read_file("data/ex_point_KWANGJU.geojson")
-    t1_gpf_line = t1_gpf_line[ ['노선번호','X좌표값', 'Y좌표값'] ]
-    t1_gpf_line.columns = ['노선번호','latitude','longitude'] 
-
-
 
     t1_gpf_point = t1_gpf_point.iloc[:5, :]
 
     base_position = [35.18668601, 126.87954220] 
 
     t1_map = folium.Map( location=base_position, zoom_start=12, tiles='Stamentoner') 
+
+
+    t1_gpf_line = gpd.read_file("data/ex_point_KWANGJU.shp") 
+    folium.GeoJson(t1_gpf_line).add_to(t1_map)
+
 
     for index, row in t1_gpf_point.iterrows():
         folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
