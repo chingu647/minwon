@@ -8,9 +8,9 @@ import folium
 from streamlit_folium import folium_static 
 
 import nltk 
-from konlpy.tag import Kkoma, Hannanum, Twitter
 from wordcloud import WordCloud
 
+from konlpy.tag import Hannanum, Twitter
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
