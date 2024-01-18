@@ -68,7 +68,9 @@ def run_tab():
     # -----------------------------------------------------------------------  
     font_path = r'data/NanumGothic.ttf' 
     font_name = fm.FontProperties(fname=font_path).get_name() 
-    plt.rc('font', family=font_name)
+    plt.rc('font', family=font_name) 
+    plt.style.use('ggplot') 
+    plt.rcParams['axes.unicode.minus'] = False 
 
 
 
