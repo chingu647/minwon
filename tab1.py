@@ -54,12 +54,12 @@ def run_tab():
     t1_body2.write(text_data)
 
     # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
-    # wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf").generate(text_data) 
+    wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf").generate(text_data) 
 
-    # fig, ax = plt.subplots(figsize=(10,6)) 
-    # ax.axis('off')
-    # ax.imshow(wc)
-    # t1_body2.pyplot(fig) 
+    fig, ax = plt.subplots(figsize=(10,6)) 
+    ax.axis('off')
+    ax.imshow(wc)
+    t1_body2.pyplot(fig) 
 
     # -----------------------------------------------------------------------  
     t1_body5.markdown("###### 노선별 민원 발생현황") 
