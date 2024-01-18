@@ -67,12 +67,13 @@ def run_tab():
     t1_body2.pyplot(fig) 
 
     # -----------------------------------------------------------------------  
-    font_path = "./data/NanumGothic.ttf" 
-    font_name = fm.FontProperties(fname=font_path).get_name() 
-    plt.rc('font', family=font_name) 
-
-    plt.style.use('ggplot') 
+    font_path_ = "./data/NanumGothic.ttf" 
+    font_name = fm.FontProperties(fname=font_path_).get_name() 
     plt.rcParams['axes.unicode_minus'] = False 
+    plt.rcParams['font.family'] = font_name 
+
+    # plt.style.use('ggplot') 
+  
 
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수']
