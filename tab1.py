@@ -51,6 +51,7 @@ def run_tab():
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     t = Okt() 
     stopwords = set(STOPWORDS)
+    stopwords.add(['합니다','입니다','있어요','일까요'])
     text_data = '한국어 분석을 시작합니다. 재미 있어요~~~' 
     t1_body2.write(text_data)
 
