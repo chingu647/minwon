@@ -47,12 +47,13 @@ def run_tab():
     # font_list = [font.name for font in fm.fontManager.ttflist]
     # t1_body1.write(font_list)
 
-    # 현재 사용 중인 폰트 출력
+    # 폰트 경로 설정
+    font_path = "data/NanumGothic.ttf"
 
-    current_font = st.get_option()
+    # st.set_option을 사용하여 font.family 설정
+    st.set_option('font.family', 'NanumGothic')
 
-    # current_font = st.get_option("font.family")
-
+    st.get_option('font.family')
     t1_body1.write("현재 사용 중인 폰트:", current_font)
 
 
