@@ -80,7 +80,7 @@ def run_tab():
 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.axis('off') 
-    ax1.plot(data_x, data_y)
+    ax1.scatter(data_x, data_y)
     t1_body2.pyplot(fig1) 
     
     # -----------------------------------------------------------------------  
