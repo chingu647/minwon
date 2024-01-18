@@ -46,7 +46,7 @@ def run_tab():
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     text_data = 'korea, korea, usa, england, highway, service, highway'
-    wc = WordCloud().generate(text_data) 
+    wc = WordCloud(background_color='white').generate(text_data) 
     fig, ax = plt.subplots(figsize=(12,8)) 
     ax.axis('off')
     ax.imshow(wc)
