@@ -26,8 +26,6 @@ def run_tab():
 
     plt.style.use('ggplot') 
 
-    # sns.set_style('whitegrid') 
-
     # ==================================================================== layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
@@ -83,8 +81,8 @@ def run_tab():
 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.axis('on') 
-    sns.barplot(x=data_x, y=data_y, ax=ax1)
-    # ax1.bar(data_x, data_y)
+    # sns.barplot(x=data_x, y=data_y, ax=ax1)
+    ax1.bar(data_x, data_y)
     t1_body5.pyplot(fig1) 
     
     # -----------------------------------------------------------------------
