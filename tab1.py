@@ -127,7 +127,7 @@ def run_tab():
     # folium_static(t1_map) #, width=600, height=400)
         
     folium_map = t1_map._repr_html_() 
-    st.components.v1.html(folium_map) #, width=800, height=600)
+    st.components.v1.html(folium_map, height=400) #, width=800, height=600)
 
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
