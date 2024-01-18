@@ -20,7 +20,6 @@ def run_tab():
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
     t1_body0, t1_body1, t1_body2, t1_body3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    
     t1_body4, t1_body5, t1_body6 = st.columns( [0.001, 0.998, 0.001] )
 
     t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] )
@@ -96,8 +95,8 @@ def run_tab():
 
     base_position = [35.18668601, 126.87954220] 
 
-    t1_map = folium.Map( location=base_position, zoom_start=9) #, tiles='Stamentoner') 
-
+    t1_map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
+    t1_tail1.write(t1_map)
 
     t1_gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
     folium.GeoJson(t1_gpf_line,
@@ -130,7 +129,7 @@ def run_tab():
     
     folium_static(t1_map, width=600) #, height=str(80))
 
-     # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
+    # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
     #                'longitude':[126.87954220,126.87554220,126.87964220]}
     # t1_gpf_df = gpd.GeoDataFrame(t1_gpf) 
     # t1_tail1.dataframe(t1_gpf_df)   
