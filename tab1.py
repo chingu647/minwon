@@ -95,7 +95,7 @@ def run_tab():
 
     # map layout ---------------------------------------------------------
     t1_map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
-    t1_tail1.pydeck_chart(t1_map)
+    # t1_tail1.pydeck_chart(t1_map)
 
     t1_gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
     folium.GeoJson(t1_gpf_line,
@@ -127,7 +127,7 @@ def run_tab():
 
     
     # folium_static(t1_map) #, width=600, height=400)
-
+    t1_tail1.pydeck_chart(t1_map)
     # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
     #                'longitude':[126.87954220,126.87554220,126.87964220]}
     # t1_gpf_df = gpd.GeoDataFrame(t1_gpf) 
