@@ -50,7 +50,8 @@ def run_tab():
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     tw_ = Twitter()
-    text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
+    text = tw_.nouns('한국어 분석을 시작합니다. 재미 있어요~~~')
+    # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf").generate(text_data) 
 
     fig, ax = plt.subplots(figsize=(10,6)) 
