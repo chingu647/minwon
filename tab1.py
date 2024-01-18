@@ -92,7 +92,7 @@ def run_tab():
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.axis('on') 
     ax1.bar(data_x, data_y)
-    t1_body2.pyplot(fig1) 
+    t1_body5.pyplot(fig1) 
     
     # -----------------------------------------------------------------------  
     # map 
