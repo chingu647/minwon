@@ -96,7 +96,7 @@ def run_tab():
     base_position = [35.18668601, 126.87954220] 
 
     t1_map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
-    t1_tail1.write(t1_map)
+    t1_tail1.pyplot(t1_map)
 
     t1_gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
     folium.GeoJson(t1_gpf_line,
