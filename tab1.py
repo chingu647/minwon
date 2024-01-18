@@ -26,8 +26,8 @@ def run_tab():
 
     plt.style.use('ggplot') 
 
-    sns.set_style('whitegrid') 
-    
+    # sns.set_style('whitegrid') 
+
     # ==================================================================== layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
@@ -87,7 +87,7 @@ def run_tab():
     # ax1.bar(data_x, data_y)
     t1_body5.pyplot(fig1) 
     
-
+    # -----------------------------------------------------------------------
 
     t1_body5.markdown("###### 노선별 민원 발생현황") 
     t1_body5_df = pd.read_csv("data/민원처리현황.csv")
