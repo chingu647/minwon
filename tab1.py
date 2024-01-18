@@ -47,9 +47,10 @@ def run_tab():
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     text_data = '한국어,한국어,분석, 을, 시작, 고속도로,이정,휴게소 ,고속도로'
     wc = WordCloud().generate(text_data) 
-    fig, ax = plt.subplots(figsize=(12,8))
+    plt.axis('off')
+    plt.tight_layout()
     plt.imshow(wc)
-    t1_body2.pyplot()
+    st.pyplot()
     # t1_body2_data = {'1':['a','b','c'],
     #                  'bool':[True, True, False]}
     # t1_body2_df = pd.DataFrame(data=t1_body2_data) 
