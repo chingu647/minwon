@@ -75,6 +75,14 @@ def run_tab():
     t1_body5_df_gby_kind = t1_body5_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body5.table(t1_body5_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
+    data_x = np.linspace(0,10,100) 
+    data_y = np.linspace(0,10,100)
+    fig1, ax1 = plt.subplots(figsize=(10,4)) 
+    ax1.axis('off') 
+    ax1.plot(data_x, data_y, marker='o')
+    ax1.show()
+    t1_body2.pyplot(fig) 
+    
     # -----------------------------------------------------------------------  
     # map 
     # base_position = [35.18668601, 126.87954220] 
