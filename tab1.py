@@ -67,7 +67,7 @@ def run_tab():
     ax.imshow(wc)
     t1_body2.pyplot(fig) 
 
-    # -----------------------------------------------------------------------  
+    # ====================================================== mpl 한글 설정  
     font_path_ = "data/NanumGothic.ttf" 
     font_name = fm.FontProperties(fname=font_path_).get_name() 
 
@@ -75,14 +75,14 @@ def run_tab():
     mpl.rcParams['font.family'] = font_name 
 
     plt.style.use('ggplot') 
-  
+    # ===================================================================
 
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수']
 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.axis('on') 
-    ax1.bar(data_x, data_y)
+    ax1.barh(data_x, data_y)
     t1_body5.pyplot(fig1) 
     
 
