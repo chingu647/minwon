@@ -55,7 +55,7 @@ def run_tab():
 
     plt.rcParams["axes.unicode_minus"] = False 
     # plt.rcParams['font.family'] = 'NanumGothic' 
-    plt.rc('font', family="NanumGothic")
+    plt.rc('font', family="cmex10")
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
