@@ -50,7 +50,7 @@ def run_tab():
     fig, ax = plt.subplots(figsize=(12,8)) 
     ax.axis('off')
     ax.imshow(wc)
-    st.pyplot(fig)
+    t1_body2.pyplot(fig)
     # t1_body2_data = {'1':['a','b','c'],
     #                  'bool':[True, True, False]}
     # t1_body2_df = pd.DataFrame(data=t1_body2_data) 
