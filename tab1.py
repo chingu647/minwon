@@ -67,7 +67,7 @@ def run_tab():
     t1_body2.pyplot(fig) 
 
     # -----------------------------------------------------------------------  
-    font_path = r'data/NanumGothic.ttf' 
+    font_path = "data/NanumGothic.ttf" 
     font_name = fm.FontProperties(fname=font_path).get_name() 
     plt.rc('font', family=font_name) 
 
