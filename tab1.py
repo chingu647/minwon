@@ -51,7 +51,7 @@ def run_tab():
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     t = Okt() 
 
-    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
+    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
     text_nouns = t.nouns(text_raw) 
     stopwords =['시어']
     text_nouns = [n for n in text_nouns if n not in stopwords]
