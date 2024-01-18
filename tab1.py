@@ -44,8 +44,14 @@ def run_tab():
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
-    font_list = [font.name for font in fm.fontManager.ttflist]
-    t1_body1.write(font_list)
+    # font_list = [font.name for font in fm.fontManager.ttflist]
+    # t1_body1.write(font_list)
+
+    # 현재 사용 중인 폰트 출력
+    current_font = st.get_option("font.family")
+    t1_body1.write("현재 사용 중인 폰트:", current_font)
+
+
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
