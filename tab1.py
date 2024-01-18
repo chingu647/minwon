@@ -81,7 +81,7 @@ def run_tab():
     fig1 = plt.figure(figsize=(10,4)) 
     plt.axis('off') 
     plt.plot(data_x, data_y, marker='o')
-    t1_body2.pyplot(fig) 
+    t1_body2.pyplot(fig1) 
     
     # -----------------------------------------------------------------------  
     # map 
