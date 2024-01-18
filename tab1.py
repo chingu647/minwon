@@ -2,10 +2,14 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 import numpy as np 
+
 import geopandas as gpd 
 import folium 
-
 from streamlit_folium import folium_static 
+
+import nltk 
+from konlpy.tag import Kkoma, Hannanum, Twitter
+from wordcloud import WordCloud
 
 def run_tab(): 
     # ----------------------------------------------------------------------- layout 
