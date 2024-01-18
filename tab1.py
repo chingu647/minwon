@@ -47,7 +47,7 @@ def run_tab():
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     t = Twitter()
     string = '한국어 분석을 시작합니다. 재미있어요~~~' 
-    t1_body2.write(string)
+    t1_body2.write('한국어 분석을 시작합니다. 재미있어요~~~')
     # t1_body2_data = {'1':['a','b','c'],
     #                  'bool':[True, True, False]}
     # t1_body2_df = pd.DataFrame(data=t1_body2_data) 
