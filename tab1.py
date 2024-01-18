@@ -16,8 +16,13 @@ def run_tab():
     t1_body4, t1_body5, t1_body6 = st.columns( [0.001, 0.998, 0.001] )
 
     t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] )
+    
+    t1_body1.markdown(""" <style> table {background-color:#f0f0f0;} </style>""", unsafe_allow_html=True) 
+
+
 
     # -----------------------------------------------------------------------  
+
     t1_head1.markdown("###### 안내문") 
     t1_head1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있다고 할 수 있습니다.
