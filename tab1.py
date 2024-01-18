@@ -51,7 +51,7 @@ def run_tab():
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     t = Okt() 
 
-    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~'
+    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
     text_nouns = t.nouns(text_raw)
     text_str = ' '.join(text_nouns) 
     t1_body2.write(text_raw)
