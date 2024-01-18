@@ -67,14 +67,21 @@ def run_tab():
     t1_body2.pyplot(fig) 
 
     # -----------------------------------------------------------------------  
-    font_path = "data/NanumGothic.ttf" 
+    font_path = "./data/NanumGothic.ttf" 
     font_name = fm.FontProperties(fname=font_path).get_name() 
     plt.rc('font', family=font_name) 
 
     plt.style.use('ggplot') 
     plt.rcParams['axes.unicode_minus'] = False 
 
+    data_x = t1_body1_df_gby_kind.index.values
+    data_y = t1_body1_df_gby_kind['건수']
 
+    fig1, ax1 = plt.subplots(figsize=(10,4)) 
+    ax1.axis('on') 
+    ax1.bar(data_x, data_y)
+    t1_body5.pyplot(fig1) 
+    
 
 
     t1_body5.markdown("###### 노선별 민원 발생현황") 
@@ -86,14 +93,7 @@ def run_tab():
     t1_body5_df_gby_kind = t1_body5_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body5.table(t1_body5_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
-    data_x = t1_body1_df_gby_kind.index.values
-    data_y = t1_body1_df_gby_kind['건수']
 
-    fig1, ax1 = plt.subplots(figsize=(10,4)) 
-    ax1.axis('on') 
-    ax1.bar(data_x, data_y)
-    t1_body5.pyplot(fig1) 
-    
     # -----------------------------------------------------------------------  
     # map 
     # base_position = [35.18668601, 126.87954220] 
