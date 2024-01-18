@@ -46,13 +46,13 @@ def run_tab():
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
-    # font_list = [font.name for font in fm.fontManager.ttflist]
-    # t1_body1.write(font_list)
+    font_list = [font.name for font in fm.fontManager.ttflist]
+    t1_body1.write(font_list)
 
     # 폰트 경로 설정
     font_path = "data/NanumGothic.ttf"
     os.environ["STREAMLIT_FONT_PATH"] = font_path
-    
+
     plt.rcParams["axes.unicode_minus"] = False 
     # plt.rcParams['font.family'] = 'NanumGothic' 
     plt.rc('font', family="NanumGothic")
