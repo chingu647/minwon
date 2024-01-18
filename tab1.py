@@ -77,10 +77,10 @@ def run_tab():
 
     data_x = np.linspace(0,10,100) 
     data_y = np.linspace(0,10,100)
-    fig1, ax1 = plt.subplots(figsize=(10,4)) 
-    ax1.axis('off') 
-    ax1.plot(data_x, data_y, marker='o')
-    # ax1.show()
+
+    fig1 = plt.figure(figsize=(10,4)) 
+    plt.axis('off') 
+    plt.plot(data_x, data_y, marker='o')
     t1_body2.pyplot(fig) 
     
     # -----------------------------------------------------------------------  
