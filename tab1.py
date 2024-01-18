@@ -72,7 +72,7 @@ def run_tab():
     mpl.rc('font', family=font_name) 
 
     plt.style.use('ggplot') 
-    plt.rcParams['axes.unicode.minus'] = False 
+    plt.rcParams['axes.unicode_minus'] = False 
 
 
 
