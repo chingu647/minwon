@@ -56,7 +56,7 @@ def run_tab():
     stopwords =['시어']
     text_nouns = [n for n in text_nouns if n not in stopwords]
     text_str = ' '.join(text_nouns) 
-    t1_body2.write(text_raw)
+    # t1_body2.write(text_raw)
 
     # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
