@@ -49,17 +49,18 @@ def run_tab():
     text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white').generate(text_data) 
 
+
+    # font_list = [font.name for font in fm.fontManager.ttflist]
+    # t1_body2.write(font_list)
+
     plt.rcParams["axes.unicode_minus"] = False 
-    plt.rc('font', family='NanumGothic')
+    plt.rc('font', family='DejaVu Serif')
 
-    font_list = [font.name for font in fm.fontManager.ttflist]
+    fig, ax = plt.subplots(figsize=(12,8)) 
+    ax.axis('off')
+    ax.imshow(wc)
+    t1_body2.pyplot(fig) 
 
-    t1_body2.write(font_list)
-
-    # fig, ax = plt.subplots(figsize=(12,8)) 
-    # ax.axis('off')
-    # ax.imshow(wc)
-    # t1_body2.pyplot(fig)
     # t1_body2_data = {'1':['a','b','c'],
     #                  'bool':[True, True, False]}
     # t1_body2_df = pd.DataFrame(data=t1_body2_data) 
