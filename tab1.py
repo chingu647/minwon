@@ -50,12 +50,12 @@ def run_tab():
     t1_body1.write(font_list)
 
     # 폰트 경로 설정
-    font_path = "data/NanumGothic.ttf"
-    os.environ["STREAMLIT_FONT_PATH"] = font_path
+    # font_path = "data/NanumGothic.ttf"
+    # os.environ["STREAMLIT_FONT_PATH"] = font_path
 
-    plt.rcParams["axes.unicode_minus"] = False 
-    # plt.rcParams['font.family'] = 'NanumGothic' 
-    plt.rc('font', family="DejaVu Sans Display")
+    # plt.rcParams["axes.unicode_minus"] = False 
+    # # plt.rcParams['font.family'] = 'NanumGothic' 
+    # plt.rc('font', family="DejaVu Sans Display")
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
