@@ -92,7 +92,7 @@ def run_tab():
 
     t1_gpf_point = t1_gpf_point.iloc[:5, :]
     base_position = [35.18668601, 126.87954220] 
-    
+
     # map layout ---------------------------------------------------------
     t1_map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
     t1_tail1.pydeck_chart(t1_map)
@@ -126,7 +126,7 @@ def run_tab():
                       ).add_to(t1_map) 
 
     
-    folium_static(t1_map, width=600) #, height=str(80))
+    folium_static(t1_map, width=600, height=400)
 
     # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
     #                'longitude':[126.87954220,126.87554220,126.87964220]}
