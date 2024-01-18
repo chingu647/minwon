@@ -17,7 +17,18 @@ from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
 def run_tab(): 
-    # ----------------------------------------------------------------------- layout 
+    # ==================================================================== mpl 한글 설정  
+    font_path_ = "data/NanumGothic.ttf" 
+    font_name = fm.FontProperties(fname=font_path_).get_name() 
+
+    mpl.rcParams['axes.unicode_minus'] = False 
+    mpl.rcParams['font.family'] = font_name 
+
+    plt.style.use('ggplot') 
+
+    sns.set_style('whitegrid') 
+    
+    # ==================================================================== layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
     t1_body0, t1_body1, t1_body2, t1_body3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
@@ -26,7 +37,6 @@ def run_tab():
     t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] )
     
     t1_body1.markdown(""" <style> table {background-color:#f0f0f0;} </style>""", unsafe_allow_html=True) 
-
 
 
     # -----------------------------------------------------------------------  
@@ -67,17 +77,7 @@ def run_tab():
     ax.imshow(wc)
     t1_body2.pyplot(fig) 
 
-    # ====================================================== mpl 한글 설정  
-    font_path_ = "data/NanumGothic.ttf" 
-    font_name = fm.FontProperties(fname=font_path_).get_name() 
-
-    mpl.rcParams['axes.unicode_minus'] = False 
-    mpl.rcParams['font.family'] = font_name 
-
-    plt.style.use('ggplot') 
-    # ===================================================================
-    sns.set_style('whitegrid')
-    
+    # ------------------------------------------------------------------------
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수']
 
