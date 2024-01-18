@@ -85,18 +85,17 @@ def run_tab():
     # t1_tail1.code('con11.map(map_data)')
     # t1_tail1.map(map_data) 
 
-    # map 
+    # map data
     t1_gpf_point = gpd.read_file("data/ex_point_KWANGJU.geojson")
     t1_gpf_point = t1_gpf_point[ ['노선번호','X좌표값', 'Y좌표값'] ]
     t1_gpf_point.columns = ['노선번호','latitude','longitude'] 
 
-
     t1_gpf_point = t1_gpf_point.iloc[:5, :]
-
     base_position = [35.18668601, 126.87954220] 
-
+    
+    # map layout ---------------------------------------------------------
     t1_map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
-    t1_tail1.pyplot(t1_map)
+    t1_tail1.pydeck_chart(t1_map)
 
     t1_gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
     folium.GeoJson(t1_gpf_line,
