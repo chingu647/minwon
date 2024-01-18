@@ -48,7 +48,7 @@ def run_tab():
     text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white').generate(text_data) 
     plt.rcParams["axes.unicode_minus"] = False 
-    plt.rc('font', family='Malgun Gothic')
+    plt.rc('font', family='Gothic')
 
     fig, ax = plt.subplots(figsize=(12,8)) 
     ax.axis('off')
