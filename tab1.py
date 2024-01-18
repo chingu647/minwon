@@ -75,8 +75,8 @@ def run_tab():
     t1_body5_df_gby_kind = t1_body5_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body5.table(t1_body5_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
-    data_x = np.linspace(0,10,100) 
-    data_y = np.linspace(0,10,100)
+    data_x = t1_body1_df_gby_kind.index.values
+    data_y = t1_body1_df_gby_kind['건수']
 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.axis('off') 
