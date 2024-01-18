@@ -61,7 +61,7 @@ def run_tab():
     # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
 
-    fig, ax = plt.subplots(figsize=(10,6)) 
+    fig, ax = plt.subplots(figsize=(10,4)) 
     ax.axis('off')
     ax.imshow(wc)
     t1_body2.pyplot(fig) 
