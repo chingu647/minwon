@@ -2,6 +2,7 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 import numpy as np 
+import matplotlib as plt 
 
 import geopandas as gpd 
 import folium 
@@ -46,6 +47,8 @@ def run_tab():
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     text_data = '한국어,한국어,분석, 을, 시작, 고속도로,이정,휴게소 ,고속도로'
     wc = WordCloud().generate(text_data) 
+    fig, ax = plt.subplots(figsize=(12,8))
+    
     t1_body2.write(wc)
     # t1_body2_data = {'1':['a','b','c'],
     #                  'bool':[True, True, False]}
