@@ -126,7 +126,8 @@ def run_tab():
 
     # Folium Map을 HTML로 변환하여 Streamlit에 표시
     folium_map = t1_map._repr_html_() 
-    st.components.v1.html(folium_map, width=800, height=600)
+    t1_tail1.pydeck_chart(folium_map)
+    # st.components.v1.html(folium_map, width=800, height=600)
 
     # folium_static(t1_map, width=600, height=400)
     # st.pydeck_chart(t1_map)
