@@ -37,7 +37,7 @@ def run_tab():
     t1_body1_df_gby_kind.columns = ['건수']
     t1_body1_df_gby_kind['비율(%)'] = ( t1_body1_df_gby_kind['건수']/(t1_body1_df_gby_kind['건수'].sum())*100).astype(int)
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
-    t1_body1.table(t1_body1_df_gby_kind) 
+    t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
