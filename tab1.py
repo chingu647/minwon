@@ -124,19 +124,10 @@ def run_tab():
                     #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                       ).add_to(t1_map) 
 
-    # Folium Map을 HTML로 변환하여 Streamlit에 표시
-    folium_map = t1_map._repr_html_() 
-    # st.t1_tail1.pydeck_chart(folium_map)
-    st.t1_tail1.components.v1.html(folium_map, width=800, height=600)
-
-    # folium_static(t1_map, width=600, height=400)
-    # st.pydeck_chart(t1_map)
-    # t1_gpf = {'latitude':[37.7749,34.0522,40.7128],
-    #                'longitude':[126.87954220,126.87554220,126.87964220]}
-    # t1_gpf_df = gpd.GeoDataFrame(t1_gpf) 
-    # t1_tail1.dataframe(t1_gpf_df)   
-
-    # base_position = [35.18668601, 126.87954220] 
+    folium_static(t1_map, width=600, height=400)
+        
+    # folium_map = t1_map._repr_html_() 
+    # st.components.v1.html(folium_map, width=800, height=600)
 
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
