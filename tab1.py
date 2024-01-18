@@ -49,7 +49,7 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
-    tw_ = Twitter()
+    tw_ = Okt()
     text_data = tw_.nouns('한국어 분석을 시작합니다. 재미 있어요~~~') 
     t1_body2.write(text_data)
 
