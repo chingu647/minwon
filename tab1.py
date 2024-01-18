@@ -30,7 +30,7 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
 
-    t1_head1.markdown("###### 안내문") 
+    t1_head1.markdown("###### 공지사항") 
     t1_head1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있다고 할 수 있습니다.
     """)
@@ -46,33 +46,15 @@ def run_tab():
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
-    font_list = [font.name for font in fm.fontManager.ttflist]
-    t1_body1.write(font_list)
-
-    # 폰트 경로 설정
-    # font_path = "data/NanumGothic.ttf"
-    # os.environ["STREAMLIT_FONT_PATH"] = font_path
-
-    # plt.rcParams["axes.unicode_minus"] = False 
-    # # plt.rcParams['font.family'] = 'NanumGothic' 
-    # plt.rc('font', family="DejaVu Sans Display")
-
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf").generate(text_data) 
 
-
-
-    fig, ax = plt.subplots(figsize=(12,8)) 
+    fig, ax = plt.subplots(figsize=(10,6)) 
     ax.axis('off')
     ax.imshow(wc)
     t1_body2.pyplot(fig) 
-
-    # t1_body2_data = {'1':['a','b','c'],
-    #                  'bool':[True, True, False]}
-    # t1_body2_df = pd.DataFrame(data=t1_body2_data) 
-    # t1_body2.table(t1_body2_df) 
 
     # -----------------------------------------------------------------------  
     t1_body5.markdown("###### 노선별 민원 발생현황") 
