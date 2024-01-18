@@ -45,7 +45,7 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
-    text_data = '한국어,한국어,분석, 을, 시작, 고속도로,이정,휴게소 ,고속도로'
+    text_data = 'korea, korea, usa, england, highway, service, highway'
     wc = WordCloud().generate(text_data) 
     fig, ax = plt.subplots(figsize=(12,8)) 
     ax.axis('off')
