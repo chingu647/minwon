@@ -12,6 +12,7 @@ import folium
 from streamlit_folium import folium_static 
 
 import nltk 
+from konlpy.tag import Kkma, Hannanum, Twitter
 from wordcloud import WordCloud
 
 def run_tab(): 
@@ -48,6 +49,7 @@ def run_tab():
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
+    tw = Twitter() 
     text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf").generate(text_data) 
 
