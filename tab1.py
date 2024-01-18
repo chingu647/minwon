@@ -3,6 +3,7 @@ import plotly.express as px
 import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
+import matplotlib.font_manager as fm 
 
 import geopandas as gpd 
 import folium 
@@ -47,13 +48,18 @@ def run_tab():
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='white').generate(text_data) 
+
     plt.rcParams["axes.unicode_minus"] = False 
     plt.rc('font', family='NanumGothic')
 
-    fig, ax = plt.subplots(figsize=(12,8)) 
-    ax.axis('off')
-    ax.imshow(wc)
-    t1_body2.pyplot(fig)
+    font_list = [font.name for font in fm.fontManager.ttflist]
+
+    t1_body2.write(font_list)
+
+    # fig, ax = plt.subplots(figsize=(12,8)) 
+    # ax.axis('off')
+    # ax.imshow(wc)
+    # t1_body2.pyplot(fig)
     # t1_body2_data = {'1':['a','b','c'],
     #                  'bool':[True, True, False]}
     # t1_body2_df = pd.DataFrame(data=t1_body2_data) 
