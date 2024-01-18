@@ -2,8 +2,10 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 import numpy as np 
+
 import matplotlib.pyplot as plt 
 import matplotlib.font_manager as fm 
+import os 
 
 import geopandas as gpd 
 import folium 
@@ -50,12 +52,14 @@ def run_tab():
     # 폰트 경로 설정
     font_path = "data/NanumGothic.ttf"
 
+    # 환경 변수 설정
+    os.environ["STREAMLIT_FONT_PATH"] = font_path
+
     # st.set_option을 사용하여 font.family 설정
     st.set_option('font.family', 'NanumGothic')
 
-    st.get_option('font.family')
+    current_font = st.get_option('font.family')
     t1_body1.write("현재 사용 중인 폰트:", current_font)
-
 
     # -----------------------------------------------------------------------  
     t1_body2.markdown("###### 주요 키워드 클라우드") 
