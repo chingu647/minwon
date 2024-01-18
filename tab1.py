@@ -68,13 +68,13 @@ def run_tab():
     t1_body2.pyplot(fig) 
 
     # -----------------------------------------------------------------------  
-    # font_path_ = "data/NanumGothic.ttf" 
-    # font_name = fm.FontProperties(fname=font_path_).get_name() 
+    font_path_ = "data/NanumGothic.ttf" 
+    font_name = fm.FontProperties(fname=font_path_).get_name() 
 
-    # mpl.rcParams['axes.unicode_minus'] = False 
-    # mpl.rcParams['font.family'] = font_name 
+    mpl.rcParams['axes.unicode_minus'] = False 
+    mpl.rcParams['font.family'] = font_name 
 
-    # plt.style.use('ggplot') 
+    plt.style.use('ggplot') 
   
 
     data_x = t1_body1_df_gby_kind.index.values
