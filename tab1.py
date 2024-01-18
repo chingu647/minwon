@@ -49,7 +49,6 @@ def run_tab():
     wc = WordCloud().generate(text_data) 
     fig, ax = plt.subplots(figsize=(12,8)) 
     ax.axis('off')
-    ax.tight_layout()
     ax.imshow(wc)
     st.pyplot(fig)
     # t1_body2_data = {'1':['a','b','c'],
