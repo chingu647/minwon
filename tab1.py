@@ -3,6 +3,7 @@ import plotly.express as px
 import pandas as pd
 import numpy as np 
 
+import matplotlib as mpl 
 import matplotlib.pyplot as plt 
 import matplotlib.font_manager as fm 
 import os 
@@ -68,7 +69,8 @@ def run_tab():
     # -----------------------------------------------------------------------  
     font_path = r'data/NanumGothic.ttf' 
     font_name = fm.FontProperties(fname=font_path).get_name() 
-    plt.rc('font', family=font_name) 
+    mpl.rc('font', family=font_name) 
+
     plt.style.use('ggplot') 
     plt.rcParams['axes.unicode.minus'] = False 
 
