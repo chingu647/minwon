@@ -60,7 +60,7 @@ def run_tab():
     wc = WordCloud(background_color='white').generate(text_data) 
 
     plt.rcParams["axes.unicode_minus"] = False 
-    plt.rcParams['font.family'] = 'DejaVu Sans' 
+    plt.rcParams['font.family'] = 'NanumGothic' 
     # plt.rc('font', family="DejaVu Sans")
 
     fig, ax = plt.subplots(figsize=(12,8)) 
