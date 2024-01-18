@@ -7,7 +7,7 @@ from PIL import Image
 
 import tab0 
 import tab1 
-import tab2
+# import tab2
 
 # import tab3 
 # import tab4 
@@ -36,8 +36,8 @@ with tabs[0]:
 with tabs[1]:
     tab1.run_tab()
 
-with tabs[2]:
-    tab2.run_tab()
+# with tabs[2]:
+#     tab2.run_tab()
 
 # with tabs[3]: 
 #     tab3.run_tab()
