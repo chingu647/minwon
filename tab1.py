@@ -80,7 +80,7 @@ def run_tab():
 
     fig1 = plt.figure(figsize=(10,4)) 
     plt.axis('off') 
-    plt.plot(data_x, data_y, marker='o')
+    plt.plot(data_x, data_y)
     t1_body2.pyplot(fig1) 
     
     # -----------------------------------------------------------------------  
