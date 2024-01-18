@@ -52,7 +52,9 @@ def run_tab():
     t = Okt() 
 
     text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
-    text_nouns = t.nouns(text_raw)
+    text_nouns = t.nouns(text_raw) 
+    stopwords =['시어']
+    text_nouns = [n for n in text_nouns if n not in stopwords]
     text_str = ' '.join(text_nouns) 
     t1_body2.write(text_raw)
 
