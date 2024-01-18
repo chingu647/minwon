@@ -48,11 +48,11 @@ def run_tab():
     # t1_body1.write(font_list)
 
     # 현재 사용 중인 폰트 출력
-<<<<<<< HEAD
+
     current_font = st.get_option()
-=======
+
     current_font = st.get_option("font.family")
->>>>>>> a19ff1617534264b9003ac7707f2fc83b461b75e
+
     t1_body1.write("현재 사용 중인 폰트:", current_font)
 
 
