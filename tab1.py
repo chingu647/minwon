@@ -87,9 +87,13 @@ def run_tab():
     data_y = t1_body1_df_gby_kind['건수']
 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
-    ax1.tick_params(labelsize=30)
-    ax1.bar(data_x, data_y) 
-    for i in range(len(data_x)):
+    ax1.tick_params(bottom = True, labelbottom=True,    # tick 수정
+                    top = False, labeltop=False,
+                    left = True, labelleft=True,
+                    right= True, labelright=Ture)
+    
+    ax1.bar(data_x, data_y)                             # plot 표시
+    for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
         ax1.text(data_x[i], height, data_y[i], ha='center', va='bottom') 
     # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
