@@ -98,7 +98,8 @@ def run_tab():
         right= False, labelright=False
         )
     ax1.set_facecolor('white')                          # figure 배경색 
-    ax1.bar(data_x, data_y, color='#E0ECF8')            # plot 표시
+    # ax1.bar(data_x, data_y, color='#E0ECF8')            # plot 표시
+    ax1.pie(data_y)            # plot 표시
     for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
         height_val = str(data_y[i])+'건'
