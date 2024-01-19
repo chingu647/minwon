@@ -24,7 +24,7 @@ def run_tab():
     mpl.rcParams['axes.unicode_minus'] = False 
     mpl.rcParams['font.family'] = font_name 
 
-    # plt.style.use('ggplot') 
+    plt.style.use('ggplot') 
 
     mpl.rc('font', size=18)
     mpl.rc('axes', titlesize=18)
@@ -91,13 +91,13 @@ def run_tab():
         # axis=x or axis=y,
         # labelsize=20,
         # colors = 'gray',
-        rotation=20, 
+        # rotation=20, 
         bottom = True, labelbottom=True,                # tick 수정
         top = False, labeltop=False,
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    fig1.set_facecolor ='white'                         # figure 배경색 
+    fig1.set_facecolor('white')                         # figure 배경색 
     ax1.bar(data_x, data_y, color='pink')               # plot 표시
     for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
