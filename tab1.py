@@ -91,18 +91,19 @@ def run_tab():
         # axis=x or axis=y,
         # labelsize=20,
         # colors = 'gray',
-        bottom = True, labelbottom=True,    # tick 수정
+        rotation=20, 
+        bottom = True, labelbottom=True,                # tick 수정
         top = False, labeltop=False,
         left = False, labelleft=False,
         right= False, labelright=False
         )
     
-    ax1.bar(data_x, data_y)                             # plot 표시
+    ax1.bar(data_x, data_y, color='pink')               # plot 표시
     for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
         ax1.text(data_x[i], height, data_y[i], ha='center', va='bottom') 
     # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
-    ax1.bar(data_x, data_y)
+
     t1_body5.pyplot(fig1) 
     
     # -----------------------------------------------------------------------
