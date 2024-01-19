@@ -98,10 +98,11 @@ def run_tab():
         right= False, labelright=False
         )
     ax1.set_facecolor('white')                         # figure 배경색 
-    ax1.bar(data_x, data_y, color='pink', fontsize=8)               # plot 표시
+    ax1.bar(data_x, data_y, color='pink')               # plot 표시
     for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
-        ax1.text(data_x[i], height, data_y[i], ha='center', va='bottom') 
+        ax1.text(data_x[i], height, data_y[i], 
+                 ha='center', va='bottom', fontsize=14) 
     # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
 
     t1_body5.pyplot(fig1) 
