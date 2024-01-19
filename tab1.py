@@ -26,12 +26,12 @@ def run_tab():
 
     plt.style.use('ggplot') 
 
-    mpl.rc('font', size=8)
-    mpl.rc('axes', titlesize=8)
-    mpl.rc('axes', labelsize=10) 
-    mpl.rc('xtick', labelsize=8)
-    mpl.rc('ytick', labelsize=8)
-    mpl.rc('legend', fontsize=8)
+    mpl.rc('font', size=18)
+    mpl.rc('axes', titlesize=18)
+    mpl.rc('axes', labelsize=18) 
+    mpl.rc('xtick', labelsize=18)
+    mpl.rc('ytick', labelsize=18)
+    mpl.rc('legend', fontsize=18)
     mpl.rc('figure', titlesize=12)
     # ==================================================================== layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
