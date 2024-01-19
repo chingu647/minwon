@@ -103,9 +103,9 @@ def run_tab():
         right= False, labelright=False
         )
     ax1.set_facecolor('yellow')                          # figure 배경색 
-    
+
     # pie ------------------------------------
-    ax1.pie(data_y)    
+    ax1.pie(data_y, figsize=(5,5), autopct='%1.1f%%')    
 
     # bar ------------------------------------
 
