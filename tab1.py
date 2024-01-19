@@ -82,7 +82,7 @@ def run_tab():
     ax.imshow(wc)
     t1_body2.pyplot(fig) 
 
-    # ------------------------------------------------------------------------
+    # ================================================================= 막대 그래프
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수']
 
@@ -97,8 +97,8 @@ def run_tab():
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    ax1.set_facecolor('white')                         # figure 배경색 
-    ax1.bar(data_x, data_y, color='pink')               # plot 표시
+    ax1.set_facecolor('white')                          # figure 배경색 
+    ax1.bar(data_x, data_y, color='#58D3F7')            # plot 표시
     for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
         height_val = str(data_y[i])+'건'
