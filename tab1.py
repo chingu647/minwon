@@ -98,15 +98,16 @@ def run_tab():
         right= False, labelright=False
         )
     ax1.set_facecolor('white')                          # figure 배경색 
-    # ax1.bar(data_x, data_y, color='#E0ECF8')            # plot 표시
-    ax1.pie(data_y)            # plot 표시
-    for i in range(len(data_x)):                        # text 표시
-        height = data_y[i]-0.5 
-        height_val = str(data_y[i])+'건'
-        ax1.text(data_x[i], height, height_val, 
-                 ha='center', va='bottom', 
-                 color='green',
-                 fontsize=16)                           # text 폰크
+    ax1.pie(data_y)                             # pie plot 표시
+
+    # ax1.bar(data_x, data_y, color='#E0ECF8')            # bar plot 표시
+    # for i in range(len(data_x)):                        # bar text 표시
+    #     height = data_y[i]-0.5 
+    #     height_val = str(data_y[i])+'건'
+    #     ax1.text(data_x[i], height, height_val, 
+    #              ha='center', va='bottom', 
+    #              color='green',
+    #              fontsize=16)                           # bar text 폰크
     # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
 
     t1_body5.pyplot(fig1) 
