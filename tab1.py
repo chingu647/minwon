@@ -101,9 +101,11 @@ def run_tab():
     ax1.bar(data_x, data_y, color='pink')               # plot 표시
     for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
-        text_val = str(data_y[i])+'건'
-        ax1.text(data_x[i], height, text_val, 
-                 ha='center', va='bottom', fontsize=16)   # text 폰크
+        height_val = str(data_y[i])+'건'
+        ax1.text(data_x[i], height, height_val, 
+                 ha='center', va='bottom', 
+                 color='green',
+                 fontsize=16)                           # text 폰크
     # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
 
     t1_body5.pyplot(fig1) 
