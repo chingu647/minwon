@@ -97,7 +97,7 @@ def run_tab():
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    
+    ax1.figure(facecolor='white')                       # figure 배경색 
     ax1.bar(data_x, data_y, color='pink')               # plot 표시
     for i in range(len(data_x)):                        # text 표시
         height = data_y[i]-0.5 
