@@ -106,7 +106,7 @@ def run_tab():
 
     # pie ------------------------------------
     ax1.pie(data_y, labels=data_y) 
-    ax1.legend(labels=data_x)   
+    fig.legend(labels=data_x)   
 
     # bar ------------------------------------
 
