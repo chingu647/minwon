@@ -109,7 +109,7 @@ def run_tab():
             startangle=30,
             autopct="%.1f%%",
             shadow=True,
-            textprops={'size':10}) 
+            textprops={'size':8}) 
 
     # bar ------------------------------------
 
