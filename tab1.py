@@ -24,7 +24,7 @@ def run_tab():
     mpl.rcParams['axes.unicode_minus'] = False 
     mpl.rcParams['font.family'] = font_name 
 
-    plt.style.use('ggplot') 
+    # plt.style.use('ggplot') 
 
     mpl.rc('font', size=18)
     mpl.rc('axes', titlesize=18)
