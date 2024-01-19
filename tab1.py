@@ -51,7 +51,7 @@ def run_tab():
 	1. 광주지사 민원은 증가추세에 있다고 할 수 있습니다.
     """)
 
-    # -----------------------------------------------------------------------  
+    # -------------------------------------------------------------------- body 1  
     t1_body1.markdown("###### 2024년 이슈 (민원 유형별)") 
     t1_body1_df = pd.read_csv("data/민원처리현황.csv")
     t1_body1_df = t1_body1_df.query("organ=='광주지사'" )
@@ -62,7 +62,7 @@ def run_tab():
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
-    # -----------------------------------------------------------------------  
+    # ------------------------------------------------------------------- body 2 
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     t = Okt() 
 
@@ -82,7 +82,12 @@ def run_tab():
     ax.imshow(wc)
     t1_body2.pyplot(fig) 
 
-    # ================================================================= 막대 그래프
+    # ---------------------------------------------------------------- body 5
+
+    t1_body5.markdown("###### 노선별 민원 발생현황") 
+    # ---------------------------------------------
+
+   # ===================================================== 막대 그래프 start
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수']
 
@@ -111,10 +116,8 @@ def run_tab():
     # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
 
     t1_body5.pyplot(fig1) 
-    
-    # -----------------------------------------------------------------------
+    # ===================================================== 막대 그래프 end
 
-    t1_body5.markdown("###### 노선별 민원 발생현황") 
     t1_body5_df = pd.read_csv("data/민원처리현황.csv")
     t1_body5_df = t1_body5_df.query("organ=='광주지사'" )
     t1_body5_df_gby_kind = t1_body5_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
@@ -124,7 +127,7 @@ def run_tab():
     t1_body5.table(t1_body5_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
 
-    # -----------------------------------------------------------------------  
+    # ---------------------------------------------------- 
     # map 
     # base_position = [35.18668601, 126.87954220] 
     # map_data = pd.DataFrame(np.random.randn(5,1)/[20,20] + base_position,
@@ -174,7 +177,7 @@ def run_tab():
                       ).add_to(t1_map) 
 
     folium_map = t1_map._repr_html_() 
-    st.components.v1.html(folium_map, height=500) #, width=800, height=600)
+    st.components.v1.html(folium_map, height=900) #, width=800, height=600)
     # folium_static(t1_map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
