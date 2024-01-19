@@ -41,13 +41,13 @@ def run_tab():
 
     t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] )
     
-    t1_body1.markdown(""" 
-                      <style> 
-                            table{background-color:#f0f0f0;} 
-                            div{border:1px solid #00ff00;}
-                      </style> """, 
-                      unsafe_allow_html=True
-                      ) 
+    st.markdown(""" 
+                <style> 
+                    table{background-color:#f0f0f0;} 
+                    div{border:1px solid #00ff00;}
+                </style> """, 
+                unsafe_allow_html=True
+                ) 
 
 
     # ==================================================================== content  
