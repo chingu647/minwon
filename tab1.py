@@ -107,7 +107,9 @@ def run_tab():
     # pie ------------------------------------
     ax1.pie(data_y, labels=data_x, 
             startangle=30,
-            autopct="%.1f%%") 
+            autopct="%.1f%%",
+            shadow=True,
+            textprops={'size':10}) 
 
     # bar ------------------------------------
 
