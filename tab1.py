@@ -105,7 +105,7 @@ def run_tab():
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
     # pie ------------------------------------
-    ax1.pie(data_y, figsize=(5,5), startangle=10)    
+    ax1.pie(data_y, figsize=(5,5), labels=data_x)    
 
     # bar ------------------------------------
 
