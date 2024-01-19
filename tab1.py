@@ -88,11 +88,13 @@ def run_tab():
 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.tick_params(
+        # axis=x or axis=y,
         # labelsize=20,
+        # colors = 'gray',
         bottom = True, labelbottom=True,    # tick 수정
-        # top = False, labeltop=True,
-        # left = True, labelleft=True,
-        # right= True, labelright=True
+        top = False, labeltop=False,
+        left = False, labelleft=False,
+        right= False, labelright=False
         )
     
     ax1.bar(data_x, data_y)                             # plot 표시
