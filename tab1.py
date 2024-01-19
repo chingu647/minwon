@@ -91,10 +91,6 @@ def run_tab():
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수'] 
 
-    # pie ------------------------------------
-    ax1.pie(data_y)    
-
-    # bar ------------------------------------
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.tick_params(
         # axis=x or axis=y,
@@ -106,7 +102,12 @@ def run_tab():
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    ax1.set_facecolor('black')                          # figure 배경색 
+    ax1.set_facecolor('yellow')                          # figure 배경색 
+    
+    # pie ------------------------------------
+    ax1.pie(data_y)    
+
+    # bar ------------------------------------
 
     # ax1.bar(data_x, data_y, color='#E0ECF8')            # bar plot 표시
     # for i in range(len(data_x)):                        # bar text 표시
