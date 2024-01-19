@@ -44,7 +44,7 @@ def run_tab():
     t1_body1.markdown(""" 
                       <style> 
                             table{background-color:#f0f0f0;} 
-                            div{border:1px solid #ff0000;}
+                            div{border:1px solid #00ff00;}
                       </style> """, 
                       unsafe_allow_html=True
                       ) 
