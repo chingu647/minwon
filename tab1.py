@@ -44,7 +44,7 @@ def run_tab():
     t1_body1.markdown(""" <style> table {background-color:#f0f0f0;} </style>""", unsafe_allow_html=True) 
 
 
-    # -----------------------------------------------------------------------  
+    # ==================================================================== content  
 
     t1_head1.markdown("###### 공지사항") 
     t1_head1.markdown(r"""
@@ -88,7 +88,8 @@ def run_tab():
 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.axis('on') 
-    sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
+    ax1.bar(x=data_x, y=data_y)
+    # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
     ax1.bar(data_x, data_y)
     t1_body5.pyplot(fig1) 
     
