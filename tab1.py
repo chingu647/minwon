@@ -105,8 +105,7 @@ def run_tab():
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
     # pie ------------------------------------
-    ax1.pie(data_y, labels=data_y) 
-    fig.legend(labels=data_x)   
+    ax1.pie(data_y, labels=data_y, autopct="%.1f%%") 
 
     # bar ------------------------------------
 
