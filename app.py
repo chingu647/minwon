@@ -54,8 +54,8 @@ st.markdown("""
                 # div{border:1px solid #00ff00;}
                 img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
             
-                #tabs-bui5-tab-0 {
-                    font-size: 32px;
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-uf99v8.ea3mdgi3 > div.block-container.st-emotion-cache-z5fcl4.ea3mdgi2 > div > div > div > div.stTabs.st-emotion-cache-0.esjhkag0 > div > div:nth-child(1) > div{
+                    font-size: 16px;
                     font-family: "Source Sans Pro", sans-serif;
                     font-weight: 400;
                     line-height: 1.6;
