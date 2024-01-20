@@ -228,9 +228,9 @@ def run_tab():
         color = 'red',
         colors = 'blue',
         # rotation=20, 
-        bottom = True, labelbottom=True,        # tick 수정
+        bottom = False, labelbottom=False,        # tick 수정
         top = False, labeltop=False,
-        left = False, labelleft=False,
+        left = True, labelleft=True,
         right= False, labelright=False
         )
     t1b9_ax.set_facecolor('white')                  # figure 배경색 
