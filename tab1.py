@@ -18,15 +18,15 @@ from wordcloud import WordCloud, STOPWORDS
 
 
 def run_tab(): 
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
-st.markdown(""" 
-            <style> 
-                table{background-color:#f0f0f0;} 
-                # div{border:1px solid #00ff00;}
-                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
-            </style> """, 
-            unsafe_allow_html=True
-            ) 
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
+    st.markdown(""" 
+                <style> 
+                    table{background-color:#f0f0f0;} 
+                    # div{border:1px solid #00ff00;}
+                    img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
+                </style> """, 
+                unsafe_allow_html=True
+                ) 
     
     ###################################################################### layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
