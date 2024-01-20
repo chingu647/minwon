@@ -101,17 +101,22 @@ def run_tab():
         )
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
+    # heatmap --------------------------------
+    ax1.heatmap(data_x, data_y, 
+                annot=True, fmt='d',
+                )
+
     # pie ------------------------------------ 
-    explode = [0.05 for i in data_x]
-    wedgeprops={'width': 0.7, 'edgecolor': 'w', 'linewidth': 3}
-    ax1.pie(data_y, labels=data_x, 
-            startangle=260,
-            counterclock=False, 
-            autopct="%.1f%%", 
-            # explode=explode,
-            # shadow=True,
-            wedgeprops=wedgeprops, 
-            textprops={'size':9}) 
+    # explode = [0.05 for i in data_x]
+    # wedgeprops={'width': 0.7, 'edgecolor': 'w', 'linewidth': 3}
+    # ax1.pie(data_y, labels=data_x, 
+    #         startangle=260,
+    #         counterclock=False, 
+    #         autopct="%.1f%%", 
+    #         # explode=explode,
+    #         # shadow=True,
+    #         wedgeprops=wedgeprops, 
+    #         textprops={'size':9}) 
 
     # bar ------------------------------------
 
