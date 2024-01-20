@@ -64,7 +64,7 @@ st.markdown("""
             unsafe_allow_html=True) 
 
 ################################################################################# layout
-tab_titles = ['<h1>광주전남</h1>', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
+tab_titles = ['<h1 style="font-size: 24px;">광주전남</h1>', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
 tabs = st.tabs(tab_titles)
 sbar = st.sidebar
 sbar.markdown(""" 
