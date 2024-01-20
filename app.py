@@ -68,7 +68,7 @@ tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 �
 tabs = st.tabs(tab_titles)
 sbar = st.sidebar
 sbar.markdown(""" 
-              🌸 광주 <a href="tel:010-6637-4525">민원실</a> 
+              <h6>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h6>
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
               🌸 담양 <a href="tel:010-6637-4525">민원실</a> 
