@@ -103,11 +103,12 @@ def run_tab():
 
     # heatmap -------------------------------- 
     hm_df1 = pd.DataFrame(data_y, index=data_x, columns=['건수'])
-    sns.heatmap(hm_df1, 
-                annot=True, fmt='d',
-                cmap='YlGnBu',
-                linewidths=2,
-                ax=ax1)
+    # sns.heatmap(hm_df1, 
+    #             annot=True, fmt='d',
+    #             cmap='YlGnBu',
+    #             linewidths=2,
+    #             ax=ax1)
+    t1_body5.dataframe(hm_df1)
 
     # pie ------------------------------------ 
     # explode = [0.05 for i in data_x]
