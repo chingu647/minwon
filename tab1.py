@@ -130,9 +130,9 @@ def run_tab():
                 dodge=False,
                 ax=ax1) 
     for i in range(len(data_x)):                        # bar text 표시
-        width = data_y[i]-0.5 
+        width = data_y[i]+0.5 
         width_val = str(data_y[i])+'건'
-        ax1.text(width, data_x, width_val, 
+        ax1.text(width, i, width_val, 
                  ha='center', va='bottom', 
                  color='green',
                  fontsize=16)                           # bar text 폰크
