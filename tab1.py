@@ -88,17 +88,18 @@ def run_tab():
     ax1.set_facecolor('white')                          # figure 배경색 
 
     # pie ------------------------------------ 
-    # explode = [0.05 for i in data_x]
-    # wedgeprops={'width': 0.7, 'edgecolor': 'w', 'linewidth': 3}
-    # ax1.pie(data_y, labels=data_x, 
-    #         startangle=260,
-    #         counterclock=False, 
-    #         autopct="%.1f%%", 
-    #         # explode=explode,
-    #         # shadow=True,
-    #         wedgeprops=wedgeprops, 
-    #         textprops={'size':9}) 
+    explode = [0.05 for i in data_x]
+    wedgeprops={'width': 0.7, 'edgecolor': 'w', 'linewidth': 3}
+    ax1.pie(data_y, labels=data_x, 
+            startangle=260,
+            counterclock=False, 
+            autopct="%.1f%%", 
+            # explode=explode,
+            # shadow=True,
+            wedgeprops=wedgeprops, 
+            textprops={'size':9}) 
 
+    t1_body5.pyplot(fig1) 
     # 세로 bar ------------------------------------
 
     # ax1.bar(data_x, data_y, color='#E0ECF8')            # bar plot 표시
