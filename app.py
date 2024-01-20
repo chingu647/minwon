@@ -53,7 +53,6 @@ st.markdown("""
                 table{background-color:#f0f0f0;} 
                 # div{border:1px solid #00ff00;}
                 img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
-                a{text-decoration-line:none;}
             </style> """, 
             unsafe_allow_html=True
             ) 
@@ -69,25 +68,25 @@ tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 �
 tabs = st.tabs(tab_titles)
 sbar = st.sidebar
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🕿 광주지사 민원실🌸</a> 
+              <a href="tel:010-6637-4525">☏ 광주지사 민원실🌸</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🕿 담양지사 민원실🌸</a> 
+              <a href="tel:010-6637-4525">☏ 담양지사 민원실🌸</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🕿 순천지사 민원실🌸</a> 
+              <a href="tel:010-6637-4525">☏ 순천지사 민원실🌸</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🕿 함평지사 민원실🌸</a> 
+              <a href="tel:010-6637-4525">☏ 함평지사 민원실🌸</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🕿 구례지사 민원실🌸</a> 
+              <a href="tel:010-6637-4525">☏ 구례지사 민원실🌸</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🕿 보성지사 민원실🌸</a> 
+              <a href="tel:010-6637-4525">☏ 보성지사 민원실🌸</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🕿 남원지사 민원실🌸</a> 
+              <a href="tel:010-6637-4525">☏ 남원지사 민원실🌸</a> 
               """, unsafe_allow_html=True ) 
 
 # 각 탭에 콘텐츠 추가
