@@ -41,7 +41,18 @@ def run_tab():
 
         return kind1_df  
     
-    
+    # @st.cache
+    def load_wc(text_raw):
+        t = Okt()
+        text_nouns = t.nouns(text_raw) 
+        stopwords =['시어']
+        text_nouns = [n for n in text_nouns if n not in stopwords]
+        text_str = ' '.join(text_nouns)
+        wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
+        
+        return wc 
+
+
     ###################################################################### layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
@@ -61,40 +72,40 @@ def run_tab():
     ###################################################################### body 1  
     t1_body1.markdown("###### 2024년 이슈 (민원 유형별)") 
 
-    t1_kind1_df = load_df('광주지사', '서비스유형(대)') 
-    t1_body1.table(t1_kind1_df.style.background_gradient(cmap='Blues')) 
-
-    # t1_body1_df = pd.read_csv("data/민원처리현황.csv")
-    # t1_body1_df = t1_body1_df.query("organ=='광주지사'" )
-    # t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
-    # t1_body1_df_gby_kind = t1_body1_df_gby_kind.iloc[:5,:1]
-    # t1_body1_df_gby_kind.columns = ['건수']
-    # t1_body1_df_gby_kind['비율(%)'] = ( t1_body1_df_gby_kind['건수']/(t1_body1_df_gby_kind['건수'].sum())*100).astype(int)
-    # t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
-    # t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
+    t1b1_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1_body1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
     ###################################################################### body 2 
     t1_body2.markdown("###### 주요 키워드 클라우드") 
 
-    t = Okt() 
-
     text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
-    text_nouns = t.nouns(text_raw) 
-    stopwords =['시어']
-    text_nouns = [n for n in text_nouns if n not in stopwords]
-    text_str = ' '.join(text_nouns) 
-    # t1_body2.write(text_raw)
+    t1b2_wc = load_wc(text_raw)
+  
 
-    # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
-    wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
-    # wc = WordCloud(background_color='white', max_words=50).generate(text_str) 
+    fig0, ax0 = plt.subplots(figsize=(10,4)) 
+    ax0.axis('off')
+    ax0.imshow(t1b2_wc)
+    t1_body2.pyplot(fig0) 
+
+    # t = Okt() 
+
+    # text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
+    # text_nouns = t.nouns(text_raw) 
+    # stopwords =['시어']
+    # text_nouns = [n for n in text_nouns if n not in stopwords]
+    # text_str = ' '.join(text_nouns) 
+    # # t1_body2.write(text_raw)
+
+    # # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
+    # wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
+    # # wc = WordCloud(background_color='white', max_words=50).generate(text_str) 
 
     
 
-    fig, ax = plt.subplots(figsize=(10,4)) 
-    ax.axis('off')
-    ax.imshow(wc)
-    t1_body2.pyplot(fig) 
+    # fig, ax = plt.subplots(figsize=(10,4)) 
+    # ax.axis('off')
+    # ax.imshow(wc)
+    # t1_body2.pyplot(fig) 
 
     ###################################################################### body 5 
     t1_body5.markdown("###### 노선별 민원 발생현황") 
