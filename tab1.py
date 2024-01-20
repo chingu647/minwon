@@ -125,7 +125,10 @@ def run_tab():
     #              fontsize=16)                           # bar text 폰크
     # sns.barplot ----------------------------
 
-    sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
+    sns.barplot(x=data_x, y=data_y, 
+                hue=data_x, 
+                dodge=False,
+                ax=ax1)
 
     t1_body5.pyplot(fig1) 
     # ===================================================== 그래프 end
