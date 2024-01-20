@@ -17,6 +17,10 @@ from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
 
+import mpl_css_stcache
+
+mpl_css_stcache.run()
+
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css 설정
     st.markdown(""" 
