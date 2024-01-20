@@ -266,7 +266,7 @@ def run_tab():
     # map data  
 
     t1t1_kind1_df, t1t1_point_df = load_df('광주지사', '서비스유형(대)')     
-    # t1t1.dataframe(t1t1_point_df)
+    t1t1.dataframe(t1t1_point_df)
 
     base_position = [35.18668601, 126.87954220] 
     t1t1_map = load_map(base_position) 
