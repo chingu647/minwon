@@ -67,7 +67,9 @@ st.markdown("""
 tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
 tabs = st.tabs(tab_titles)
 sbar = st.sidebar
-sbar.markdown(r'통계 정보🌸') 
+sbar.markdown(""" 
+              <a href="tel:+01066374525">광주지사 민원실🌸</a> 
+              """, unsafe_allow_html=True ) 
 sbar.markdown(r'분석 정보🌸') 
 sbar.markdown(r'분석 리포트🌸') 
 sbar.markdown(r'맞춤형 통계🌸') 
