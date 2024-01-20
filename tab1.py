@@ -196,7 +196,7 @@ def run_tab():
                 hue=t1b9_x, 
                 dodge=False,
                 ax=t1b9_ax) 
-    for i in range(len(t1b9_x3)):               # bar text 표시
+    for i in range(len(t1b9_x)):               # bar text 표시
         width = t1b9_y[i]+1.5 
         width_str = str(t1b9_y[i])+'건'
         t1b9_ax.text(width, i, width_str, 
