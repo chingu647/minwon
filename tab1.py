@@ -83,13 +83,13 @@ def run_tab():
                                     fill_opacity=1.0     # 원 채움 투명도
                                     ).add_to(map) 
                 
-            # folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-            #             # popup=row['노선번호'],    ------------------
-            #             # tooltip=row['latitude'], -------------------
-            #             icon=folium.Icon(color='red', icon='star'), 
-            #             #   icon=folium.DivIcon(                              # 값 표시방식
-            #             #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-            #             ).add_to(map) 
+                folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
+                            # popup=row['노선번호'],    ------------------
+                            # tooltip=row['latitude'], -------------------
+                            icon=folium.Icon(color='red', icon='star'), 
+                            #   icon=folium.DivIcon(                              # 값 표시방식
+                            #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
+                            ).add_to(map) 
 
         folium_map = map._repr_html_() 
         st.components.v1.html(folium_map, height=900) #, width=800, height=600)
