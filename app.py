@@ -22,7 +22,7 @@ st.markdown("""
             <style> 
                 table{background-color:#f0f0f0;} 
                 # div{border:1px solid #00ff00;}
-                img {max-width: 60em; max-height: 60em;}
+                img {max-width: 60vw; max-height: 60vw;}
             </style> """, 
             unsafe_allow_html=True
             ) 
