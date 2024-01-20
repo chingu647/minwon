@@ -68,25 +68,25 @@ tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 �
 tabs = st.tabs(tab_titles)
 sbar = st.sidebar
 sbar.markdown(""" 
-              <h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h4><p>
+              <h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              🌸 담양 <a href="tel:010-6637-4525">민원실</a> 
+              <h3>🌸 담양 <a href="tel:010-6637-4525">민원실</a></h3><p> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              🌸 순천 <a href="tel:010-6637-4525">민원실</a> 
+              <h3>🌸 순천 <a href="tel:010-6637-4525">민원실</a></h3><p> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              🌸 함평 <a href="tel:010-6637-4525">민원실</a> 
+              <h3>🌸 함평 <a href="tel:010-6637-4525">민원실</a></h3><p> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              🌸 구례 <a href="tel:010-6637-4525">민원실</a> 
+              <h3>🌸 구례 <a href="tel:010-6637-4525">민원실</a></h3><p> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              🌸 보성 <a href="tel:010-6637-4525">민원실</a> 
+              <h3>🌸 보성 <a href="tel:010-6637-4525">민원실</a></h3><p> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              🌸 남원 <a href="tel:010-6637-4525">민원실</a> 
+              <h3>🌸 남원 <a href="tel:010-6637-4525">민원실</a></h3><p> 
               """, unsafe_allow_html=True ) 
 
 # 각 탭에 콘텐츠 추가
