@@ -96,7 +96,7 @@ def run_tab():
         # rotation=20, 
         bottom = True, labelbottom=True,                # tick 수정
         top = False, labeltop=False,
-        left = False, labelleft=False,
+        left = True, labelleft=True,
         right= False, labelright=False
         )
     ax1.set_facecolor('white')                          # figure 배경색 
