@@ -158,16 +158,16 @@ def run_tab():
     t1b5_ax.set_facecolor('white')                  # figure 배경색 
 
     # paint 
-    explode = [0.05 for i in t1b5_x]
-    wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
-    t1b5_ax.pie(t1b5_y, labels=t1b5_x, 
-            startangle=260,
-            counterclock=False, 
-            autopct="%.1f%%", 
-            # explode=explode,
-            # shadow=True,
-            wedgeprops=wedgeprops, 
-            textprops={'size':9}) 
+    # explode = [0.05 for i in t1b5_x]
+    # wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
+    # t1b5_ax.pie(t1b5_y, labels=t1b5_x, 
+    #         startangle=260,
+    #         counterclock=False, 
+    #         autopct="%.1f%%", 
+    #         # explode=explode,
+    #         # shadow=True,
+    #         wedgeprops=wedgeprops, 
+    #         textprops={'size':9}) 
     t1b5_cx = 30
     t1b5_cy = 20
     t1b5_str= 'aaa'
