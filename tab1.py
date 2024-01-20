@@ -75,7 +75,7 @@ def run_tab():
     # @st.cache 
     def create_map(map, point_df): 
         for index, row in point_df.iterrows(): 
-            if not row['latitude'].isna() and not row['longitude'].isna():
+            if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
                 folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
                                     radius=1,            # 원 반지름
                                     color='blue',        # 원 테두리 색상
