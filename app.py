@@ -54,7 +54,7 @@ st.markdown("""
                 # div{border:1px solid #00ff00;}
                 img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
             
-                "st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0" {
+                tabs-bui5-tab-0 {
                     font-size: 32px;
                     font-family: "Source Sans Pro", sans-serif;
                     font-weight: 400;
