@@ -28,7 +28,7 @@ import tab1
 # import tab6 
 # import tab7 
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")  #### 1번만 실행해야 함 !!! 
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) mpl 한글 설정  
