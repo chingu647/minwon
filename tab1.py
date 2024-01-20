@@ -19,7 +19,7 @@ from wordcloud import WordCloud, STOPWORDS
 
 import mpl_css_stcache
 
-mpl_css_stcache.run()
+mpl_css_stcache.mpl_css_stcache_run()
 
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css 설정

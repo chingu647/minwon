@@ -32,7 +32,7 @@ import mpl_css_stcache
 
 st.set_page_config(layout="wide")
 
-mpl_css_stcache.run()
+mpl_css_stcache.mpl_css_stcache_run()
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css 설정
 st.markdown(""" 
