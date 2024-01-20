@@ -137,12 +137,12 @@ def run_tab():
     # paint ----------------------------------
     ax2.bar(data_x2, data_y2, color='#E0ECF8')            # bar plot 표시
     for i in range(len(data_x2)):                        # bar text 표시
-        height2 = data_y2[i]-0.5 
+        height2 = data_y2[i]+0.5 
         height2_val = str(data_y2[i])+'건'
         ax2.text(data_x2[i], height2, height2_val, 
                  ha='center', va='bottom', 
                  color='green',
-                 fontsize=16)                           # bar text 폰크 
+                 fontsize=20)                           # bar text 폰크 
 
     t1_body6.pyplot(fig2) 
 
