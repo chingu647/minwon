@@ -43,7 +43,7 @@ def run_tab():
     
     st.markdown(""" 
                 <style> 
-                    table{background-color:#f0f0f0;} 
+                    t1_body1.table{background-color:#f0f0f0;} 
                     # div{border:1px solid #00ff00;}
                 </style> """, 
                 unsafe_allow_html=True
