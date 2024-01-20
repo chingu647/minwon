@@ -167,16 +167,17 @@ def run_tab():
     t1b6.pyplot(t1b6_fig) 
 
     ###################################################################### body 9
-    t1_body9.markdown("###### 노선별 민원 발생현황") 
+    t1b9.markdown("###### 노선별 민원 발생현황") 
     
     # -------------------------------------------------------- 가로 sns bar 그래프 
-    # data ------------------------------------
-    data_x3 = t1_body1_df_gby_kind.index.values
-    data_y3 = t1_body1_df_gby_kind['건수'] 
+    # data  
+    t1b9_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1b9_x = t1b9_kind1_df.index.values
+    t1b9_y = t1b9_kind1_df['건수'] 
 
     # preprocessing ---------------------------
-    fig3, ax3 = plt.subplots(figsize=(10,4)) 
-    ax3.tick_params(
+    t1b9_fig,  t1b9_ax = plt.subplots(figsize=(10,4)) 
+    t1b9_ax.tick_params(
         # axis=x or axis=y,
         labelsize=20,
         direction='inout',
@@ -188,22 +189,22 @@ def run_tab():
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    ax3.set_facecolor('white')                  # figure 배경색 
+    t1b9_ax.set_facecolor('white')                  # figure 배경색 
 
-    # paint ----------------------------------
-    sns.barplot(x=data_y3, y=data_x3, 
-                hue=data_x3, 
+    # paint 
+    sns.barplot(x=t1b9_y, y=t1b9_x, 
+                hue=t1b9_x, 
                 dodge=False,
-                ax=ax1) 
-    for i in range(len(data_x3)):               # bar text 표시
-        width = data_y3[i]+1.5 
-        width_val = str(data_y3[i])+'건'
-        ax1.text(width, i, width_val, 
+                ax=t1b9_ax) 
+    for i in range(len(t1b9_x3)):               # bar text 표시
+        width = t1b9_y[i]+1.5 
+        width_str = str(t1b9_y[i])+'건'
+        t1b9_ax.text(width, i, width_str, 
                 #  ha='center', va='bottom', 
                  color='green',
                  fontsize=20)                   # bar text 폰크
 
-    t1_body9.pyplot(fig3) 
+    t1b9.pyplot(t1b9_fig) 
     # ===================================================== 그래프 end
 
     t1_body5_df = pd.read_csv("data/민원처리현황.csv")
