@@ -29,7 +29,7 @@ def run_tab():
                 ) 
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ST CACHE 사용
-    # @st.cache
+    @st.cache 
     def load_df(organ, kind1):
         df = pd.read_csv("data/민원처리현황.csv")
         df = df.query( f"organ=='{organ}'" )
@@ -46,7 +46,7 @@ def run_tab():
         return kind1_df, point_df  
 
 
-    # @st.cache
+    @st.cache 
     def load_wc(text_raw):
         t = Okt()
         text_nouns = t.nouns(text_raw) 
@@ -57,7 +57,7 @@ def run_tab():
         
         return wc 
     
-    # @st.cache 
+    @st.cache 
     def load_map(base_position): 
         map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
         gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
@@ -72,7 +72,7 @@ def run_tab():
                     ).add_to(map) 
         return map
 
-    # @st.cache 
+    @st.cache 
     def create_map(map, point_df): 
         for index, row in point_df.iterrows(): 
             if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
