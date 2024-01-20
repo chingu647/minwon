@@ -89,7 +89,7 @@ def run_tab():
 
     # pie ------------------------------------ 
     explode = [0.05 for i in data_x]
-    wedgeprops={'width': 0.7, 'edgecolor': 'w', 'linewidth': 3}
+    wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
     ax1.pie(data_y, labels=data_x, 
             startangle=260,
             counterclock=False, 
