@@ -112,19 +112,19 @@ def run_tab():
     #              fontsize=16)                           # bar text 폰크
     # 가로 sns.barplot ----------------------------
 
-    sns.barplot(x=data_y, y=data_x, 
-                hue=data_x, 
-                dodge=False,
-                ax=ax1) 
-    for i in range(len(data_x)):                        # bar text 표시
-        width = data_y[i]+1.5 
-        width_val = str(data_y[i])+'건'
-        ax1.text(width, i, width_val, 
-                #  ha='center', va='bottom', 
-                 color='green',
-                 fontsize=20)                           # bar text 폰크
+    # sns.barplot(x=data_y, y=data_x, 
+    #             hue=data_x, 
+    #             dodge=False,
+    #             ax=ax1) 
+    # for i in range(len(data_x)):                        # bar text 표시
+    #     width = data_y[i]+1.5 
+    #     width_val = str(data_y[i])+'건'
+    #     ax1.text(width, i, width_val, 
+    #             #  ha='center', va='bottom', 
+    #              color='green',
+    #              fontsize=20)                           # bar text 폰크
 
-    t1_body5.pyplot(fig1) 
+    # t1_body5.pyplot(fig1) 
     # ===================================================== 그래프 end
 
     t1_body5_df = pd.read_csv("data/민원처리현황.csv")
