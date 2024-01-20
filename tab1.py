@@ -71,7 +71,7 @@ def run_tab():
     # t1_body2.write(text_raw)
 
     # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
-    wc = WordCloud(background_color='white', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
+    wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
     # wc = WordCloud(background_color='white', max_words=50).generate(text_str) 
 
     fig, ax = plt.subplots(figsize=(10,4)) 
