@@ -2,27 +2,21 @@ import streamlit as st
 # import plotly.express as px
 
 def run_tab(): 
-    # ----------------------------------------------------------------------- layout 
-    t0_head0, t0_head1, t0_head2 = st.columns( [0.2, 0.6, 0.2] )
-    t0_headt0,t0_headt1,t0_headt2= st.columns( [0.01, 0.98, 0.01] )
 
-    t0_body0, t0_body1, t0_body2 = st.columns( [0.2, 0.6, 0.2] )
-    t0_bodyt0,t0_bodyt1,t0_bodyt2= st.columns( [0.01, 0.98, 0.01] )
+    ###################################################################### layout 
+    t0h0, t0h1, t0h2 = st.columns( [0.001, 0.998, 0.001] ) 
+    
+    t0b0, t0b1, t0b2, t0b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t0b4, t0b5, t0b6, t0b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t0b8, t0b9, t0b10,t0b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
-    t0_tail0, t0_tail1, t0_tail2 = st.columns( [0.2, 0.6, 0.2] ) 
+    t0t0, t0t1, t0t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
-    # -----------------------------------------------------------------------  
-    t0_head0.markdown("###### 이달의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    t0_head0.markdown("오늘의 이슈") 
-    # -----------------------------------------------------------------------  
-    t0_head1.markdown("###### 민원건수 현황") 
+    ###################################################################### head 1  
+    t0h1.markdown("##### 이달의 이슈")
+    t0h1.markdown(r"""
+	1. 오늘의 이슈.
+    """)
 
     # -----------------------------------------------------------------------  
     t0_head2.markdown("###### 지사.노선별 현황") 
