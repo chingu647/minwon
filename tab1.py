@@ -105,7 +105,7 @@ def run_tab():
     ax1.pie(data_y, labels=data_x, 
             startangle=30,
             autopct="%.1f%%", 
-            explode=[0.1]
+            explode=[0.1,]
             shadow=True,
             textprops={'size':9}) 
 
