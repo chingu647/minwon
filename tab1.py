@@ -16,15 +16,15 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
-st.markdown(""" 
-            <style> 
-                table{background-color:#f0f0f0;} 
-                # div{border:1px solid #00ff00;}
-                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
-            </style> """, 
-            unsafe_allow_html=True
-            ) 
+# # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
+# st.markdown(""" 
+#             <style> 
+#                 table{background-color:#f0f0f0;} 
+#                 # div{border:1px solid #00ff00;}
+#                 img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
+#             </style> """, 
+#             unsafe_allow_html=True
+#             ) 
 
 def run_tab(): 
     ###################################################################### layout 
