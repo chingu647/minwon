@@ -27,7 +27,21 @@ def run_tab():
                 </style> """, 
                 unsafe_allow_html=True
                 ) 
-        
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ST CACHE 사용
+    # @st.cache
+    def load_df(organ, kind1):
+        df = pd.read_csv("data/민원처리현황.csv")
+        df = df.query( f"organ=='{organ}'" )
+        kind1_df = df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
+        kind1_df = kind1_df.iloc[:5,:1]
+        kind1_df.columns = ['건수']
+        kind1_df['비율(%)'] = ( kind1_df['건수']/(kind1_df['건수'].sum())*100).astype(int)
+        kind1_df = kind1_df.sort_values(by='건수', ascending=False) 
+
+        return kind1_df  
+    
+    
     ###################################################################### layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
@@ -38,25 +52,30 @@ def run_tab():
     t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] ) 
 
     ###################################################################### head 1  
-
     t1_head1.markdown("###### 공지사항") 
+
     t1_head1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있다고 할 수 있습니다.
     """)
 
     ###################################################################### body 1  
     t1_body1.markdown("###### 2024년 이슈 (민원 유형별)") 
-    t1_body1_df = pd.read_csv("data/민원처리현황.csv")
-    t1_body1_df = t1_body1_df.query("organ=='광주지사'" )
-    t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
-    t1_body1_df_gby_kind = t1_body1_df_gby_kind.iloc[:5,:1]
-    t1_body1_df_gby_kind.columns = ['건수']
-    t1_body1_df_gby_kind['비율(%)'] = ( t1_body1_df_gby_kind['건수']/(t1_body1_df_gby_kind['건수'].sum())*100).astype(int)
-    t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
-    t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
+
+    t1_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1_body1.table(t1_kind1_df.style.background_gradient(cmap='Blues')) 
+
+    # t1_body1_df = pd.read_csv("data/민원처리현황.csv")
+    # t1_body1_df = t1_body1_df.query("organ=='광주지사'" )
+    # t1_body1_df_gby_kind = t1_body1_df.groupby(by='서비스유형(대)').count().sort_values(by='서비스유형(대)', ascending=False)
+    # t1_body1_df_gby_kind = t1_body1_df_gby_kind.iloc[:5,:1]
+    # t1_body1_df_gby_kind.columns = ['건수']
+    # t1_body1_df_gby_kind['비율(%)'] = ( t1_body1_df_gby_kind['건수']/(t1_body1_df_gby_kind['건수'].sum())*100).astype(int)
+    # t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
+    # t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
     ###################################################################### body 2 
     t1_body2.markdown("###### 주요 키워드 클라우드") 
+
     t = Okt() 
 
     text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
@@ -69,6 +88,8 @@ def run_tab():
     # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
     wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
     # wc = WordCloud(background_color='white', max_words=50).generate(text_str) 
+
+    
 
     fig, ax = plt.subplots(figsize=(10,4)) 
     ax.axis('off')
@@ -113,6 +134,9 @@ def run_tab():
 
     t1_body5.pyplot(fig1) 
 
+    ###################################################################### body 6 
+    t1_body6.markdown("###### 노선별 민원 발생현황") 
+
     # -------------------------------------------------------- 세로 bar 그래프 
     # data ------------------------------------
     data_x2 = t1_body1_df_gby_kind.index.values
@@ -146,21 +170,44 @@ def run_tab():
 
     t1_body6.pyplot(fig2) 
 
-    # 가로 sns.barplot ----------------------------
+    ###################################################################### body 9
+    t1_body9.markdown("###### 노선별 민원 발생현황") 
+    
+    # -------------------------------------------------------- 가로 sns bar 그래프 
+    # data ------------------------------------
+    data_x3 = t1_body1_df_gby_kind.index.values
+    data_y3 = t1_body1_df_gby_kind['건수'] 
 
-    # sns.barplot(x=data_y, y=data_x, 
-    #             hue=data_x, 
-    #             dodge=False,
-    #             ax=ax1) 
-    # for i in range(len(data_x)):                        # bar text 표시
-    #     width = data_y[i]+1.5 
-    #     width_val = str(data_y[i])+'건'
-    #     ax1.text(width, i, width_val, 
-    #             #  ha='center', va='bottom', 
-    #              color='green',
-    #              fontsize=20)                           # bar text 폰크
+    # preprocessing ---------------------------
+    fig3, ax3 = plt.subplots(figsize=(10,4)) 
+    ax3.tick_params(
+        # axis=x or axis=y,
+        labelsize=20,
+        direction='inout',
+        color = 'red',
+        colors = 'blue',
+        # rotation=20, 
+        bottom = True, labelbottom=True,        # tick 수정
+        top = False, labeltop=False,
+        left = False, labelleft=False,
+        right= False, labelright=False
+        )
+    ax3.set_facecolor('white')                  # figure 배경색 
 
-    # t1_body5.pyplot(fig1) 
+    # paint ----------------------------------
+    sns.barplot(x=data_y3, y=data_x3, 
+                hue=data_x3, 
+                dodge=False,
+                ax=ax1) 
+    for i in range(len(data_x3)):               # bar text 표시
+        width = data_y3[i]+1.5 
+        width_val = str(data_y3[i])+'건'
+        ax1.text(width, i, width_val, 
+                #  ha='center', va='bottom', 
+                 color='green',
+                 fontsize=20)                   # bar text 폰크
+
+    t1_body9.pyplot(fig3) 
     # ===================================================== 그래프 end
 
     t1_body5_df = pd.read_csv("data/민원처리현황.csv")
