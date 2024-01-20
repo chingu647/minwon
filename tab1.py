@@ -173,7 +173,7 @@ def run_tab():
     t1b5_val= '총' + str(t1b5_kind1_df['건수'].sum()) + '건'
     t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_val, 
                 ha='center', va='center', 
-                # color='black',
+                color='red',
                 fontsize=25)                           # bar text 폰크 
 
     t1b5.pyplot(t1b5_fig) 
