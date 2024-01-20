@@ -92,6 +92,8 @@ def run_tab():
     ax1.tick_params(
         # axis=x or axis=y,
         # labelsize=20,
+        direction='inout',
+        color = 'red',
         colors = 'blue',
         # rotation=20, 
         bottom = True, labelbottom=True,                # tick 수정
