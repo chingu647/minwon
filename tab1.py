@@ -99,7 +99,7 @@ def run_tab():
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    ax1.set_facecolor('yellow')                          # figure 배경색 
+    ax1.set_facecolor('white')                          # figure 배경색 
 
     # pie ------------------------------------ 
     # explode = [0.05 for i in data_x]
