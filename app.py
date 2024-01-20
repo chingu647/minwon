@@ -52,7 +52,34 @@ st.markdown("""
             <style> 
                 table{background-color:#f0f0f0;} 
                 # div{border:1px solid #00ff00;}
-                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
+                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
+            
+                "st-af st-ag st-ah st-ai st-aj st-ak st-al st-am st-an st-ao st-ap st-aq st-ar"><button data-baseweb="tab" id="tabs-bui5-tab-0" role="tab" aria-selected="true" aria-controls="tabs-bui5-tabpanel-0" tabindex="0" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-bd st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>광주전남</p></div></button><button data-baseweb="tab" id="tabs-bui5-tab-1" role="tab" aria-selected="false" aria-controls="tabs-bui5-tabpanel-1" tabindex="-1" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>광 주</p></div></button><button data-baseweb="tab" id="tabs-bui5-tab-2" role="tab" aria-selected="false" aria-controls="tabs-bui5-tabpanel-2" tabindex="-1" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>담 양</p></div></button><button data-baseweb="tab" id="tabs-bui5-tab-3" role="tab" aria-selected="false" aria-controls="tabs-bui5-tabpanel-3" tabindex="-1" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>순 천</p></div></button><button data-baseweb="tab" id="tabs-bui5-tab-4" role="tab" aria-selected="false" aria-controls="tabs-bui5-tabpanel-4" tabindex="-1" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>함 평</p></div></button><button data-baseweb="tab" id="tabs-bui5-tab-5" role="tab" aria-selected="false" aria-controls="tabs-bui5-tabpanel-5" tabindex="-1" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>구 례</p></div></button><button data-baseweb="tab" id="tabs-bui5-tab-6" role="tab" aria-selected="false" aria-controls="tabs-bui5-tabpanel-6" tabindex="-1" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>보 성</p></div></button><button data-baseweb="tab" id="tabs-bui5-tab-7" role="tab" aria-selected="false" aria-controls="tabs-bui5-tabpanel-7" tabindex="-1" type="button" class="st-as st-at st-au st-av st-aw st-ax st-ay st-az st-b0 st-b1 st-b2 st-b3 st-b4 st-b5 st-b6 st-b7 st-b8 st-b9 st-ba st-bb st-bc st-c1 st-be st-bf st-bg st-bh st-bi st-bj st-bk st-bl st-bm st-bn st-bo st-bp st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-c0"><div data-testid="stMarkdownContainer" class="st-emotion-cache-16idsys e1nzilvr5"><p>남 원</p></div></button><div data-baseweb="tab-highlight" aria-hidden="true" role="presentation" class="st-c2 st-c3 st-c4 st-c5 st-c6 st-c7 st-cc st-c9 st-cf st-cg st-ch"{
+                    font-size: 32px;
+                    font-family: "Source Sans Pro", sans-serif;
+                    font-weight: 400;
+                    line-height: 1.6;
+                    text-size-adjust: 100%;
+                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                    -webkit-font-smoothing: auto;
+                    color: rgb(49, 51, 63);
+                    color-scheme: light;
+                    box-sizing: border-box;
+                    position: relative;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    -webkit-box-flex: 1;
+                    flex-grow: 1;
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    flex-direction: row;
+                    padding-bottom: 0.125rem;
+                    margin-bottom: -0.125rem;
+                    overflow-x: scroll;
+                    gap: 1rem;
+                    overflow-y: hidden;
+                }
+
             </style> """, 
             unsafe_allow_html=True
             ) 
