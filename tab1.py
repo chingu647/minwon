@@ -41,7 +41,7 @@ def run_tab():
     
         # map data
         # point_df = df[ (df['latitude'].str.strip() != '') and (df['longitude'].str.strip() != '') ] 
-        point_df = df[ (df['latitude'].isna()) & (df['longitude'].isna()) ] 
+        point_df = df[ ~( (df['latitude'].isna()) | (df['longitude'].isna()) ) ] 
 
         return kind1_df, point_df  
 
