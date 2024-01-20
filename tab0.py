@@ -16,8 +16,6 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
-st.set_page_config(layout="wide")
-
 
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-2) ST CACHE 사용
@@ -101,7 +99,7 @@ def run_tab():
                 ) 
     
 
-    
+
     # ###################################################################### layout 
     # t0h0, t0h1, t0h2 = st.columns( [0.001, 0.998, 0.001] ) 
     
