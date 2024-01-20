@@ -114,10 +114,7 @@ def run_tab():
     """)
 
     ###################################################################### body 1  
-    t1b1.markdown("""
-                  <h4>2024년 이슈 (민원 유형별)<h4>
-                  """, 
-                unsafe_allow_html=True) 
+    t1b1.markdown("#### 2024년 이슈 (민원 유형별)")
 
     t1b1_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
@@ -136,7 +133,7 @@ def run_tab():
     t1b2.pyplot(t1b2_fig) 
 
     ###################################################################### body 5 
-    t1b5.markdown("###### 노선별 민원 발생현황") 
+    t1b5.markdown("#### 노선별 민원 발생현황") 
 
     # -------------------------------------------------------- pie 그래프 
     # data  
@@ -176,7 +173,7 @@ def run_tab():
     t1b5.pyplot(t1b5_fig) 
 
     ###################################################################### body 6 
-    t1b6.markdown("###### 노선별 민원 발생현황") 
+    t1b6.markdown("#### 노선별 민원 발생현황") 
 
     # -------------------------------------------------------- 세로 bar 그래프 
     # data  
@@ -214,7 +211,7 @@ def run_tab():
     t1b6.pyplot(t1b6_fig) 
 
     ###################################################################### body 9
-    t1b9.markdown("###### 노선별 민원 발생현황") 
+    t1b9.markdown("#### 노선별 민원 발생현황") 
     
     # -------------------------------------------------------- 가로 sns bar 그래프 
     # data  
@@ -254,7 +251,7 @@ def run_tab():
     t1b9.pyplot(t1b9_fig)  
 
     ###################################################################### body 10
-    t1b10.markdown("###### 노선별 민원 발생현황") 
+    t1b10.markdown("#### 노선별 민원 발생현황") 
 
     t1b10_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
@@ -263,7 +260,7 @@ def run_tab():
 
 
     ###################################################################### tail 1
-    t1t1.markdown("###### 노선별 민원 발생현황") 
+    t1t1.markdown("#### 노선별 민원 발생현황") 
     
     # -------------------------------------------------------- 가로 sns bar 그래프 
     # map data  
@@ -274,61 +271,4 @@ def run_tab():
     base_position = [35.18668601, 126.87954220] 
     t1t1_map = load_map(base_position) 
     create_map(t1t1_map, t1t1_point_df) 
-
-
-
-
-    # ---------------------------------------------------- 
-    # map 
-    # base_position = [35.18668601, 126.87954220] 
-    # map_data = pd.DataFrame(np.random.randn(5,1)/[20,20] + base_position,
-    #     columns=['lat','lon'] 
-    #     ) 
-    # #print(map_data) 
-    # t1_tail1.code('con11.map(map_data)')
-    # t1_tail1.map(map_data) 
-
-    # # map data
-    # t1_gpf_point = gpd.read_file("data/ex_point_KWANGJU.geojson")
-    # t1_gpf_point = t1_gpf_point[ ['노선번호','X좌표값', 'Y좌표값'] ]
-    # t1_gpf_point.columns = ['노선번호','latitude','longitude'] 
-
-    # t1_gpf_point = t1_gpf_point.iloc[:5, :]
-    # base_position = [35.18668601, 126.87954220] 
-
-    # # map layout ---------------------------------------------------------
-    # t1_map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
-
-    # t1_gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
-    # folium.GeoJson(t1_gpf_line,
-    #                style_function=lambda feature: {
-    #                    'fillColor': 'blue' , #feature['properties']['color'],
-    #                    'color': '#F5F6CE',
-    #                    'weight': 3,
-    #                    'dashArray': '5, 5',
-    #                    'fillOpacity': 0.3, 
-    #                    }
-    #                 ).add_to(t1_map)
-
-
-    # for index, row in t1_gpf_point.iterrows():
-    #     folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
-    #                         radius=1,            # 원 반지름
-    #                         color='blue',        # 원 테두리 색상
-    #                         fill=True,           # 원 채움
-    #                         fill_opacity=1.0     # 원 채움 투명도
-    #                         ).add_to(t1_map) 
-        
-    #     folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-    #                   popup=row['노선번호'],
-    #                   tooltip=row['latitude'],
-    #                   icon=folium.Icon(color='red', icon='star'), 
-    #                 #   icon=folium.DivIcon(                              # 값 표시방식
-    #                 #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-    #                   ).add_to(t1_map) 
-
-    # folium_map = t1_map._repr_html_() 
-    # st.components.v1.html(folium_map, height=900) #, width=800, height=600)
-    # # folium_static(t1_map) #, width=600, height=400)
-    # # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
