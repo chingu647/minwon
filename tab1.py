@@ -144,7 +144,7 @@ def run_tab():
                  color='green',
                  fontsize=16)                           # bar text 폰크 
 
-    t1_body6.pyplot(fig1) 
+    t1_body6.pyplot(fig2) 
 
     # 가로 sns.barplot ----------------------------
 
