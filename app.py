@@ -17,6 +17,15 @@ import tab1
 
 st.set_page_config(layout="wide")
 
+# ============================================================================== css
+st.markdown(""" 
+            <style> 
+                table{background-color:#f0f0f0;} 
+                # div{border:1px solid #00ff00;}
+                img {max-height: 300px;}
+            </style> """, 
+            unsafe_allow_html=True
+            ) 
 ################################################################################# title
 st.markdown("#### <b>한눈에 보는 민원지도 < 광주전남본부>🌸<b>") 
 
