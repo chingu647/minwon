@@ -168,13 +168,13 @@ def run_tab():
     #         # shadow=True,
     #         wedgeprops=wedgeprops, 
     #         textprops={'size':9}) 
-    t1b5_cx = 30
-    t1b5_cy = 20
-    t1b5_str= 'aaa'
-    t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_str, 
-                ha='center', va='bottom', 
-                color='black',
-                fontsize=30)                           # bar text 폰크 
+    # t1b5_cx = 30
+    # t1b5_cy = 20
+    # t1b5_str= 'aaa'
+    # t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_str, 
+    #             ha='center', va='bottom', 
+    #             color='black',
+    #             fontsize=30)                           # bar text 폰크 
 
     t1b5.pyplot(t1b5_fig) 
 
