@@ -23,7 +23,6 @@ def run_tab():
                 <style> 
                     table{background-color:#f0f0f0;} 
                     img{max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
-                    #p0{font-size:25px;}
                 </style> """, 
                 unsafe_allow_html=True
                 ) 
@@ -107,7 +106,7 @@ def run_tab():
     t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
     ###################################################################### head 1  
-    t1h1.markdown("<p id='p0' >공지사항<p>", unsafe_allow_html=True)
+    t1h1.markdown("<h4>공지사항  <h6>광주지사", unsafe_allow_html=True)
     t1h1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있습니다.
     """)
