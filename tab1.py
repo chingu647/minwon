@@ -168,9 +168,9 @@ def run_tab():
             # shadow=True,
             wedgeprops=wedgeprops, 
             textprops={'size':9}) 
-    t1b5_cx = 0.2
-    t1b5_cy = 0.2
-    t1b5_val= t1b5_kind1_df['건수'].sum()
+    t1b5_cx = 0.15
+    t1b5_cy = 0.35
+    t1b5_val= str(t1b5_kind1_df['건수'].sum()) + '건'
     t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_val, 
                 ha='center', va='bottom', 
                 color='black',
