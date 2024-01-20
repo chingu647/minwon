@@ -40,7 +40,8 @@ def run_tab():
         kind1_df = kind1_df.sort_values(by='건수', ascending=False) 
     
         # map data
-        point_df = df[ (df['latitude'].str.strip() != '') and (df['longitude'].str.strip() != '') ] 
+        # point_df = df[ (df['latitude'].str.strip() != '') and (df['longitude'].str.strip() != '') ] 
+        point_df = df[ (df['latitude'] != '') and (df['longitude'] != '') ] 
 
         return kind1_df, point_df  
 
