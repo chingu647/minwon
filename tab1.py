@@ -104,7 +104,7 @@ def run_tab():
     # pie ------------------------------------ 
     explode = [0.05 for i in data_x]
     ax1.pie(data_y, labels=data_x, 
-            startangle=90,
+            # startangle=90,
             autopct="%.1f%%", 
             explode=explode,
             # shadow=True,
