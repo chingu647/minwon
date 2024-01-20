@@ -168,10 +168,10 @@ def run_tab():
             # shadow=True,
             wedgeprops=wedgeprops, 
             textprops={'size':9}) 
-    t1b5_cx = 0.5
-    t1b5_cy = 0.5
-    t1b5_str= 'aaa'
-    t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_str, 
+    t1b5_cx = 0.2
+    t1b5_cy = 0.2
+    t1b5_val= t1b5_kind1_df['건수'].sum()
+    t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_val, 
                 ha='center', va='bottom', 
                 color='black',
                 fontsize=30)                           # bar text 폰크 
