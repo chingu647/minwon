@@ -102,7 +102,7 @@ def run_tab():
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
     # heatmap --------------------------------
-    sns.heatmap(data_x, data_y, 
+    sns.heatmap(zip(data_x, data_y), 
                 annot=True, fmt='d',
                 ax=ax1)
 
