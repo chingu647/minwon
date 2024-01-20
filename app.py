@@ -71,22 +71,22 @@ sbar.markdown("""
               🌸 광주 <a href="tel:010-6637-4525">민원실</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🌸 담양 민원실</a> 
+              🌸 담양 <a href="tel:010-6637-4525">민원실</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🌸 순천 민원실</a> 
+              🌸 순천 <a href="tel:010-6637-4525">민원실</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🌸 함평 민원실</a> 
+              🌸 함평 <a href="tel:010-6637-4525">민원실</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🌸 구례 민원실</a> 
+              🌸 구례 <a href="tel:010-6637-4525">민원실</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🌸 보성 민원실</a> 
+              🌸 보성 <a href="tel:010-6637-4525">민원실</a> 
               """, unsafe_allow_html=True ) 
 sbar.markdown(""" 
-              <a href="tel:010-6637-4525">🌸 남원 민원실</a> 
+              🌸 남원 <a href="tel:010-6637-4525">민원실</a> 
               """, unsafe_allow_html=True ) 
 
 # 각 탭에 콘텐츠 추가
