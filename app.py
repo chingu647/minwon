@@ -65,51 +65,37 @@ st.markdown("""
 
 ################################################################################# layout
 
-tab_titles = [
-    '<h1 style="font-size: 24px;">광주전남</h1>',
-    '<h1 style="font-size: 20px;">광주</h1>',
-    '<h1 style="font-size: 20px;">순천</h1>',
-    '담양', '함평', '구례', '보성', '남원'
-]
-
+tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
 tabs = st.tabs(tab_titles)
+sbar = st.sidebar
+sbar.markdown(""" 
+              <h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>
+              """, unsafe_allow_html=True ) 
+sbar.markdown(""" 
+              <h3>🌸 담양 <a href="tel:010-6637-4525">민원실</a></h3><p> 
+              """, unsafe_allow_html=True ) 
+sbar.markdown(""" 
+              <h3>🌸 순천 <a href="tel:010-6637-4525">민원실</a></h3><p> 
+              """, unsafe_allow_html=True ) 
+sbar.markdown(""" 
+              <h3>🌸 함평 <a href="tel:010-6637-4525">민원실</a></h3><p> 
+              """, unsafe_allow_html=True ) 
+sbar.markdown(""" 
+              <h3>🌸 구례 <a href="tel:010-6637-4525">민원실</a></h3><p> 
+              """, unsafe_allow_html=True ) 
+sbar.markdown(""" 
+              <h3>🌸 보성 <a href="tel:010-6637-4525">민원실</a></h3><p> 
+              """, unsafe_allow_html=True ) 
+sbar.markdown(""" 
+              <h3>🌸 남원 <a href="tel:010-6637-4525">민원실</a></h3><p> 
+              """, unsafe_allow_html=True ) 
 
-# 각 탭에 대한 내용을 여기에 추가
-for i, tab in enumerate(tabs):
-    st.write(f"Contents of Tab {i+1}")
-
-    
-# tab_titles = ['<h1 style="font-size: 24px;">광주전남</h1>', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
-# tabs = st.tabs(tab_titles)
-# sbar = st.sidebar
-# sbar.markdown(""" 
-#               <h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>
-#               """, unsafe_allow_html=True ) 
-# sbar.markdown(""" 
-#               <h3>🌸 담양 <a href="tel:010-6637-4525">민원실</a></h3><p> 
-#               """, unsafe_allow_html=True ) 
-# sbar.markdown(""" 
-#               <h3>🌸 순천 <a href="tel:010-6637-4525">민원실</a></h3><p> 
-#               """, unsafe_allow_html=True ) 
-# sbar.markdown(""" 
-#               <h3>🌸 함평 <a href="tel:010-6637-4525">민원실</a></h3><p> 
-#               """, unsafe_allow_html=True ) 
-# sbar.markdown(""" 
-#               <h3>🌸 구례 <a href="tel:010-6637-4525">민원실</a></h3><p> 
-#               """, unsafe_allow_html=True ) 
-# sbar.markdown(""" 
-#               <h3>🌸 보성 <a href="tel:010-6637-4525">민원실</a></h3><p> 
-#               """, unsafe_allow_html=True ) 
-# sbar.markdown(""" 
-#               <h3>🌸 남원 <a href="tel:010-6637-4525">민원실</a></h3><p> 
-#               """, unsafe_allow_html=True ) 
-
-# # 각 탭에 콘텐츠 추가
-# with tabs[0]: 
-#     tab0.run_tab()
+# 각 탭에 콘텐츠 추가
+with tabs[0]: 
+    tab0.run_tab()
  
-# with tabs[1]:
-#     tab1.run_tab()
+with tabs[1]:
+    tab1.run_tab()
 
 # with tabs[2]:
 #     tab2.run_tab()
