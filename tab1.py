@@ -16,7 +16,7 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
-
+st.set_page_config(layout="wide")
 
 
 def run_tab(): 

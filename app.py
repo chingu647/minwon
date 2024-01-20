@@ -30,6 +30,7 @@ import tab1
 
 st.set_page_config(layout="wide")
 
+
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) mpl 한글 설정  
 font_path_ = "data/NanumGothic.ttf" 
 font_name = fm.FontProperties(fname=font_path_).get_name() 
