@@ -102,9 +102,9 @@ def run_tab():
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
     # heatmap --------------------------------
-    ax1.heatmap(data_x, data_y, 
+    sns.heatmap(data_x, data_y, 
                 annot=True, fmt='d',
-                )
+                ax=ax1)
 
     # pie ------------------------------------ 
     # explode = [0.05 for i in data_x]
