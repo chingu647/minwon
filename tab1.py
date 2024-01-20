@@ -133,7 +133,7 @@ def run_tab():
         width = data_y[i]+1.5 
         width_val = str(data_y[i])+'건'
         ax1.text(width, i, width_val, 
-                 ha='center', va='bottom', 
+                #  ha='center', va='bottom', 
                  color='green',
                  fontsize=16)                           # bar text 폰크
 
