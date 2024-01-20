@@ -84,7 +84,7 @@ def run_tab():
                                     ).add_to(map) 
                 
                 folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                            popup=row['latitude'], 
+                            popup=row['제목'], 
                             tooltip=row['latitude'], 
                             icon=folium.Icon(color='red', icon='star'), 
                             #   icon=folium.DivIcon(                              # 값 표시방식
