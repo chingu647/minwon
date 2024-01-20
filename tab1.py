@@ -73,6 +73,7 @@ def run_tab():
     t1b1.markdown("###### 2024년 이슈 (민원 유형별)") 
 
     t1b1_kind1_df = load_df('광주지사', '서비스유형(대)') 
+
     t1b1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
     ###################################################################### body 2 
@@ -93,6 +94,7 @@ def run_tab():
     # -------------------------------------------------------- pie 그래프 
     # data  
     t1b5_kind1_df = load_df('광주지사', '서비스유형(대)') 
+
     t1b5_x = t1b5_kind1_df.index.values
     t1b5_y = t1b5_kind1_df['건수'] 
 
@@ -127,16 +129,18 @@ def run_tab():
     t1b5.pyplot(t1b5_fig) 
 
     ###################################################################### body 6 
-    t1_body6.markdown("###### 노선별 민원 발생현황") 
+    t1b6.markdown("###### 노선별 민원 발생현황") 
 
     # -------------------------------------------------------- 세로 bar 그래프 
-    # data ------------------------------------
-    data_x2 = t1_body1_df_gby_kind.index.values
-    data_y2 = t1_body1_df_gby_kind['건수'] 
+    # data  
+    t1b6_kind1_df = load_df('광주지사', '서비스유형(대)') 
 
-    # preprocessing ---------------------------
-    fig2, ax2 = plt.subplots(figsize=(10,4)) 
-    ax2.tick_params(
+    t1b6_x = t1b6_kind1_df.index.values
+    t1b6_y = t1b6_kind1_df['건수'] 
+
+    # preprocessing 
+    t1b6_fig, t1b6_ax = plt.subplots(figsize=(10,4)) 
+    t1b6_ax.tick_params(
         # axis=x or axis=y,
         labelsize=20,
         direction='inout',
@@ -148,19 +152,19 @@ def run_tab():
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    ax2.set_facecolor('white')                  # figure 배경색 
+    t1b6_ax.set_facecolor('white')                  # figure 배경색 
 
-    # paint ----------------------------------
-    ax2.bar(data_x2, data_y2, color='#E0ECF8')            # bar plot 표시
-    for i in range(len(data_x2)):                        # bar text 표시
-        height2 = data_y2[i]+0.5 
-        height2_val = str(data_y2[i])+'건'
-        ax2.text(data_x2[i], height2, height2_val, 
+    # paint 
+    t1b6_ax.bar(t1b6_x, t1b6_y, color='#E0ECF8')            # bar plot 표시
+    for i in range(len(t1b6_x)):                        # bar text 표시
+        height = t1b6_y[i]+0.5 
+        height_str = str(t1b6_y[i])+'건'
+        t1b6_ax.text(t1b6_x[i], height, height_str, 
                  ha='center', va='bottom', 
                  color='green',
                  fontsize=20)                           # bar text 폰크 
 
-    t1_body6.pyplot(fig2) 
+    t1b6.pyplot(t1b6_fig) 
 
     ###################################################################### body 9
     t1_body9.markdown("###### 노선별 민원 발생현황") 
