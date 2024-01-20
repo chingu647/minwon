@@ -80,12 +80,12 @@ def run_tab():
                                     radius=1,            # 원 반지름
                                     color='blue',        # 원 테두리 색상
                                     fill=True,           # 원 채움
-                                    fill_opacity=1.0     # 원 채움 투명도
+                                    fill_opacity=0.5,     # 원 채움 투명도
                                     ).add_to(map) 
                 
                 folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                            # popup=row['노선번호'],    ------------------
-                            # tooltip=row['latitude'], -------------------
+                            popup=row['latitude'], 
+                            tooltip=row['latitude'], 
                             icon=folium.Icon(color='red', icon='star'), 
                             #   icon=folium.DivIcon(                              # 값 표시방식
                             #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
