@@ -124,7 +124,7 @@ def run_tab():
     t1b1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
     ###################################################################### body 2 
-    t1b2.markdown("###### 주요 키워드 클라우드") 
+    t1b2.markdown("#### 주요 키워드 클라우드") 
 
     text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
     t1b2_wc = load_wc(text_raw)
