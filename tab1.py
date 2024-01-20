@@ -122,7 +122,7 @@ def run_tab():
     fig2, ax2 = plt.subplots(figsize=(10,4)) 
     ax2.tick_params(
         # axis=x or axis=y,
-        # labelsize=20,
+        labelsize=20,
         direction='inout',
         color = 'red',
         colors = 'blue',
