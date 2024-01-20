@@ -84,7 +84,7 @@ def run_tab():
     t1_body5.markdown("###### 노선별 민원 발생현황") 
     # ---------------------------------------------
 
-   # ===================================================== 막대 그래프 start
+   # ===================================================== 그래프 start
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수'] 
 
@@ -104,7 +104,7 @@ def run_tab():
     # pie ------------------------------------
     ax1.pie(data_y, labels=data_x, 
             startangle=30,
-            autopct="%.1f%%",
+            # autopct="%.1f%%",
             shadow=True,
             textprops={'size':9}) 
 
@@ -121,7 +121,7 @@ def run_tab():
     # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
 
     t1_body5.pyplot(fig1) 
-    # ===================================================== 막대 그래프 end
+    # ===================================================== 그래프 end
 
     t1_body5_df = pd.read_csv("data/민원처리현황.csv")
     t1_body5_df = t1_body5_df.query("organ=='광주지사'" )
