@@ -47,7 +47,7 @@ mpl.rc('ytick', labelsize=18)
 mpl.rc('legend', fontsize=18)
 mpl.rc('figure', titlesize=12) 
 
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css 설정
 st.markdown(""" 
             <style> 
                 table{background-color:#f0f0f0;} 

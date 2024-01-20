@@ -18,7 +18,7 @@ from wordcloud import WordCloud, STOPWORDS
 
 
 def run_tab(): 
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css 설정
     st.markdown(""" 
                 <style> 
                     table{background-color:#f0f0f0;} 
@@ -27,23 +27,24 @@ def run_tab():
                 </style> """, 
                 unsafe_allow_html=True
                 ) 
-    
+        
     ###################################################################### layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
     t1_body0, t1_body1, t1_body2, t1_body3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    t1_body4, t1_body5, t1_body6 = st.columns( [0.001, 0.998, 0.001] )
+    t1_body4, t1_body5, t1_body6, t1_body7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t1_body8, t1_body9, t1_body10,t1_body11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
-    t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] )
-    
-    ###################################################################### content  
+    t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] ) 
+
+    ###################################################################### head 1  
 
     t1_head1.markdown("###### 공지사항") 
     t1_head1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있다고 할 수 있습니다.
     """)
 
-    # -------------------------------------------------------------------- body 1  
+    ###################################################################### body 1  
     t1_body1.markdown("###### 2024년 이슈 (민원 유형별)") 
     t1_body1_df = pd.read_csv("data/민원처리현황.csv")
     t1_body1_df = t1_body1_df.query("organ=='광주지사'" )
@@ -54,7 +55,7 @@ def run_tab():
     t1_body1_df_gby_kind = t1_body1_df_gby_kind.sort_values(by='건수', ascending=False)  
     t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
-    # ------------------------------------------------------------------- body 2 
+    ###################################################################### body 2 
     t1_body2.markdown("###### 주요 키워드 클라우드") 
     t = Okt() 
 
@@ -74,16 +75,15 @@ def run_tab():
     ax.imshow(wc)
     t1_body2.pyplot(fig) 
 
-    # ---------------------------------------------------------------- body 5
-
+    ###################################################################### body 5 
     t1_body5.markdown("###### 노선별 민원 발생현황") 
-    # ---------------------------------------------
 
-   # ===================================================== 그래프 start
-    data_x = t1_body1_df_gby_kind.index.values
-    data_y = t1_body1_df_gby_kind['건수'] 
+    # -------------------------------------------------------- pie 그래프 
+    # data ------------------------------------
+    data_x1 = t1_body1_df_gby_kind.index.values
+    data_y1 = t1_body1_df_gby_kind['건수'] 
 
-    # pie ------------------------------------ 
+    # preprocessing ---------------------------
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.tick_params(
         # axis=x or axis=y,
@@ -92,17 +92,17 @@ def run_tab():
         color = 'red',
         colors = 'blue',
         # rotation=20, 
-        bottom = True, labelbottom=True,                # tick 수정
+        bottom = True, labelbottom=True,        # tick 수정
         top = False, labeltop=False,
         left = True, labelleft=True,
         right= False, labelright=False
         )
-    ax1.set_facecolor('white')                          # figure 배경색 
+    ax1.set_facecolor('white')                  # figure 배경색 
 
-
-    explode = [0.05 for i in data_x]
+    # paint ----------------------------------
+    explode = [0.05 for i in data_x1]
     wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
-    ax1.pie(data_y, labels=data_x, 
+    ax1.pie(data_y1, labels=data_x, 
             startangle=260,
             counterclock=False, 
             autopct="%.1f%%", 
@@ -112,6 +112,32 @@ def run_tab():
             textprops={'size':9}) 
 
     t1_body5.pyplot(fig1) 
+
+
+    # # -------------------------------------------------------- 세로 bar 그래프 
+    # # data ------------------------------------
+    # data_x = t1_body1_df_gby_kind.index.values
+    # data_y = t1_body1_df_gby_kind['건수'] 
+
+    # # preprocessing ---------------------------
+    # fig2, ax2 = plt.subplots(figsize=(10,4)) 
+    # ax1.tick_params(
+    #     # axis=x or axis=y,
+    #     # labelsize=20,
+    #     direction='inout',
+    #     color = 'red',
+    #     colors = 'blue',
+    #     # rotation=20, 
+    #     bottom = True, labelbottom=True,        # tick 수정
+    #     top = False, labeltop=False,
+    #     left = True, labelleft=True,
+    #     right= False, labelright=False
+    #     )
+    # ax1.set_facecolor('white')                  # figure 배경색 
+
+    # paint ----------------------------------
+
+
     # 세로 bar ------------------------------------
 
     # ax1.bar(data_x, data_y, color='#E0ECF8')            # bar plot 표시
