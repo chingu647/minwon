@@ -30,7 +30,7 @@ import tab1
 
 st.set_page_config(layout="wide")
 
-# ============================================================================== css
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
 st.markdown(""" 
             <style> 
                 table{background-color:#f0f0f0;} 
@@ -40,7 +40,7 @@ st.markdown("""
             unsafe_allow_html=True
             ) 
 
-# ==================================================================== mpl 한글 설정  
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mpl 한글 설정  
 font_path_ = "data/NanumGothic.ttf" 
 font_name = fm.FontProperties(fname=font_path_).get_name() 
 

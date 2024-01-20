@@ -17,7 +17,7 @@ from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
 def run_tab(): 
-    # ==================================================================== layout 
+    ###################################################################### layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
     t1_body0, t1_body1, t1_body2, t1_body3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
@@ -25,7 +25,7 @@ def run_tab():
 
     t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] )
     
-    # ==================================================================== content  
+    ###################################################################### content  
 
     t1_head1.markdown("###### 공지사항") 
     t1_head1.markdown(r"""
