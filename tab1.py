@@ -16,6 +16,16 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
+st.markdown(""" 
+            <style> 
+                table{background-color:#f0f0f0;} 
+                # div{border:1px solid #00ff00;}
+                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
+            </style> """, 
+            unsafe_allow_html=True
+            ) 
+
 def run_tab(): 
     ###################################################################### layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
@@ -72,6 +82,7 @@ def run_tab():
     data_x = t1_body1_df_gby_kind.index.values
     data_y = t1_body1_df_gby_kind['건수'] 
 
+    # pie ------------------------------------ 
     fig1, ax1 = plt.subplots(figsize=(10,4)) 
     ax1.tick_params(
         # axis=x or axis=y,
@@ -87,7 +98,7 @@ def run_tab():
         )
     ax1.set_facecolor('white')                          # figure 배경색 
 
-    # pie ------------------------------------ 
+
     explode = [0.05 for i in data_x]
     wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
     ax1.pie(data_y, labels=data_x, 

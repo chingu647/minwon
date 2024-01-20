@@ -30,16 +30,6 @@ import tab1
 
 st.set_page_config(layout="wide")
 
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
-st.markdown(""" 
-            <style> 
-                table{background-color:#f0f0f0;} 
-                # div{border:1px solid #00ff00;}
-                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
-            </style> """, 
-            unsafe_allow_html=True
-            ) 
-
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mpl 한글 설정  
 font_path_ = "data/NanumGothic.ttf" 
 font_name = fm.FontProperties(fname=font_path_).get_name() 
@@ -55,7 +45,17 @@ mpl.rc('axes', labelsize=18)
 mpl.rc('xtick', labelsize=18)
 mpl.rc('ytick', labelsize=18)
 mpl.rc('legend', fontsize=18)
-mpl.rc('figure', titlesize=12)
+mpl.rc('figure', titlesize=12) 
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ css
+st.markdown(""" 
+            <style> 
+                table{background-color:#f0f0f0;} 
+                # div{border:1px solid #00ff00;}
+                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
+            </style> """, 
+            unsafe_allow_html=True
+            ) 
 
 ################################################################################# title
 st.markdown("#### <b>한눈에 보는 민원지도 < 광주전남본부>🌸<b>") 
