@@ -74,14 +74,15 @@ def run_tab():
 
     # @st.cache 
     def create_map(map, point_df): 
-        for index, row in point_df.iterrows():
-            folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
-                                radius=1,            # 원 반지름
-                                color='blue',        # 원 테두리 색상
-                                fill=True,           # 원 채움
-                                fill_opacity=1.0     # 원 채움 투명도
-                                ).add_to(map) 
-            
+        for index, row in point_df.iterrows(): 
+            if not row['latitude'].isna() and not row['longitude'].isna():
+                folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
+                                    radius=1,            # 원 반지름
+                                    color='blue',        # 원 테두리 색상
+                                    fill=True,           # 원 채움
+                                    fill_opacity=1.0     # 원 채움 투명도
+                                    ).add_to(map) 
+                
             # folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
             #             # popup=row['노선번호'],    ------------------
             #             # tooltip=row['latitude'], -------------------
