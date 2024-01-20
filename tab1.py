@@ -102,7 +102,7 @@ def run_tab():
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
     # pie ------------------------------------ 
-    explode = [0.1 for i in len(data_y)]
+    explode = [0.1 for i in len(data_x)]
     ax1.pie(data_y, labels=data_x, 
             startangle=30,
             autopct="%.1f%%", 
