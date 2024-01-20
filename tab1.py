@@ -158,23 +158,23 @@ def run_tab():
     t1b5_ax.set_facecolor('white')                  # figure 배경색 
 
     # paint 
-    # explode = [0.05 for i in t1b5_x]
-    # wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
-    # t1b5_ax.pie(t1b5_y, labels=t1b5_x, 
-    #         startangle=260,
-    #         counterclock=False, 
-    #         autopct="%.1f%%", 
-    #         # explode=explode,
-    #         # shadow=True,
-    #         wedgeprops=wedgeprops, 
-    #         textprops={'size':9}) 
-    # t1b5_cx = 30
-    # t1b5_cy = 20
-    # t1b5_str= 'aaa'
-    # t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_str, 
-    #             ha='center', va='bottom', 
-    #             color='black',
-    #             fontsize=30)                           # bar text 폰크 
+    explode = [0.05 for i in t1b5_x]
+    wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
+    t1b5_ax.pie(t1b5_y, labels=t1b5_x, 
+            startangle=260,
+            counterclock=False, 
+            autopct="%.1f%%", 
+            # explode=explode,
+            # shadow=True,
+            wedgeprops=wedgeprops, 
+            textprops={'size':9}) 
+    t1b5_cx = 0.5
+    t1b5_cy = 0.5
+    t1b5_str= 'aaa'
+    t1b5_ax.text(t1b5_cx, t1b5_cy, t1b5_str, 
+                ha='center', va='bottom', 
+                color='black',
+                fontsize=30)                           # bar text 폰크 
 
     t1b5.pyplot(t1b5_fig) 
 
