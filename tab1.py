@@ -101,15 +101,6 @@ def run_tab():
         )
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
-    # heatmap -------------------------------- 
-    hm_df1 = pd.DataFrame(data_y, index=data_x, columns=['건수'])
-    sns.heatmap(hm_df1, 
-                annot=True, fmt='d',
-                cmap='YlGnBu',
-                linewidths=2,
-                cbar=False,
-                ax=ax1)
-
     # pie ------------------------------------ 
     # explode = [0.05 for i in data_x]
     # wedgeprops={'width': 0.7, 'edgecolor': 'w', 'linewidth': 3}
@@ -132,7 +123,9 @@ def run_tab():
     #              ha='center', va='bottom', 
     #              color='green',
     #              fontsize=16)                           # bar text 폰크
-    # sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
+    # sns.barplot ----------------------------
+
+    sns.barplot(x=data_x, y=data_y, ax=ax1, dodge=False)
 
     t1_body5.pyplot(fig1) 
     # ===================================================== 그래프 end
