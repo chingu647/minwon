@@ -17,22 +17,6 @@ from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
 def run_tab(): 
-    # ==================================================================== mpl 한글 설정  
-    font_path_ = "data/NanumGothic.ttf" 
-    font_name = fm.FontProperties(fname=font_path_).get_name() 
-
-    mpl.rcParams['axes.unicode_minus'] = False 
-    mpl.rcParams['font.family'] = font_name 
-
-    plt.style.use('ggplot') 
-
-    mpl.rc('font', size=18)
-    mpl.rc('axes', titlesize=18)
-    mpl.rc('axes', labelsize=18) 
-    mpl.rc('xtick', labelsize=18)
-    mpl.rc('ytick', labelsize=18)
-    mpl.rc('legend', fontsize=18)
-    mpl.rc('figure', titlesize=12)
     # ==================================================================== layout 
     t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
     
@@ -60,7 +44,7 @@ def run_tab():
     t1_body1.table(t1_body1_df_gby_kind.style.background_gradient(cmap='Blues')) 
 
     # ------------------------------------------------------------------- body 2 
-    t1_body2.markdown("###### <주요 키워드 클라우드") 
+    t1_body2.markdown("###### 주요 키워드 클라우드") 
     t = Okt() 
 
     text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'

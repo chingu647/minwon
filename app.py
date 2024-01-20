@@ -1,7 +1,20 @@
 import streamlit as st 
-import plotly.express as px 
-import pandas as pd 
+import plotly.express as px
+import pandas as pd
 import numpy as np 
+
+import matplotlib as mpl 
+import matplotlib.pyplot as plt 
+import matplotlib.font_manager as fm 
+import seaborn as sns
+
+import geopandas as gpd 
+import folium 
+from streamlit_folium import folium_static 
+
+import nltk 
+from konlpy.tag import Kkma, Hannanum, Twitter, Okt
+from wordcloud import WordCloud, STOPWORDS 
 
 from PIL import Image 
 
@@ -22,10 +35,28 @@ st.markdown("""
             <style> 
                 table{background-color:#f0f0f0;} 
                 # div{border:1px solid #00ff00;}
-                img {max-width: 600px; max-height: 600px;}
+                img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한
             </style> """, 
             unsafe_allow_html=True
             ) 
+
+# ==================================================================== mpl 한글 설정  
+font_path_ = "data/NanumGothic.ttf" 
+font_name = fm.FontProperties(fname=font_path_).get_name() 
+
+mpl.rcParams['axes.unicode_minus'] = False 
+mpl.rcParams['font.family'] = font_name 
+
+plt.style.use('ggplot') 
+
+mpl.rc('font', size=18)
+mpl.rc('axes', titlesize=18)
+mpl.rc('axes', labelsize=18) 
+mpl.rc('xtick', labelsize=18)
+mpl.rc('ytick', labelsize=18)
+mpl.rc('legend', fontsize=18)
+mpl.rc('figure', titlesize=12)
+
 ################################################################################# title
 st.markdown("#### <b>한눈에 보는 민원지도 < 광주전남본부>🌸<b>") 
 
