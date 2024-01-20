@@ -28,9 +28,9 @@ import tab1
 # import tab6 
 # import tab7 
 
-import mpl_css_stcache
-
 st.set_page_config(layout="wide")
+
+import mpl_css_stcache
 
 mpl_css_stcache.mpl_css_stcache_run()
 
@@ -44,6 +44,10 @@ st.markdown("""
             </style> """, 
             unsafe_allow_html=True
             ) 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
 
 ################################################################################# title
 st.markdown("""
