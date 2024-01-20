@@ -54,70 +54,51 @@ def run_tab():
 
 
     ###################################################################### layout 
-    t1_head0, t1_head1, t1_head2 = st.columns( [0.001, 0.998, 0.001] )
+    t1h0, t1h1, t1h2 = st.columns( [0.001, 0.998, 0.001] )
     
-    t1_body0, t1_body1, t1_body2, t1_body3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    t1_body4, t1_body5, t1_body6, t1_body7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    t1_body8, t1_body9, t1_body10,t1_body11= st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t1b0, t1b1, t1b2, t1b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t1b4, t1b5, t1b6, t1b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t1b8, t1b9, t1b10,t1b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
-    t1_tail0, t1_tail1, t1_tail2 = st.columns( [0.001, 0.998, 0.001] ) 
+    t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
     ###################################################################### head 1  
-    t1_head1.markdown("###### 공지사항") 
+    t1h1.markdown("###### 공지사항") 
 
-    t1_head1.markdown(r"""
+    t1h1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있다고 할 수 있습니다.
     """)
 
     ###################################################################### body 1  
-    t1_body1.markdown("###### 2024년 이슈 (민원 유형별)") 
+    t1b1.markdown("###### 2024년 이슈 (민원 유형별)") 
 
     t1b1_kind1_df = load_df('광주지사', '서비스유형(대)') 
-    t1_body1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
+    t1b1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
     ###################################################################### body 2 
-    t1_body2.markdown("###### 주요 키워드 클라우드") 
+    t1b2.markdown("###### 주요 키워드 클라우드") 
 
     text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
     t1b2_wc = load_wc(text_raw)
   
 
-    fig0, ax0 = plt.subplots(figsize=(10,4)) 
-    ax0.axis('off')
-    ax0.imshow(t1b2_wc)
-    t1_body2.pyplot(fig0) 
-
-    # t = Okt() 
-
-    # text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
-    # text_nouns = t.nouns(text_raw) 
-    # stopwords =['시어']
-    # text_nouns = [n for n in text_nouns if n not in stopwords]
-    # text_str = ' '.join(text_nouns) 
-    # # t1_body2.write(text_raw)
-
-    # # text_data = '한국, 한국, korea, korea, usa, england, highway, service, highway'
-    # wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=50).generate(text_str) 
-    # # wc = WordCloud(background_color='white', max_words=50).generate(text_str) 
-
-    
-
-    # fig, ax = plt.subplots(figsize=(10,4)) 
-    # ax.axis('off')
-    # ax.imshow(wc)
-    # t1_body2.pyplot(fig) 
+    t1b2_fig, t1b2_ax = plt.subplots(figsize=(10,4)) 
+    t1b2_ax.axis('off')
+    t1b2_ax.imshow(t1b2_wc)
+    t1b2.pyplot(t1b2_fig) 
 
     ###################################################################### body 5 
-    t1_body5.markdown("###### 노선별 민원 발생현황") 
+    t1b5.markdown("###### 노선별 민원 발생현황") 
 
     # -------------------------------------------------------- pie 그래프 
-    # data ------------------------------------
-    data_x1 = t1_body1_df_gby_kind.index.values
-    data_y1 = t1_body1_df_gby_kind['건수'] 
+    # data  
+    t1b5_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1b5_x = t1b5_kind1_df.index.values
+    t1b5_y = t1b5_kind1_df['건수'] 
 
-    # preprocessing ---------------------------
-    fig1, ax1 = plt.subplots(figsize=(10,4)) 
-    ax1.tick_params(
+    # preprocessing
+    t1b5_fig, t1b5_ax = plt.subplots(figsize=(10,4)) 
+    t1b5_ax.tick_params(
         # axis=x or axis=y,
         # labelsize=20,
         direction='inout',
@@ -129,12 +110,12 @@ def run_tab():
         left = True, labelleft=True,
         right= False, labelright=False
         )
-    ax1.set_facecolor('white')                  # figure 배경색 
+    t1b5_ax.set_facecolor('white')                  # figure 배경색 
 
-    # paint ----------------------------------
-    explode = [0.05 for i in data_x1]
+    # paint 
+    explode = [0.05 for i in t1b5_x]
     wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
-    ax1.pie(data_y1, labels=data_x1, 
+    t1b5_ax.pie(t1b5_y, labels=t1b5_x, 
             startangle=260,
             counterclock=False, 
             autopct="%.1f%%", 
@@ -143,7 +124,7 @@ def run_tab():
             wedgeprops=wedgeprops, 
             textprops={'size':9}) 
 
-    t1_body5.pyplot(fig1) 
+    t1b5.pyplot(t1b5_fig) 
 
     ###################################################################### body 6 
     t1_body6.markdown("###### 노선별 민원 발생현황") 
