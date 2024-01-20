@@ -135,7 +135,7 @@ def run_tab():
 
     # -------------------------------------------------------- pie 그래프 
     # data  
-    t1b5_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1b5_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
     t1b5_x = t1b5_kind1_df.index.values
     t1b5_y = t1b5_kind1_df['건수'] 
@@ -175,7 +175,7 @@ def run_tab():
 
     # -------------------------------------------------------- 세로 bar 그래프 
     # data  
-    t1b6_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1b6_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
     t1b6_x = t1b6_kind1_df.index.values
     t1b6_y = t1b6_kind1_df['건수'] 
@@ -213,7 +213,7 @@ def run_tab():
     
     # -------------------------------------------------------- 가로 sns bar 그래프 
     # data  
-    t1b9_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1b9_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
     t1b9_x = t1b9_kind1_df.index.values
     t1b9_y = t1b9_kind1_df['건수'] 
 
@@ -251,7 +251,7 @@ def run_tab():
     ###################################################################### body 10
     t1b10.markdown("###### 노선별 민원 발생현황") 
 
-    t1b10_kind1_df = load_df('광주지사', '서비스유형(대)') 
+    t1b10_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
     t1b10.table(t1b10_kind1_df.style.background_gradient(cmap='winter')) 
 
