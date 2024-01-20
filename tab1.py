@@ -102,9 +102,11 @@ def run_tab():
     ax1.set_facecolor('yellow')                          # figure 배경색 
 
     # heatmap -------------------------------- 
-    hm_df1 = pd.DataFrame(data=data_y, index=data_x)
+    hm_df1 = pd.DataFrame(data_y, index=data_x, columns=['건수'])
     sns.heatmap(hm_df1, 
                 annot=True, fmt='d',
+                cmap='YlGnBu',
+                linewidths=2,
                 ax=ax1)
 
     # pie ------------------------------------ 
