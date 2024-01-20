@@ -113,41 +113,39 @@ def run_tab():
 
     t1_body5.pyplot(fig1) 
 
+    # -------------------------------------------------------- 세로 bar 그래프 
+    # data ------------------------------------
+    data_x2 = t1_body1_df_gby_kind.index.values
+    data_y2 = t1_body1_df_gby_kind['건수'] 
 
-    # # -------------------------------------------------------- 세로 bar 그래프 
-    # # data ------------------------------------
-    # data_x = t1_body1_df_gby_kind.index.values
-    # data_y = t1_body1_df_gby_kind['건수'] 
-
-    # # preprocessing ---------------------------
-    # fig2, ax2 = plt.subplots(figsize=(10,4)) 
-    # ax1.tick_params(
-    #     # axis=x or axis=y,
-    #     # labelsize=20,
-    #     direction='inout',
-    #     color = 'red',
-    #     colors = 'blue',
-    #     # rotation=20, 
-    #     bottom = True, labelbottom=True,        # tick 수정
-    #     top = False, labeltop=False,
-    #     left = True, labelleft=True,
-    #     right= False, labelright=False
-    #     )
-    # ax1.set_facecolor('white')                  # figure 배경색 
+    # preprocessing ---------------------------
+    fig2, ax2 = plt.subplots(figsize=(10,4)) 
+    ax2.tick_params(
+        # axis=x or axis=y,
+        # labelsize=20,
+        direction='inout',
+        color = 'red',
+        colors = 'blue',
+        # rotation=20, 
+        bottom = True, labelbottom=True,        # tick 수정
+        top = False, labeltop=False,
+        left = True, labelleft=True,
+        right= False, labelright=False
+        )
+    ax2.set_facecolor('white')                  # figure 배경색 
 
     # paint ----------------------------------
+    ax2.bar(data_x2, data_y2, color='#E0ECF8')            # bar plot 표시
+    for i in range(len(data_x2)):                        # bar text 표시
+        height2 = data_y2[i]-0.5 
+        height2_val = str(data_y2[i])+'건'
+        ax2.text(data_x2[i], height2, height2_val, 
+                 ha='center', va='bottom', 
+                 color='green',
+                 fontsize=16)                           # bar text 폰크 
 
+    t1_body6.pyplot(fig1) 
 
-    # 세로 bar ------------------------------------
-
-    # ax1.bar(data_x, data_y, color='#E0ECF8')            # bar plot 표시
-    # for i in range(len(data_x)):                        # bar text 표시
-    #     height = data_y[i]-0.5 
-    #     height_val = str(data_y[i])+'건'
-    #     ax1.text(data_x[i], height, height_val, 
-    #              ha='center', va='bottom', 
-    #              color='green',
-    #              fontsize=16)                           # bar text 폰크
     # 가로 sns.barplot ----------------------------
 
     # sns.barplot(x=data_y, y=data_x, 
