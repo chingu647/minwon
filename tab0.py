@@ -131,16 +131,80 @@ def run_tab():
     t0b2_ax.imshow(t0b2_wc)
     t0b2.pyplot(t0b2_fig)  
 
-    # ###################################################################### body 5  
-    t0b5.markdown("##### 지사별 현황")
+    ###################################################################### body 5 
+    t0b5.markdown("##### 지사별 민원") 
 
+    # -------------------------------------------------------- 세로 bar 그래프 
+    # data  
     t0b5_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
-    t0b5.table(t0b5_kind1_df.style.background_gradient(cmap='Pastel1')) 
+    t0b5_x = t0b5_kind1_df.index.values
+    t0b5_y = t0b5_kind1_df['건수'] 
 
-    # ###################################################################### body 6 
-    t0b6.markdown("##### 노선별 현황")
+    # preprocessing 
+    t0b5_fig, t0b5_ax = plt.subplots(figsize=(10,4)) 
+    t0b5_ax.tick_params(
+        # axis=x or axis=y,
+        labelsize=20,
+        direction='inout',
+        color = 'red',
+        colors = 'blue',
+        # rotation=20, 
+        bottom = True, labelbottom=True,        # tick 수정
+        top = False, labeltop=False,
+        left = False, labelleft=False,
+        right= False, labelright=False
+        )
+    t0b5_ax.set_facecolor('white')                  # figure 배경색 
 
+    # paint 
+    t0b5_ax.bar(t0b5_x, t0b5_y, color='#E0ECF8')            # bar plot 표시
+    for i in range(len(t0b5_x)):                        # bar text 표시
+        height = t0b5_y[i]+0.5 
+        height_str = str(t0b5_y[i])+'건'
+        t0b5_ax.text(t0b5_x[i], height, height_str, 
+                 ha='center', va='bottom', 
+                 color='green',
+                 fontsize=20)                           # bar text 폰크 
+
+    t0b5.pyplot(t0b5_fig) 
+
+    ###################################################################### body 6
+    t0b6.markdown("##### 유형별 민원") 
+    
+    # -------------------------------------------------------- 가로 sns bar 그래프 
+    # data  
     t0b6_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t0b6_x = t0b6_kind1_df.index.values
+    t0b6_y = t0b6_kind1_df['건수'] 
 
-    t0b6.table(t0b6_kind1_df.style.background_gradient(cmap='Greens')) 
+    # preprocessing ---------------------------
+    t0b6_fig,  t0b6_ax = plt.subplots(figsize=(10,4)) 
+    t0b6_ax.tick_params(
+        # axis=x or axis=y,
+        labelsize=20,
+        direction='inout',
+        color = 'red',
+        colors = 'blue',
+        # rotation=20, 
+        bottom = False, labelbottom=False,        # tick 수정
+        top = False, labeltop=False,
+        left = True, labelleft=True,
+        right= False, labelright=False
+        )
+    t0b6_ax.set_facecolor('white')                  # figure 배경색 
+
+    # paint 
+    sns.barplot(x=t0b6_y, y=t0b6_x, 
+                hue=t0b6_x, 
+                dodge=False,
+                ax=t0b6_ax) 
+    for i in range(len(t0b6_x)):               # bar text 표시
+        width = t0b6_y[i]+1.5 
+        width_str = str(t0b6_y[i])+'건'
+        t0b6_ax.text(width, i, width_str, 
+                #  ha='center', va='bottom', 
+                 color='green',
+                 fontsize=20)                   # bar text 폰크
+
+    t0b6.pyplot(t0b6_fig)  
