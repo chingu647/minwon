@@ -117,30 +117,30 @@ def run_tab():
     t0b1.markdown("##### 2024년 이달의 이슈")
     t0b1.markdown(r"""
 	1. 오늘의 이슈.
-    """)
+    """) 
 
-    # ###################################################################### body 2  
-    t0b2.markdown("##### 지사별 현황")
+    # ###################################################################### body 2 
 
-    t0b2_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t0b2.markdown("##### 주요 키워드 클라우드") 
 
-    t0b2.table(t0b2_kind1_df.style.background_gradient(cmap='Pastel1')) 
+    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
+    t0b2_wc = load_wc(text_raw)
+  
+    t0b2_fig, t0b2_ax = plt.subplots(figsize=(10,4)) 
+    t0b2_ax.axis('off')
+    t0b2_ax.imshow(t0b2_wc)
+    t0b2.pyplot(t0b2_fig)  
 
-    # ###################################################################### body 5 
-    t0b5.markdown("##### 노선별 현황")
+    # ###################################################################### body 5  
+    t0b5.markdown("##### 지사별 현황")
 
     t0b5_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
-    t0b5.table(t0b5_kind1_df.style.background_gradient(cmap='Greens')) 
+    t0b5.table(t0b5_kind1_df.style.background_gradient(cmap='Pastel1')) 
 
     # ###################################################################### body 6 
+    t0b6.markdown("##### 노선별 현황")
 
-    t0b6.markdown("##### 주요 키워드 클라우드") 
+    t0b6_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
-    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
-    t0b6_wc = load_wc(text_raw)
-  
-    t0b6_fig, t0b6_ax = plt.subplots(figsize=(10,4)) 
-    t0b6_ax.axis('off')
-    t0b6_ax.imshow(t0b6_wc)
-    t0b6.pyplot(t0b6_fig)  
+    t0b6.table(t0b6_kind1_df.style.background_gradient(cmap='Greens')) 
