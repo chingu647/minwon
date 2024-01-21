@@ -124,7 +124,7 @@ def run_tab():
 
     t0b2_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
-    t0b2.table(t0b2_kind1_df.style.background_gradient(cmap='Blues')) 
+    t0b2.table(t0b2_kind1_df.style.background_gradient(cmap='Pastel1')) 
 
     # ###################################################################### body 5 
     t0b5.markdown("##### 노선별 현황")
