@@ -92,7 +92,7 @@ def load_map(base_position):
                 ).add_to(map) 
     return map
 
-# @st.cache_resource 
+@st.cache_data 
 def create_map(map, point_df): 
     for index, row in point_df.iterrows(): 
         if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
