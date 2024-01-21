@@ -227,7 +227,7 @@ def run_tab():
     t1b9_y = t1b9_kind1_df['건수'] 
 
     # preprocessing ---------------------------
-    t1b9_fig,  t1b9_ax = plt.subplots(figsize=(10,4)) 
+    t1b9_fig,  t1b9_ax = plt.subplots(figsize=(10,6)) 
     t1b9_ax.tick_params(
         # axis=x or axis=y,
         labelsize=20,
