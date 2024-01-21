@@ -179,7 +179,7 @@ def run_tab():
     t0b6_y = t0b6_kind1_df['건수'] 
 
     # preprocessing ---------------------------
-    t0b6_fig,  t0b6_ax = plt.subplots(figsize=(10,4)) 
+    t0b6_fig,  t0b6_ax = plt.subplots(figsize=(10,6)) 
     t0b6_ax.tick_params(
         # axis=x or axis=y,
         labelsize=20,
