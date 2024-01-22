@@ -60,8 +60,9 @@ def run_tab():
                             'fillOpacity': 0.3, 
                         }
                     ).add_to(map) 
-        return map
-
+        return map 
+    
+    global t1t1_map  # ----------------------------------------------------------------------- 
     @st.cache_resource
     def create_map_t1(point_df): 
         for index, row in point_df.iterrows(): 
@@ -277,8 +278,6 @@ def run_tab():
     t1t1.dataframe(t1t1_point_df_temp)
 
     base_position = [35.18668601, 126.87954220] 
-
-    global t1t1_map 
 
     t1t1_map = load_map(base_position) 
     # create_map(t1t1_map, t1t1_point_df) 
