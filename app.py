@@ -23,7 +23,7 @@ import mf
 
 
 import tab0 
-# import tab1 
+import tab1 
 # import tab2
 # import tab3 
 # import tab4 
@@ -105,9 +105,9 @@ with tabs[0]:
     tab0.run_tab()
     st.balloons()
  
-# with tabs[1]:
-#     tab1.run_tab()
-#     st.balloons()
+with tabs[1]:
+    tab1.run_tab()
+    st.balloons()
 
 # with tabs[2]:
 #     tab2.run_tab()
