@@ -166,29 +166,38 @@ sbar.markdown("""
               """, unsafe_allow_html=True ) 
 
 # 각 탭에 콘텐츠 추가
+
 with tabs[0]: 
     tab0.run_tab()
+    st.balloons()
  
 with tabs[1]:
     tab1.run_tab()
+    st.balloons()
 
 with tabs[2]:
     tab2.run_tab()
+    st.balloons()
 
 with tabs[3]: 
     tab3.run_tab()
+    st.balloons()
 
 with tabs[4]:
     tab4.run_tab() 
+    st.balloons()
 
 with tabs[5]:
     tab5.run_tab()
+    st.balloons()
 
 with tabs[6]:
     tab6.run_tab()
+    st.balloons()
 
 with tabs[7]:
     tab7.run_tab()
+    st.balloons()
 
 ################################################################################# input -> layout
 # 셀렉트 박스 -----------------------------------------------------------------
