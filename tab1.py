@@ -71,7 +71,7 @@ def run_tab():
                                     color='blue',        # 원 테두리 색상
                                     fill=True,           # 원 채움
                                     fill_opacity=0.5,     # 원 채움 투명도
-                                    ).add_to(map) 
+                                    ).add_to(t1t1_map) 
                 
                 folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
                             popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
@@ -79,9 +79,9 @@ def run_tab():
                             icon=folium.Icon(color='red', icon='star'), 
                             #   icon=folium.DivIcon(                              # 값 표시방식
                             #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                            ).add_to(map) 
+                            ).add_to(t1t1_map) 
 
-        folium_map = map._repr_html_() 
+        folium_map = t1t1_map._repr_html_() 
         st.components.v1.html(folium_map, height=900) #, width=800, height=600)
         # folium_static(t1_map) #, width=600, height=400)
         # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
@@ -279,7 +279,7 @@ def run_tab():
     base_position = [35.18668601, 126.87954220] 
 
     global t1t1_map 
-    
+
     t1t1_map = load_map(base_position) 
     # create_map(t1t1_map, t1t1_point_df) 
 
