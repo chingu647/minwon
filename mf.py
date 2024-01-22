@@ -198,7 +198,7 @@ def create_vbar(organ, kind1):
 ##################################################################################### 가로 막대 create sns hbar 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-def create_sns_hbar(organ, kind1, target_layout): 
+def create_sns_hbar(organ, kind1): 
     # data  
     kind1_df, _ = load_df(organ, kind1)  #   <==================================================
 
