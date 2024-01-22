@@ -37,7 +37,7 @@ def load_df(organ, kind1):
     point_df = df[ ~( (df['latitude'].isna()) | (df['longitude'].isna()) ) ] 
 
     # wc data
-    wc_sr = df.loc[:, '본문요약']
+    wc_sr = df.loc[:, '본문 요약']
     wc_data = ' '.join(wc_sr)
 
     return kind1_df, point_df, wc_data  
