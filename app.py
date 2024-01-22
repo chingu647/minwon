@@ -20,13 +20,12 @@ from PIL import Image
 
 import tab0 
 import tab1 
-# import tab2
-
-# import tab3 
-# import tab4 
-# import tab5 
-# import tab6 
-# import tab7 
+import tab2
+import tab3 
+import tab4 
+import tab5 
+import tab6 
+import tab7 
 
 st.set_page_config(layout="wide")  #### 1번만 실행해야 함 !!! 
 
@@ -173,23 +172,23 @@ with tabs[0]:
 with tabs[1]:
     tab1.run_tab()
 
-# with tabs[2]:
-#     tab2.run_tab()
+with tabs[2]:
+    tab2.run_tab()
 
-# with tabs[3]: 
-#     tab3.run_tab()
+with tabs[3]: 
+    tab3.run_tab()
 
-# with tabs[4]:
-#     tab4.run_tab() 
+with tabs[4]:
+    tab4.run_tab() 
 
-# with tabs[5]:
-#     tab5.run_tab()
+with tabs[5]:
+    tab5.run_tab()
 
-# with tabs[6]:
-#     tab6.run_tab()
+with tabs[6]:
+    tab6.run_tab()
 
-# with tabs[7]:
-#     tab7.run_tab()
+with tabs[7]:
+    tab7.run_tab()
 
 ################################################################################# input -> layout
 # 셀렉트 박스 -----------------------------------------------------------------
