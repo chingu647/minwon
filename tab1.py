@@ -60,10 +60,11 @@ def run_tab():
                             'fillOpacity': 0.3, 
                         }
                     ).add_to(map) 
-        return map
+        map_html = map._repr_html_()
+        return map_html
 
     @st.cache_resource 
-    def create_map(map, point_df): 
+    def create_map(map_html, point_df): 
         for index, row in point_df.iterrows(): 
             if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
                 folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
@@ -81,8 +82,8 @@ def run_tab():
                             #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                             ).add_to(map) 
 
-        folium_map = map._repr_html_() 
-        st.components.v1.html(folium_map, height=900) #, width=800, height=600)
+        # folium_map = map._repr_html_() 
+        st.components.v1.html(map_html, height=900) #, width=800, height=600)
         # folium_static(t1_map) #, width=600, height=400)
         # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
