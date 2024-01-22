@@ -115,7 +115,7 @@ def create_map(map, point_df):
     # folium_static(t1_map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
-    st.cache_resource.clear()
+    # st.cache_resource.clear()  # -------------------------------------------------------------------------- ???
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
