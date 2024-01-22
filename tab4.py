@@ -38,7 +38,6 @@ def run_tab():
     st.markdown(""" 
                 <style> 
                     table{background-color:#f0f0f0;} 
-                    # div{border:1px solid #00ff00;}
                     img {max-width: 900px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
                 
                 </style> """, 
