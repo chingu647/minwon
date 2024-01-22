@@ -38,7 +38,7 @@ def load_df(organ, kind1):
 
     # wc data
     wc_sr = df.loc[:, '본문 요약']
-    wc_data = ' '.join(wc_sr)
+    wc_data = ' '.join( map(str,wc_sr) )
 
     return kind1_df, point_df, wc_data  
     # kind1_df --------- 
