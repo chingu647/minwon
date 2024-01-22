@@ -67,7 +67,7 @@ def run_tab():
     ###################################################################### body 1  
     t1b1.markdown("##### 2024년 이슈")
 
-    t1b1_kind1_df, _ = mf.load_df(organ_t7, kind1_t7) 
+    t1b1_kind1_df, _, _ = mf.load_df(organ_t7, kind1_t7) 
 
     t1b1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
