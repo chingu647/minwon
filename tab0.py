@@ -35,7 +35,7 @@ def run_tab():
                 <style> 
                     table{background-color:#f0f0f0;} 
                     # div{border:1px solid #00ff00;}
-                    img {max-width: 900px; max-height: 500px;}    # 이미지 파일 최대크기 제한 
+                    img {max-width: 900px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
                 
                 </style> """, 
                 unsafe_allow_html=True
@@ -72,7 +72,7 @@ def run_tab():
 
     t0b2.markdown("##### 주요 키워드 클라우드") 
 
-    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
+    text_raw = '한국어 분석을  시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
     t0b2_fig = mf.load_wc(text_raw)
     t0b2.pyplot(t0b2_fig)
 
