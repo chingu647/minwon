@@ -67,7 +67,7 @@ def run_tab():
     ###################################################################### body 1  
     t2b1.markdown("##### 2024년 이슈")
 
-    t2b1_kind1_df, _ = mf.load_df(organ_t2, kind1_t2) 
+    t2b1_kind1_df, _, _ = mf.load_df(organ_t2, kind1_t2) 
 
     t2b1.table(t2b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
@@ -109,7 +109,7 @@ def run_tab():
     t2t1.markdown("##### 노선별 민원") 
 
     # 테이블 데이터
-    _, t2t1_point_df = mf.load_df(organ_t2, kind1_t2) 
+    _, t2t1_point_df, _ = mf.load_df(organ_t2, kind1_t2) 
     t2t1.dataframe(t2t1_point_df) 
 
     # map data  
