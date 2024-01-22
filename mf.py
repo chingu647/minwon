@@ -62,10 +62,15 @@ def load_wc(text_raw): # target_layout 에러 발생
 
 
 ##################################################################################### load map
-# arg1 : base_position_ t?? ---------- 탭 페이지에서 입력
-# arg2 : t?? _point_df ---------- 위의 load_df에서 받아 옴
+# arg1 : organ_ t?? ---------- 탭 페이지에서 입력
+# arg2 : kind1_ t?? ---------- 탭 페이지에서 입력
+# base_position_ t?? --------- 탭 페이지에서 입력
+
 @st.cache_resource 
-def load_map(base_position, point_df): 
+def load_map(organ, kind1, base_position): 
+    # data  
+    kind1_df, point_df = load_df(organ, kind1)  #   <==================================================
+
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
     gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
     folium.GeoJson(gpf_line, 
