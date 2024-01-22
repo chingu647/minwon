@@ -277,7 +277,12 @@ def run_tab():
     t1t1.dataframe(t1t1_point_df_temp)
 
     base_position = [35.18668601, 126.87954220] 
+
+    global t1t1_map 
+    
     t1t1_map = load_map(base_position) 
     # create_map(t1t1_map, t1t1_point_df) 
+
+
     create_map_t1(t1t1_point_df) 
 
