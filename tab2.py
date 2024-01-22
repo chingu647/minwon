@@ -62,7 +62,7 @@ def run_tab():
                     ).add_to(map) 
         return map 
     
-    global t1t1_map  # ----------------------------------------------------------------------- 
+    global t2t1_map  # ----------------------------------------------------------------------- 
     @st.cache_resource
     def create_map_t1(point_df): 
         for index, row in point_df.iterrows(): 
@@ -72,7 +72,7 @@ def run_tab():
                                     color='blue',        # 원 테두리 색상
                                     fill=True,           # 원 채움
                                     fill_opacity=0.5,     # 원 채움 투명도
-                                    ).add_to(t1t1_map) 
+                                    ).add_to(t2t1_map) 
                 
                 folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
                             popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
@@ -80,9 +80,9 @@ def run_tab():
                             icon=folium.Icon(color='red', icon='star'), 
                             #   icon=folium.DivIcon(                              # 값 표시방식
                             #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                            ).add_to(t1t1_map) 
+                            ).add_to(t2t1_map) 
 
-        folium_map = t1t1_map._repr_html_() 
+        folium_map = t2t1_map._repr_html_() 
         st.components.v1.html(folium_map, height=900) #, width=800, height=600)
         # folium_static(t1_map) #, width=600, height=400)
         # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
@@ -106,7 +106,7 @@ def run_tab():
     t2b4, t2b5, t2b6, t2b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
     t2b8, t2b9, t2b10,t2b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
-    t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
+    t1t0, t2t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
     ###################################################################### head 1  
     t2h1.markdown("##### 담양지사 : 공지사항")
@@ -268,20 +268,20 @@ def run_tab():
 
 
     ###################################################################### tail 1
-    t1t1.markdown("##### 노선별 민원") 
+    t2t1.markdown("##### 노선별 민원") 
     
     # -------------------------------------------------------- 가로 sns bar 그래프 
     # map data  
 
-    t1t1_kind1_df, t1t1_point_df = load_df('광주지사', '서비스유형(대)')   
-    t1t1_point_df_temp = t1t1_point_df.copy()  
-    t1t1.dataframe(t1t1_point_df_temp)
+    t2t1_kind1_df, t2t1_point_df = load_df('담양지사', '서비스유형(대)')   
+    t2t1_point_df_temp = t2t1_point_df.copy()  
+    t2t1.dataframe(t2t1_point_df_temp)
 
     base_position = [35.18668601, 126.87954220] 
 
-    t1t1_map = load_map(base_position) 
-    # create_map(t1t1_map, t1t1_point_df) 
+    t2t1_map = load_map(base_position) 
+    # create_map(t2t1_map, t2t1_point_df) 
 
 
-    create_map_t1(t1t1_point_df) 
+    create_map_t1(t2t1_point_df) 
 
