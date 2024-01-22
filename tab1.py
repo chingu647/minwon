@@ -18,6 +18,13 @@ from wordcloud import WordCloud, STOPWORDS
 
 
 def run_tab(): 
+    global t1t1_map  # ----------------------------------------------------------------------- 
+    global organ_t1
+    global kind1_t1
+    organ_t1 = "광주지사" 
+    kind1_t1 = '서비스유형(대)'
+
+
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-2) ST CACHE 사용
     @st.cache_resource 
     def load_df(organ, kind1):
@@ -62,9 +69,8 @@ def run_tab():
                     ).add_to(map) 
         return map 
     
-    global t1t1_map  # ----------------------------------------------------------------------- 
     @st.cache_resource
-    def create_map_t1(point_df): 
+    def create_map_t1(point_df):                                                  #    map이 다르므로 함수명도 다르게 설정함
         for index, row in point_df.iterrows(): 
             if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
                 folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
@@ -109,7 +115,7 @@ def run_tab():
     t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
     ###################################################################### head 1  
-    t1h1.markdown("##### 광주지사 : 공지사항")
+    t1h1.markdown(f"##### {organ_t1} : 공지사항")
     t1h1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있습니다.
     """)
@@ -117,7 +123,7 @@ def run_tab():
     ###################################################################### body 1  
     t1b1.markdown("##### 2024년 이슈")
 
-    t1b1_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t1b1_kind1_df, _ = load_df(organ_t1, kind1_t1) 
 
     t1b1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
@@ -138,7 +144,7 @@ def run_tab():
 
     # -------------------------------------------------------- pie 그래프 
     # data  
-    t1b5_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t1b5_kind1_df, _ = load_df(organ_t1, kind1_t1) 
 
     t1b5_x = t1b5_kind1_df.index.values
     t1b5_y = t1b5_kind1_df['건수'] 
@@ -185,7 +191,7 @@ def run_tab():
 
     # -------------------------------------------------------- 세로 bar 그래프 
     # data  
-    t1b6_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t1b6_kind1_df, _ = load_df(organ_t1, kind1_t1) 
 
     t1b6_x = t1b6_kind1_df.index.values
     t1b6_y = t1b6_kind1_df['건수'] 
@@ -223,7 +229,7 @@ def run_tab():
     
     # -------------------------------------------------------- 가로 sns bar 그래프 
     # data  
-    t1b9_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t1b9_kind1_df, _ = load_df(organ_t1, kind1_t1) 
     t1b9_x = t1b9_kind1_df.index.values
     t1b9_y = t1b9_kind1_df['건수'] 
 
@@ -261,7 +267,7 @@ def run_tab():
     ###################################################################### body 10
     t1b10.markdown("##### 노선별 민원") 
 
-    t1b10_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t1b10_kind1_df, _ = load_df(organ_t1, kind1_t1) 
 
     t1b10.table(t1b10_kind1_df.style.background_gradient(cmap='winter')) 
 
@@ -273,7 +279,7 @@ def run_tab():
     # -------------------------------------------------------- 가로 sns bar 그래프 
     # map data  
 
-    t1t1_kind1_df, t1t1_point_df = load_df('광주지사', '서비스유형(대)')   
+    t1t1_kind1_df, t1t1_point_df = load_df(organ_t1, kind1_t1)   
     t1t1_point_df_temp = t1t1_point_df.copy()  
     t1t1.dataframe(t1t1_point_df_temp)
 
