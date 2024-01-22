@@ -36,7 +36,11 @@ def load_df(organ, kind1):
     # point_df = df[ (df['latitude'].str.strip() != '') and (df['longitude'].str.strip() != '') ] 
     point_df = df[ ~( (df['latitude'].isna()) | (df['longitude'].isna()) ) ] 
 
-    return kind1_df, point_df  
+    # wc data
+    wc_sr = df.loc[:, '본문요약']
+    wc_data = ' '.join(wc_sr)
+
+    return kind1_df, point_df, wc_data  
     # kind1_df --------- 
     # point_df --------- 
 
@@ -45,9 +49,11 @@ def load_df(organ, kind1):
 ##################################################################################### load wc 
 # arg1 : text_raw 
 @st.cache_resource 
-def load_wc(text_raw): # target_layout 에러 발생 
+def load_wc(organ, kind1): # target_layout 에러 발생 
+    # data  
+    _, _, wc_data = load_df(organ, kind1)  #   <================================================== 
     t = Okt()
-    text_nouns = t.nouns(text_raw) 
+    text_nouns = t.nouns(wc_data) 
     stopwords =['시어']
     text_nouns = [n for n in text_nouns if n not in stopwords]
     text_str = ' '.join(text_nouns)
@@ -69,7 +75,7 @@ def load_wc(text_raw): # target_layout 에러 발생
 @st.cache_resource 
 def load_map(organ, kind1, base_position): 
     # data  
-    kind1_df, point_df = load_df(organ, kind1)  #   <==================================================
+    kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
     gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
@@ -111,7 +117,7 @@ def load_map(organ, kind1, base_position):
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 def create_pie(organ, kind1): 
     # data  
-    kind1_df, _ = load_df(organ, kind1)  #   <==================================================
+    kind1_df, _, _ = load_df(organ, kind1)  #   <==================================================
 
     data_x = kind1_df.index.values
     data_y = kind1_df['건수'] 
@@ -160,7 +166,7 @@ def create_pie(organ, kind1):
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 def create_vbar(organ, kind1): 
     # data  
-    kind1_df, _ = load_df(organ, kind1)  #   <==================================================
+    kind1_df, _, _ = load_df(organ, kind1)  #   <==================================================
 
     data_x = kind1_df.index.values
     data_y = kind1_df['건수'] 
@@ -200,7 +206,7 @@ def create_vbar(organ, kind1):
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 def create_sns_hbar(organ, kind1): 
     # data  
-    kind1_df, _ = load_df(organ, kind1)  #   <==================================================
+    kind1_df, _, _ = load_df(organ, kind1)  #   <==================================================
 
     data_x = kind1_df.index.values
     data_y = kind1_df['건수'] 
