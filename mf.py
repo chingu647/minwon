@@ -46,7 +46,7 @@ def load_df(organ, kind1):
 # arg1 : text_raw 
 # arg2 : target_fig --------- 탭 페이지에서 입력
 @st.cache_resource 
-def load_wc(text_raw, target_layout):
+def load_wc(text_raw) #, target_layout):
     t = Okt()
     text_nouns = t.nouns(text_raw) 
     stopwords =['시어']
@@ -57,7 +57,8 @@ def load_wc(text_raw, target_layout):
     fig, ax = plt.subplots(figsize=(10,4)) 
     ax.axis('off')
     ax.imshow(wc) 
-    target_layout.pyplot(fig) 
+    # target_layout.pyplot(fig) 
+    return fig 
 
 
 
