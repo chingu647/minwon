@@ -52,7 +52,7 @@ def run_tab():
     t5b4, t5b5, t5b6, t5b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
     t5b8, t5b9, t5b10,t5b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
-    t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
+    t5t0, t5t1, t5t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
 
 
@@ -76,8 +76,7 @@ def run_tab():
     ###################################################################### body 2 
     t5b2.markdown("##### 주요 키워드 클라우드") 
 
-    text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
-    t5b2_fig = mf.load_wc(text_raw)
+    t5b2_fig = mf.load_wc(organ_t5, kind1_t5)
     t5b2.pyplot(t5b2_fig) 
 
 
@@ -107,11 +106,11 @@ def run_tab():
 
 
     ###################################################################### tail 1
-    t1t1.markdown("##### 노선별 민원") 
+    t5t1.markdown("##### 노선별 민원") 
 
     # 테이블 데이터
-    _, t1t1_point_df = mf.load_df(organ_t5, kind1_t5) 
-    t1t1.dataframe(t1t1_point_df) 
+    _, t5t1_point_df = mf.load_df(organ_t5, kind1_t5) 
+    t5t1.dataframe(t5t1_point_df) 
 
     # map data  
     map_t5 = mf.load_map(organ_t5, kind1_t5, base_position_t5) 
