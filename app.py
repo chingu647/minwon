@@ -134,7 +134,7 @@ st.markdown("""
 
 ################################################################################# title
 st.markdown("""
-            <center><h2>한눈에 보는 민원지도<h2></center>
+            <center><h2>한눈에 보는 광주전남 민원지도<h2></center>
             """, 
             unsafe_allow_html=True) 
 
