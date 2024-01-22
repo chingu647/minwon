@@ -62,8 +62,8 @@ def run_tab():
                     ).add_to(map) 
         return map
 
-    # @st.cache_resource
-    def create_map(map, point_df): 
+    @st.cache_resource
+    def create_map_t1(point_df): 
         for index, row in point_df.iterrows(): 
             if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
                 folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
@@ -278,5 +278,6 @@ def run_tab():
 
     base_position = [35.18668601, 126.87954220] 
     t1t1_map = load_map(base_position) 
-    create_map(t1t1_map, t1t1_point_df) 
+    # create_map(t1t1_map, t1t1_point_df) 
+    create_map_t1(t1t1_point_df) 
 
