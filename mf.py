@@ -59,7 +59,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
                 '문의사항','내용','요청','요지','안내','일부','부분','미완료','관내','박준혁','대리','박준혁 대리','관련','저희','것','함',]
     text_nouns = [n for n in text_nouns if n not in stopwords]
     text_str = ' '.join(text_nouns)
-    wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=20).generate(text_str) 
+    wc = WordCloud(background_color='#ffffff', font_path=r"data/NanumGothic.ttf", max_words=20).generate(text_str)   # '#ECF8E0'
     
     fig, ax = plt.subplots(figsize=(10,4)) 
     ax.axis('off')
