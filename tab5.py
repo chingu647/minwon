@@ -30,7 +30,7 @@ def run_tab():
     global kind1_t5 
     global base_position_t5
 
-    organ_t5 = "광주지사" 
+    organ_t5 = "구례지사" 
     kind1_t5 = '서비스유형(대)'
     base_position_t5 = [35.18668601, 126.87954220] 
 
