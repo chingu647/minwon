@@ -109,7 +109,7 @@ def run_tab():
     t5t1.markdown("##### 노선별 민원") 
 
     # 테이블 데이터
-    _, t5t1_point_df = mf.load_df(organ_t5, kind1_t5) 
+    _, t5t1_point_df, _ = mf.load_df(organ_t5, kind1_t5) 
     t5t1.dataframe(t5t1_point_df) 
 
     # map data  
