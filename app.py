@@ -76,46 +76,47 @@ def load_wc(text_raw):
     
     return wc 
 
-@st.cache_resource 
-def load_map(base_position): 
-    map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
-    gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
-    folium.GeoJson(gpf_line, 
-                    style_function=lambda feature: {
-                        'fillColor': 'blue' , #feature['properties']['color'],
-                        'color': '#F5F6CE',
-                        'weight': 3,
-                        'dashArray': '5, 5',
-                        'fillOpacity': 0.3, 
-                    }
-                ).add_to(map) 
-    return map
+# @st.cache_resource 
+# def load_map(base_position): 
+#     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
+#     gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
+#     folium.GeoJson(gpf_line, 
+#                     style_function=lambda feature: {
+#                         'fillColor': 'blue' , #feature['properties']['color'],
+#                         'color': '#F5F6CE',
+#                         'weight': 3,
+#                         'dashArray': '5, 5',
+#                         'fillOpacity': 0.3, 
+#                     }
+#                 ).add_to(map) 
+#     return map
 
-# @st.cache_resource
-def create_map(map, point_df): 
-    for index, row in point_df.iterrows(): 
-        if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
-            folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
-                                radius=1,            # 원 반지름
-                                color='blue',        # 원 테두리 색상
-                                fill=True,           # 원 채움
-                                fill_opacity=0.5,     # 원 채움 투명도
-                                ).add_to(map) 
+# # @st.cache_resource
+# def create_map(map, point_df): 
+#     for index, row in point_df.iterrows(): 
+#         if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
+#             folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
+#                                 radius=1,            # 원 반지름
+#                                 color='blue',        # 원 테두리 색상
+#                                 fill=True,           # 원 채움
+#                                 fill_opacity=0.5,     # 원 채움 투명도
+#                                 ).add_to(map) 
             
-            folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
-                        tooltip=row['latitude'], 
-                        icon=folium.Icon(color='red', icon='star'), 
-                        #   icon=folium.DivIcon(                              # 값 표시방식
-                        #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                        ).add_to(map) 
+#             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
+#                         popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+#                         tooltip=row['latitude'], 
+#                         icon=folium.Icon(color='red', icon='star'), 
+#                         #   icon=folium.DivIcon(                              # 값 표시방식
+#                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
+#                         ).add_to(map) 
 
-    folium_map = map._repr_html_() 
-    st.components.v1.html(folium_map, height=900) #, width=800, height=600)
-    # folium_static(t1_map) #, width=600, height=400)
-    # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
+#     folium_map = map._repr_html_() 
+#     st.components.v1.html(folium_map, height=900) #, width=800, height=600)
+#     # folium_static(t1_map) #, width=600, height=400)
+#     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
-    # st.cache_resource.clear()  # -------------------------------------------------------------------------- ???
+# =====================================================================================================================
+#     # st.cache_resource.clear()  # -------------------------------------------------------------------------- ???
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정

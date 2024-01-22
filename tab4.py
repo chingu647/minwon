@@ -82,8 +82,8 @@ def run_tab():
                             #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                             ).add_to(t4t1_map) 
 
-        folium_map = t4t1_map._repr_html_() 
-        st.components.v1.html(folium_map, height=900) #, width=800, height=600)
+        folium_map_t4 = t4t1_map._repr_html_() 
+        st.components.v1.html(folium_map_t4, height=900) #, width=800, height=600)
         # folium_static(t1_map) #, width=600, height=400)
         # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
