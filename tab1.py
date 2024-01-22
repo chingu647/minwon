@@ -60,11 +60,10 @@ def run_tab():
                             'fillOpacity': 0.3, 
                         }
                     ).add_to(map) 
-        map_html = map._repr_html_()
-        return map_html
+        return map
 
-    @st.cache_resource 
-    def create_map(map_html, point_df): 
+    # @st.cache_resource
+    def create_map(map, point_df): 
         for index, row in point_df.iterrows(): 
             if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
                 folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
@@ -72,7 +71,7 @@ def run_tab():
                                     color='blue',        # 원 테두리 색상
                                     fill=True,           # 원 채움
                                     fill_opacity=0.5,     # 원 채움 투명도
-                                    ).add_to(map_html) 
+                                    ).add_to(map) 
                 
                 folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
                             popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
@@ -80,10 +79,10 @@ def run_tab():
                             icon=folium.Icon(color='red', icon='star'), 
                             #   icon=folium.DivIcon(                              # 값 표시방식
                             #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                            ).add_to(map_html) 
+                            ).add_to(map) 
 
-        # folium_map = map._repr_html_() 
-        st.components.v1.html(map_html, height=900) #, width=800, height=600)
+        folium_map = map._repr_html_() 
+        st.components.v1.html(folium_map, height=900) #, width=800, height=600)
         # folium_static(t1_map) #, width=600, height=400)
         # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
