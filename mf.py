@@ -54,7 +54,8 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     _, _, wc_data = load_df(organ, kind1)  #   <================================================== 
     t = Okt()
     text_nouns = t.nouns(wc_data) 
-    stopwords =['시어','및','조치','예정','민원','처리','해당','통해','대한','방향','후','검토','확인','완료','내','노력','등','위해','지사']
+    stopwords =['시어','및','조치','예정','민원','처리','해당','통해','대한','방향','후','검토','확인','완료','내','노력','등','위해','지사',
+                '대하',]
     text_nouns = [n for n in text_nouns if n not in stopwords]
     text_str = ' '.join(text_nouns)
     wc = WordCloud(background_color='#ECF8E0', font_path=r"data/NanumGothic.ttf", max_words=20).generate(text_str) 
