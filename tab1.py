@@ -47,7 +47,7 @@ def run_tab():
         
         return wc 
 
-    @st.cache_resource 
+    # @st.cache_resource 
     def load_map(base_position): 
         map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
         gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 

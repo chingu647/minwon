@@ -47,7 +47,7 @@ def run_tab():
         
         return wc 
 
-    @st.cache_resource 
+    # @st.cache_resource 
     def load_map(base_position): 
         map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
         gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
@@ -64,7 +64,7 @@ def run_tab():
     
     global t3t1_map  # ----------------------------------------------------------------------- 
     @st.cache_resource
-    def create_map_t1(point_df): 
+    def create_map_t3(point_df): 
         for index, row in point_df.iterrows(): 
             if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
                 folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
@@ -283,5 +283,5 @@ def run_tab():
     # create_map(t3t1_map, t3t1_point_df) 
 
 
-    create_map_t1(t3t1_point_df) 
+    create_map_t3(t3t1_point_df) 
 
