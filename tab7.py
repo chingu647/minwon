@@ -100,52 +100,52 @@ def run_tab():
                 ) 
 
     ###################################################################### layout 
-    t2h0, t2h1, t2h2 = st.columns( [0.001, 0.998, 0.001] ) 
+    t7h0, t7h1, t7h2 = st.columns( [0.001, 0.998, 0.001] ) 
     
-    t2b0, t2b1, t2b2, t2b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    t2b4, t2b5, t2b6, t2b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    t2b8, t2b9, t2b10,t2b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t7b0, t7b1, t7b2, t7b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t7b4, t7b5, t7b6, t7b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t7b8, t7b9, t7b10,t7b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
     t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
     ###################################################################### head 1  
-    t2h1.markdown("##### 담양지사 : 공지사항")
-    t2h1.markdown(r"""
-	1. 담양지사 민원은 증가추세에 있습니다.
+    t7h1.markdown("##### 남원지사 : 공지사항")
+    t7h1.markdown(r"""
+	1. 광주지사 민원은 증가추세에 있습니다.
     """)
 
     ###################################################################### body 1  
-    t2b1.markdown("##### 2024년 이슈")
+    t7b1.markdown("##### 2024년 이슈")
 
-    t2b1_kind1_df, _ = load_df('담양지사', '서비스유형(대)') 
+    t7b1_kind1_df, _ = load_df('남원지사', '서비스유형(대)') 
 
-    t2b1.table(t2b1_kind1_df.style.background_gradient(cmap='Blues')) 
+    t7b1.table(t7b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
     ###################################################################### body 2 
-    t2b2.markdown("##### 주요 키워드 클라우드") 
+    t7b2.markdown("##### 주요 키워드 클라우드") 
 
     text_raw = '한국어 분석을 시작합니다... 재미있어요!!!~~~한국어 분석 고속도로 포장 포장 광주 광주지사 시어요!!!~~~한국어 합니다... 재미있어요!!!~~~'
-    t2b2_wc = load_wc(text_raw)
+    t7b2_wc = load_wc(text_raw)
   
 
-    t2b2_fig, t2b2_ax = plt.subplots(figsize=(10,4)) 
-    t2b2_ax.axis('off')
-    t2b2_ax.imshow(t2b2_wc)
-    t2b2.pyplot(t2b2_fig) 
+    t7b2_fig, t7b2_ax = plt.subplots(figsize=(10,4)) 
+    t7b2_ax.axis('off')
+    t7b2_ax.imshow(t7b2_wc)
+    t7b2.pyplot(t7b2_fig) 
 
     ###################################################################### body 5 
-    t2b5.markdown("##### 유형별 민원") 
+    t7b5.markdown("##### 유형별 민원") 
 
     # -------------------------------------------------------- pie 그래프 
     # data  
-    t2b5_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t7b5_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
-    t2b5_x = t2b5_kind1_df.index.values
-    t2b5_y = t2b5_kind1_df['건수'] 
+    t7b5_x = t7b5_kind1_df.index.values
+    t7b5_y = t7b5_kind1_df['건수'] 
 
     # preprocessing
-    t2b5_fig, t2b5_ax = plt.subplots(figsize=(10,4)) 
-    t2b5_ax.tick_params(
+    t7b5_fig, t7b5_ax = plt.subplots(figsize=(10,4)) 
+    t7b5_ax.tick_params(
         # axis=x or axis=y,
         # labelsize=20,
         direction='inout',
@@ -157,12 +157,12 @@ def run_tab():
         left = True, labelleft=True,
         right= False, labelright=False
         )
-    t2b5_ax.set_facecolor('white')                  # figure 배경색 
+    t7b5_ax.set_facecolor('white')                  # figure 배경색 
 
     # paint 
-    explode = [0.05 for i in t2b5_x]
+    explode = [0.05 for i in t7b5_x]
     wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 3}
-    t2b5_ax.pie(t2b5_y, labels=t2b5_x, 
+    t7b5_ax.pie(t7b5_y, labels=t7b5_x, 
             startangle=260,
             counterclock=False, 
             autopct="%.1f%%", 
@@ -170,29 +170,29 @@ def run_tab():
             # shadow=True,
             wedgeprops=wedgeprops, 
             textprops={'size':9}) 
-    t2b5_cx = 0
-    t2b5_cy = 0
-    t2b5_val= '총' + str(t2b5_kind1_df['건수'].sum()) + '건'
-    t2b5_ax.text(t2b5_cx, t2b5_cy, t2b5_val, 
+    t7b5_cx = 0
+    t7b5_cy = 0
+    t7b5_val= '총' + str(t7b5_kind1_df['건수'].sum()) + '건'
+    t7b5_ax.text(t7b5_cx, t7b5_cy, t7b5_val, 
                 ha='center', va='center', 
                 color='red',
                 fontsize=23)                           # bar text 폰크 
 
-    t2b5.pyplot(t2b5_fig) 
+    t7b5.pyplot(t7b5_fig) 
 
     ###################################################################### body 6 
-    t2b6.markdown("##### 유형별 민원") 
+    t7b6.markdown("##### 유형별 민원") 
 
     # -------------------------------------------------------- 세로 bar 그래프 
     # data  
-    t2b6_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t7b6_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
-    t2b6_x = t2b6_kind1_df.index.values
-    t2b6_y = t2b6_kind1_df['건수'] 
+    t7b6_x = t7b6_kind1_df.index.values
+    t7b6_y = t7b6_kind1_df['건수'] 
 
     # preprocessing 
-    t2b6_fig, t2b6_ax = plt.subplots(figsize=(10,4)) 
-    t2b6_ax.tick_params(
+    t7b6_fig, t7b6_ax = plt.subplots(figsize=(10,4)) 
+    t7b6_ax.tick_params(
         # axis=x or axis=y,
         labelsize=20,
         direction='inout',
@@ -204,32 +204,32 @@ def run_tab():
         left = False, labelleft=False,
         right= False, labelright=False
         )
-    t2b6_ax.set_facecolor('white')                  # figure 배경색 
+    t7b6_ax.set_facecolor('white')                  # figure 배경색 
 
     # paint 
-    t2b6_ax.bar(t2b6_x, t2b6_y, color='#E0ECF8')            # bar plot 표시
-    for i in range(len(t2b6_x)):                        # bar text 표시
-        height = t2b6_y[i]+0.5 
-        height_str = str(t2b6_y[i])+'건'
-        t2b6_ax.text(t2b6_x[i], height, height_str, 
+    t7b6_ax.bar(t7b6_x, t7b6_y, color='#E0ECF8')            # bar plot 표시
+    for i in range(len(t7b6_x)):                        # bar text 표시
+        height = t7b6_y[i]+0.5 
+        height_str = str(t7b6_y[i])+'건'
+        t7b6_ax.text(t7b6_x[i], height, height_str, 
                  ha='center', va='bottom', 
                  color='green',
                  fontsize=20)                           # bar text 폰크 
 
-    t2b6.pyplot(t2b6_fig) 
+    t7b6.pyplot(t7b6_fig) 
 
     ###################################################################### body 9
-    t2b9.markdown("##### 노선별 민원") 
+    t7b9.markdown("##### 노선별 민원") 
     
     # -------------------------------------------------------- 가로 sns bar 그래프 
     # data  
-    t2b9_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
-    t2b9_x = t2b9_kind1_df.index.values
-    t2b9_y = t2b9_kind1_df['건수'] 
+    t7b9_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t7b9_x = t7b9_kind1_df.index.values
+    t7b9_y = t7b9_kind1_df['건수'] 
 
     # preprocessing ---------------------------
-    t2b9_fig,  t2b9_ax = plt.subplots(figsize=(10,6)) 
-    t2b9_ax.tick_params(
+    t7b9_fig,  t7b9_ax = plt.subplots(figsize=(10,6)) 
+    t7b9_ax.tick_params(
         # axis=x or axis=y,
         labelsize=20,
         direction='inout',
@@ -241,29 +241,29 @@ def run_tab():
         left = True, labelleft=True,
         right= False, labelright=False
         )
-    t2b9_ax.set_facecolor('white')                  # figure 배경색 
+    t7b9_ax.set_facecolor('white')                  # figure 배경색 
 
     # paint 
-    sns.barplot(x=t2b9_y, y=t2b9_x, 
-                hue=t2b9_x, 
+    sns.barplot(x=t7b9_y, y=t7b9_x, 
+                hue=t7b9_x, 
                 dodge=False,
-                ax=t2b9_ax) 
-    for i in range(len(t2b9_x)):               # bar text 표시
-        width = t2b9_y[i]+1.5 
-        width_str = str(t2b9_y[i])+'건'
-        t2b9_ax.text(width, i, width_str, 
+                ax=t7b9_ax) 
+    for i in range(len(t7b9_x)):               # bar text 표시
+        width = t7b9_y[i]+1.5 
+        width_str = str(t7b9_y[i])+'건'
+        t7b9_ax.text(width, i, width_str, 
                 #  ha='center', va='bottom', 
                  color='green',
                  fontsize=20)                   # bar text 폰크
 
-    t2b9.pyplot(t2b9_fig)  
+    t7b9.pyplot(t7b9_fig)  
 
     ###################################################################### body 10
-    t2b10.markdown("##### 노선별 민원") 
+    t7b10.markdown("##### 노선별 민원") 
 
-    t2b10_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
+    t7b10_kind1_df, _ = load_df('광주지사', '서비스유형(대)') 
 
-    t2b10.table(t2b10_kind1_df.style.background_gradient(cmap='winter')) 
+    t7b10.table(t7b10_kind1_df.style.background_gradient(cmap='winter')) 
 
 
 
