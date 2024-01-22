@@ -44,9 +44,8 @@ def load_df(organ, kind1):
 
 ##################################################################################### load wc 
 # arg1 : text_raw 
-# arg2 : target_fig --------- 탭 페이지에서 입력
 @st.cache_resource 
-def load_wc(text_raw): #, target_layout):
+def load_wc(text_raw): # target_layout 에러 발생 
     t = Okt()
     text_nouns = t.nouns(text_raw) 
     stopwords =['시어']
@@ -105,9 +104,7 @@ def load_map(base_position, point_df):
 
 ##################################################################################### create pie
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
-# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-# arg3 : target_layout --------- 탭 페이지에서 입력
-def create_pie(organ, kind1, target_layout): 
+def create_pie(organ, kind1): 
     # data  
     kind1_df, _ = load_df(organ, kind1)  #   <==================================================
 
@@ -149,15 +146,14 @@ def create_pie(organ, kind1, target_layout):
             color='red',
             fontsize=23)                           # bar text 폰크 
     
-    target_layout.pyplot(fig) 
+    return fig  
 
 
 
 ##################################################################################### 세로 막대 create vbar 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-# arg3 : target_layout --------- 탭 페이지에서 입력
-def create_vbar(organ, kind1, target_layout): 
+def create_vbar(organ, kind1): 
     # data  
     kind1_df, _ = load_df(organ, kind1)  #   <==================================================
 
@@ -190,14 +186,13 @@ def create_vbar(organ, kind1, target_layout):
                 color='green',
                 fontsize=20)                           # bar text 폰크 
     
-    target_layout.pyplot(fig) 
+    return fig  
 
 
 
 ##################################################################################### 가로 막대 create sns hbar 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-# arg3 : target_layout --------- 탭 페이지에서 입력
 def create_sns_hbar(organ, kind1, target_layout): 
     # data  
     kind1_df, _ = load_df(organ, kind1)  #   <==================================================
@@ -235,5 +230,5 @@ def create_sns_hbar(organ, kind1, target_layout):
                 color='green',
                 fontsize=20)                   # bar text 폰크
 
-    target_layout.pyplot(fig)  
+    return fig   
 
