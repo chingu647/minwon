@@ -18,12 +18,12 @@ from wordcloud import WordCloud, STOPWORDS
 
 
 def run_tab(): 
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
     global t1t1_map  # ----------------------------------------------------------------------- 
     global organ_t1
     global kind1_t1
     organ_t1 = "광주지사" 
     kind1_t1 = '서비스유형(대)'
-
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-2) ST CACHE 사용
     @st.cache_resource 
@@ -69,8 +69,9 @@ def run_tab():
                     ).add_to(map) 
         return map 
     
+    # global t2t1_map  # ----------------------------- #    map이 다르므로 함수명도 다르게 설정함
     @st.cache_resource
-    def create_map_t1(point_df):                                                  #    map이 다르므로 함수명도 다르게 설정함
+    def create_map_t1(point_df):  
         for index, row in point_df.iterrows(): 
             if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
                 folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
