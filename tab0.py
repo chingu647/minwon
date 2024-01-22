@@ -89,5 +89,5 @@ def run_tab():
     t0b6.markdown("##### 유형별 민원") 
     
     # 가로 sns bar 그래프 
-    t0b6_sns_hbar = mf.create_sns_hbar(organ_t0, kind1_t0, t0b6) 
+    t0b6_sns_hbar = mf.create_sns_hbar(organ_t0, kind1_t0) 
     t0b6.pyplot(t0b6_sns_hbar)
