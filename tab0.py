@@ -80,8 +80,8 @@ def run_tab():
     t0b5.markdown("##### 지사별 민원") 
 
     # -------------------------------------------------------- 세로 bar 그래프 
-    t0b5_vbar = mf.create_vbar(organ_t0, kind1_t0) 
-    t0b5.pyplot(t0b5_vbar)
+    t0b5_pie = mf.create_pie(organ_t0, kind1_t0) 
+    t0b5.pyplot(t0b5_pie)
 
 
 
