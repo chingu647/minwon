@@ -5,3 +5,4 @@ st.title('Contact')
 
 with open('activity1.html') as file:
     components.html( file.read() )
+

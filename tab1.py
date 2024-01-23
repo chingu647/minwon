@@ -77,7 +77,7 @@ def run_tab():
     t1b2.markdown("##### 주요 키워드 클라우드") 
 
     t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
-    t1b2.pyplot(t1b2_fig) 
+    t1b2.pyplot(t1b2_fig, use_container_width=False) 
 
 
 
