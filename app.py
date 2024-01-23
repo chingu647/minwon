@@ -119,7 +119,7 @@ selected = option_menu(menu_title=None,
                                 } 
 )
 
-if selected == "광주전남":
+if selected == "본부":
     tab0.run_tab() 
 
 elif selected == "광주": 
