@@ -38,7 +38,7 @@ def run_tab():
     st.markdown(""" 
                 <style> 
                     table{background-color:#f0f0f0;} 
-                    img {max-width: 1000px; max-height: 600px; object-cover:scale-down; }    # 이미지 파일 최대크기 제한 
+                    img {max-width: 1000px; max-height: 600px; object-cover:none; }    # 이미지 파일 최대크기 제한 
                 
                 </style> """, 
                 unsafe_allow_html=True
@@ -62,16 +62,7 @@ def run_tab():
 
 
 
-    # ###################################################################### body 1     # 이미지 파일 최대크기 제한
-    # t2b1.markdown(""" 
-    #     <style> 
-    #         table{background-color:#f0f0f0;} 
-    #         img {width:900px; height:450px; max-width: 900px; max-height: 450px; }   
-        
-    #     </style> """, 
-    #     unsafe_allow_html=True
-    #     ) 
-    
+    # ###################################################################### body 1     # 이미지 파일 최대크기 제한     
     t2b1.markdown("""
                   <h5>2024년 이슈</h4>
                   """, unsafe_allow_html=True)
@@ -83,16 +74,8 @@ def run_tab():
 
 
     # ###################################################################### body 2     # 이미지 파일 최대크기 제한
-    # t2b2.markdown(""" 
-    #     <style> 
-    #         table{background-color:#f0f0f0;} 
-    #         img {width:1000px; height:600px; max-width: 1000px; max-height: 600px; object-fit:cover;}  }  
-        
-    #     </style> """, 
-    #     unsafe_allow_html=True
-    #     ) 
-    
     t2b2.markdown("##### 주요 키워드 클라우드") 
+
     t2b2_fig = mf.load_wc(organ_t2, kind1_t2)
 
     t2b2.pyplot(t2b2_fig) 
@@ -100,15 +83,7 @@ def run_tab():
 
 
     # ###################################################################### body 5      # pie chart 최대크기 제한 
-    # t2b5.markdown(""" 
-    #     <style> 
-    #         table{background-color:#f0f0f0;} 
-    #         img {max-width:50px;max-height:50px; object-fit:cover;}  
-    #     </style> """, 
-    #     unsafe_allow_html=True
-    #     ) 
-    
-    # t2b5.markdown("##### 유형별 민원") 
+    t2b5.markdown("##### 유형별 민원") 
 
     # pie 그래프 
     t2b5_pie = mf.create_pie(organ_t2, kind1_t2)
@@ -116,15 +91,6 @@ def run_tab():
 
 
     # ###################################################################### body 6    # 이미지 파일 최대크기 제한
-    # t2b6.markdown(""" 
-    #     <style> 
-    #         table{background-color:#f0f0f0;} 
-    #         img {width:900px; height:450px; max-width: 900px; max-height: 450px; }  
-        
-    #     </style> """, 
-    #     unsafe_allow_html=True
-    #     ) 
-    
     t2b6.markdown("##### 유형별 민원") 
 
     # 가로 sns bar 그래프 
