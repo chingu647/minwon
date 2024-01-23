@@ -57,7 +57,7 @@ def run_tab():
     t2b2.markdown(""" 
             <style> 
                 table{background-color:#f0f0f0;} 
-                img {max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+                img {width:600px; height:500px; max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
             
             </style> """, 
             unsafe_allow_html=True
