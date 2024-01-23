@@ -1,0 +1,16 @@
+h1{
+    color:orange;
+}
+
+h2{
+    color:blue;
+    font-family: 'Times New Roman', Times, serif;
+    font-style:italic;
+} 
+
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+    color:violet;
+}
