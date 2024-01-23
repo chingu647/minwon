@@ -38,11 +38,12 @@ def run_tab():
     st.markdown(""" 
                 <style> 
                     table{background-color:#f0f0f0;} 
-                    img {max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+                    img {max-width: 1000px; max-height: 500px; }    # 이미지 파일 최대크기 제한 
                 
                 </style> """, 
                 unsafe_allow_html=True
                 ) 
+    
     
     ###################################################################### layout 
     t4h0, t4h1, t4h2 = st.columns( [0.001, 0.998, 0.001] ) 

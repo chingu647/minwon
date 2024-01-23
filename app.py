@@ -56,11 +56,9 @@ mpl.rc('figure', titlesize=12)
 st.markdown(""" 
             <style> 
                 table{background-color:#f0f0f0;} 
-                # div{border:1px solid #00ff00;}
-                # img {max-width: 900px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
+                img {max-width: 1000px; max-height: 500px; }    # 이미지 파일 최대크기 제한 
             
-            </style>
-            """, 
+            </style> """, 
             unsafe_allow_html=True
             ) 
 
