@@ -51,7 +51,14 @@ def run_tab():
 
     t0t0, t0t1, t0t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
-
+    t0b5.markdown(""" 
+                <style> 
+                    table{background-color:#f0f0f0;} 
+                    img {max-width: 500px; max-height: 500px; object-fit:scale-down; }    # 이미지 파일 최대크기 제한 
+                
+                </style> """, 
+                unsafe_allow_html=True
+                ) 
 
     # ###################################################################### head 1  
     t0h1.markdown("##### 공지사항")
