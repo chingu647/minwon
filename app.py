@@ -60,13 +60,7 @@ st.markdown("""
                 img {max-width: 600px; max-height: 600px;}    # 이미지 파일 최대크기 제한 
             
             </style>
-            
-            <script>
-                function isDesktopOs() {
-                    return ("win16|win32|win64|windows|mac|machine|linux|freebsd|openbsd|sunos".indexOf( navigator.platform.toLowerCase() ))
-                }           
-            
-            </script> """, 
+            """, 
             unsafe_allow_html=True
             ) 
 
@@ -85,8 +79,11 @@ tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 �
 tabs = st.tabs(tab_titles)
 sbar = st.sidebar
 sbar.markdown(""" 
-              <script> 
-                if( isDesktopOs() ) {
+              <script>
+                function isDesktopOs() {
+                    return ("win16|win32|win64|windows|mac|machine|linux|freebsd|openbsd|sunos".indexOf( navigator.platform.toLowerCase() ))
+                }  
+                if( isDesktopOs() ) { 
                     document.write("<h3>🌸 광주 민원실 </h3><p>")  
                 }
                 else {
@@ -94,7 +91,6 @@ sbar.markdown("""
                 }
               </script>
               """, unsafe_allow_html=True ) 
-
 
 # 각 탭에 콘텐츠 추가
 
