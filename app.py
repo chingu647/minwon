@@ -126,7 +126,7 @@ with tabs[7]:
 
 
 with st.sidebar:
-    selected = option_menu(memu_title="Main Menu",
+    selected = option_menu(menu_title="Main Menu",
                            options=["Home","Projects","Contact"],
     )
 if selected == "Home":
