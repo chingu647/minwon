@@ -140,7 +140,7 @@ with st.sidebar:
                         #                         }
                         #             "nav-link-selected":{"background-color":"green"},
 
-                           }
+                        #    }
 
     )
 if selected == "Home":
