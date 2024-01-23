@@ -95,6 +95,43 @@ tabs = st.tabs(tab_titles)
 
 # 각 탭에 콘텐츠 추가
 
+selected = option_menu(menu_title=None,
+                        options=["광주","담양","순천","함평","구례","보성","남원"],
+                        menu_icon="cast",
+                        default_index=0,
+                        orientation='horizontal', 
+                    #    styles={"contatiner": {},
+                    #            "icon": {},
+                    #            "nav-link": {"font-size":"25px",
+                    #                         "text-align":"left",
+                    #                         "margin":"0px",
+                    #                         "--hover-color": "#eee",
+                    #                         }
+                    #             "nav-link-selected":{"background-color":"green"},
+
+                    #    }
+
+)
+
+if selected == "광주": 
+    with tabs[0]: 
+        tab0.run_tab()
+        st.balloons()
+    
+if selected == "담양":
+    with tabs[1]: 
+        tab0.run_tab()
+        st.balloons()
+        
+if selected == "순천":
+    with tabs[2]: 
+        tab0.run_tab()
+        st.balloons()
+
+
+
+
+
 # with tabs[0]: 
 #     tab0.run_tab()
 #     st.balloons()
@@ -130,26 +167,26 @@ tabs = st.tabs(tab_titles)
 
 
 
-st.sidebar.success("Select a page above")
+# st.sidebar.success("Select a page above")
 
-with st.sidebar:
-    selected = option_menu(menu_title=None,
-                           options=["광주","담양","순천","함평","구례","보성","남원"],
-                           menu_icon="cast",
-                           default_index=0,
-                        #    orientation='horizontal', 
-                        #    styles={"contatiner": {},
-                        #            "icon": {},
-                        #            "nav-link": {"font-size":"25px",
-                        #                         "text-align":"left",
-                        #                         "margin":"0px",
-                        #                         "--hover-color": "#eee",
-                        #                         }
-                        #             "nav-link-selected":{"background-color":"green"},
+# with st.sidebar:
+#     selected = option_menu(menu_title=None,
+#                            options=["광주","담양","순천","함평","구례","보성","남원"],
+#                            menu_icon="cast",
+#                            default_index=0,
+#                         #    orientation='horizontal', 
+#                         #    styles={"contatiner": {},
+#                         #            "icon": {},
+#                         #            "nav-link": {"font-size":"25px",
+#                         #                         "text-align":"left",
+#                         #                         "margin":"0px",
+#                         #                         "--hover-color": "#eee",
+#                         #                         }
+#                         #             "nav-link-selected":{"background-color":"green"},
 
-                        #    }
+#                         #    }
 
-    )
+#     )
 # if selected == "Home": 
 #     tab0.t0h[1].title(f"You have selected {selected}")
 # if selected == "Projects":
