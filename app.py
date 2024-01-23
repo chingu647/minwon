@@ -126,8 +126,22 @@ with tabs[7]:
 
 
 with st.sidebar:
-    selected = option_menu(menu_title="Main Menu",
+    selected = option_menu(menu_title=None,
                            options=["Home","Projects","Contact"],
+                           menu_icon="cast",
+                           default_index=0,
+                           orientation='horizontal', 
+                        #    styles={"contatiner": {},
+                        #            "icon": {},
+                        #            "nav-link": {"font-size":"25px",
+                        #                         "text-align":"left",
+                        #                         "margin":"0px",
+                        #                         "--hover-color": "#eee",
+                        #                         }
+                        #             "nav-link-selected":{"background-color":"green"},
+
+                           }
+
     )
 if selected == "Home":
     st.title(f"You have selected {selected}")
