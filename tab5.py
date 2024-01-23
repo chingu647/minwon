@@ -73,28 +73,28 @@ def run_tab():
 
 
 
-    ###################################################################### body 2 
+    ###################################################################### body 2     # wc 그래프  
     t5b2.markdown("##### 주요 키워드 클라우드") 
 
     t5b2_fig = mf.load_wc(organ_t5, kind1_t5)
-    t5b2.pyplot(t5b2_fig) 
+    t5b2.pyplot(t5b2_fig, use_container_width=True)    
 
 
 
-    ###################################################################### body 5 
+    ###################################################################### body 5     # pie 그래프 
     t5b5.markdown("##### 유형별 민원") 
 
-    # pie 그래프 
+
     t5b5_pie = mf.create_pie(organ_t5, kind1_t5)
-    t5b5.pyplot(t5b5_pie) 
+    t5b5.pyplot(t5b5_pie, use_container_width=True)    
 
 
-    ###################################################################### body 6 
+    ###################################################################### body 6     # 가로 sns bar 그래프 
     t5b6.markdown("##### 유형별 민원") 
 
-    # 가로 sns bar 그래프 
+
     t5b6_sns_hbar = mf.create_sns_hbar(organ_t5, kind1_t5)
-    t5b6.pyplot(t5b6_sns_hbar)    
+    t5b6.pyplot(t5b6_sns_hbar, use_container_width=True)      
         
 
     ###################################################################### body 9
