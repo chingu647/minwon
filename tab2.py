@@ -117,6 +117,15 @@ def run_tab():
 
 
     ###################################################################### body 6 
+    t2b6.markdown(""" 
+        <style> 
+            table{background-color:#f0f0f0;} 
+            img {width:900px; height:450px; max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+        
+        </style> """, 
+        unsafe_allow_html=True
+        ) 
+    
     t2b6.markdown("##### 유형별 민원") 
 
     # 가로 sns bar 그래프 
