@@ -57,7 +57,7 @@ def run_tab():
 
 
     ###################################################################### head 1  
-    st.header(f'This is a header with a divider', divider='rainbow', unsafe_allow_html=True))
+    st.header(f'This is a header with a divider', divider='rainbow', unsafe_allow_html=True) 
     st.header('_Streamlit_ is :blue[cool] :sunglasses:')
 
 
