@@ -77,7 +77,7 @@ def run_tab():
     t1b2.markdown("##### 주요 키워드 클라우드") 
 
     t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
-    t1b2.pyplot(t1b2_fig, use_container_width=False) 
+    t1b2.pyplot(t1b2_fig, use_container_width=True)    
 
 
 
@@ -86,7 +86,7 @@ def run_tab():
 
     # pie 그래프 
     t1b5_pie = mf.create_pie(organ_t1, kind1_t1)
-    t1b5.pyplot(t1b5_pie, use_container_width=False) 
+    t1b5.pyplot(t1b5_pie, use_container_width=True)    
 
 
     ###################################################################### body 6 
@@ -94,7 +94,7 @@ def run_tab():
 
     # 가로 sns bar 그래프 
     t1b6_sns_hbar = mf.create_sns_hbar(organ_t1, kind1_t1)
-    t1b6.pyplot(t1b6_sns_hbar, use_container_width=False)     
+    t1b6.pyplot(t1b6_sns_hbar, use_container_width=True)     
         
 
     ###################################################################### body 9
