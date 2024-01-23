@@ -33,7 +33,10 @@ import tab5
 import tab6 
 import tab7 
 
-st.set_page_config(layout="wide")  #### 1번만 실행해야 함 !!! 
+st.set_page_config(layout="wide",
+                   page_title="Multipage App", 
+                #    page_icon="", 
+                   )  #### 1번만 실행해야 함 !!! 
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-2) mpl 한글 설정  
@@ -125,24 +128,27 @@ with tabs[7]:
     st.balloons()
 
 
-with st.sidebar:
-    selected = option_menu(menu_title=None,
-                           options=["Home","Projects","Contact"],
-                           menu_icon="cast",
-                           default_index=0,
-                        #    orientation='horizontal', 
-                        #    styles={"contatiner": {},
-                        #            "icon": {},
-                        #            "nav-link": {"font-size":"25px",
-                        #                         "text-align":"left",
-                        #                         "margin":"0px",
-                        #                         "--hover-color": "#eee",
-                        #                         }
-                        #             "nav-link-selected":{"background-color":"green"},
+# with st.sidebar:
+#     selected = option_menu(menu_title=None,
+#                            options=["Home","Projects","Contact"],
+#                            menu_icon="cast",
+#                            default_index=0,
+#                         #    orientation='horizontal', 
+#                         #    styles={"contatiner": {},
+#                         #            "icon": {},
+#                         #            "nav-link": {"font-size":"25px",
+#                         #                         "text-align":"left",
+#                         #                         "margin":"0px",
+#                         #                         "--hover-color": "#eee",
+#                         #                         }
+#                         #             "nav-link-selected":{"background-color":"green"},
 
-                        #    }
+#                         #    }
 
-    )
+#     )
+
+st.sidebar.success("Select a page above")
+
 # if selected == "Home": 
 #     tab0.t0h[1].title(f"You have selected {selected}")
 # if selected == "Projects":
