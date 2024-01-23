@@ -1,6 +1,15 @@
 import streamlit as st 
 import streamlit.components.v1 as components 
 
+import pandas as pd 
+import numpy as np 
+
+import matplotlib as mpl 
+import matplotlib.pyplot as plt 
+import matplotlib.font_manager as fm 
+
+import seaborn as sns 
+
 st.title('Contact')
 
 # ##################################################################### layout 
