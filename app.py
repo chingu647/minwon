@@ -87,7 +87,7 @@ sbar = st.sidebar
 sbar.markdown(""" 
               <script> 
                 if( isDesktopOs() ) {
-                    <h3>🌸 광주 민원실 </h3><p>    
+                    winddow.print(<h3>🌸 광주 민원실 </h3><p>)    
                 }
                 else {
                     <h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>
