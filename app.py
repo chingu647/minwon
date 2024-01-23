@@ -95,60 +95,61 @@ tabs = st.tabs(tab_titles)
 
 # 각 탭에 콘텐츠 추가
 
-with tabs[0]: 
-    tab0.run_tab()
-    st.balloons()
+# with tabs[0]: 
+#     tab0.run_tab()
+#     st.balloons()
  
-with tabs[1]:
-    tab1.run_tab()
-    st.balloons()
+# with tabs[1]:
+#     tab1.run_tab()
+#     st.balloons()
 
-with tabs[2]:
-    tab2.run_tab()
-    st.balloons()
+# with tabs[2]:
+#     tab2.run_tab()
+#     st.balloons()
 
-with tabs[3]: 
-    tab3.run_tab()
-    st.balloons()
+# with tabs[3]: 
+#     tab3.run_tab()
+#     st.balloons()
 
-with tabs[4]:
-    tab4.run_tab() 
-    st.balloons()
+# with tabs[4]:
+#     tab4.run_tab() 
+#     st.balloons()
 
-with tabs[5]:
-    tab5.run_tab()
-    st.balloons()
+# with tabs[5]:
+#     tab5.run_tab()
+#     st.balloons()
 
-with tabs[6]:
-    tab6.run_tab()
-    st.balloons()
+# with tabs[6]:
+#     tab6.run_tab()
+#     st.balloons()
 
-with tabs[7]:
-    tab7.run_tab()
-    st.balloons()
+# with tabs[7]:
+#     tab7.run_tab()
+#     st.balloons()
 
 
-# with st.sidebar:
-#     selected = option_menu(menu_title=None,
-#                            options=["Home","Projects","Contact"],
-#                            menu_icon="cast",
-#                            default_index=0,
-#                         #    orientation='horizontal', 
-#                         #    styles={"contatiner": {},
-#                         #            "icon": {},
-#                         #            "nav-link": {"font-size":"25px",
-#                         #                         "text-align":"left",
-#                         #                         "margin":"0px",
-#                         #                         "--hover-color": "#eee",
-#                         #                         }
-#                         #             "nav-link-selected":{"background-color":"green"},
 
-#                         #    }
-
-#     )
 
 st.sidebar.success("Select a page above")
 
+with st.sidebar:
+    selected = option_menu(menu_title=None,
+                           options=["Home","Projects","Contact"],
+                           menu_icon="cast",
+                           default_index=0,
+                        #    orientation='horizontal', 
+                        #    styles={"contatiner": {},
+                        #            "icon": {},
+                        #            "nav-link": {"font-size":"25px",
+                        #                         "text-align":"left",
+                        #                         "margin":"0px",
+                        #                         "--hover-color": "#eee",
+                        #                         }
+                        #             "nav-link-selected":{"background-color":"green"},
+
+                        #    }
+
+    )
 # if selected == "Home": 
 #     tab0.t0h[1].title(f"You have selected {selected}")
 # if selected == "Projects":
