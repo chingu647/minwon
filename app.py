@@ -134,7 +134,7 @@ st.sidebar.success("Select a page above")
 
 with st.sidebar:
     selected = option_menu(menu_title=None,
-                           options=["Home","Projects","Contact"],
+                           options=["광주","담양","순천","함평","구례","보성","남원"],
                            menu_icon="cast",
                            default_index=0,
                         #    orientation='horizontal', 
