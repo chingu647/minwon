@@ -114,7 +114,7 @@ selected = option_menu(menu_title=None,
 )
 
 if selected == "광주전남":
-    tab0.run_tab
+    tab0.run_tab() 
     st.balloons() 
 
 elif selected == "광주": 
