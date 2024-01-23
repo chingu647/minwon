@@ -86,7 +86,7 @@ def run_tab():
     t2b2.markdown(""" 
         <style> 
             table{background-color:#f0f0f0;} 
-            img {width:900px; height:450px; object-fit:scale-down;}    
+            img {width:900px; height:450px; max-width: 900px; max-height: 450px; object-fit:scale-down;}    
         
         </style> """, 
         unsafe_allow_html=True
