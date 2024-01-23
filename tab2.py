@@ -97,7 +97,15 @@ def run_tab():
 
 
 
-    ###################################################################### body 5 
+    ###################################################################### body 5  
+    t2b1.markdown(""" 
+        <style> 
+            table{background-color:#f0f0f0;} 
+            img {width:300px; height:300px; max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+        
+        </style> """, 
+        unsafe_allow_html=True
+        ) 
     t2b5.markdown("##### 유형별 민원") 
 
     # pie 그래프 
