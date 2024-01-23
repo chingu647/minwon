@@ -54,15 +54,6 @@ def run_tab():
     t2t0, t2t1, t2t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
 
-    t2b2.markdown(""" 
-            <style> 
-                table{background-color:#f0f0f0;} 
-                img {width:600px; height:300px; max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
-            
-            </style> """, 
-            unsafe_allow_html=True
-            ) 
-
     ###################################################################### head 1  
     t2h1.markdown(f"##### {organ_t2} : 공지사항")
     t2h1.markdown(f"""
@@ -72,6 +63,14 @@ def run_tab():
 
 
     ###################################################################### body 1  
+    t2b1.markdown(""" 
+        <style> 
+            table{background-color:#f0f0f0;} 
+            img {width:600px; height:300px; max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+        
+        </style> """, 
+        unsafe_allow_html=True
+        ) 
     t2b1.markdown("""
                   <h5>2024년 이슈</h4>
                   """, unsafe_allow_html=True)
@@ -82,7 +81,15 @@ def run_tab():
 
 
 
-    ###################################################################### body 2 
+    ###################################################################### body 2  
+    t2b2.markdown(""" 
+        <style> 
+            table{background-color:#f0f0f0;} 
+            img {width:600px; height:300px; max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+        
+        </style> """, 
+        unsafe_allow_html=True
+        ) 
     t2b2.markdown("##### 주요 키워드 클라우드") 
     t2b2_fig = mf.load_wc(organ_t2, kind1_t2)
 
