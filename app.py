@@ -68,11 +68,12 @@ st.markdown("""
             ) 
 
 
-################################################################################# title
-st.markdown("""
-            <center><h2>한눈에 보는 <font color='blue'>광주전남</font> 민원 지도<h2></center>
-            """, 
-            unsafe_allow_html=True) 
+################################################################################# title 
+st.title(f'한눈에 보는 :blue[광주전남] 민원 지도 :sunglasses:',divider='rainbow') 
+# st.markdown("""
+#             <center><h2>한눈에 보는 <font color='blue'>광주전남</font> 민원 지도<h2></center>
+#             """, 
+#             unsafe_allow_html=True) 
 
 ################################################################################# layout
 
