@@ -60,7 +60,7 @@ def run_tab():
     
 
     ###################################################################### body 1  
-    t1b1.markdown(f"##### ☝ :rainbow[2024년 주요 이슈] ") 
+    t1b1.markdown(f"##### 📢 :rainbow[2024년 주요 이슈] ") 
 
     t1b1.markdown(f"""
 	<center>최근 이슈</font>는 <font color='red'>{organ_t1}</font> 입니다.</center>
@@ -74,7 +74,7 @@ def run_tab():
 
 
     ###################################################################### body 2     # wc 그래프  
-    t1b2.markdown("##### ✌ :rainbow[주요 키워드 클라우드] ") 
+    t1b2.markdown("##### 🏸 :rainbow[주요 키워드 클라우드] ") 
 
     t1b2.markdown(f"""
 	<center>주요 키워드</font>는 <font color='red'>{organ_t1}</font> 입니다.</center>
@@ -85,7 +85,7 @@ def run_tab():
 
 
     ###################################################################### body 5     # pie 그래프 
-    t1b5.markdown("##### 🤟 :rainbow[유형별 민원] ") 
+    t1b5.markdown("##### 📚 :rainbow[유형별 민원] ") 
 
     t1b5.markdown(f"""
 	<center>주요 민원유형</font>은 <font color='red'>{organ_t1}</font> 입니다.</center>
@@ -96,7 +96,7 @@ def run_tab():
 
 
     ###################################################################### body 6     # 가로 sns bar 그래프 
-    t1b6.markdown("##### 👌 :rainbow[노선별 민원] ") 
+    t1b6.markdown("##### 🚌 :rainbow[노선별 민원] ") 
 
     t1b6.markdown(f"""
 	<center>최다 민원노선</font>은 <font color='red'>{organ_t1}</font> 입니다.</center>
