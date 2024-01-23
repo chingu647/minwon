@@ -57,11 +57,7 @@ def run_tab():
 
 
     ###################################################################### head 1  
-    t1h1.header(f'This is a header with a divider', divider='rainbow') 
-    t1h1.header('_Streamlit_ is :blue[cool] :sunglasses:')
-
-
-    t1h1.write(f""" <center> <h4><font color="red">{organ_t1}</font></h4> <h6>공지사항</h6> </center> """, unsafe_allow_html=True)
+    t1h1.subheader(f'_Streamlit_ is :blue[{organ_t1}] :sunglasses:', divider='rainbow') 
     t1h1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있습니다.
     """)
