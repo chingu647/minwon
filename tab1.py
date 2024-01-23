@@ -57,12 +57,12 @@ def run_tab():
 
 
     ##################################################################### head 1  
-    t1h1.caption(f'Here is :blue[{organ_t1}] :sunglasses:')    
-
+    
 
     ###################################################################### body 1  
     t1b1.divider() 
     t1b1.markdown("##### 2024년 이슈") 
+    t1b1.caption(f'Here is :blue[{organ_t1}] :sunglasses:')    
 
     t1b1_kind1_df, _, _ = mf.load_df(organ_t1, kind1_t1) 
 
