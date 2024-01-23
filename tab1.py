@@ -64,7 +64,7 @@ def run_tab():
     t1b1.markdown(f"##### ☝ :rainbow[2024년 주요 이슈] ") 
 
     t1b1.markdown(f"""
-	 :blue[주요 이슈]는 :red[{organ_t1}] 입니다.
+	<center><font color='blue'>주요 이슈</font>는 <font color='red'>{organ_t1}</font> 입니다.</center>
     """)
 
     t1b1_kind1_df, _, _ = mf.load_df(organ_t1, kind1_t1) 
