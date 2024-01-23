@@ -57,7 +57,7 @@ def run_tab():
 
 
     ###################################################################### head 1  
-    t1h1.markdown(f""" <center> <h4><font color="red">{organ_t1}</font> : 공지사항</h4> </center> """, unsafe_allow_html=True)
+    t1h1.markdown(f""" <center> <h4><font color="red">{organ_t1}</font></h4> <h6>공지사항</h6> </center> """, unsafe_allow_html=True)
     t1h1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있습니다.
     """)
