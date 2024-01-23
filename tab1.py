@@ -61,7 +61,7 @@ def run_tab():
 
     ###################################################################### body 1  
     t1b1.divider() 
-    t1b1.markdown(f"****2024년 이슈****  Here is :blue[{organ_t1}] :sunglasses:") 
+    t1b1.markdown(f"##### 👆 2024년 주요 이슈") 
 
     t1b1_kind1_df, _, _ = mf.load_df(organ_t1, kind1_t1) 
 
@@ -76,7 +76,7 @@ def run_tab():
 
     ###################################################################### body 2     # wc 그래프  
     t1b2.divider() 
-    t1b2.markdown("##### 주요 키워드 클라우드") 
+    t1b2.markdown("##### ✌ 주요 키워드 클라우드") 
 
     t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
     t1b2.pyplot(t1b2_fig, use_container_width=True)    
@@ -89,7 +89,7 @@ def run_tab():
 
     ###################################################################### body 5     # pie 그래프 
     t1b5.divider() 
-    t1b5.markdown("##### 유형별 민원") 
+    t1b5.markdown("##### 🤟 유형별 민원") 
 
     t1b5_pie = mf.create_pie(organ_t1, kind1_t1)
     t1b5.pyplot(t1b5_pie, use_container_width=True)    
@@ -102,7 +102,7 @@ def run_tab():
 
     ###################################################################### body 6     # 가로 sns bar 그래프 
     t1b6.divider() 
-    t1b6.markdown("##### 유형별 민원") 
+    t1b6.markdown("##### 👌 유형별 민원") 
 
 
     t1b6_sns_hbar = mf.create_sns_hbar(organ_t1, kind1_t1)
