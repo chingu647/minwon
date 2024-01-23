@@ -35,7 +35,7 @@ import tab7
 
 st.set_page_config(layout="wide",
                    page_title="Multipage App", 
-                   page_icon="📚", 
+                   page_icon="✋", 
                    )  #### 1번만 실행해야 함 !!! 
 
 
