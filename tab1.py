@@ -58,7 +58,7 @@ def run_tab():
 
     ###################################################################### head 1  
     # t1h1.caption(f'Here is :blue[{organ_t1}] :sunglasses:', unsafe_allow_html=True) 
-    st.divider()
+    t1h1.divider()
                  
     # t1h1.subheader(f' ', divider='rainbow') 
 
