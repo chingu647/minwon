@@ -143,8 +143,8 @@ with st.sidebar:
                         #    }
 
     )
-if selected == "Home":
-    st.title(f"You have selected {selected}")
+if selected == "Home": 
+    tab0.t0h1.title(f"You have selected {selected}")
 if selected == "Projects":
     st.title(f"You have selected {selected}")
 if selected == "Contact":
