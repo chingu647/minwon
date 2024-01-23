@@ -35,14 +35,14 @@ def run_tab():
     base_position_t7 = [35.18668601, 126.87954220] 
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
-    st.markdown(""" 
-                <style> 
-                    table{background-color:#f0f0f0;} 
-                    img {max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+    # st.markdown(""" 
+    #             <style> 
+    #                 table{background-color:#f0f0f0;} 
+    #                 img {max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
                 
-                </style> """, 
-                unsafe_allow_html=True
-                ) 
+    #             </style> """, 
+    #             unsafe_allow_html=True
+    #             ) 
     
     ###################################################################### layout 
     t7h0, t7h1, t7h2 = st.columns( [0.001, 0.998, 0.001] ) 
