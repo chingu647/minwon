@@ -57,9 +57,9 @@ def run_tab():
 
 
     ###################################################################### head 1  
-    # t1h1.caption(f'Here is :blue[{organ_t1}] :sunglasses:', unsafe_allow_html=True)           
-    # t1h1.subheader(f' ', divider='rainbow') 
-    t1h1.divider()
+    # t1h1.caption(f'Here is :blue[{organ_t1}] :sunglasses:', unsafe_allow_html=True)   
+    # t1h1.divider()        
+    t1h1.subheader(f' ', divider='rainbow') 
 
     t1h1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있습니다.
