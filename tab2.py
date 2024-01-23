@@ -103,7 +103,7 @@ def run_tab():
     t2b5.markdown(""" 
         <style> 
             table{background-color:#f0f0f0;} 
-            img {width:200px;height:200px; object-fit:none;}  
+            img {width:200px;height:200px; object-fit:contain;}  
         </style> """, 
         unsafe_allow_html=True
         ) 
