@@ -97,21 +97,20 @@ st.markdown("""
 
 selected = option_menu(menu_title=None,
                         options=["광주전남","광주","담양","순천","함평","구례","보성","남원"],
-                        icons=['house', 'gear','house', 'gear','house', 'gear','house', 'gear'], 
+                        icons=['house','cloud-upload','cloud-upload','cloud-upload','cloud-upload','cloud-upload','cloud-upload','cloud-upload'], 
                         menu_icon="cast",
                         default_index=0,
                         orientation='horizontal', 
-                    #    styles={"contatiner": {},
-                    #            "icon": {},
-                    #            "nav-link": {"font-size":"25px",
-                    #                         "text-align":"left",
-                    #                         "margin":"0px",
-                    #                         "--hover-color": "#eee",
-                    #                         }
-                    #             "nav-link-selected":{"background-color":"green"},
-
-                    #    }
-
+                        styles={"container": {"padding": "0!important", 
+                                              "background-color": "#fafafa"},
+                                "icon": {"color": "orange", 
+                                         "font-size": "10px"}, 
+                                "nav-link": {"font-size": "10px", 
+                                             "text-align": "left", 
+                                             "margin":"0px", 
+                                             "--hover-color": "#eee"},
+                                "nav-link-selected": {"background-color": "green"}, 
+                                } 
 )
 
 if selected == "광주전남":
