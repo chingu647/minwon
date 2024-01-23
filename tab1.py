@@ -64,7 +64,7 @@ def run_tab():
     t1b1.markdown(f"##### ☝ :rainbow[2024년 주요 이슈] ") 
 
     t1b1.markdown(f"""
-	<center><font color='blue'>주요 이슈</font>는 <font color='red'>{organ_t1}</font> 입니다.</center>
+	<center>최근 이슈</font>는 <font color='red'>{organ_t1}</font> 입니다.</center>
     """, unsafe_allow_html=True)
 
     t1b1_kind1_df, _, _ = mf.load_df(organ_t1, kind1_t1) 
@@ -79,8 +79,8 @@ def run_tab():
     t1b2.markdown("##### ✌ 주요 키워드 클라우드") 
 
     t1b2.markdown(f"""
-	💥 :blue[{organ_t1}] 최다 키워드는 :red[{organ_t1}] 입니다.
-    """)
+	<center>주요 키워드</font>는 <font color='red'>{organ_t1}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
     t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
     t1b2.pyplot(t1b2_fig, use_container_width=True)   
@@ -91,8 +91,8 @@ def run_tab():
     t1b5.markdown("##### 🤟 유형별 민원") 
 
     t1b5.markdown(f"""
-	💥 :blue[{organ_t1}] 최다 민원유형은 :red[{organ_t1}] 입니다.
-    """)
+	<center>주요 민원유형</font>은 <font color='red'>{organ_t1}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
     t1b5_pie = mf.create_pie(organ_t1, kind1_t1)
     t1b5.pyplot(t1b5_pie, use_container_width=True)    
@@ -108,8 +108,8 @@ def run_tab():
     t1b6.markdown("##### 👌 노선별 민원") 
 
     t1b6.markdown(f"""
-	💥 :blue[{organ_t1}] 최다 민원노선은 :red[{organ_t1}] 입니다.
-    """)
+	<center>최다 민원노선</font>은 <font color='red'>{organ_t1}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
 
     t1b6_sns_hbar = mf.create_sns_hbar(organ_t1, kind1_t1)
