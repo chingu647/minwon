@@ -65,7 +65,7 @@ def run_tab():
 
     t1b1.markdown(f"""
 	<center><font color='blue'>주요 이슈</font>는 <font color='red'>{organ_t1}</font> 입니다.</center>
-    """)
+    """, unsafe_allow_html=True)
 
     t1b1_kind1_df, _, _ = mf.load_df(organ_t1, kind1_t1) 
 
