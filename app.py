@@ -18,6 +18,8 @@ from wordcloud import WordCloud, STOPWORDS
 
 from PIL import Image 
 
+from streamlit_option_menu import option_menu 
+
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
 
@@ -73,7 +75,7 @@ st.markdown("""
 
 tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
 tabs = st.tabs(tab_titles)
-sbar = st.sidebar
+
 # sbar.markdown(""" 
 #               <script>
 #                 function isDesktopOs() {
@@ -121,6 +123,22 @@ with tabs[6]:
 with tabs[7]:
     tab7.run_tab()
     st.balloons()
+
+
+with st.sidebar:
+    selected = option_menu(memu_title="Main Menu",
+                           options=["Home","Projects","Contact"],
+    )
+if selected == "Home":
+    st.title(f"You have selected {selected}")
+if selected == "Projects":
+    st.title(f"You have selected {selected}")
+if selected == "Contact":
+    st.title(f"You have selected {selected}")
+
+
+
+
 
 ################################################################################# input -> layout
 # 셀렉트 박스 -----------------------------------------------------------------
