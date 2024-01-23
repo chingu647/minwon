@@ -54,6 +54,14 @@ def run_tab():
     t2t0, t2t1, t2t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
 
+    t2b2.markdown(""" 
+            <style> 
+                table{background-color:#f0f0f0;} 
+                img {max-width: 1000px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+            
+            </style> """, 
+            unsafe_allow_html=True
+            ) 
 
     ###################################################################### head 1  
     t2h1.markdown(f"##### {organ_t2} : 공지사항")
@@ -74,14 +82,6 @@ def run_tab():
 
     ###################################################################### body 2 
     t2b2.markdown("##### 주요 키워드 클라우드") 
-    t2b2.markdown(""" 
-            <style> 
-                table{background-color:#f0f0f0;} 
-                img {max-width: 1000px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
-            
-            </style> """, 
-            unsafe_allow_html=True
-            ) 
     t2b2_fig = mf.load_wc(organ_t2, kind1_t2)
 
     t2b2.pyplot(t2b2_fig) 
