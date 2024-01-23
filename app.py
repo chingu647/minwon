@@ -119,104 +119,53 @@ selected = option_menu(menu_title=None,
 
 if selected == "광주전남":
     tab0.run_tab() 
-    st.balloons() 
 
 elif selected == "광주": 
     tab1.run_tab()
-    st.balloons()
     
 elif selected == "담양":
     tab2.run_tab()
-    st.balloons()
 
 elif selected == "순천":
     tab3.run_tab()
-    st.balloons()
     
 elif selected == "함평":
     tab4.run_tab()
-    st.balloons()
 
 elif selected == "구례":
     tab5.run_tab()
-    st.balloons()
     
 elif selected == "보성":
     tab6.run_tab()
-    st.balloons()
 
 elif selected == "남원":
     tab7.run_tab()
-    st.balloons()
-
-
 
 
 
 # with tabs[0]: 
 #     tab0.run_tab()
-#     st.balloons()
  
 # with tabs[1]:
 #     tab1.run_tab()
-#     st.balloons()
 
 # with tabs[2]:
 #     tab2.run_tab()
-#     st.balloons()
 
 # with tabs[3]: 
 #     tab3.run_tab()
-#     st.balloons()
 
 # with tabs[4]:
 #     tab4.run_tab() 
-#     st.balloons()
 
 # with tabs[5]:
 #     tab5.run_tab()
-#     st.balloons()
 
 # with tabs[6]:
 #     tab6.run_tab()
-#     st.balloons()
 
 # with tabs[7]:
 #     tab7.run_tab()
-#     st.balloons()
-
-
-
-
-# st.sidebar.success("Select a page above")
-
-# with st.sidebar:
-#     selected = option_menu(menu_title=None,
-#                            options=["광주","담양","순천","함평","구례","보성","남원"],
-#                            menu_icon="cast",
-#                            default_index=0,
-#                         #    orientation='horizontal', 
-#                         #    styles={"contatiner": {},
-#                         #            "icon": {},
-#                         #            "nav-link": {"font-size":"25px",
-#                         #                         "text-align":"left",
-#                         #                         "margin":"0px",
-#                         #                         "--hover-color": "#eee",
-#                         #                         }
-#                         #             "nav-link-selected":{"background-color":"green"},
-
-#                         #    }
-
-#     )
-# if selected == "Home": 
-#     tab0.t0h[1].title(f"You have selected {selected}")
-# if selected == "Projects":
-#     st.title(f"You have selected {selected}")
-# if selected == "Contact":
-#     st.title(f"You have selected {selected}")
-
-
-
 
 
 ################################################################################# input -> layout
