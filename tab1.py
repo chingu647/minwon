@@ -82,6 +82,11 @@ def run_tab():
     t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
     t1b2.pyplot(t1b2_fig, use_container_width=True)    
 
+    t1b1.markdown(r"""
+	1. 광주지사 민원은 증가추세에 있습니다.
+    """)
+
+
 
     ###################################################################### body 5     # pie 그래프 
     t1b5.divider() 
@@ -89,6 +94,11 @@ def run_tab():
 
     t1b5_pie = mf.create_pie(organ_t1, kind1_t1)
     t1b5.pyplot(t1b5_pie, use_container_width=True)    
+
+    t1b1.markdown(r"""
+	1. 광주지사 민원은 증가추세에 있습니다.
+    """)
+
 
 
     ###################################################################### body 6     # 가로 sns bar 그래프 
