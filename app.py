@@ -118,11 +118,11 @@ if selected == "광주":
     st.balloons()
     
 if selected == "담양":
-    tab0.run_tab()
+    tab1.run_tab()
     st.balloons()
 
 if selected == "순천":
-    tab0.run_tab()
+    tab2.run_tab()
     st.balloons()
 
 
