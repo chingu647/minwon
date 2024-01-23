@@ -57,8 +57,8 @@ def run_tab():
 
 
     ###################################################################### head 1  
-    st.header(f'This is a header with a divider', divider='rainbow') 
-    st.header('_Streamlit_ is :blue[cool] :sunglasses:')
+    t1h1.header(f'This is a header with a divider', divider='rainbow') 
+    t1h1.header('_Streamlit_ is :blue[cool] :sunglasses:')
 
 
     t1h1.write(f""" <center> <h4><font color="red">{organ_t1}</font></h4> <h6>공지사항</h6> </center> """, unsafe_allow_html=True)
