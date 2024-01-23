@@ -16,12 +16,8 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
-
-
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
-
-
 
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
@@ -43,10 +39,9 @@ def run_tab():
                 </style> """, 
                 unsafe_allow_html=True
                 ) 
-    
-    
+        
     ###################################################################### layout 
-    t4h0, t4h1, t4h2 = st.columns( [0.001, 0.998, 0.001] ) 
+    # t4h0, t4h1, t4h2 = st.columns( [0.001, 0.998, 0.001] ) 
     
     t4b0, t4b1, t4b2, t4b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
     t4b4, t4b5, t4b6, t4b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
@@ -55,17 +50,15 @@ def run_tab():
     t4t0, t4t1, t4t2 = st.columns( [0.001, 0.998, 0.001] ) 
 
 
-
     ###################################################################### head 1  
-    t4h1.markdown(f"##### {organ_t4} : 공지사항")
-    t4h1.markdown(f"""
-	1. {organ_t4} 민원은 증가추세에 있습니다.
-    """)
-
 
 
     ###################################################################### body 1  
-    t4b1.markdown("##### 2024년 이슈")
+    t4b1.markdown(f"##### 📢 :rainbow[2024년 주요 이슈] ") 
+
+    t4b1.markdown(f"""
+	<center>최근 이슈</font>는 <font color='red'>{organ_t4}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
     t4b1_kind1_df, _, _ = mf.load_df(organ_t4, kind1_t4) 
 
@@ -74,24 +67,33 @@ def run_tab():
 
 
     ###################################################################### body 2     # wc 그래프  
-    t4b2.markdown("##### 주요 키워드 클라우드") 
+    t4b2.markdown("##### 🔎 :rainbow[주요 키워드 클라우드] ") 
+
+    t4b2.markdown(f"""
+	<center>주요 키워드</font>는 <font color='red'>{organ_t4}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
     t4b2_fig = mf.load_wc(organ_t4, kind1_t4)
     t4b2.pyplot(t4b2_fig, use_container_width=True)    
 
 
-
     ###################################################################### body 5     # pie 그래프 
-    t4b5.markdown("##### 유형별 민원") 
+    t4b5.markdown("##### 📚 :rainbow[유형별 민원] ") 
 
+    t4b5.markdown(f"""
+	<center>주요 민원유형</font>은 <font color='red'>{organ_t4}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
     t4b5_pie = mf.create_pie(organ_t4, kind1_t4)
     t4b5.pyplot(t4b5_pie, use_container_width=True)    
 
 
     ###################################################################### body 6     # 가로 sns bar 그래프 
-    t4b6.markdown("##### 유형별 민원") 
+    t4b6.markdown("##### 🚌 :rainbow[노선별 민원] ") 
 
+    t4b6.markdown(f"""
+	<center>최다 민원노선</font>은 <font color='red'>{organ_t4}</font> 입니다.</center>
+    """, unsafe_allow_html=True) 
 
     t4b6_sns_hbar = mf.create_sns_hbar(organ_t4, kind1_t4)
     t4b6.pyplot(t4b6_sns_hbar, use_container_width=True)     
@@ -106,7 +108,7 @@ def run_tab():
 
 
     ###################################################################### tail 1
-    t4t1.markdown("##### 노선별 민원") 
+    t4t1.markdown("##### 😎 :rainbow[민원 위치 한눈에 보기] 👀 ") 
 
     # 테이블 데이터
     _, t4t1_point_df, _ = mf.load_df(organ_t4, kind1_t4) 

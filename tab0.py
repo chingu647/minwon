@@ -41,7 +41,6 @@ def run_tab():
                 ) 
     
 
-
     # ###################################################################### layout  
     t0h0, t0h1, t0h2 = st.columns( [0.001, 0.998, 0.001] ) 
     
@@ -58,34 +57,54 @@ def run_tab():
     # t0h1.markdown(r"""
 	# 1. 오늘의 이슈. 
     # """) 
-
-
     # # ###################################################################### body 1  
-    # t0b1.markdown("##### 2024년 이달의 이슈")
-    # t0b1.markdown(r"""
-	# 1. 오늘의 이슈.
-    # """) 
+    # t0b1.markdown(f"##### 📢 :rainbow[2024년 주요 이슈] ") 
+
+    # t0b1.markdown(f"""
+	# <center>최근 이슈</font>는 <font color='red'>{organ_t0}</font> 입니다.</center>
+    # """, unsafe_allow_html=True)
 
 
     # # ###################################################################### body 2     # wc 그래프  
+    # t0b2.markdown("##### 🔎 :rainbow[주요 키워드 클라우드] ") 
 
-    # t0b2.markdown("##### 주요 키워드 클라우드") 
+    # t0b2.markdown(f"""
+	# <center>주요 키워드</font>는 <font color='red'>{organ_t0}</font> 입니다.</center>
+    # """, unsafe_allow_html=True) 
 
     # t0b2_fig = mf.load_wc(organ_t0, kind1_t0)
     # t0b2.pyplot(t0b2_fig)
 
 
-    # # ###################################################################### body 5 
-    # t0b5.markdown("##### 지사별 민원") 
+    ###################################################################### body 5     # pie 그래프 
+    # t0b5.markdown("##### 📚 :rainbow[유형별 민원] ") 
+
+    # t0b5.markdown(f"""
+	# <center>주요 민원유형</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
+    # """, unsafe_allow_html=True)
+
+    # t0b5_pie = mf.create_pie(organ_t0, kind1_t0)
+    # t0b5.pyplot(t0b5_pie, use_container_width=True)  
+
+
+    # # ###################################################################### body 6 
+    # t0b6.markdown("##### 🚔 :rainbow[지사별 민원] ") 
 
     # # pie 그래프 
-    # t0b5_pie = mf.create_pie(organ_t0, kind1_t0) 
-    # t0b5.pyplot(t0b5_pie)
+    # t0b6_pie = mf.create_pie(organ_t0, kind1_t0) 
+    # t0b6.pyplot(t0b6_pie)
 
 
-    # # ###################################################################### body 6
-    # t0b6.markdown("##### 유형별 민원") 
+    # # ###################################################################### body 9
+    # t0b9.markdown("##### 🚌 :rainbow[노선별 민원] ") 
+
+    # t0b9.markdown(f"""
+	# <center>최다 민원노선</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
+    # """, unsafe_allow_html=True)
     
     # # 가로 sns bar 그래프 
-    # t0b6_sns_hbar = mf.create_sns_hbar(organ_t0, kind1_t0) 
-    # t0b6.pyplot(t0b6_sns_hbar)
+    # t0b9_sns_hbar = mf.create_sns_hbar(organ_t0, kind1_t0) 
+    # t0b9.pyplot(t0b9_sns_hbar)
+
+
+    ###################################################################### body 10
