@@ -78,19 +78,19 @@ st.markdown("""
 tab_titles = ['광주전남', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
 tabs = st.tabs(tab_titles)
 sbar = st.sidebar
-sbar.markdown(""" 
-              <script>
-                function isDesktopOs() {
-                    return ("win16|win32|win64|windows|mac|machine|linux|freebsd|openbsd|sunos".indexOf( navigator.platform.toLowerCase() ))
-                }  
-                if( isDesktopOs() ) { 
-                    document.write("<h3>🌸 광주 민원실 </h3><p>")  
-                }
-                else {
-                    document.write("<h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>")
-                }
-              </script>
-              """, unsafe_allow_html=True ) 
+# sbar.markdown(""" 
+#               <script>
+#                 function isDesktopOs() {
+#                     return ("win16|win32|win64|windows|mac|machine|linux|freebsd|openbsd|sunos".indexOf( navigator.platform.toLowerCase() ))
+#                 }  
+#                 if( isDesktopOs() ) { 
+#                     document.write("<h3>🌸 광주 민원실 </h3><p>")  
+#                 }
+#                 else {
+#                     document.write("<h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>")
+#                 }
+#               </script>
+#               """, unsafe_allow_html=True ) 
 
 # 각 탭에 콘텐츠 추가
 
