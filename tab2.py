@@ -62,11 +62,11 @@ def run_tab():
 
 
 
-    ###################################################################### body 1  
+    ###################################################################### body 1     # 이미지 파일 최대크기 제한
     t2b1.markdown(""" 
         <style> 
             table{background-color:#f0f0f0;} 
-            img {width:900px; height:450px; max-width: 900px; max-height: 450px; }    # 이미지 파일 최대크기 제한  
+            img {width:900px; height:450px; max-width: 900px; max-height: 450px; }   
         
         </style> """, 
         unsafe_allow_html=True
@@ -82,11 +82,11 @@ def run_tab():
 
 
 
-    ###################################################################### body 2  
+    ###################################################################### body 2     # 이미지 파일 최대크기 제한
     t2b2.markdown(""" 
         <style> 
             table{background-color:#f0f0f0;} 
-            img {width:900px; height:450px; max-width: 900px; max-height: 450px; }    # 이미지 파일 최대크기 제한  
+            img {width:900px; height:450px; max-width: 900px; max-height: 450px; }   
         
         </style> """, 
         unsafe_allow_html=True
@@ -99,12 +99,11 @@ def run_tab():
 
 
 
-    ###################################################################### body 5  
+    ###################################################################### body 5      # pie chart 최대크기 제한 
     t2b5.markdown(""" 
         <style> 
             table{background-color:#f0f0f0;} 
-            img {width:300px; height:300px; max-width: 300px; max-height: 300px; }    # pie chart 최대크기 제한 
-        
+            img {width:300px; height:300px;}  
         </style> """, 
         unsafe_allow_html=True
         ) 
@@ -116,11 +115,11 @@ def run_tab():
     t2b5.pyplot(t2b5_pie) 
 
 
-    ###################################################################### body 6 
+    ###################################################################### body 6    # 이미지 파일 최대크기 제한
     t2b6.markdown(""" 
         <style> 
             table{background-color:#f0f0f0;} 
-            img {width:900px; height:450px; max-width: 900px; max-height: 450px; }    # 이미지 파일 최대크기 제한 
+            img {width:900px; height:450px; max-width: 900px; max-height: 450px; }  
         
         </style> """, 
         unsafe_allow_html=True
