@@ -55,7 +55,7 @@ cb1_data = {'지사별':['광주전남본부','광주지사','담양지사','순
             }
 cb1_df = pd.DataFrame(cb1_data) 
 
-cb1.table(cb1_df.style.background_gradient(cmap='Blues')) 
+cb1.table(cb1_df) #.style.background_gradient(cmap='Blues')) 
 
 
 
