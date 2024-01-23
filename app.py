@@ -114,19 +114,16 @@ selected = option_menu(menu_title=None,
 )
 
 if selected == "광주": 
-    with tabs[0]: 
-        tab0.run_tab()
-        st.balloons()
+    tab0.run_tab()
+    st.balloons()
     
 if selected == "담양":
-    with tabs[1]: 
-        tab0.run_tab()
-        st.balloons()
-        
+    tab0.run_tab()
+    st.balloons()
+
 if selected == "순천":
-    with tabs[2]: 
-        tab0.run_tab()
-        st.balloons()
+    tab0.run_tab()
+    st.balloons()
 
 
 
