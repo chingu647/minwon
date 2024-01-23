@@ -96,7 +96,7 @@ st.markdown("""
 # 각 탭에 콘텐츠 추가
 
 selected = option_menu(menu_title=None,
-                        options=["광주","담양","순천","함평","구례","보성","남원"],
+                        options=["광주전남","광주","담양","순천","함평","구례","보성","남원"],
                         menu_icon="cast",
                         default_index=0,
                         orientation='horizontal', 
@@ -113,16 +113,36 @@ selected = option_menu(menu_title=None,
 
 )
 
-if selected == "광주": 
-    tab0.run_tab()
-    st.balloons()
-    
-if selected == "담양":
+if selected == "광주전남":
+    tab0.run_tab
+    st.balloons() 
+
+elif selected == "광주": 
     tab1.run_tab()
     st.balloons()
-
-if selected == "순천":
+    
+elif selected == "담양":
     tab2.run_tab()
+    st.balloons()
+
+elif selected == "순천":
+    tab3.run_tab()
+    st.balloons()
+    
+elif selected == "함평":
+    tab4.run_tab()
+    st.balloons()
+
+elif selected == "구례":
+    tab5.run_tab()
+    st.balloons()
+    
+elif selected == "보성":
+    tab6.run_tab()
+    st.balloons()
+
+elif selected == "남원":
+    tab7.run_tab()
     st.balloons()
 
 
