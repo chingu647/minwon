@@ -71,6 +71,7 @@ def run_tab():
         </style> """, 
         unsafe_allow_html=True
         ) 
+    
     t2b1.markdown("""
                   <h5>2024년 이슈</h4>
                   """, unsafe_allow_html=True)
@@ -90,6 +91,7 @@ def run_tab():
         </style> """, 
         unsafe_allow_html=True
         ) 
+    
     t2b2.markdown("##### 주요 키워드 클라우드") 
     t2b2_fig = mf.load_wc(organ_t2, kind1_t2)
 
@@ -98,7 +100,7 @@ def run_tab():
 
 
     ###################################################################### body 5  
-    t2b1.markdown(""" 
+    t2b5.markdown(""" 
         <style> 
             table{background-color:#f0f0f0;} 
             img {width:300px; height:300px; max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
@@ -106,6 +108,7 @@ def run_tab():
         </style> """, 
         unsafe_allow_html=True
         ) 
+    
     t2b5.markdown("##### 유형별 민원") 
 
     # pie 그래프 
