@@ -97,7 +97,7 @@ st.markdown("""
 
 selected = option_menu(menu_title=None,
                         options=["본부","광주","담양","순천","함평","구례","보성","남원"],
-                        icons=['house','','','','','','',''],  
+                        icons=[None,None,None,None,None,None,None,None,],  
                         menu_icon="cast",
                         default_index=0,
                         orientation='horizontal', 
