@@ -57,7 +57,7 @@ def run_tab():
 
 
     ###################################################################### head 1  
-    t1h1.caption(f'_Streamlit_ is :blue[{organ_t1}] :sunglasses:', divider='rainbow') 
+    t1h1.caption(f'_Streamlit_ is :blue[{organ_t1}] :sunglasses:') 
                  
     # t1h1.subheader(f'_Streamlit_ is :blue[{organ_t1}] :sunglasses:', divider='rainbow') 
     t1h1.markdown(r"""
