@@ -72,7 +72,9 @@ def run_tab():
 
 
     ###################################################################### body 1  
-    t2b1.markdown("##### 2024년 이슈")
+    t2b1.markdown("""
+                  <h4>2024년 이슈</h4>
+                  """, unsafe_allow_html=True)
 
     t2b1_kind1_df, _, _ = mf.load_df(organ_t2, kind1_t2) 
 
