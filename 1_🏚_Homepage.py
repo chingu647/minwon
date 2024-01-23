@@ -34,8 +34,8 @@ import tab6
 import tab7 
 
 st.set_page_config(layout="wide",
-                   page_title="Multipage App", 
-                   page_icon="✋", 
+                   page_title="한눈에 민원 보기", 
+                   page_icon="🌈", 
                    )  #### 1번만 실행해야 함 !!! 
 
 
