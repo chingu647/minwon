@@ -130,7 +130,7 @@ with st.sidebar:
                            options=["Home","Projects","Contact"],
                            menu_icon="cast",
                            default_index=0,
-                           orientation='horizontal', 
+                        #    orientation='horizontal', 
                         #    styles={"contatiner": {},
                         #            "icon": {},
                         #            "nav-link": {"font-size":"25px",
