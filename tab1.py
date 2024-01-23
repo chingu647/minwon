@@ -63,13 +63,13 @@ def run_tab():
     # t1b1.divider() 
     t1b1.markdown(f"##### ☝ 2024년 주요 이슈") 
 
+    t1b1.markdown(f"""
+	💥 :blue[{organ_t1}] 최다 이슈는 :red[{organ_t1}] 입니다.
+    """)
+
     t1b1_kind1_df, _, _ = mf.load_df(organ_t1, kind1_t1) 
 
     t1b1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
-
-    t1b1.markdown(r"""
-	1. 광주지사 민원은 증가추세에 있습니다.
-    """)
 
 
 
@@ -78,18 +78,21 @@ def run_tab():
     # t1b2.divider() 
     t1b2.markdown("##### ✌ 주요 키워드 클라우드") 
 
-    t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
-    t1b2.pyplot(t1b2_fig, use_container_width=True)    
-
-    t1b2.markdown(r"""
-	1. 광주지사 민원은 증가추세에 있습니다.
+    t1b2.markdown(f"""
+	💥 :blue[{organ_t1}] 최다 키워드는 :red[{organ_t1}] 입니다.
     """)
 
+    t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
+    t1b2.pyplot(t1b2_fig, use_container_width=True)   
 
 
     ###################################################################### body 5     # pie 그래프 
     # t1b5.divider() 
     t1b5.markdown("##### 🤟 유형별 민원") 
+
+    t1b5.markdown(f"""
+	💥 :blue[{organ_t1}] 최다 민원유형은 :red[{organ_t1}] 입니다.
+    """)
 
     t1b5_pie = mf.create_pie(organ_t1, kind1_t1)
     t1b5.pyplot(t1b5_pie, use_container_width=True)    
@@ -102,7 +105,11 @@ def run_tab():
 
     ###################################################################### body 6     # 가로 sns bar 그래프 
     # t1b6.divider() 
-    t1b6.markdown("##### 👌 유형별 민원") 
+    t1b6.markdown("##### 👌 노선별 민원") 
+
+    t1b6.markdown(f"""
+	💥 :blue[{organ_t1}] 최다 민원노선은 :red[{organ_t1}] 입니다.
+    """)
 
 
     t1b6_sns_hbar = mf.create_sns_hbar(organ_t1, kind1_t1)
