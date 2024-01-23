@@ -73,17 +73,17 @@ def run_tab():
 
 
     ###################################################################### body 2 
+    t2b2.markdown("##### 주요 키워드 클라우드") 
     t2b2.markdown(""" 
             <style> 
                 table{background-color:#f0f0f0;} 
-                img {max-width: 900px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
+                img {max-width: 900px; max-height: 400px; }    # 이미지 파일 최대크기 제한 
             
             </style> """, 
             unsafe_allow_html=True
             ) 
-    t2b2.markdown("##### 주요 키워드 클라우드") 
-
     t2b2_fig = mf.load_wc(organ_t2, kind1_t2)
+
     t2b2.pyplot(t2b2_fig) 
 
 
