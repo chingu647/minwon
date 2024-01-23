@@ -29,11 +29,9 @@ def run_tab():
     global organ_t1
     global kind1_t1 
     global base_position_t1
-
     organ_t1 = "광주지사" 
     kind1_t1 = '서비스유형(대)'
     base_position_t1 = [35.18668601, 126.87954220] 
-
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
     st.markdown(""" 
                 <style> 
@@ -42,64 +40,40 @@ def run_tab():
                 
                 </style> """, 
                 unsafe_allow_html=True
-                ) 
-    
-    
+                )     
     ###################################################################### layout 
     t1h0, t1h1, t1h2 = st.columns( [0.001, 0.998, 0.001] ) 
     
     t1b0, t1b1, t1b2, t1b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
     t1b4, t1b5, t1b6, t1b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
     t1b8, t1b9, t1b10,t1b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
-
     t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
-
-
-
     ##################################################################### head 1  
     t1h1.caption(f'Here is :blue[{organ_t1}] :sunglasses:')    
     t1h1.markdown(r"""
 	1. 광주지사 민원은 증가추세에 있습니다.
-    """)
-
-
-
+    """) 
     ###################################################################### body 1  
     t1b1.divider() 
     t1b1.markdown("##### 2024년 이슈")
-
     t1b1_kind1_df, _, _ = mf.load_df(organ_t1, kind1_t1) 
-
     t1b1.table(t1b1_kind1_df.style.background_gradient(cmap='Blues')) 
-
-
-
     ###################################################################### body 2     # wc 그래프  
     t1b2.divider() 
     t1b2.markdown("##### 주요 키워드 클라우드") 
 
     t1b2_fig = mf.load_wc(organ_t1, kind1_t1)
     t1b2.pyplot(t1b2_fig, use_container_width=True)    
-
-
-
     ###################################################################### body 5     # pie 그래프 
     t1b5.divider() 
     t1b5.markdown("##### 유형별 민원") 
-
     t1b5_pie = mf.create_pie(organ_t1, kind1_t1)
     t1b5.pyplot(t1b5_pie, use_container_width=True)    
-
-
     ###################################################################### body 6     # 가로 sns bar 그래프 
     t1b6.divider() 
     t1b6.markdown("##### 유형별 민원") 
-
-
     t1b6_sns_hbar = mf.create_sns_hbar(organ_t1, kind1_t1)
-    t1b6.pyplot(t1b6_sns_hbar, use_container_width=True)     
-        
-
+    t1b6.pyplot(t1b6_sns_hbar, use_container_width=True) 
     ###################################################################### body 9
 
 
@@ -111,11 +85,9 @@ def run_tab():
     ###################################################################### tail 1 
     t1t1.divider() 
     t1t1.markdown("##### 노선별 민원") 
-
     # 테이블 데이터
     _, t1t1_point_df, _ = mf.load_df(organ_t1, kind1_t1) 
     t1t1.dataframe(t1t1_point_df) 
-
     # map data  
     map_t1 = mf.load_map(organ_t1, kind1_t1, base_position_t1) 
 
