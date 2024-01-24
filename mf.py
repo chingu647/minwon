@@ -100,7 +100,7 @@ def load_map(organ, kind1, base_position):
                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                         ).add_to(map) 
 
-    folium_map = map._repr.html_() 
+    folium_map = map._repr_html_()
     st.components.v1.html(folium_map, height=900) #, width=800, height=600)
     # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
