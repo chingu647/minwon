@@ -52,7 +52,11 @@ st.markdown(f"##### 😎 :rainbow[{organ_t50} 민원 한눈에 보기] 👀 ")
 
 # 테이블 데이터
 t50t1_kind1_df, t50t1_point_df, _ = mf.load_df(organ_t50, kind1_t50) 
-# st.dataframe(t50t1_point_df) 
+    
+st.markdown(f"""
+<center>최근 이슈</font>는 <font color='red'><b>{t50t1_kind1_df.index[0]}</b> > {t50t1_kind1_df.index[1]} > {t50t1_kind1_df.index[2]}</font> 순 입니다.</center>
+""", unsafe_allow_html=True) 
+
 
 # map data  
 # map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
