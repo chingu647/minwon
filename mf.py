@@ -125,7 +125,7 @@ def load_map_kind1(organ, kind1, base_position):
         result = point_df[f'{kind1}']
     else:
         result = "해당 열이 존재하지 않습니다."
-    result_df = point_df.query(f' `{kind1}` == `@kind1_df.index[0]` ')
+    result_df = point_df.query(f' `{kind1}` == @kind1_df.index[0] ')
 
     # fg_k0_df = point_df.query(" '서비스유형(대)' == @kind1_df.index[0] ") 
     # fg_k1_df = point_df.query(" '서비스유형(대)' == @kind1_df.index[1] ") 
