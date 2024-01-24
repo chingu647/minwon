@@ -115,5 +115,5 @@ def run_tab():
     t2t1.dataframe(t2t1_point_df) 
 
     # map data  
-    map_t2 = mf.load_map(organ_t2, kind1_t2, base_position_t2) 
+    mf.load_map_kind1(organ_t2, kind1_t2, base_position_t2) 
 
