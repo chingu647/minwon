@@ -76,7 +76,7 @@ def run_tab():
     t0b2_fig = mf.load_wc(organ_t0, kind1_t0) 
 
     t0b2.markdown(f"""
-	<center>주요 키워드</font>는 <font color='red'>{organ_t0}</font> 입니다.</center>
+	<center>주요 키워드는 <b>{organ_t0}</b> 입니다.</center>
     """, unsafe_allow_html=True)
 
     t0b2.pyplot(t0b2_fig, use_container_width=True)   
@@ -86,7 +86,7 @@ def run_tab():
     t0b5.markdown("##### 📚 :rainbow[유형별 민원] ") 
 
     t0b5.markdown(f"""
-	<center>주요 민원유형</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
+	<center>주요 민원유형은 <b>{organ_t0}</b> 입니다.</center>
     """, unsafe_allow_html=True)
 
     t0b5_pie = mf.create_pie(organ_t0, kind1_t0)
@@ -105,7 +105,7 @@ def run_tab():
     t0b9.markdown("##### 🚌 :rainbow[노선별 민원] ") 
 
     t0b9.markdown(f"""
-	<center>최다 민원노선</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
+	<center>최다 민원노선은 <b>{organ_t0}</b> 입니다.</center>
     """, unsafe_allow_html=True)
     
     # 가로 sns bar 그래프 
