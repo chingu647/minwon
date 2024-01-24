@@ -136,7 +136,7 @@ def load_map_kind1(organ, kind1, base_position):
     fg_k1 = folium.FeatureGroup(name=f'{kind1_df.index[1]}') 
     fg_k2 = folium.FeatureGroup(name=f'{kind1_df.index[2]}') 
     fg_k3 = folium.FeatureGroup(name=f'{kind1_df.index[3]}') 
-    fg_k4 = folium.FeatureGroup(name=f'{kind1_df.index[4]}') 
+    fg_k4 = folium.FeatureGroup(name=f'기타') 
 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
