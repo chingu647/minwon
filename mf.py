@@ -120,13 +120,12 @@ def load_map_kind1(organ, kind1, base_position):
     kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
-    kind1_df_index_values = list(kind1_df.index.values)
     
-    fg_k0_df = point_df.query("index == @kind1_df_index_values[0] ") 
-    fg_k1_df = point_df.query("index == @kind1_df_index_values[1] ") 
-    fg_k2_df = point_df.query("index == @kind1_df_index_values[2] ") 
-    fg_k3_df = point_df.query("index == @kind1_df_index_values[3] ") 
-    fg_k4_df = point_df.query("index == @kind1_df_index_values[4] ") 
+    fg_k0_df = point_df.query("index == @kind1_df.index_values[0] ") 
+    fg_k1_df = point_df.query("index == @kind1_df.index_values[1] ") 
+    fg_k2_df = point_df.query("index == @kind1_df.index_values[2] ") 
+    fg_k3_df = point_df.query("index == @kind1_df.index_values[3] ") 
+    fg_k4_df = point_df.query("index == @kind1_df.index_values[4] ") 
 
     fg_k0 = folium.FeatureGroup(name=f'{kind1_df_index_values[0]}') 
     fg_k1 = folium.FeatureGroup(name=f'{kind1_df_index_values[1]}') 
