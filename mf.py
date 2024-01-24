@@ -137,7 +137,7 @@ def load_map_kind1(organ, kind1, base_position):
     #     result = folium.FeatureGroup(name=f'@kind1_df.index[0]')
     # else:
     #     result = "해당 열이 존재하지 않습니다." 
-    kind1_df_indexes = list(kind1_df.index)
+    kind1_df_indexes = list(kind1_df.index)  #   -------------------------------------------------- kind1 5개는 본부 전체로 고정하면?
 
     fg_k0_df = point_df.query(f' `{kind1}` == "{kind1_df_indexes[0]}" ')
     fg_k1_df = point_df.query(f' `{kind1}` == @kind1_df.index[1] ') 
@@ -264,12 +264,7 @@ def load_map_kind1(organ, kind1, base_position):
     # 
     # folium.LayerControl(collapsed=False).add_to(map)
 
-    GroupedLayerControl(groups={  f'{kind1}': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4], f'{kind1}2': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
-                        exclusive_groups=True, 
-                        collapsed=False, 
-                        ).add_to(map)
-    
-    GroupedLayerControl(groups={  f'{kind1}10': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
+    GroupedLayerControl(groups={  f'{kind1}': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
                         exclusive_groups=False, 
                         collapsed=False, 
                         ).add_to(map)
