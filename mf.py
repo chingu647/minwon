@@ -122,18 +122,17 @@ def load_map_kind1(organ, kind1, base_position):
     # kind1 상위 5개 : Grouped Layer Control 준비...
     kind1_df_index_values = list(kind1_df.index.values)
     
-    kind1_df_index0_df = kind1_df.query(f"index == @kind1_df_index_values[0] ") 
-    kind1_df_index1_df = kind1_df.query(f"index == @kind1_df_index_values[1] ") 
-    kind1_df_index2_df = kind1_df.query(f"index == @kind1_df_index_values[2] ") 
-    kind1_df_index3_df = kind1_df.query(f"index == @kind1_df_index_values[3] ") 
-    kind1_df_index4_df = kind1_df.query(f"index == @kind1_df_index_values[4] ") 
+    fg_k0_df = point_df.query(f"index == @kind1_df_index_values[0] ") 
+    fg_k1_df = point_df.query(f"index == @kind1_df_index_values[1] ") 
+    fg_k2_df = point_df.query(f"index == @kind1_df_index_values[2] ") 
+    fg_k3_df = point_df.query(f"index == @kind1_df_index_values[3] ") 
+    fg_k4_df = point_df.query(f"index == @kind1_df_index_values[4] ") 
 
-
-    # fg_k0 = folium.FeatureGroup(name=f'{kind1_df_index_values[0]}') 
-    # fg_k1 = folium.FeatureGroup(name=f'{kind1_df_index_values[1]}') 
-    # fg_k2 = folium.FeatureGroup(name=f'{kind1_df_index_values[2]}') 
-    # fg_k3 = folium.FeatureGroup(name=f'{kind1_df_index_values[3]}') 
-    # fg_k4 = folium.FeatureGroup(name=f'{kind1_df_index_values[4]}') 
+    fg_k0 = folium.FeatureGroup(name=f'{kind1_df_index_values[0]}') 
+    fg_k1 = folium.FeatureGroup(name=f'{kind1_df_index_values[1]}') 
+    fg_k2 = folium.FeatureGroup(name=f'{kind1_df_index_values[2]}') 
+    fg_k3 = folium.FeatureGroup(name=f'{kind1_df_index_values[3]}') 
+    fg_k4 = folium.FeatureGroup(name=f'{kind1_df_index_values[4]}') 
 
     # map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
