@@ -54,7 +54,7 @@ st.markdown(f"##### 😎 :rainbow[{organ_t50} 민원 한눈에 보기] 👀 ")
 t50t1_kind1_df, t50t1_point_df, _ = mf.load_df(organ_t50, kind1_t50) 
     
 st.markdown(f"""
-<center>2024년도 민원은 <font color='red'><b>{t50t1_kind1_df.index[0]}({t50t1_kind1_df.iloc[0,0]}건)</b> > {t50t1_kind1_df.index[1]}({t50t1_kind1_df.iloc[1,0]}건)</font> > {t50t1_kind1_df.index[2]}({t50t1_kind1_df.iloc[2,0]}건) > {t50t1_kind1_df.index[3]}({t50t1_kind1_df.iloc[3,0]}건) > {t50t1_kind1_df.index[4]}({t50t1_kind1_df.iloc[4,0]}건) 순 입니다.</center>
+<center>2024년도 민원은 <b>{t50t1_kind1_df.index[0]}({t50t1_kind1_df.iloc[0,0]}건)</b> > {t50t1_kind1_df.index[1]}({t50t1_kind1_df.iloc[1,0]}건) > {t50t1_kind1_df.index[2]}({t50t1_kind1_df.iloc[2,0]}건) > {t50t1_kind1_df.index[3]}({t50t1_kind1_df.iloc[3,0]}건) > {t50t1_kind1_df.index[4]}({t50t1_kind1_df.iloc[4,0]}건) 순 입니다.</center>
 """, unsafe_allow_html=True) 
 
 
