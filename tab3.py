@@ -58,9 +58,9 @@ def run_tab():
     t3b1.markdown(f"##### 📢 :rainbow[2024년 {organ_t3} 이슈] ") 
 
     t3b1_kind1_df, _, _ = mf.load_df(organ_t3, kind1_t3) 
-    
+
     t3b1.markdown(f"""
-	<center>최근 이슈</font>는 <font color='red'><b>{t3b1_kind1_df.index[0]}</b> > {t3b1_kind1_df.index[1]} > {t3b1_kind1_df.index[2]}</font> 순 입니다.</center>
+	<center>최근 이슈는 <font color='red'><b>{t3b1_kind1_df.index[0]}</b> > {t3b1_kind1_df.index[1]} > {t3b1_kind1_df.index[2]}</font> 순 입니다.</center>
     """, unsafe_allow_html=True) 
 
     t3b1.table(t3b1_kind1_df.style.background_gradient(cmap='Blues')) 

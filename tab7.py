@@ -59,7 +59,7 @@ def run_tab():
     t7b1_kind1_df, _, _ = mf.load_df(organ_t7, kind1_t7) 
 
     t7b1.markdown(f"""
-	<center>최근 이슈</font>는 <font color='red'><b>{t7b1_kind1_df.index[0]}</b> > {t7b1_kind1_df.index[1]} > {t7b1_kind1_df.index[2]}</font> 순 입니다.</center>
+	<center>최근 이슈는 <font color='red'><b>{t7b1_kind1_df.index[0]}</b> > {t7b1_kind1_df.index[1]} > {t7b1_kind1_df.index[2]}</font> 순 입니다.</center>
     """, unsafe_allow_html=True) 
 
     t7b1.table(t7b1_kind1_df.style.background_gradient(cmap='Blues')) 
