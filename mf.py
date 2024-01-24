@@ -244,7 +244,7 @@ def load_map_kind1(organ, kind1, base_position):
     # folium_map = map._repr_html_()
     # st.components.v1.html(folium_map, height=900) #, width=800, height=600)
 
-    return kind1_df_index0_df,kind1_df_index1_df,kind1_df_index2_df,kind1_df_index3_df,kind1_df_index4_df
+    return fg_k0_df,fg_k1_df,fg_k2_df,fg_k3_df,fg_k4_df
 
     # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
