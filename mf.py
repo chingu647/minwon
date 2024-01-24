@@ -121,11 +121,11 @@ def load_map_kind1(organ, kind1, base_position):
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
     
-    fg_k0_df = point_df.query("'서비스유형(대)' == @kind1_df.index.values[0] ") 
-    fg_k1_df = point_df.query("'서비스유형(대)' == @kind1_df.index.values[1] ") 
-    fg_k2_df = point_df.query("'서비스유형(대)' == @kind1_df.index.values[2] ") 
-    fg_k3_df = point_df.query("'서비스유형(대)' == @kind1_df.index.values[3] ") 
-    fg_k4_df = point_df.query("'서비스유형(대)' == @kind1_df.index.values[4] ") 
+    fg_k0_df = point_df.query(" '서비스유형(대)' == @kind1_df.index.values[0] ") 
+    fg_k1_df = point_df.query(" '서비스유형(대)' == @kind1_df.index.values[1] ") 
+    fg_k2_df = point_df.query(" '서비스유형(대)' == @kind1_df.index.values[2] ") 
+    fg_k3_df = point_df.query(" '서비스유형(대)' == @kind1_df.index.values[3] ") 
+    fg_k4_df = point_df.query(" '서비스유형(대)' == @kind1_df.index.values[4] ") 
 
     fg_k0 = folium.FeatureGroup(name=f'{kind1_df.index.values[0]}') 
     fg_k1 = folium.FeatureGroup(name=f'{kind1_df.index.values[1]}') 
