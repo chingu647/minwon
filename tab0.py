@@ -144,8 +144,20 @@ def run_tab():
 
     # 잘못된 query 사용 예시
     condition = (df['A'] == 1) 
+    
+    t0t1.write( "df['A']" )
     t0t1.write( df['A'] )
+    t0t1.write( type( df['A'] ) )
+
+    
+    t0t1.write( "(df['A'] == 1)" )
     t0t1.write( (df['A'] == 1) )
-    t0t1.write(condition)
+    t0t1.write( type( (df['A'] == 1) ))
+
+
+    t0t1.write( "condition" )
+    t0t1.write( condition )
+    t0t1.write( type( condition ) )
+
     # result = df.query(condition)
 
