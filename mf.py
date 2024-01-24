@@ -121,12 +121,10 @@ def load_map_kind1(organ, kind1, base_position):
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
     
-    if kind1 in point_df.columns:
-        result = folium.FeatureGroup(name=f'@kind1_df.index[0]')
-    else:
-        result = "해당 열이 존재하지 않습니다."
-
-    result_df = folium.FeatureGroup(name=f'@kind1_df.index[0]')
+    # if kind1 in point_df.columns:
+    #     result = folium.FeatureGroup(name=f'@kind1_df.index[0]')
+    # else:
+    #     result = "해당 열이 존재하지 않습니다."
 
     fg_k0_df = point_df.query(f' `{kind1}` == @kind1_df.index[0] ')
     fg_k1_df = point_df.query(f' `{kind1}` == @kind1_df.index[1] ') 
@@ -134,11 +132,11 @@ def load_map_kind1(organ, kind1, base_position):
     fg_k3_df = point_df.query(f' `{kind1}` == @kind1_df.index[3] ')
     fg_k4_df = point_df.query(f' `{kind1}` == @kind1_df.index[4] ')
 
-    # fg_k0 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
-    # fg_k1 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
-    # fg_k2 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
-    # fg_k3 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
-    # fg_k4 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
+    fg_k0 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
+    fg_k1 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
+    fg_k2 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
+    fg_k3 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
+    fg_k4 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
 
     # map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
@@ -250,7 +248,8 @@ def load_map_kind1(organ, kind1, base_position):
     # folium_map = map._repr_html_()
     # st.components.v1.html(folium_map, height=900) #, width=800, height=600)
 
-    return result, result_df # fg_k0_df,fg_k1_df,fg_k2_df,fg_k3_df,fg_k4_df
+    # return # fg_k0_df,fg_k1_df,fg_k2_df,fg_k3_df,fg_k4_df
+
 
     # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
