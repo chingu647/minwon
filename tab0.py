@@ -69,26 +69,27 @@ def run_tab():
 
     t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
+
     # # ###################################################################### body 2     # wc 그래프  
     t0b2.markdown("##### 🔎 :rainbow[주요 키워드 클라우드] ") 
 
-    # t0b2.markdown(f"""
-	# <center>주요 키워드</font>는 <font color='red'>{organ_t0}</font> 입니다.</center>
-    # """, unsafe_allow_html=True) 
+    t0b2.markdown(f"""
+	<center>주요 키워드</font>는 <font color='red'>{organ_t0}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
-    # t0b2_fig = mf.load_wc(organ_t0, kind1_t0)
-    # t0b2.pyplot(t0b2_fig)
+    t0b2_fig = mf.load_wc(organ_t0, kind1_t0)
+    t0b2.pyplot(t0b2_fig, use_container_width=True)   
 
 
     ###################################################################### body 5     # pie 그래프 
     t0b5.markdown("##### 📚 :rainbow[유형별 민원] ") 
 
-    # t0b5.markdown(f"""
-	# <center>주요 민원유형</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
-    # """, unsafe_allow_html=True)
+    t0b5.markdown(f"""
+	<center>주요 민원유형</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
 
-    # t0b5_pie = mf.create_pie(organ_t0, kind1_t0)
-    # t0b5.pyplot(t0b5_pie, use_container_width=True)  
+    t0b5_pie = mf.create_pie(organ_t0, kind1_t0)
+    t0b5.pyplot(t0b5_pie, use_container_width=True)  
 
 
     # # ###################################################################### body 6 
@@ -102,13 +103,13 @@ def run_tab():
     # # ###################################################################### body 9
     t0b9.markdown("##### 🚌 :rainbow[노선별 민원] ") 
 
-    # t0b9.markdown(f"""
-	# <center>최다 민원노선</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
-    # """, unsafe_allow_html=True)
+    t0b9.markdown(f"""
+	<center>최다 민원노선</font>은 <font color='red'>{organ_t0}</font> 입니다.</center>
+    """, unsafe_allow_html=True)
     
-    # # 가로 sns bar 그래프 
-    # t0b9_sns_hbar = mf.create_sns_hbar(organ_t0, kind1_t0) 
-    # t0b9.pyplot(t0b9_sns_hbar)
+    # 가로 sns bar 그래프 
+    t0b9_sns_hbar = mf.create_sns_hbar(organ_t0, kind1_t0) 
+    t0b9.pyplot(t0b9_sns_hbar)
 
 
     ###################################################################### body 10
