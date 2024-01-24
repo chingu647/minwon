@@ -11,6 +11,7 @@ import seaborn as sns
 import geopandas as gpd 
 import folium 
 from streamlit_folium import folium_static 
+from folium.plugins import GroupedLayerControl
 
 import nltk 
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
@@ -124,6 +125,5 @@ def run_tab():
     t0t1.dataframe(t0t1_point_df) 
 
     # map data  
-    map_t1 = mf.load_map(organ_t0, kind1_t0, base_position_t0) 
+    map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
-    
