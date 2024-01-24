@@ -150,14 +150,14 @@ def run_tab():
     t0t1.write( type( df['A'] ) )
 
     
-    t0t1.write( "(df['A'] == 1)" )
-    t0t1.write( (df['A'] == 1) )
-    t0t1.write( type( (df['A'] == 1) ))
+    # t0t1.write( "(df['A'] == 1)" )
+    # t0t1.write( (df['A'] == 1) )
+    # t0t1.write( type( (df['A'] == 1) ))
 
 
-    t0t1.write( "condition" )
-    t0t1.write( condition )
-    t0t1.write( type( condition ) )
+    # t0t1.write( "condition" )
+    # t0t1.write( condition )
+    # t0t1.write( type( condition ) )
 
     # result = df.query(condition)
 
