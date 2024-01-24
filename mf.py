@@ -29,7 +29,7 @@ def load_df(organ, kind1):
         df = df 
     else:
         df = df.query( f"organ=='{organ}'" )
-        
+
     kind1_df = df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
     kind1_df = kind1_df.iloc[:5,:1]
     kind1_df.columns = ['건수']
@@ -100,7 +100,7 @@ def load_map(organ, kind1, base_position):
                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                         ).add_to(map) 
 
-    folium_map = map._repr_html_() 
+    folium_map = map._repr.html_() 
     st.components.v1.html(folium_map, height=900) #, width=800, height=600)
     # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
