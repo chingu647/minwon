@@ -65,7 +65,7 @@ def run_tab():
     t0b1_kind1_df, _, _ = mf.load_df(organ_t0, kind1_t0) 
 
     t0b1.markdown(f"""
-	<center>최근 이슈</font>는 <font color='red'>{t0b1_kind1_df.index[0]}, {t0b1_kind1_df.index[1]}</font> 입니다.</center>
+	<center>최근 이슈</font>는 <font color='red'>{t0b1_kind1_df.index[0]} > {t0b1_kind1_df.index[1]} > {t0b1_kind1_df.index[2]}</font>순 입니다.</center>
     """, unsafe_allow_html=True) 
 
     t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
@@ -73,12 +73,12 @@ def run_tab():
 
     # # ###################################################################### body 2     # wc 그래프  
     t0b2.markdown("##### 🔎 :rainbow[주요 키워드 클라우드] ") 
+    t0b2_fig = mf.load_wc(organ_t0, kind1_t0) 
 
     t0b2.markdown(f"""
 	<center>주요 키워드</font>는 <font color='red'>{organ_t0}</font> 입니다.</center>
     """, unsafe_allow_html=True)
 
-    t0b2_fig = mf.load_wc(organ_t0, kind1_t0)
     t0b2.pyplot(t0b2_fig, use_container_width=True)   
 
 
