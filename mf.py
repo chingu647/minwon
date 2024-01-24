@@ -238,7 +238,7 @@ def load_map_kind1(organ, kind1, base_position):
     map.add_child(fg_k4)
 
     # 
-    folium.LayerControl(collapsed=False).add_to(map)
+    # folium.LayerControl(collapsed=False).add_to(map)
 
     GroupedLayerControl(groups={  'groups1': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
                         exclusive_groups=False, 
