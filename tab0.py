@@ -121,9 +121,10 @@ def run_tab():
     t0t1.markdown("##### 😎 :rainbow[민원 위치 한눈에 보기] 👀 ") 
 
     # 테이블 데이터
-    _, t0t1_point_df, _ = mf.load_df(organ_t0, kind1_t0) 
+    t0t1_kind1_df, t0t1_point_df, _ = mf.load_df(organ_t0, kind1_t0) 
     t0t1.dataframe(t0t1_point_df) 
 
+    t0t1.write(t0t1_kind1_df.index.values)
     # map data  
-    map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
+    # map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
