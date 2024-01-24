@@ -132,11 +132,11 @@ def load_map_kind1(organ, kind1, base_position):
     fg_k3_df = point_df.query(f' `{kind1}` == @kind1_df.index[3] ')
     fg_k4_df = point_df.query(f' `{kind1}` == @kind1_df.index[4] ')
 
-    fg_k0 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
-    fg_k1 = folium.FeatureGroup(name=f'@kind1_df.index[1]') 
-    fg_k2 = folium.FeatureGroup(name=f'@kind1_df.index[2]') 
-    fg_k3 = folium.FeatureGroup(name=f'@kind1_df.index[3]') 
-    fg_k4 = folium.FeatureGroup(name=f'@kind1_df.index[4]') 
+    fg_k0 = folium.FeatureGroup(name=f'{kind1_df.index[0]}') 
+    fg_k1 = folium.FeatureGroup(name=f'{kind1_df.index[1]}') 
+    fg_k2 = folium.FeatureGroup(name=f'{kind1_df.index[2]}') 
+    fg_k3 = folium.FeatureGroup(name=f'{kind1_df.index[3]}') 
+    fg_k4 = folium.FeatureGroup(name=f'{kind1_df.index[4]}') 
 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
