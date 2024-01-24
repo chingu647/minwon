@@ -48,7 +48,8 @@ def run_tab():
     t1b4, t1b5, t1b6, t1b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
     t1b8, t1b9, t1b10,t1b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
-    t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] ) 
+    t1t0, t1t1, t1t2 = st.columns( [0.001, 0.998, 0.001] )
+    t1t3, t1t4, t1t5 = st.columns( [0.001, 0.998, 0.001] ) 
 
 
 

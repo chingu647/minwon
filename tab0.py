@@ -26,7 +26,7 @@ def run_tab():
     global kind1_t0 
     global base_position_t0 
 
-    organ_t0 = "광주지사" 
+    organ_t0 = "*" 
     kind1_t0 = '서비스유형(대)'
     base_position_t0 = [35.18668601, 126.87954220] 
 
@@ -49,6 +49,7 @@ def run_tab():
     t0b8, t0b9, t0b10,t0b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
     t0t0, t0t1, t0t2 = st.columns( [0.001, 0.998, 0.001] ) 
+    t0t3, t0t4, t0t5 = st.columns( [0.001, 0.998, 0.001] ) 
 
 
 

@@ -10,7 +10,7 @@ import seaborn as sns
 
 import geopandas as gpd 
 import folium 
-from streamlit_folium import folium_static 
+from streamlit_folium import st_folium  
 
 import nltk 
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
@@ -79,18 +79,6 @@ def load_map(organ, kind1, base_position):
     # data  
     kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
 
-    map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
-    gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
-    folium.GeoJson(gpf_line, 
-                    style_function=lambda feature: {
-                        'fillColor': 'blue' , #feature['properties']['color'],
-                        'color': '#F5F6CE',
-                        'weight': 3,
-                        'dashArray': '5, 5',
-                        'fillOpacity': 0.3, 
-                    }
-                ).add_to(map) 
-
     for index, row in point_df.iterrows(): 
         if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
             folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
@@ -110,7 +98,7 @@ def load_map(organ, kind1, base_position):
 
     folium_map = map._repr_html_() 
     st.components.v1.html(folium_map, height=900) #, width=800, height=600)
-    # folium_static(t1_map) #, width=600, height=400)
+    # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
 
 
