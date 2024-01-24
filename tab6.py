@@ -54,7 +54,7 @@ def run_tab():
    
 
     ###################################################################### body 1  
-    t6b1.markdown(f"##### 📢 :rainbow[2024년 주요 이슈] ") 
+    t6b1.markdown(f"##### 📢 :rainbow[2024년 {organ_t6} 이슈] ") 
 
     t6b1.markdown(f"""
 	<center>최근 이슈</font>는 <font color='red'>{organ_t6}</font> 입니다.</center>
