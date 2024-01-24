@@ -26,7 +26,7 @@ def run_tab():
     global kind1_t0 
     global base_position_t0 
 
-    organ_t0 = "*" 
+    organ_t0 = "본부" 
     kind1_t0 = '서비스유형(대)'
     base_position_t0 = [35.18668601, 126.87954220] 
 

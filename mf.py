@@ -24,8 +24,12 @@ from wordcloud import WordCloud, STOPWORDS
 # arg2 : global kind1_ t?? ---------- 탭 페이지에서 입력
 @st.cache_resource 
 def load_df(organ, kind1):
-    df = pd.read_csv("data/민원처리현황.csv")
-    df = df.query( f"organ=='{organ}'" )
+    df = pd.read_csv("data/민원처리현황.csv") 
+    if organ=='본부':
+        df = df 
+    else:
+        df = df.query( f"organ=='{organ}'" )
+        
     kind1_df = df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
     kind1_df = kind1_df.iloc[:5,:1]
     kind1_df.columns = ['건수']
