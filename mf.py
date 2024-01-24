@@ -189,7 +189,7 @@ def load_map_kind1(organ, kind1, base_position):
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
                         popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
                         tooltip=row['latitude'], 
-                        icon=folium.Icon(color='green', icon='star'), 
+                        icon=folium.Icon(color='darkgreen', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                         ).add_to(fg_k2) 
