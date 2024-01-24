@@ -65,7 +65,7 @@ def run_tab():
     t0b1_kind1_df, _, _ = mf.load_df(organ_t0, kind1_t0) 
 
     t0b1.markdown(f"""
-	<center>최근 이슈</font>는 <font color='red'>{t0b1_kind1_df.iloc[0,0]}</font> 입니다.</center>
+	<center>최근 이슈</font>는 <font color='red'>{t0b1_kind1_df.index[0]}, {t0b1_kind1_df.index[1]}</font> 입니다.</center>
     """, unsafe_allow_html=True) 
 
     t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
