@@ -83,6 +83,7 @@ def load_map(organ, kind1, base_position):
     # data  
     kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
 
+    map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
     for index, row in point_df.iterrows(): 
         if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
             folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
@@ -91,7 +92,7 @@ def load_map(organ, kind1, base_position):
                                 fill=True,           # 원 채움
                                 fill_opacity=0.5,     # 원 채움 투명도
                                 ).add_to(map) 
-            
+                      
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
                         popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
                         tooltip=row['latitude'], 
