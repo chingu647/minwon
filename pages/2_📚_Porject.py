@@ -44,7 +44,7 @@ st.markdown("""
             ) 
 
 
-st.header('광주전남본부 한눈에 보는 민원 지도', divider='rainbow') 
+st.subheader('광주전남본부 민원 지도', divider='rainbow') 
 
 
 ###################################################################### tail 1 
