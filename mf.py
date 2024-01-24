@@ -263,11 +263,12 @@ def load_map_kind1(organ, kind1, base_position):
     # 
     # folium.LayerControl(collapsed=False).add_to(map)
 
-    GroupedLayerControl(groups={  f'{kind1}': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
+    GroupedLayerControl(groups={  f'{kind1}': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4], f'{kind1}2': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
                         exclusive_groups=False, 
                         collapsed=True, 
                         ).add_to(map)
-    GroupedLayerControl(groups={  f'{kind1}2': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
+    
+    GroupedLayerControl(groups={  f'{kind1}10': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
                         exclusive_groups=True, 
                         collapsed=True, 
                         ).add_to(map)
