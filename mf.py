@@ -120,7 +120,7 @@ def load_map_kind1(organ, kind1, base_position):
     kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
-    kind1_df_index_values = kind1_df.index.values
+    kind1_df_index_values = list( kind1_df.index.values )
     
     kind1_df_index0_df = kind1_df.query(f"index == {kind1_df_index_values[0]} ") 
     kind1_df_index1_df = kind1_df.query(f"index == {kind1_df_index_values[1]} ") 
