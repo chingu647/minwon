@@ -62,11 +62,11 @@ def run_tab():
     # # ###################################################################### body 1  
     t0b1.markdown(f"##### 📢 :rainbow[2024년 주요 이슈] ") 
 
-    t0b1.markdown(f"""
-	<center>최근 이슈</font>는 <font color='red'>{organ_t0}</font> 입니다.</center>
-    """, unsafe_allow_html=True) 
-
     t0b1_kind1_df, _, _ = mf.load_df(organ_t0, kind1_t0) 
+
+    t0b1.markdown(f"""
+	<center>최근 이슈</font>는 <font color='red'>{t0b1_kind1_df.iloc[0,0]}</font> 입니다.</center>
+    """, unsafe_allow_html=True) 
 
     t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
@@ -129,4 +129,3 @@ def run_tab():
 
     mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
-    
