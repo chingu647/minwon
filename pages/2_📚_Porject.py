@@ -44,11 +44,11 @@ st.markdown("""
             ) 
 
 
-st.title('Project') 
+st.header('광주전남본부 한눈에 보는 민원 지도', divider='rainbow') 
 
 
 ###################################################################### tail 1 
-st.markdown(f"##### 😎 :rainbow[광주전남{organ_t50} 민원 한눈에 보기] 👀 ") 
+st.markdown(f"##### 😎 :rainbow[{organ_t50} 민원 한눈에 보기] 👀 ") 
 
 # 테이블 데이터
 t50t1_kind1_df, t50t1_point_df, _ = mf.load_df(organ_t50, kind1_t50) 
