@@ -141,7 +141,7 @@ def load_map_kind1(organ, kind1, base_position):
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
     # folium.Marker([, ]).add_to(fg_k0) -------------------------------
-    for index, row in kind1_df_index0_df.iterrows(): 
+    for index, row in fg_k0_df.iterrows(): 
         if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
             folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
                                 radius=1,            # 원 반지름
@@ -159,7 +159,7 @@ def load_map_kind1(organ, kind1, base_position):
                         ).add_to(fg_k0) 
 
     # # folium.Marker([, ]).add_to(fg_k1) -------------------------------
-    # for index, row in kind1_df_index1_df.iterrows(): 
+    # for index, row in fg_k1_df.iterrows(): 
     #     if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
     #         folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
     #                             radius=1,            # 원 반지름
