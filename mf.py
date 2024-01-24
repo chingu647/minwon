@@ -240,10 +240,10 @@ def load_map_kind1(organ, kind1, base_position):
     # 
     folium.LayerControl(collapsed=False).add_to(map)
 
-    # GroupedLayerControl(groups={'groups1': [fg_k0, fg_k1, fg_k2, fg_k3]}, 
-    #                     exclusive_groups=False, 
-    #                     collapsed=False, 
-    #                     ).add_to(map)
+    GroupedLayerControl(groups={'groups1': [fg_k0, fg_k1, fg_k2, fg_k3]}, 
+                        exclusive_groups=False, 
+                        collapsed=False, 
+                        ).add_to(map)
 
 
     folium_map = map._repr_html_()
