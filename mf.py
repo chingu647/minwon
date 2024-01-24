@@ -136,9 +136,10 @@ def load_map_kind1(organ, kind1, base_position):
     # if kind1 in point_df.columns:
     #     result = folium.FeatureGroup(name=f'@kind1_df.index[0]')
     # else:
-    #     result = "해당 열이 존재하지 않습니다."
+    #     result = "해당 열이 존재하지 않습니다." 
+    kind1_df_indexes = list(kind1_df.index)
 
-    fg_k0_df = point_df.query(f' `{kind1}` == @kind1_df.index[0] ')
+    fg_k0_df = point_df.query(f' `{kind1}` == {kind1_df_indexes[0]} ')
     fg_k1_df = point_df.query(f' `{kind1}` == @kind1_df.index[1] ') 
     fg_k2_df = point_df.query(f' `{kind1}` == @kind1_df.index[2] ')
     fg_k3_df = point_df.query(f' `{kind1}` == @kind1_df.index[3] ')
