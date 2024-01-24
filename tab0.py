@@ -127,9 +127,10 @@ def run_tab():
     # map data  
     # map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
-    result_0 =  mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
+    result_0, result_df_0 =  mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
     t0t1.write(result_0)
-    
+    t0t1.dataframe(result_df_0)
+
     # df0,df1,df2,df3,df4 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
     # t0t1.table(df0) 

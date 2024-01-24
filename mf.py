@@ -125,7 +125,7 @@ def load_map_kind1(organ, kind1, base_position):
         result = point_df[f'{kind1}']
     else:
         result = "해당 열이 존재하지 않습니다."
-
+    result_df = point_df.query(f' {kind1} == "영업" ')
 
     # fg_k0_df = point_df.query(" '서비스유형(대)' == @kind1_df.index[0] ") 
     # fg_k1_df = point_df.query(" '서비스유형(대)' == @kind1_df.index[1] ") 
@@ -249,7 +249,7 @@ def load_map_kind1(organ, kind1, base_position):
     # folium_map = map._repr_html_()
     # st.components.v1.html(folium_map, height=900) #, width=800, height=600)
 
-    return result # fg_k0_df,fg_k1_df,fg_k2_df,fg_k3_df,fg_k4_df
+    return result, result_df # fg_k0_df,fg_k1_df,fg_k2_df,fg_k3_df,fg_k4_df
 
     # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
