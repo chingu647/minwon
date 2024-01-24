@@ -121,8 +121,8 @@ def load_map_kind1(organ, kind1, base_position):
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
     
-    if kind1 in kind1_df.columns:
-        result = df[f'{kind1}'])
+    if kind1 in point_df.columns:
+        result = point_df[f'{kind1}']
     else:
         result = "해당 열이 존재하지 않습니다."
 
