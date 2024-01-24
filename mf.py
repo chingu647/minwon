@@ -138,25 +138,25 @@ def load_map_kind1(organ, kind1, base_position):
     fg_k3 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
     fg_k4 = folium.FeatureGroup(name=f'@kind1_df.index[0]') 
 
-    # map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
+    map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
-    # # folium.Marker([, ]).add_to(fg_k0) -------------------------------
-    # for index, row in kind1_df_index0_df.iterrows(): 
-    #     if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
-    #         folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
-    #                             radius=1,            # 원 반지름
-    #                             color='blue',        # 원 테두리 색상
-    #                             fill=True,           # 원 채움
-    #                             fill_opacity=0.5,     # 원 채움 투명도
-    #                             ).add_to(fg_k0) 
+    # folium.Marker([, ]).add_to(fg_k0) -------------------------------
+    for index, row in kind1_df_index0_df.iterrows(): 
+        if not pd.isna(row['latitude']) and not pd.isna(row['longitude']):
+            folium.CircleMarker( location=[ row['latitude'], row['longitude'] ],  # 원 중심
+                                radius=1,            # 원 반지름
+                                color='blue',        # 원 테두리 색상
+                                fill=True,           # 원 채움
+                                fill_opacity=0.5,     # 원 채움 투명도
+                                ).add_to(fg_k0) 
                       
-    #         folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-    #                     popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
-    #                     tooltip=row['latitude'], 
-    #                     icon=folium.Icon(color='red', icon='star'), 
-    #                     #   icon=folium.DivIcon(                              # 값 표시방식
-    #                     #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-    #                     ).add_to(fg_k0) 
+            folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
+                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+                        tooltip=row['latitude'], 
+                        icon=folium.Icon(color='red', icon='star'), 
+                        #   icon=folium.DivIcon(                              # 값 표시방식
+                        #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
+                        ).add_to(fg_k0) 
 
     # # folium.Marker([, ]).add_to(fg_k1) -------------------------------
     # for index, row in kind1_df_index1_df.iterrows(): 
@@ -230,8 +230,8 @@ def load_map_kind1(organ, kind1, base_position):
     #                     #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
     #                     ).add_to(fg_k4) 
 
-    # # map.add_child(fg_???) 
-    # map.add_child(fg_k0)
+    # map.add_child(fg_???) 
+    map.add_child(fg_k0)
     # map.add_child(fg_k1)
     # map.add_child(fg_k2)
     # map.add_child(fg_k3)
