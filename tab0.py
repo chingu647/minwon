@@ -8,9 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm 
 import seaborn as sns
 
-
-
-
+from streamlit_echart import st_echarts
 
 import geopandas as gpd 
 import folium 
@@ -23,8 +21,6 @@ from wordcloud import WordCloud, STOPWORDS
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
-
-import streamlit_echart import st_echarts
 
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
