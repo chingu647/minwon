@@ -12,7 +12,7 @@ import geopandas as gpd
 import folium 
 from streamlit_folium import folium_static 
 from folium.plugins import GroupedLayerControl
- 
+
 import nltk 
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
