@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm 
 import seaborn as sns
 
-from streamlit_echart import st_echarts
+
 
 
 
@@ -23,6 +23,8 @@ from wordcloud import WordCloud, STOPWORDS
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
+
+import streamlit_echart import st_echarts
 
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
@@ -74,8 +76,6 @@ def run_tab():
 
     t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
-
-
     options = {
         "xAxis": {
             "type": "category",
@@ -86,7 +86,7 @@ def run_tab():
             {"data": [820, 932, 901, 934, 1290, 1330, 1320], "type": "line"}
         ],
     }
-    st_echarts(options=options)
+    t0b1.st_echarts(options=options)
 
 
 
