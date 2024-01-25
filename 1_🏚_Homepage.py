@@ -123,26 +123,26 @@ if selected == "본부":
     tab0.run_tab()
     st.snow()
 
-elif selected == "광주": 
-    tab1.run_tab()
+# elif selected == "광주": 
+#     tab1.run_tab()
     
-elif selected == "담양":
-    tab2.run_tab()
+# elif selected == "담양":
+#     tab2.run_tab()
 
-elif selected == "순천":
-    tab3.run_tab()
+# elif selected == "순천":
+#     tab3.run_tab()
     
-elif selected == "함평":
-    tab4.run_tab()
+# elif selected == "함평":
+#     tab4.run_tab()
 
-elif selected == "구례":
-    tab5.run_tab()
+# elif selected == "구례":
+#     tab5.run_tab()
     
-elif selected == "보성":
-    tab6.run_tab()
+# elif selected == "보성":
+#     tab6.run_tab()
 
-elif selected == "남원":
-    tab7.run_tab()
+# elif selected == "남원":
+#     tab7.run_tab()
 
 
 

@@ -26,12 +26,19 @@ from wordcloud import WordCloud, STOPWORDS
 @st.cache_resource 
 def load_df(organ, kind1):
     df = pd.read_csv("data/민원처리현황.csv") 
+
+    # CSV 컬럼 변수
+    KEYWORD = 'KEYWORD' 
+
     if organ=='본부':
         df = df 
     else:
-        df = df.query( f"organ=='{organ}'" )
+        df = df.query( f"organ=='{organ}'" ) 
+    
+    # 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    point_df = df[ ~( (df['latitude'].isna()) | (df['longitude'].isna()) ) ] 
 
-    kind1_df = df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
+    kind1_df = point_df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
     kind1_df = kind1_df.iloc[:5,:1]
     kind1_df.columns = ['건수']
     kind1_df['비율(%)'] = ( kind1_df['건수']/(kind1_df['건수'].sum())*100).astype(int)
@@ -42,14 +49,10 @@ def load_df(organ, kind1):
     point_df = df[ ~( (df['latitude'].isna()) | (df['longitude'].isna()) ) ] 
 
     # wc data
-    wc_sr = df.loc[:, '본문 요약']
+    wc_sr = df.loc[:, f'{KEYWORD}']
     wc_data = ' '.join( map(str,wc_sr) )
 
     return kind1_df, point_df, wc_data  
-    # kind1_df --------- 
-    # point_df --------- 
-
-
 
 ##################################################################################### load wc 
 # arg1 : text_raw 
@@ -70,7 +73,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     ax.axis('off')
     ax.imshow(wc) 
     # target_layout.pyplot(fig) 
-    return fig 
+    return fig, wc_data 
 
 
 
@@ -81,8 +84,13 @@ def load_wc(organ, kind1): # target_layout 에러 발생
 
 @st.cache_resource 
 def load_map(organ, kind1, base_position): 
+
+    # CSV 컬럼 변수
+    KIND2 = 'KIND2'
+    KEYWORD = 'KEYWORD'
+
     # data  
-    kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
+    _, point_df, _ = load_df(organ, kind1)  #   <==================================================
 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
     
@@ -107,7 +115,7 @@ def load_map(organ, kind1, base_position):
                                 ).add_to(map) 
                       
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row['latitude'], 
                         icon=folium.Icon(color='red', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
@@ -118,6 +126,7 @@ def load_map(organ, kind1, base_position):
     st.components.v1.html(folium_map, height=900) #, width=800, height=600)
     # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
+    return point_df
 
 
 
@@ -128,6 +137,11 @@ def load_map(organ, kind1, base_position):
 
 @st.cache_resource 
 def load_map_kind1(organ, kind1, base_position): 
+
+    # CSV 컬럼 변수
+    KIND2 = 'KIND2'
+    KEYWORD = 'KEYWORD'
+
     # data  
     kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
 
@@ -175,7 +189,7 @@ def load_map_kind1(organ, kind1, base_position):
                                 ).add_to(fg_k0) 
                       
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row['latitude'], 
                         icon=folium.Icon(color='red', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
@@ -193,7 +207,7 @@ def load_map_kind1(organ, kind1, base_position):
                                 ).add_to(fg_k1) 
                       
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row['latitude'], 
                         icon=folium.Icon(color='blue', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
@@ -211,7 +225,7 @@ def load_map_kind1(organ, kind1, base_position):
                                 ).add_to(fg_k2) 
                       
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row['latitude'], 
                         icon=folium.Icon(color='green', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
@@ -229,7 +243,7 @@ def load_map_kind1(organ, kind1, base_position):
                                 ).add_to(fg_k3) 
                       
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row['latitude'], 
                         icon=folium.Icon(color='orange', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
@@ -247,7 +261,7 @@ def load_map_kind1(organ, kind1, base_position):
                                 ).add_to(fg_k4) 
                       
             folium.Marker( location=[ row['latitude'], row['longitude'] ],  # 값 중심 
-                        popup=f"{row['서비스유형(소)']} ( {row['고객유형']} ) ", 
+                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row['latitude'], 
                         icon=folium.Icon(color='purple', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
@@ -270,7 +284,9 @@ def load_map_kind1(organ, kind1, base_position):
                         ).add_to(map)
 
     folium_map = map._repr_html_()
-    st.components.v1.html(folium_map, height=900) #, width=800, height=600)
+    st.components.v1.html(folium_map, height=900) #, width=800, height=600) 
+
+    return kind1_df, point_df 
 
 
 
@@ -318,7 +334,7 @@ def create_pie(organ, kind1):
             color='red',
             fontsize=23)                           # bar text 폰크 
     
-    return fig  
+    return fig, kind1_df 
 
 
 
@@ -358,7 +374,7 @@ def create_vbar(organ, kind1):
                 color='green',
                 fontsize=20)                           # bar text 폰크 
     
-    return fig  
+    return fig, kind1_df 
 
 
 
@@ -402,5 +418,5 @@ def create_sns_hbar(organ, kind1):
                 color='green',
                 fontsize=20)                   # bar text 폰크
 
-    return fig   
+    return fig, kind1_df    
 

@@ -59,7 +59,7 @@ def run_tab():
     t6b1_kind1_df, _, _ = mf.load_df(organ_t6, kind1_t6) 
 
     t6b1.markdown(f"""
-	<center>최근 이슈는 <font color='red'><b>{t6b1_kind1_df.index[0]}</b> > {t6b1_kind1_df.index[1]} > {t6b1_kind1_df.index[2]}</font> 순 입니다.</center>
+	<center>최근 이슈는 <b>{t6b1_kind1_df.index[0]}</b> > {t6b1_kind1_df.index[1]} > {t6b1_kind1_df.index[2]} 순 입니다.</center>
     """, unsafe_allow_html=True) 
 
     t6b1.table(t6b1_kind1_df.style.background_gradient(cmap='Blues')) 
@@ -69,7 +69,7 @@ def run_tab():
     t6b2.markdown("##### 🔎 :rainbow[주요 키워드 클라우드] ") 
 
     t6b2.markdown(f"""
-	<center>주요 키워드</font>는 <font color='red'>{organ_t6}</font> 입니다.</center>
+	<center>주요 키워드는 {organ_t6} 입니다.</center>
     """, unsafe_allow_html=True)
 
     t6b2_fig = mf.load_wc(organ_t6, kind1_t6) 
@@ -80,7 +80,7 @@ def run_tab():
     t6b5.markdown("##### 📚 :rainbow[유형별 민원] ") 
 
     t6b5.markdown(f"""
-	<center>주요 민원유형</font>은 <font color='red'>{organ_t6}</font> 입니다.</center>
+	<center>주요 민원유형은 {organ_t6} 입니다.</center>
     """, unsafe_allow_html=True)
 
     t6b5_pie = mf.create_pie(organ_t6, kind1_t6)
@@ -91,7 +91,7 @@ def run_tab():
     t6b6.markdown("##### 🚌 :rainbow[노선별 민원] ") 
 
     t6b6.markdown(f"""
-	<center>최다 민원노선</font>은 <font color='red'>{organ_t6}</font> 입니다.</center>
+	<center>최다 민원노선은 {organ_t6} 입니다.</center>
     """, unsafe_allow_html=True)
 
     t6b6_sns_hbar = mf.create_sns_hbar(organ_t6, kind1_t6)
