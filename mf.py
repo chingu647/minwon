@@ -30,7 +30,7 @@ def load_df(organ, kind1):
     # DATE 컬럼 DatetimeIndex로 변환 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     df['DATE'] = pd.to_datetime(df['DATE'])
 
-    st.write(df.info )
+    st.write(df.dtypes )
     # # CSV 컬럼 변수 
     # LATITUDE = 'LATITUDE'
     # LONGITUDE = 'LONGITUDE'
