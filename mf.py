@@ -27,6 +27,9 @@ from wordcloud import WordCloud, STOPWORDS
 def load_df(organ, kind1):
     df = pd.read_csv("data/민원처리현황.csv") 
 
+    # DATE 컬럼 DatetimeIndex로 변환 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    df['DATE'] = pd.to_datetime(df['DATE'])
+
     # CSV 컬럼 변수 
     LATITUDE = 'LATITUDE'
     LONGITUDE = 'LONGITUDE'
