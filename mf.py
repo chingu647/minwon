@@ -30,20 +30,21 @@ def load_df(organ, kind1):
     # DATE 컬럼 DatetimeIndex로 변환 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     df['DATE'] = pd.to_datetime(df['DATE'])
 
-    st.write(df.dtypes )
-    st.write(df['DATE'].unique())
-    # # CSV 컬럼 변수 
-    # LATITUDE = 'LATITUDE'
-    # LONGITUDE = 'LONGITUDE'
-    # KEYWORD = 'KEYWORD' 
+    # CSV 컬럼 변수 
+    LATITUDE = 'LATITUDE'
+    LONGITUDE = 'LONGITUDE'
+    KEYWORD = 'KEYWORD' 
 
-    # if organ=='본부':
-    #     df = df 
-    # else:
-    #     df = df.query( f"organ=='{organ}'" ) 
+    if organ=='본부':
+        df = df 
+    else:
+        df = df.query( f"organ=='{organ}'" ) 
 
-    # month_df = df.groupby(pd.Grouper(key='DATE', freq='M')).count()
+    month_df = df.groupby(pd.Grouper(key='DATE', freq='M')).count()
     
+    # st.write(df.dtypes )
+    # st.write(df['DATE'].unique())
+
     # # 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
 
