@@ -29,6 +29,8 @@ def load_df(organ, kind1):
 
     # DATE 컬럼 DatetimeIndex로 변환 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     df['DATE'] = pd.to_datetime(df['DATE'])
+    # st.write(df.dtypes )
+    # st.write(df['DATE'].unique())
 
     # CSV 컬럼 변수 
     LATITUDE = 'LATITUDE'
@@ -42,26 +44,25 @@ def load_df(organ, kind1):
 
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M')).count()
     
-    st.write(month_df.dtypes )
 
 
-    # # 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
+    # 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
 
-    # kind1_df = point_df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
-    # kind1_df = kind1_df.iloc
-    # kind1_df.columns = ['건수']
-    # kind1_df['건수'] = kind1_df['건수'].astype(int)
-    # kind1_df['비율(%)'] = ( kind1_df['건수']/(kind1_df['건수'].sum())*100).astype(int)
-    # kind1_df = kind1_df.sort_values(by='건수', ascending=False) 
+    kind1_df = point_df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
+    kind1_df = kind1_df.iloc
+    kind1_df.columns = ['건수']
+    kind1_df['건수'] = kind1_df['건수'].astype(int)
+    kind1_df['비율(%)'] = ( kind1_df['건수']/(kind1_df['건수'].sum())*100).astype(int)
+    kind1_df = kind1_df.sort_values(by='건수', ascending=False) 
 
-    # # map data
-    # # point_df = df[ (df['latitude'].str.strip() != '') and (df['longitude'].str.strip() != '') ] 
-    # point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
+    # map data
+    # point_df = df[ (df['latitude'].str.strip() != '') and (df['longitude'].str.strip() != '') ] 
+    point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
 
-    # # wc data
-    # wc_sr = df.loc[:, f'{KEYWORD}']
-    # wc_data = ' '.join( map(str,wc_sr) )
+    # wc data
+    wc_sr = df.loc[:, f'{KEYWORD}']
+    wc_data = ' '.join( map(str,wc_sr) )
 
     # return month_df, point_df, kind1_df, wc_data  
 
