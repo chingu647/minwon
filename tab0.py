@@ -63,7 +63,7 @@ def run_tab():
     # # ###################################################################### body 1  
     t0b1.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
 
-    t0b1_kind1_df, _, _ = mf.load_df(organ_t0, kind1_t0) 
+    _, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
 
     t0b1.markdown(f"""
 	<center>최근 이슈는 <b>{t0b1_kind1_df.index[0]}</b> > {t0b1_kind1_df.index[1]} > {t0b1_kind1_df.index[2]} 순 입니다.</center>
@@ -77,7 +77,7 @@ def run_tab():
 
     # # ###################################################################### body 2     # wc 그래프  
     t0b2.markdown("##### 🔎 :rainbow[2024년 주요 키워드] ") 
-    t0b2_fig = mf.load_wc(organ_t0, kind1_t0) 
+    t0b2_fig, _, _, _ = mf.load_wc(organ_t0, kind1_t0) 
 
     t0b2.markdown(f"""
 	<center>주요 키워드는 <b>{organ_t0}</b> 입니다.</center>
@@ -93,7 +93,7 @@ def run_tab():
 	<center>주요 민원유형은 <b>{organ_t0}</b> 입니다.</center>
     """, unsafe_allow_html=True)
 
-    t0b5_pie = mf.create_pie(organ_t0, kind1_t0)
+    t0b5_pie, _, _, _  = mf.create_pie(organ_t0, kind1_t0)
     t0b5.pyplot(t0b5_pie, use_container_width=True)  
 
 
@@ -113,7 +113,7 @@ def run_tab():
     """, unsafe_allow_html=True)
     
     # 가로 sns bar 그래프 
-    t0b9_sns_hbar = mf.create_sns_hbar(organ_t0, kind1_t0) 
+    t0b9_sns_hbar, _, _, _  = mf.create_sns_hbar(organ_t0, kind1_t0) 
     t0b9.pyplot(t0b9_sns_hbar)
 
 
@@ -125,7 +125,7 @@ def run_tab():
     t0t1.markdown(f"##### 😎 :rainbow[{organ_t0} 민원 한눈에 보기] 👀 ") 
 
     # 테이블 데이터
-    t0t1_kind1_df, t0t1_point_df, _ = mf.load_df(organ_t0, kind1_t0) 
+    t0t1_point_df, _, _ = mf.load_df(organ_t0, kind1_t0) 
     t0t1.dataframe(t0t1_point_df) 
 
     # map data  

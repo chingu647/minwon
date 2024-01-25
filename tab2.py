@@ -56,7 +56,7 @@ def run_tab():
     # ###################################################################### body 1      
     t2b1.markdown(f"##### 📢 :rainbow[2024년 {organ_t2} 이슈] ") 
 
-    t2b1_kind1_df, _, _ = mf.load_df(organ_t2, kind1_t2) 
+    _, t2b1_kind1_df, _ = mf.load_df(organ_t2, kind1_t2) 
     
     t2b1.markdown(f"""
 	<center>최근 이슈는 <b>{t2b1_kind1_df.index[0]}</b> > {t2b1_kind1_df.index[1]} > {t2b1_kind1_df.index[2]} 순 입니다.</center>
@@ -110,7 +110,7 @@ def run_tab():
     t2t1.markdown(f"##### 😎 :rainbow[{organ_t2} 민원 한눈에 보기] 👀 ") 
 
     # 테이블 데이터
-    _, t2t1_point_df, _ = mf.load_df(organ_t2, kind1_t2) 
+    t2t1_point_df, _, _ = mf.load_df(organ_t2, kind1_t2) 
     t2t1.dataframe(t2t1_point_df) 
 
     # map data  

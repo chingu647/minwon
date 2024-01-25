@@ -54,14 +54,14 @@ def load_df(organ, kind1):
     wc_sr = df.loc[:, f'{KEYWORD}']
     wc_data = ' '.join( map(str,wc_sr) )
 
-    return kind1_df, point_df, wc_data  
+    return point_df, kind1_df, wc_data  
 
 ##################################################################################### load wc 
 # arg1 : text_raw 
 @st.cache_resource 
 def load_wc(organ, kind1): # target_layout 에러 발생 
     # data  
-    _, _, wc_data = load_df(organ, kind1)  #   <================================================== 
+    point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <================================================== 
     t = Okt()
     text_nouns = t.nouns(wc_data) 
     stopwords =['시어','및','조치','예정','민원','처리','해당','통해','방향','후','검토','확인','완료','내','노력','등','위해','위하여','지사',
@@ -75,7 +75,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     ax.axis('off')
     ax.imshow(wc) 
     # target_layout.pyplot(fig) 
-    return fig, wc_data 
+    return fig, point_df, kind1_df, wc_data
 
 
 
@@ -94,7 +94,7 @@ def load_map(organ, kind1, base_position):
     KEYWORD = 'KEYWORD'
 
     # data  
-    _, point_df, _ = load_df(organ, kind1)  #   <==================================================
+    point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
     
@@ -130,7 +130,7 @@ def load_map(organ, kind1, base_position):
     st.components.v1.html(folium_map, height=900) #, width=800, height=600)
     # st_folium(map) #, width=600, height=400)
     # t1_tail1.map(data=t1_gpf, latitude='latitude', longitude='longitude')  
-    return point_df
+    return point_df, kind1_df, wc_data
 
 
 
@@ -149,7 +149,7 @@ def load_map_kind1(organ, kind1, base_position):
     KEYWORD = 'KEYWORD'
 
     # data  
-    kind1_df, point_df, _ = load_df(organ, kind1)  #   <==================================================
+    point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
     
@@ -292,7 +292,7 @@ def load_map_kind1(organ, kind1, base_position):
     folium_map = map._repr_html_()
     st.components.v1.html(folium_map, height=900) #, width=800, height=600) 
 
-    return kind1_df, point_df 
+    return point_df, kind1_df, wc_data
 
 
 
@@ -300,7 +300,7 @@ def load_map_kind1(organ, kind1, base_position):
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 def create_pie(organ, kind1): 
     # data  
-    kind1_df, _, _ = load_df(organ, kind1)  #   <==================================================
+    point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     data_x = kind1_df.index.values
     data_y = kind1_df['건수'] 
@@ -340,7 +340,7 @@ def create_pie(organ, kind1):
             color='red',
             fontsize=23)                           # bar text 폰크 
     
-    return fig, kind1_df 
+    return fig, point_df, kind1_df, wc_data
 
 
 
@@ -349,7 +349,7 @@ def create_pie(organ, kind1):
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 def create_vbar(organ, kind1): 
     # data  
-    kind1_df, _, _ = load_df(organ, kind1)  #   <==================================================
+    point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     data_x = kind1_df.index.values
     data_y = kind1_df['건수'] 
@@ -380,7 +380,7 @@ def create_vbar(organ, kind1):
                 color='green',
                 fontsize=20)                           # bar text 폰크 
     
-    return fig, kind1_df 
+    return fig, point_df, kind1_df, wc_data
 
 
 
@@ -389,7 +389,7 @@ def create_vbar(organ, kind1):
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 def create_sns_hbar(organ, kind1): 
     # data  
-    kind1_df, _, _ = load_df(organ, kind1)  #   <==================================================
+    point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     data_x = kind1_df.index.values
     data_y = kind1_df['건수'] 
@@ -424,5 +424,5 @@ def create_sns_hbar(organ, kind1):
                 color='green',
                 fontsize=20)                   # bar text 폰크
 
-    return fig, kind1_df    
+    return fig, point_df, kind1_df, wc_data
 
