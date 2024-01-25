@@ -16,7 +16,7 @@ colorama==0.4.6
 commonmark==0.9.1
 Django==5.0.1
 exceptiongroup==1.2.0
-fastapi>=0.96.0,<0.97.0
+fastapi==0.88.0
 gitdb==4.0.11
 GitPython==3.1.41
 greenlet==3.0.3
@@ -59,7 +59,7 @@ redis==4.6.0
 referencing==0.32.1
 requests==2.31.0
 rfc3986==1.5.0
-rich>=12.6.0,<=13.0.0
+rich==12.6.0
 rpds-py==0.17.1
 simple-websocket==1.0.0
 simplejson==3.19.2
@@ -74,7 +74,7 @@ sqlparse==0.4.4
 starlette==0.22.0
 starlette-admin==0.9.0
 streamlit==1.30.0
-streamlit-echarts==0.4.0
+streamlit-apexjs==0.0.3
 tenacity==8.2.3
 toml==0.10.2
 toolz==0.12.0

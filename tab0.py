@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm 
 import seaborn as sns
 
-from streamlit_echarts import st_echarts
 
 import geopandas as gpd 
 import folium 
@@ -72,17 +71,8 @@ def run_tab():
 
     t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
-    options = {
-        "xAxis": {
-            "type": "category",
-            "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        },
-        "yAxis": {"type": "value"},
-        "series": [
-            {"data": [820, 932, 901, 934, 1290, 1330, 1320], "type": "line"}
-        ],
-    }
-    t0b1.st_echarts(options=options)
+
+
 
 
     # # ###################################################################### body 2     # wc 그래프  
