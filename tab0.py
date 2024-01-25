@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm 
 import seaborn as sns
 
-from streamlit_echart import st_echarts
+from streamlit_echarts import st_echarts
 
 import geopandas as gpd 
 import folium 
@@ -83,9 +83,6 @@ def run_tab():
         ],
     }
     t0b1.st_echarts(options=options)
-
-
-
 
 
     # # ###################################################################### body 2     # wc 그래프  
