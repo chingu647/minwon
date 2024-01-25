@@ -119,9 +119,9 @@ selected = option_menu(menu_title=None,
                                 } 
 )
 
-if selected == "본부":
-    tab0.run_tab()
-    st.snow()
+# if selected == "본부":
+#     tab0.run_tab()
+#     st.snow()
 
 # elif selected == "광주": 
 #     tab1.run_tab()
