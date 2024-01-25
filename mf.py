@@ -48,6 +48,7 @@ def load_df(organ, kind1):
     kind1_df = point_df.groupby(by=f'{kind1}').count() #.sort_values(by=f'{kind1}', ascending=False)
     kind1_df = kind1_df.iloc
     kind1_df.columns = ['건수']
+    kind1_df['건수'] = kind1_df['건수'].astype(int)
     kind1_df['비율(%)'] = ( kind1_df['건수']/(kind1_df['건수'].sum())*100).astype(int)
     kind1_df = kind1_df.sort_values(by='건수', ascending=False) 
 
