@@ -92,4 +92,4 @@ websockets==10.4
 wsproto==1.2.0
 zipp==3.17.0 
 fastapi>=0.88.0
-rich
+rich>=12.6.0
