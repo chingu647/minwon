@@ -31,6 +31,7 @@ def load_df(organ, kind1):
     df['DATE'] = pd.to_datetime(df['DATE'])
 
     st.write(df.dtypes )
+    st.write(df['DATE'].unique())
     # # CSV 컬럼 변수 
     # LATITUDE = 'LATITUDE'
     # LONGITUDE = 'LONGITUDE'
