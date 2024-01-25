@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm 
 import seaborn as sns
 
+from streamlit_apexjs import st_apexcharts 
 
 import geopandas as gpd 
 import folium 
@@ -71,7 +72,24 @@ def run_tab():
 
     t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
+    options = {
+        "chart": {
+            "toolbar": {
+                "show": False
+            }
+        },
 
+        "labels": [1991, 1992, 1993, 1994, 1995]
+        ,
+        "legend": {
+            "show": True,
+            "position": "bottom",
+        }
+    }
+
+    series = [44, 55, 41, 17, 15]
+
+    st_apexcharts(options, series, 'donut', '600', 'title')
 
 
 

@@ -16,7 +16,7 @@ colorama==0.4.6
 commonmark==0.9.1
 Django==5.0.1
 exceptiongroup==1.2.0
-fastapi==0.88.0
+
 gitdb==4.0.11
 GitPython==3.1.41
 greenlet==3.0.3
@@ -90,4 +90,5 @@ watchdog==2.3.1
 wcwidth==0.2.13
 websockets==10.4
 wsproto==1.2.0
-zipp==3.17.0
+zipp==3.17.0 
+fastapi
