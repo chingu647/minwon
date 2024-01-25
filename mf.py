@@ -42,8 +42,8 @@ def load_df(organ, kind1):
 
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M')).count()
     
-    # st.write(df.dtypes )
-    # st.write(df['DATE'].unique())
+    st.write(month_df.dtypes )
+
 
     # # 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
