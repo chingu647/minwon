@@ -215,7 +215,7 @@ def load_map_kind1(organ, kind1, base_position):
             folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
                         popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='red', icon='star'), 
+                        icon=folium.Icon(color='darkgreen', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                         ).add_to(fg_k1) 
@@ -233,7 +233,7 @@ def load_map_kind1(organ, kind1, base_position):
             folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
                         popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='red', icon='star'), 
+                        icon=folium.Icon(color='orange', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                         ).add_to(fg_k2) 
@@ -251,7 +251,7 @@ def load_map_kind1(organ, kind1, base_position):
             folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
                         popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='red', icon='star'), 
+                        icon=folium.Icon(color='blue', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                         ).add_to(fg_k3) 
@@ -269,7 +269,7 @@ def load_map_kind1(organ, kind1, base_position):
             folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
                         popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='red', icon='star'), 
+                        icon=folium.Icon(color='yellow', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
                         #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
                         ).add_to(fg_k4)  

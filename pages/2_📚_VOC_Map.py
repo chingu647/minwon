@@ -29,7 +29,7 @@ global kind1_t50
 global base_position_t50 
 
 organ_t50 = "본부" 
-kind1_t50 = '서비스유형(대)'
+kind1_t50 = 'KIND1'
 base_position_t50 = [35.18668601, 126.87954220] 
 
 
