@@ -1,7 +1,7 @@
 import streamlit as st 
 import plotly.express as px
 import plotly.graph_objects as go 
-from plotly.subplots import make_subplots
+from plotly.subplots import make_subplots 
 
 import pandas as pd
 import numpy as np 
@@ -420,7 +420,7 @@ def create_go_vbar(organ, kind1):
         go.Scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='sA'), 
         row=1, col=1                                    
     )         
-            
+
     # Update layout if necessary
     fig.update_layout(
           title=dict(
