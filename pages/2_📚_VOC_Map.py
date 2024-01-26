@@ -1,5 +1,7 @@
 import streamlit as st 
 import plotly.express as px
+import plotly.graph_objects as go 
+
 import pandas as pd
 import numpy as np 
 
@@ -9,6 +11,7 @@ import matplotlib.font_manager as fm
 import seaborn as sns
 
 import geopandas as gpd 
+
 import folium 
 from streamlit_folium import folium_static 
 from folium.plugins import GroupedLayerControl
@@ -58,7 +61,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True) 
 
 
-t50t1_fig, _, _, _, _ = mf.create_plotly_vbar(organ_t50, kind1_t50) 
+t50t1_fig, _, _, _, _ = mf.create_go_vbar(organ_t50, kind1_t50) 
 st.plotly_chart(t50t1_fig, use_container_width=True) 
 
 

@@ -1,5 +1,7 @@
 import streamlit as st 
 import plotly.express as px
+import plotly.graph_objects as go 
+
 import pandas as pd
 import numpy as np 
 
@@ -9,8 +11,9 @@ import matplotlib.font_manager as fm
 import seaborn as sns
 
 import geopandas as gpd 
+
 import folium 
-from streamlit_folium import st_folium  
+from streamlit_folium import folium_static 
 from folium.plugins import GroupedLayerControl
 
 import nltk 
@@ -399,25 +402,72 @@ load_df('본부','KIND1')
 ##################################################################################### 세로 막대 create vbar 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-def create_plotly_vbar(organ, kind1): 
+def create_go_vbar(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
-    fig = px.bar(month_df, x='DATE', y='NUMBER', color='DATE', 
-                 title="민원 건 수 현황",
-                 labels={"DATE":"월별", 'NUMBER':'민원 건 수', 'NUMBER_GROWTH_RATE':'증감율(%)'},
-                #  hover_name='DATE',
-                 hover_data={'DATE':"|%B, %Y",
-                             'NUMBER':True, 
-                             'NUMBER_GROWTH_RATE':":.2f"
-                             }, 
-                # # facet_row= 'species',          
-                # # facet_col= "species_id",
-                # #  width=600 , height=300 ,
-                 ) 
-    fig.update_layout(showlegend=False)
+    fig = go.Figure()
+    fig.add_trace(go.scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='DATE'), 
+                  
+                  )
+                  
     
+    fig.update_layout(
+          title=dict(
+              text='<b>관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+              x=0.5,
+              y=0.87,
+              font=dict(
+                  family="Arial",
+                  size=25,
+                  color="#000000",
+              ),
+
+          xaxis_title=dict(
+              text="<b>Fail Point</b>", 
+                                       
+          ), 
+
+          yaxis_title=dict(
+              text="<b>Portion(%)</b>", 
+              font=dict(
+                  family="Courier New, Monospace",
+                  size=12,
+                  color="#000000",
+              ),
+          ), 
+
+        #   legend_title='variable', 
+
+          showlegend=False, 
+
+          margin = dict(l=10, r=10, b=10) 
+    )
+  
     return fig, month_df, point_df, kind1_df, wc_data 
+
+##################################################################################### 세로 막대 create vbar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+# def create_px_vbar(organ, kind1): 
+#     # data  
+#     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+
+#     fig = px.bar(month_df, x='DATE', y='NUMBER', color='DATE', 
+#                  title="민원 건 수 현황",
+#                  labels={"DATE":"월별", 'NUMBER':'민원 건 수', 'NUMBER_GROWTH_RATE':'증감율(%)'},
+#                 #  hover_name='DATE',
+#                  hover_data={'DATE':"|%B, %Y",
+#                              'NUMBER':True, 
+#                              'NUMBER_GROWTH_RATE':":.2f"
+#                              }, 
+#                 # # facet_row= 'species',          
+#                 # # facet_col= "species_id",
+#                 # #  width=600 , height=300 ,
+#                  ) 
+#     fig.update_layout(showlegend=False)
+    
+#     return fig, month_df, point_df, kind1_df, wc_data 
 
 
 
