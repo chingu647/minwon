@@ -60,76 +60,98 @@ def run_tab():
     # t0h1.markdown(r"""
 	# 1. 오늘의 이슈. 
     # """) 
+
+    
     # # ###################################################################### body 1  
     t0b1.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
 
-    _, _, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
+    t0b1_month_df, _, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
 
-    t0b1.markdown(f"""
-	<center>최근 이슈는 <b>{t0b1_kind1_df.index[0]}</b> > {t0b1_kind1_df.index[1]} > {t0b1_kind1_df.index[2]} 순 입니다.</center>
-    """, unsafe_allow_html=True) 
+    t0b1_fig = mf.create_go_vbar(organ_t0, kind1_t0)
 
-    t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
+    t0b1.plotly_chart(t0b1_fig, use_container_width=True) 
 
 
 
+    # t0b1.markdown(f"""
+	# <center>최근 이슈는 <b>{t0b1_kind1_df.index[0]}</b> > {t0b1_kind1_df.index[1]} > {t0b1_kind1_df.index[2]} 순 입니다.</center>
+    # """, unsafe_allow_html=True) 
+
+    # t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
 
-    # # ###################################################################### body 2     # wc 그래프  
-    t0b2.markdown("##### 🔎 :rainbow[2024년 주요 키워드] ") 
-    t0b2_fig, _, _, _, _ = mf.load_wc(organ_t0, kind1_t0) 
-
-    t0b2.markdown(f"""
-	<center>주요 키워드는 <b>{organ_t0}</b> 입니다.</center>
-    """, unsafe_allow_html=True)
-
-    t0b2.pyplot(t0b2_fig, use_container_width=True)   
 
 
-    ###################################################################### body 5     # pie 그래프 
-    t0b5.markdown("##### 📚 :rainbow[2024년 유형별] ") 
+    # # # ###################################################################### body 1  
+    # t0b1.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
 
-    t0b5.markdown(f"""
-	<center>주요 민원유형은 <b>{organ_t0}</b> 입니다.</center>
-    """, unsafe_allow_html=True)
+    # _, _, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
 
-    t0b5_pie, _, _, _, _  = mf.create_pie(organ_t0, kind1_t0)
-    t0b5.pyplot(t0b5_pie, use_container_width=True)  
+    # t0b1.markdown(f"""
+	# <center>최근 이슈는 <b>{t0b1_kind1_df.index[0]}</b> > {t0b1_kind1_df.index[1]} > {t0b1_kind1_df.index[2]} 순 입니다.</center>
+    # """, unsafe_allow_html=True) 
 
-
-    # # ###################################################################### body 6 
-    t0b6.markdown("##### 🚔 :rainbow[2024년 지사별] ") 
-
-    # # pie 그래프 
-    # t0b6_pie = mf.create_pie(organ_t0, kind1_t0) 
-    # t0b6.pyplot(t0b6_pie)
+    # t0b1.table(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
 
 
-    # # ###################################################################### body 9
-    t0b9.markdown("##### 🚌 :rainbow[2024년 노선별] ") 
 
-    t0b9.markdown(f"""
-	<center>최다 민원노선은 <b>{organ_t0}</b> 입니다.</center>
-    """, unsafe_allow_html=True)
+
+
+    # # # ###################################################################### body 2     # wc 그래프  
+    # t0b2.markdown("##### 🔎 :rainbow[2024년 주요 키워드] ") 
+    # t0b2_fig, _, _, _, _ = mf.load_wc(organ_t0, kind1_t0) 
+
+    # t0b2.markdown(f"""
+	# <center>주요 키워드는 <b>{organ_t0}</b> 입니다.</center>
+    # """, unsafe_allow_html=True)
+
+    # t0b2.pyplot(t0b2_fig, use_container_width=True)   
+
+
+    # ###################################################################### body 5     # pie 그래프 
+    # t0b5.markdown("##### 📚 :rainbow[2024년 유형별] ") 
+
+    # t0b5.markdown(f"""
+	# <center>주요 민원유형은 <b>{organ_t0}</b> 입니다.</center>
+    # """, unsafe_allow_html=True)
+
+    # t0b5_pie, _, _, _, _  = mf.create_pie(organ_t0, kind1_t0)
+    # t0b5.pyplot(t0b5_pie, use_container_width=True)  
+
+
+    # # # ###################################################################### body 6 
+    # t0b6.markdown("##### 🚔 :rainbow[2024년 지사별] ") 
+
+    # # # pie 그래프 
+    # # t0b6_pie = mf.create_pie(organ_t0, kind1_t0) 
+    # # t0b6.pyplot(t0b6_pie)
+
+
+    # # # ###################################################################### body 9
+    # t0b9.markdown("##### 🚌 :rainbow[2024년 노선별] ") 
+
+    # t0b9.markdown(f"""
+	# <center>최다 민원노선은 <b>{organ_t0}</b> 입니다.</center>
+    # """, unsafe_allow_html=True)
     
-    # 가로 sns bar 그래프 
-    t0b9_sns_hbar, _, _, _, _  = mf.create_sns_hbar(organ_t0, kind1_t0) 
-    t0b9.pyplot(t0b9_sns_hbar)
+    # # 가로 sns bar 그래프 
+    # t0b9_sns_hbar, _, _, _, _  = mf.create_sns_hbar(organ_t0, kind1_t0) 
+    # t0b9.pyplot(t0b9_sns_hbar)
 
 
-    ###################################################################### body 10
+    # ###################################################################### body 10
 
 
 
-    ###################################################################### tail 1 
-    t0t1.markdown(f"##### 😎 :rainbow[{organ_t0} 민원 한눈에 보기] 👀 ") 
+    # ###################################################################### tail 1 
+    # t0t1.markdown(f"##### 😎 :rainbow[{organ_t0} 민원 한눈에 보기] 👀 ") 
 
-    # 테이블 데이터
-    t0t1_point_df, _, _, _ = mf.load_df(organ_t0, kind1_t0) 
-    t0t1.dataframe(t0t1_point_df) 
+    # # 테이블 데이터
+    # t0t1_point_df, _, _, _ = mf.load_df(organ_t0, kind1_t0) 
+    # t0t1.dataframe(t0t1_point_df) 
 
-    # map data  
-    # map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
+    # # map data  
+    # # map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
-    mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
+    # mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
