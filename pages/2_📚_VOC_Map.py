@@ -58,6 +58,10 @@ st.markdown(f"""
 """, unsafe_allow_html=True) 
 
 
+t50t1_fig, _ = create_plotly_vbar(organ_t50, kind1_t50) 
+st.plotly_chart(t50t1_fig) 
+
+
 # map data  
 # map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 

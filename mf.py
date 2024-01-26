@@ -47,11 +47,9 @@ def load_df(organ, kind1):
     month_df['NUMBER_GROWTH_RATE'] = month_df['NUMBER'].pct_change(periods=1)
     month_df['NUMBER_CUMSUM'] = month_df['NUMBER'].transform('cumsum') 
     # month_df = month_df.assign(NUMBER_DELTA=month_df.NUMBER_CUMSUM - month_df.NUMBER) 
-    st.write(month_df)
     
     # map data : 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
-
 
     kind1_df = point_df.groupby(by=f'{kind1}').count().reset_index()  #.sort_values(by=f'{kind1}', ascending=False) 
     # kind1_df = kind1_df.iloc
@@ -62,7 +60,6 @@ def load_df(organ, kind1):
 
     # map data
     # point_df = df[ (df['latitude'].str.strip() != '') and (df['longitude'].str.strip() != '') ] 
-    point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
 
     # wc data
     wc_sr = df.loc[:, f'{KEYWORD}']
@@ -398,6 +395,18 @@ load_df('본부','KIND1')
 #                 fontsize=20)                           # bar text 폰크 
     
 #     return fig, month_df, point_df, kind1_df, wc_data 
+
+##################################################################################### 세로 막대 create vbar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_plotly_vbar(organ, kind1): 
+    # data  
+    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+
+    fig = px.bar(month_df, x='DATE', y='NUMBER') 
+    
+    return fig, month_df, point_df, kind1_df, wc_data 
+
 
 
 
