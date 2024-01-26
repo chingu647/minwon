@@ -43,7 +43,9 @@ def load_df(organ, kind1):
         df = df.query( f"organ=='{organ}'" ) 
     
     # 시계열 data
-    month_df = df.groupby(pd.Grouper(key='DATE', freq='M')).count().reset_index()
+    month_df = df.groupby(pd.Grouper(key='DATE', freq='M'))['NUMBER'].count().reset_index() 
+
+    st.write(month_df)
     
     # map data : 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
@@ -53,7 +55,7 @@ def load_df(organ, kind1):
     # kind1_df = kind1_df.iloc
     # kind1_df['건수'] = kind1_df['건수'].astype(int)
     # kind1_df['비율(%)'] = ( kind1_df.iloc[0,0]/(kind1_df.iloc[0,0].sum())*100).astype(int)
-    st.write(month_df)
+
     # kind1_df = kind1_df.sort_values(by='건수', ascending=False) 
 
     # map data
