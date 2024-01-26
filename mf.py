@@ -408,7 +408,8 @@ def create_plotly_vbar(organ, kind1):
                  labels={"DATE":"월별", 'NUMBER':'민원 건 수', },
                 #  hover_name='DATE',
                  hover_data={'DATE':"|%B, %Y",
-                             'NUMBER': ":%2.f",
+                             'NUMBER':True, 
+                             'NUMBER_GROWTH_RATE':":.2f"
                              }, 
                 # # facet_row= 'species',          
                 # # facet_col= "species_id",
