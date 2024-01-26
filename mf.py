@@ -408,11 +408,11 @@ def create_go_vbar(organ, kind1):
 
     fig = go.Figure()
     fig.add_trace(
-        go.Bar(x=month_df.DATE, y=month_df.NUMBER, name='bA'), 
-        go.Scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='sA'), 
-                  
+        go.Bar(x=month_df.DATE, y=month_df.NUMBER, name='bA')                  
     )
-                  
+     fig.add_trace(
+        go.Scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='sA')                  
+    )                 
     
     fig.update_layout(
           title=dict(
