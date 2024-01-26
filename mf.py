@@ -403,7 +403,7 @@ def create_plotly_vbar(organ, kind1):
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
-    fig = px.bar(month_df, x='DATE', y='NUMBER', color='DATE') 
+    fig = px.bar(month_df, x='DATE', y='NUMBER', color='DATE', Marker=True) 
     
     return fig, month_df, point_df, kind1_df, wc_data 
 
