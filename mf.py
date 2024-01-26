@@ -403,7 +403,7 @@ def create_plotly_vbar(organ, kind1):
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
-    fig = px.bar(month_df, x='DATE', y='NUMBER', color='DATE', 
+    fig = px.bar(month_df, x='DATE', y=['NUMBER'], color='DATE', 
                  title= "민원 건 수 현황",
                  labels= {"DATE":"월별", "NUMBER":"민원 건 수"},
                  hover_name= 'DATE',
@@ -412,11 +412,18 @@ def create_plotly_vbar(organ, kind1):
                               'DATE': "|%B, %Y",
                               'NUMBER': ":%2.f",
                               }, 
-                # facet_row= 'CATEGORY',               
-                # facet_col= 'CATEGORY',
+                # facet_row= 'species',          
+                # facet_col= "species_id",
                 #  width=600 , height=300 ,
                  ) 
     fig.update_layout(showlegend=False)
+    
+    highlighter: { show: true, 
+                showTooltip: true,      // show a tooltip with data point values.
+                tooltipLocation: 'nw',  // location of tooltip: n, ne, e, se, s, sw, w, nw.
+                tooltipAxes: 'y',    // which axis values to display in the tooltip, x, y or both.
+                lineWidthAdjust: 2.5   // pixels to add to the size line stroking the data point marker
+                }
 
     return fig, month_df, point_df, kind1_df, wc_data 
 
