@@ -62,9 +62,8 @@ st.markdown(f"""
 
 
 t50t1_fig, _, _, _, _ = mf.create_go_vbar(organ_t50, kind1_t50) 
-t50t1_fig.show()
 
-# st.plotly_chart(t50t1_fig, use_container_width=True) 
+st.plotly_chart(t50t1_fig, use_container_width=True) 
 
 
 # map data  
