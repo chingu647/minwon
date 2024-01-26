@@ -421,7 +421,8 @@ def create_go_vbar(organ, kind1):
                   family="Arial",
                   size=25,
                   color="#000000",
-              ),
+              ), 
+          ),
 
           xaxis_title=dict(
               text="<b>Fail Point</b>", 
@@ -441,7 +442,7 @@ def create_go_vbar(organ, kind1):
 
           showlegend=False, 
 
-          margin = dict(l=10, r=10, b=10) 
+          margin = dict(l=10, r=10, b=10), 
     )
   
     return fig, month_df, point_df, kind1_df, wc_data 
