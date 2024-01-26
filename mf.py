@@ -63,7 +63,7 @@ def load_df(organ, kind1):
     wc_sr = df.loc[:, f'{KEYWORD}']
     wc_data = ' '.join( map(str,wc_sr) )
 
-    # return month_df, point_df, kind1_df, wc_data  
+    return month_df, point_df, kind1_df, wc_data  
 
 load_df('본부','KIND1')
 
