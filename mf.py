@@ -412,7 +412,7 @@ def create_plotly_vbar(organ, kind1):
                               'DATE': "|%Y %B",
                               'NUMBER': ":0.2f",
                               }, 
-                facet_row= 'NUMBER'                
+                facet_row= 'NUMBER',               
                 facet_col= 'NUMBER',
                 #  width=600 , height=300 ,
                  ) 
