@@ -407,9 +407,10 @@ def create_go_vbar(organ, kind1):
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     fig = go.Figure()
-    fig.add_trace(go.scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='DATE'), 
+    fig.add_trace(
+        go.scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='A'), 
                   
-                  )
+    )
                   
     
     fig.update_layout(
