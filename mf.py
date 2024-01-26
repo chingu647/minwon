@@ -412,52 +412,43 @@ def create_go_vbar(organ, kind1):
 
     # Add traces to the subplot grid
     fig.add_trace(
-        go.Bar(x=month_df.DATE, y=month_df.NUMBER, name='bA'), 
+        go.Bar(x=month_df.DATE, 
+               y=month_df.NUMBER, 
+               name='bA'), 
         row=1, col=1                  
     )
 
     fig.add_trace(
-        go.Scatter(x=month_df.DATE, y=month_df.NUMBER, 
+        go.Scatter(x=month_df.DATE, 
+                   y=month_df.NUMBER, 
                    mode="lines+markers+text", 
                    name="Lines, Markers and Text",
                    text=month_df.NUMBER,              #["Text A", "Text B", "Text C"],
-                   textposition="top center"  # "bottom center"
-        ), 
+                   textposition="top center"),  # "bottom center"), 
         row=1, col=1                                    
     )         
 
     # Update layout if necessary
-    fig.update_layout(
-          title=dict(
-              text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
-              x=0.0, 
-              y=0.9, 
-              font=dict(
-                  family="Arial",
-                  size=25,
-                  color="#000000",
-              ), 
-          ),
+    fig.update_layout(title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+                                 x=0.0, 
+                                 y=0.9, 
+                                 font=dict(family="Arial",
+                                           size=25,
+                                           color="#000000", ), 
+                                ),
+                      xaxis_title=dict(text="<b>Fail Point</b>", ), 
 
-          xaxis_title=dict(
-              text="<b>Fail Point</b>", 
-                                       
-          ), 
+                      yaxis_title=dict(text="<b>Portion(%)</b>", 
+                                       font=dict(family="Courier New, Monospace",
+                                                 size=12,
+                                                 color="#000000",  ),
+                                      ), 
 
-          yaxis_title=dict(
-              text="<b>Portion(%)</b>", 
-              font=dict(
-                  family="Courier New, Monospace",
-                  size=12,
-                  color="#000000",
-              ),
-          ), 
+                    #   legend_title='variable', 
 
-        #   legend_title='variable', 
+                      showlegend=False, 
 
-          showlegend=False, 
-
-          margin = dict(l=10, r=10, b=10), 
+                      margin = dict(l=10, r=10, b=10), 
     )
   
     return fig, month_df, point_df, kind1_df, wc_data 
