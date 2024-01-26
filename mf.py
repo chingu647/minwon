@@ -408,7 +408,7 @@ def create_go_vbar(organ, kind1):
 
     fig = go.Figure()
     fig.add_trace(
-        go.scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='A'), 
+        go.Scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='A'), 
                   
     )
                   
