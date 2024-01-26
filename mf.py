@@ -45,7 +45,7 @@ def load_df(organ, kind1):
     # 시계열 data
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M'))['NUMBER'].count().reset_index() 
     month_df['NUMBER_CUMSUM'] = month_df['NUMBER'].transform('cumsum') 
-    month_df['NUMBER_DELTA'] = month_df.assign(month_df.NUMBER_CUMSUM-month_df.NUMBER)
+    month_df.assign(NUMBER_DELTA=month_df.NUMBER_CUMSUM - month_df.NUMBER)
 
     st.write(month_df)
     
