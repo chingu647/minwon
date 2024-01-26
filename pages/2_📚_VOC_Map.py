@@ -61,5 +61,5 @@ st.markdown(f"""
 # map data  
 # map_t1 = mf.load_map_kind1(organ_t0, kind1_t0, base_position_t0) 
 
-mf.load_map_kind1(organ_t50, kind1_t50, base_position_t50) 
-st.balloons()
+# mf.load_map_kind1(organ_t50, kind1_t50, base_position_t50) 
+# st.balloons()
