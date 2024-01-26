@@ -417,7 +417,12 @@ def create_go_vbar(organ, kind1):
     )
 
     fig.add_trace(
-        go.Scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='sA'), 
+        go.Scatter(x=month_df.DATE, y=month_df.NUMBER, 
+                   mode="lines+markers+text", 
+                   name="Lines, Markers and Text",
+                   text=month_df.NUMBER,              #["Text A", "Text B", "Text C"],
+                   textposition="top center"  # "bottom center"
+        ), 
         row=1, col=1                                    
     )         
 
