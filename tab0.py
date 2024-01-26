@@ -69,7 +69,7 @@ def run_tab():
 
     t0b1_month_df, _, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
 
-    t0b1_fig = mf.create_go_vbar(organ_t0, kind1_t0)
+    t0b1_fig, _, _, _, _ = mf.create_go_vbar(organ_t0, kind1_t0)
 
     t0b1.plotly_chart(t0b1_fig, use_container_width=True) 
 
