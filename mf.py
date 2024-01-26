@@ -405,7 +405,7 @@ def create_plotly_vbar(organ, kind1):
 
     fig = px.bar(month_df, x='DATE', y=['NUMBER'], color='DATE', 
                  title="민원 건 수 현황",
-                 labels={"DATE":"월별", 'NUMBER':'민원 건 수'},
+                 labels={'NUMBER':'민원 건 수', "DATE":"월별", },
                 #  hover_name='DATE',
                 #  hover_data=['DATE','NUMBER'],  
                 #             #   {'DATE':"|%B, %Y",
@@ -415,7 +415,7 @@ def create_plotly_vbar(organ, kind1):
                 # # facet_col= "species_id",
                 # #  width=600 , height=300 ,
                  ) 
-    # fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=False)
     
     return fig, month_df, point_df, kind1_df, wc_data 
 
