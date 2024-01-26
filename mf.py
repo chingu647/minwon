@@ -409,7 +409,7 @@ def create_plotly_vbar(organ, kind1):
                  hover_name= 'DATE',
                  hover_data= {'DATE':False,
                               'NUMBER':True, 
-                              'DATE': "|%Y %M",
+                              'DATE': "|%Y년 %m월",
                               'NUMBER': ":0.2f",
                               }, 
                 # facet_row= 'CATEGORY',               
