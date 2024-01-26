@@ -403,14 +403,13 @@ def create_plotly_vbar(organ, kind1):
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
-    fig = px.bar(month_df, x='DATE', y=['NUMBER','NUMBER_GROWTH_RATE'], color='DATE', 
+    fig = px.bar(month_df, x='DATE', y='NUMBER', color='DATE', 
                  title="민원 건 수 현황",
                  labels={"DATE":"월별", 'NUMBER':'민원 건 수', },
                 #  hover_name='DATE',
-                #  hover_data=['DATE','NUMBER'],  
-                #             #   {'DATE':"|%B, %Y",
-                #             #   'NUMBER': ":%2.f",
-                #             #   }, 
+                 hover_data={'DATE':"|%B, %Y",
+                             'NUMBER': ":%2.f",
+                             }, 
                 # # facet_row= 'species',          
                 # # facet_col= "species_id",
                 # #  width=600 , height=300 ,
