@@ -1,6 +1,7 @@
 import streamlit as st 
 import plotly.express as px
 import plotly.graph_objects as go 
+from plotly.subplots import make_subplots
 
 import pandas as pd
 import numpy as np 
@@ -406,16 +407,21 @@ def create_go_vbar(organ, kind1):
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
-    fig = go.Figure()
+    # Create subplot grid
+    fig = make_subplots(rows=1, cols=1)
+
+    # Add traces to the subplot grid
     fig.add_trace(
         go.Bar(x=month_df.DATE, y=month_df.NUMBER, name='bA'), 
         row=1, col=1                  
     )
+
     fig.add_trace(
         go.Scatter(x=month_df.DATE, y=month_df.NUMBER, mode='markers', name='sA'), 
         row=1, col=1                                    
-    )                 
-    
+    )         
+            
+    # Update layout if necessary
     fig.update_layout(
           title=dict(
               text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
