@@ -416,8 +416,8 @@ def create_go_vbar(organ, kind1):
     fig.update_layout(
           title=dict(
               text='<b>관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
-              x=0.5,
-              y=0.87,
+            #   x=0.5,
+            #   y=0.5,
               font=dict(
                   family="Arial",
                   size=25,
