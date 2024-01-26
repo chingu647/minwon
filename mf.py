@@ -44,7 +44,7 @@ def load_df(organ, kind1):
     
     # 시계열 data
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M'))['NUMBER'].count().reset_index() 
-
+    month_df['countsum'] = month_df.groupby(['DATE'])['NUMBER'].apply(lambda x:x.countsum() )
     st.write(month_df)
     
     # map data : 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
