@@ -405,7 +405,7 @@ def create_plotly_vbar(organ, kind1):
 
     fig = px.bar(month_df, x='DATE', y='NUMBER', color='DATE', 
                  title="민원 건 수 현황",
-                 labels={"DATE":"월별", 'NUMBER':'민원 건 수', },
+                 labels={"DATE":"월별", 'NUMBER':'민원 건 수', 'NUMBER_GROWTH_RATE':'증감율(%)'},
                 #  hover_name='DATE',
                  hover_data={'DATE':"|%B, %Y",
                              'NUMBER':True, 
