@@ -616,14 +616,16 @@ def create_go_Box(organ, kind1):
 def create_go_Histogram(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    y1 = list( range(1, 50, 1)   )
-    y2 = list( range(51,101, 1) )
+    n1 = np.random.randn(100)
+    n2 = np.random.randn(100) + 1
+
+
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace(go.Histogram(y=y1, 
+    fig.add_trace(go.Histogram(x=n1, 
 
                         #  line_color='green',
                         #  marker_color='green', 
@@ -632,7 +634,7 @@ def create_go_Histogram(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )  
     
-    fig.add_trace(go.Histogram(y=y2, 
+    fig.add_trace(go.Histogram(x=n2, 
 
                         #  line_color='green',
                         #  marker_color='green', 
@@ -642,7 +644,7 @@ def create_go_Histogram(organ, kind1):
                   )  
 
     # fig.update_traces(opacity=0.7)   
-    fig.update_layout(barmode='overlay',       # barmode='stack' 음수값 에러 ~~ 
+    fig.update_layout(#barmode='overlay',       # barmode='stack' 음수값 에러 ~~ 
                     #   showlegend=False, 
                       ) 
 
