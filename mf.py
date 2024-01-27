@@ -1,6 +1,7 @@
 import streamlit as st 
 import plotly.express as px
 import plotly.graph_objects as go 
+import plotly.figure_factory as ff 
 from plotly.subplots import make_subplots 
 
 import pandas as pd
@@ -529,9 +530,7 @@ def create_go_Bar(organ, kind1):
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
     fig.add_trace(go.Bar(x=t, y=y1, 
-                        #  mode="lines+markers", fill='tonexty', 
-                        #  line=dict(width=0.5, 
-                        #            color='indigo'),
+
                         #  width=[1, 2.1, 0.8, 2.6, 1.4], 
                          marker_color = 'crimson',  # px.colors.qualitative.Dark24,
                          name="Bar A",
@@ -542,9 +541,7 @@ def create_go_Bar(organ, kind1):
                   )  
     
     fig.add_trace(go.Bar(x=t, y=y2, 
-                        #  mode="lines+markers", fill='tonexty', 
-                        #  line=dict(width=0.5, 
-                        #            color='indigo'),
+
                         #  width=[1, 2.1, 0.8, 2.6, 1.4], 
                          marker_color = 'limegreen',  # px.colors.qualitative.Dark24,
                          name="Bar B",
@@ -625,19 +622,13 @@ def create_go_Histogram(organ, kind1):
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace(go.Histogram(x=n1, 
-
-                        #  line_color='green',
-                        #  marker_color='green', 
+    fig.add_trace(go.Histogram(x=n1,                                
                          name="Histogram A",
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
     
     fig.add_trace(go.Histogram(x=n2, 
-
-                        #  line_color='green',
-                        #  marker_color='green', 
                          name="Histogram B",
                          ), 
                   row=1, col=1, secondary_y=False, 
@@ -649,6 +640,36 @@ def create_go_Histogram(organ, kind1):
                       ) 
 
     return fig 
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go Heatmap   
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_go_Heatmap(organ, kind1): 
+    # data  
+    # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    t = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    w = ['Morning', 'Afternoon', 'Evening']
+    n = np.random.randint(1, 100, size=(3, 7)) 
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
+    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
+    fig.add_trace(go.Heatmap(x=t, y=w, z=n,                                 
+                         name="Heatmap A",
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
+    
+    # fig.update_traces( )   
+    fig.update_layout(
+        # showlegend=False, 
+                      ) 
+
+    return fig 
+
 
 
     # fig.add_trace(

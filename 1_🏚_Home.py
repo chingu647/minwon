@@ -1,6 +1,7 @@
 import streamlit as st 
 import plotly.express as px
 import plotly.graph_objects as go 
+import plotly.figure_factory as ff 
 from plotly.subplots import make_subplots 
 
 import pandas as pd
