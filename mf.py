@@ -461,7 +461,8 @@ def create_go_vbar(organ, kind1):
                             # turquoise, violet, wheat, white, whitesmoke,
                             # yellow, yellowgreen
                              name="Markers A",
-                             text=y1, textposition="top center",  # "bottom center"
+                             text=y1, textposition="top center",  # "bottom center" 
+                             hover_info="x+y", 
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )  
@@ -471,7 +472,8 @@ def create_go_vbar(organ, kind1):
                                        color='indigo'),
                              marker=dict(color='indigo',) , 
                              name="Markers B",
-                             text=y2, textposition="top center",  # "bottom center"
+                             text=y2, textposition="top center",  # "bottom center" 
+                             hover_info="x+y", 
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )    
