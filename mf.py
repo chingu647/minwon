@@ -530,7 +530,7 @@ def create_go_bar(organ, kind1):
                         #            color='indigo'),
                         #  marker=dict(color='indigo',) ,    # px.colors.qualitative.Dark24,
                          name="Bar B",
-                         text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+                         text=y1,# textposition="inside",   # ['inside', 'outside', 'auto', 'none']
                         #  hoverinfo="x+y", 
                          ), 
                   row=1, col=1, secondary_y=False, 
