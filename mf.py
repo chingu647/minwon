@@ -565,7 +565,11 @@ def create_go_bar(organ, kind1):
                   )  
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
     fig.update_layout(barmode='relative',
-                      xaxis={'categoryorder':'category ascending'},   # 'category ascending'
+                      xaxis={'categoryorder':'total descending'},   # ['trace', 'category ascending', 'category descending', 
+                                                                      # 'array', 'total ascending', 'total descending', 
+                                                                      # 'min ascending', 'min descending', 'max ascending', 'max descending', 
+                                                                      # 'sum ascending', 'sum descending', 'mean ascending', 'mean descending', 
+                                                                      # 'median ascending', 'median descending']
                       )  # barmode='stack' 음수값 에러 ~~ 
 
     return fig 
