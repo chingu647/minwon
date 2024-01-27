@@ -423,7 +423,7 @@ def create_go_vbar(organ, kind1):
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )                    
-
+    return fig 
 
     # fig.add_trace(
     #     go.Bar(x=month_df.DATE, y=month_df.NUMBER, 
@@ -539,7 +539,7 @@ def create_go_vbar(organ, kind1):
 # #                  ) 
 # #     fig.update_layout(showlegend=False)
     
-    return fig, month_df, point_df, kind1_df, wc_data 
+    # return fig, month_df, point_df, kind1_df, wc_data 
 
 
 
