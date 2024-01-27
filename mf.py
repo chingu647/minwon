@@ -516,7 +516,7 @@ def create_go_candlestick(organ, kind1):
 def create_go_bar(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    t = np.linspace(0, 10, 5)
+    t = np.random.randint(0, 5, size=5)
     y1 = np.random.randint(0, 5, size=5)
     y2 = np.random.randint(0, 5, size=5)
 
