@@ -600,7 +600,7 @@ def create_go_Box(organ, kind1):
     #                     #  line=dict(width=0.5, 
     #                     #            color='indigo'),
                          line_color='green',
-                         marker_color='olive', 
+                         marker_color='green', 
                          name="Box A",
     #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
     #                      hoverinfo="x+y", 
