@@ -564,7 +564,9 @@ def create_go_bar(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )  
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
-    fig.update_layout(barmode='relative')
+    fig.update_layout(barmode='relative',
+                      xaxis={'categoryorder': 'cateogory descending'},   # 'category ascending'
+                      )  # barmode='stack' 음수값 에러 ~~ 
 
     return fig 
 
