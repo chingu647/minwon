@@ -101,31 +101,32 @@ st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rain
 
 # 각 탭에 콘텐츠 추가
 
-selected = option_menu(menu_title=None,
-                        options=["본부","광주","담양","순천","함평","구례","보성","남원"],
-                        icons=[None,None,None,None,None,None,None,None,],  
-                        menu_icon="cast",
-                        default_index=0,
-                        orientation='horizontal', 
-                        styles={"container": {"padding": "0px", # {"padding": "0!important", 
-                                              "margin" : "0px",
-                                              "background-color": "#fafafa"},
-                                "icon": {"color": "orange",  
-                                         "margin":"0px", 
-                                        "padding":"0px",
-                                         "font-size": "0px"}, 
-                                "nav-link": {"font-size": "13px", 
-                                             "text-align": "center", 
-                                             "margin":"0px", 
-                                             "padding":"0px",
-                                             "--hover-color": "#eee"},
-                                "nav-link-selected": {"background-color": "green"}, 
-                                } 
-)
+# selected = option_menu(menu_title=None,
+#                         options=["본부","광주","담양","순천","함평","구례","보성","남원"],
+#                         icons=[None,None,None,None,None,None,None,None,],  
+#                         menu_icon="cast",
+#                         default_index=0,
+#                         orientation='horizontal', 
+#                         styles={"container": {"padding": "0px", # {"padding": "0!important", 
+#                                               "margin" : "0px",
+#                                               "background-color": "#fafafa"},
+#                                 "icon": {"color": "orange",  
+#                                          "margin":"0px", 
+#                                         "padding":"0px",
+#                                          "font-size": "0px"}, 
+#                                 "nav-link": {"font-size": "13px", 
+#                                              "text-align": "center", 
+#                                              "margin":"0px", 
+#                                              "padding":"0px",
+#                                              "--hover-color": "#eee"},
+#                                 "nav-link-selected": {"background-color": "green"}, 
+#                                 } 
+# )
 
-if selected == "본부":
-    tab0.run_tab()
-    st.snow()
+# if selected == "본부":
+#     tab0.run_tab()
+#     st.snow()
+
 
 # elif selected == "광주": 
 #     tab1.run_tab()
