@@ -555,14 +555,14 @@ def create_go_Bar(organ, kind1):
                   )   
     
     # fig.update_traces( )   
-    fig.update_layout(barmode='relative',
+    fig.update_layout(barmode='relative',          # barmode='stack' 음수값 에러 ~~ 
                       xaxis={'categoryorder':'category ascending'},   # ['trace', 'category ascending', 'category descending', 
                                                                       # 'array', 'total ascending', 'total descending', 
                                                                       # 'min ascending', 'min descending', 'max ascending', 'max descending', 
                                                                       # 'sum ascending', 'sum descending', 'mean ascending', 'mean descending', 
                                                                       # 'median ascending', 'median descending']
                       showlegend=False, 
-                      )  # barmode='stack' 음수값 에러 ~~ 
+                      ) 
 
     return fig 
 
@@ -616,10 +616,8 @@ def create_go_Box(organ, kind1):
 def create_go_Histogram(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    x1 = np.random.randn(50)
-    x2 = np.random.randn(50) + 5
-
-
+    x1 = list( range(1,100)   )
+    x2 = list( range(100,200) )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
@@ -643,8 +641,8 @@ def create_go_Histogram(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )  
 
-    # fig.update_traces( )   
-    fig.update_layout(barmode='overlay',
+    # fig.update_traces(opacity=0.7)   
+    fig.update_layout(barmode='overlay',       # barmode='stack' 음수값 에러 ~~ 
                     #   showlegend=False, 
                       ) 
 
