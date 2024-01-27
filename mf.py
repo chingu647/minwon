@@ -454,14 +454,14 @@ def create_go_vbar(organ, kind1):
                             # springgreen, steelblue, tan, teal, thistle, tomato,
                             # turquoise, violet, wheat, white, whitesmoke,
                             # yellow, yellowgreen
-                             name="Markers",
+                             name="Markers A",
                              text=y1, textposition="top center",  # "bottom center"
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )  
     fig.add_trace(go.Scatter(x=t, y=y2, 
                              mode="markers", marker_color='darkred', 
-                             name="Markers",
+                             name="Markers B",
                              text=y2, textposition="top center",  # "bottom center"
                              ), 
                   row=1, col=1, secondary_y=False, 
