@@ -567,7 +567,7 @@ def create_go_bar(organ, kind1):
                   )  
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
     fig.update_layout(barmode='relative',
-                      xaxis={'categoryorder':'category ascending'},   # ['trace', 'category ascending', 'category descending', 
+                      xaxis={'categoryorder':'category descending'},   # ['trace', 'category ascending', 'category descending', 
                                                                       # 'array', 'total ascending', 'total descending', 
                                                                       # 'min ascending', 'min descending', 'max ascending', 'max descending', 
                                                                       # 'sum ascending', 'sum descending', 'mean ascending', 'mean descending', 
