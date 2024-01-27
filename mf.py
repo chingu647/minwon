@@ -464,7 +464,7 @@ def create_go_vbar(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )  
     fig.add_trace(go.Scatter(x=t, y=y2, 
-                             mode="none", fill='tonexty', line_color="indigo", 
+                             mode="lines", fill='tonexty', line_color="indigo", 
                              marker=dict(color='darkred',) , 
                              name="Markers B",
                              text=y2, textposition="top center",  # "bottom center"
