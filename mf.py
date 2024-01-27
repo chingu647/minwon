@@ -449,7 +449,7 @@ def create_go_vbar(organ, kind1):
                     #                              color="#000000",  ),
                                     #   ), 
 
-                    #   showlegend=False,         
+                      showlegend=True,         
 
                       # 범례 위치
                       legend_x = 0.01,  # (0~1) 사이값
