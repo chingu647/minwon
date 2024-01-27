@@ -67,7 +67,7 @@ def run_tab():
 
     
     # # ###################################################################### body 1  
-    t0b1_month_df, _, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
+    t0b1_month_df, t0b1_point_df, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
 
     t0b1_container = st.container(border=True)
     t0b1_container.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
