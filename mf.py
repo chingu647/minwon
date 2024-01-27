@@ -682,19 +682,7 @@ def create_ff_Heatmap(organ, kind1):
     w = ['Morning', 'Afternoon', 'Evening']
     n = np.random.randint(1, 100, size=(3, 7)) 
 
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
-    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
-
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace( ff.create_annotated_heatmap(x=t, y=w, z=n, 
-                                               ), 
-                                               row=1, col=1, secondary_y=False, 
-                  )  
-    
-    # fig.update_traces( )   
-    fig.update_layout(
-        # showlegend=False, 
-                      ) 
+    fig = ff.create_annotated_heatmap(x=t, y=w, z=n)
 
     return fig 
 
