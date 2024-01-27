@@ -127,6 +127,14 @@ st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rain
 #     tab0.run_tab()
 #     st.snow()
 
+month_df, point_df, kind1_df, wc_data = mf.load_df('본부','KIND1') 
+st.write(month_df) 
+st.write(kind1_df) 
+
+
+
+
+
 
 # elif selected == "광주": 
 #     tab1.run_tab()
