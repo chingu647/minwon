@@ -24,7 +24,7 @@ from wordcloud import WordCloud, STOPWORDS
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 
-############################################################################################################################# load_df 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load_df 
 # arg1 : global organ_ t?? ---------- 탭 페이지에서 입력
 # arg2 : global kind1_ t?? ---------- 탭 페이지에서 입력
 # @st.cache_resource 
@@ -71,9 +71,12 @@ def load_df(organ, kind1):
 
     return month_df, point_df, kind1_df, wc_data  
 
+
+
 load_df('본부','KIND1')
 
-# ############################################################################################################################# load wc 
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load wc 
 # # arg1 : text_raw 
 # @st.cache_resource 
 # def load_wc(organ, kind1): # target_layout 에러 발생 
@@ -96,7 +99,7 @@ load_df('본부','KIND1')
 
 
 
-# ############################################################################################################################# load map
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load map
 # # arg1 : organ_ t?? ---------- 탭 페이지에서 입력
 # # arg2 : kind1_ t?? ---------- 탭 페이지에서 입력
 # # base_position_ t?? --------- 탭 페이지에서 입력
@@ -152,7 +155,7 @@ load_df('본부','KIND1')
 
 
 
-# ############################################################################################################################# load map
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load map
 # # arg1 : organ_ t?? ---------- 탭 페이지에서 입력
 # # arg2 : kind1_ t?? ---------- 탭 페이지에서 입력
 # # base_position_ t?? --------- 탭 페이지에서 입력
@@ -314,7 +317,7 @@ load_df('본부','KIND1')
 
 
 
-# ############################################################################################################################# create pie
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create pie
 # # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # def create_pie(organ, kind1): 
 #     # data  
@@ -362,7 +365,7 @@ load_df('본부','KIND1')
 
 
 
-# ############################################################################################################################# 세로 막대 create vbar 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 세로 막대 create vbar 
 # # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 # def create_vbar(organ, kind1): 
@@ -400,10 +403,10 @@ load_df('본부','KIND1')
     
 #     return fig, month_df, point_df, kind1_df, wc_data 
 
-############################################################################################################################# 세로 막대 create vbar 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go Scatter  
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-def create_go_scatter(organ, kind1): 
+def create_go_Scatter(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
     t = np.linspace(0, 10, 5)
@@ -422,7 +425,7 @@ def create_go_scatter(organ, kind1):
                                          color=t, # 'darkblue', 
                                          ), 
                             #  marker_color='darkblue', 
-                            # # CSS COLOR @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                            # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ CSS COLOR 
                             # aliceblue, antiquewhite, aqua, aquamarine, azure,
                             # beige, bisque, black, blanchedalmond, blue,
                             # blueviolet, brown, burlywood, cadetblue,
@@ -479,10 +482,10 @@ def create_go_scatter(organ, kind1):
 
 
 
-############################################################################################################################# 세로 막대 create vbar 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go Candlestick 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-def create_go_candlestick(organ, kind1): 
+def create_go_Candlestick(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
     t = np.linspace(0, 10, 5)
@@ -510,17 +513,15 @@ def create_go_candlestick(organ, kind1):
         
 
 
-############################################################################################################################# 막대 bar chart 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go Bar  
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-def create_go_bar(organ, kind1): 
+def create_go_Bar(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    t = [5,1,2,3,4]
+    t = ['e','a','b','c','d']
     y1 = list(range(1,6))
     y2 = list(range(11,16))
-    y3 = list(range(21,26))
-    y4 = list(range(31,36))
 
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
@@ -567,7 +568,7 @@ def create_go_bar(organ, kind1):
                   )  
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
     fig.update_layout(barmode='relative',
-                      xaxis={'categoryorder':'total descending'},   # ['trace', 'category ascending', 'category descending', 
+                      xaxis={'categoryorder':'category ascending'},   # ['trace', 'category ascending', 'category descending', 
                                                                       # 'array', 'total ascending', 'total descending', 
                                                                       # 'min ascending', 'min descending', 'max ascending', 'max descending', 
                                                                       # 'sum ascending', 'sum descending', 'mean ascending', 'mean descending', 
@@ -576,6 +577,48 @@ def create_go_bar(organ, kind1):
                       )  # barmode='stack' 음수값 에러 ~~ 
 
     return fig 
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go box  
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_go_box(organ, kind1): 
+    # data  
+    # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    x1 = np.random.randn(50)
+    x2 = np.random.randn(50) + 5
+
+
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
+    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
+    fig.add_trace(go.Box(x=x1, 
+    #                     #  mode="lines+markers", fill='tonexty', 
+    #                     #  line=dict(width=0.5, 
+    #                     #            color='indigo'),
+    #                     #  width=[1, 2.1, 0.8, 2.6, 1.4], 
+    #                      marker_color = 'crimson',  # px.colors.qualitative.Dark24,
+    #                      name="Bar A",
+    #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+    #                      hoverinfo="x+y", 
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
+    
+
+    # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
+    # fig.update_layout(
+    #     # showlegend=False, 
+    #                   ) 
+
+    return fig 
+
+
+
+
 
     # fig.add_trace(
     #     go.Bar(x=month_df.DATE, y=month_df.NUMBER, 
