@@ -608,7 +608,18 @@ def create_go_Box(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )  
     
-
+    fig.add_trace(go.Box(y=y2, 
+    #                     #  mode="lines+markers", fill='tonexty', 
+    #                     #  line=dict(width=0.5, 
+    #                     #            color='indigo'),
+    #                     #  width=[1, 2.1, 0.8, 2.6, 1.4], 
+    #                      marker_color = 'crimson',  # px.colors.qualitative.Dark24,
+    #                      name="Bar A",
+    #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+    #                      hoverinfo="x+y", 
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
     # fig.update_layout(
     #     # showlegend=False, 
