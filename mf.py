@@ -526,12 +526,12 @@ def create_go_bar(organ, kind1):
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
     fig.add_trace(go.bar(x=t, y=y2, 
                         #  mode="lines+markers", fill='tonexty', 
-                         line=dict(width=0.5, 
-                                   color='indigo'),
-                         marker=dict(color='indigo',) ,    # px.colors.qualitative.Dark24,
+                        #  line=dict(width=0.5, 
+                        #            color='indigo'),
+                        #  marker=dict(color='indigo',) ,    # px.colors.qualitative.Dark24,
                          name="Bar B",
                          text=y2, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
-                         hoverinfo="x+y", 
+                        #  hoverinfo="x+y", 
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
