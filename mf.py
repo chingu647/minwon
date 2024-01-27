@@ -415,6 +415,8 @@ def create_go_vbar(organ, kind1):
         go.Bar(x=month_df.DATE, 
                y=month_df.NUMBER, 
                marker_color=px.colors.qualitative.Dark24, 
+               text=month_df.NUMBER,              #["Text A", "Text B", "Text C"],
+               textposition="top center"
                name='bA'), 
         row=1, col=1                  
     )
