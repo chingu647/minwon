@@ -524,7 +524,7 @@ def create_go_bar(organ, kind1):
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace(go.bar(x=t, y=y1, 
+    fig.add_trace(go.Bar(x=t, y=y1, 
                         #  mode="lines+markers", fill='tonexty', 
                         #  line=dict(width=0.5, 
                         #            color='indigo'),
