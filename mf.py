@@ -554,7 +554,7 @@ def create_go_Bar(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )   
     
-    # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
+    # fig.update_traces( )   
     fig.update_layout(barmode='relative',
                       xaxis={'categoryorder':'category ascending'},   # ['trace', 'category ascending', 'category descending', 
                                                                       # 'array', 'total ascending', 'total descending', 
@@ -601,7 +601,7 @@ def create_go_Box(organ, kind1):
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
-    # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
+    # fig.update_traces( )   
     # fig.update_layout(
     #     # showlegend=False, 
     #                   ) 
@@ -633,11 +633,20 @@ def create_go_Histogram(organ, kind1):
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
+    
+    fig.add_trace(go.Histogram(x=x2, 
 
-    # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
-    # fig.update_layout(
-    #     # showlegend=False, 
-    #                   ) 
+                        #  line_color='green',
+                        #  marker_color='green', 
+                         name="Histogram B",
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
+
+    # fig.update_traces( )   
+    fig.update_layout(barmode='overlay',
+                    #   showlegend=False, 
+                      ) 
 
     return fig 
 
