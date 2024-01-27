@@ -586,8 +586,8 @@ def create_go_Bar(organ, kind1):
 def create_go_Box(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    x1 = np.random.randn(50)
-    x2 = np.random.randn(50) + 5
+    y1 = np.random.randn(50)
+    y2 = np.random.randn(50) + 5
 
 
 
@@ -595,7 +595,7 @@ def create_go_Box(organ, kind1):
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace(go.Box(x=x1, 
+    fig.add_trace(go.Box(y=y1, 
     #                     #  mode="lines+markers", fill='tonexty', 
     #                     #  line=dict(width=0.5, 
     #                     #            color='indigo'),
