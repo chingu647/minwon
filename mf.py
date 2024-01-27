@@ -644,7 +644,7 @@ def create_go_Histogram(organ, kind1):
                   )  
 
     # fig.update_traces(opacity=0.7)   
-    fig.update_layout(#barmode='overlay',       # barmode='stack' 음수값 에러 ~~ 
+    fig.update_layout(barmode='overlay',       # barmode='stack' 음수값 에러 ~~ 
                     #   showlegend=False, 
                       ) 
 
