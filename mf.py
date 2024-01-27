@@ -452,8 +452,8 @@ def create_go_vbar(organ, kind1):
                     #   showlegend=False,         
 
                       # 범례 위치
-                      legend__x = 0.01,  # (0~1) 사이값
-                      legend__y = 0.99,  # (0~1) 사이값
+                      legend_x = 0.01,  # (0~1) 사이값
+                      legend_y = 0.99,  # (0~1) 사이값
                       legend_xanchor = "left",  # (`auto","left","center","right")
                       legend_yanchor = "top",   # ("auto","top","middle","bottom")
 
