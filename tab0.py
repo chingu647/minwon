@@ -72,7 +72,9 @@ def run_tab():
     t0b1_container = st.container(border=True)
     t0b1_container.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
 
-    t0b1_container.write(t0b1_month_df)
+    t0b1_container.write(t0b1_month_df) 
+    t0b1_container.write(t0b1_kind1_df) 
+    
     # t0b1_fig = mf.create_ff_Heatmap(organ_t0, kind1_t0)
     # t0b1_container.plotly_chart(t0b1_fig, use_container_width=True) 
 
