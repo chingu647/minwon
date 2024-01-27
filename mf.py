@@ -623,7 +623,7 @@ def create_go_Histogram(organ, kind1):
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace(go.Histogram(x=y1, 
+    fig.add_trace(go.Histogram(y=y1, 
 
                         #  line_color='green',
                         #  marker_color='green', 
@@ -632,7 +632,7 @@ def create_go_Histogram(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )  
     
-    fig.add_trace(go.Histogram(x=y2, 
+    fig.add_trace(go.Histogram(y=y2, 
 
                         #  line_color='green',
                         #  marker_color='green', 
