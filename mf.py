@@ -616,14 +616,14 @@ def create_go_Box(organ, kind1):
 def create_go_Histogram(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    x1 = list( range(1, 50, 1)   )
-    x2 = list( range(51,101, 1) )
+    y1 = list( range(1, 50, 1)   )
+    y2 = list( range(51,101, 1) )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace(go.Histogram(x=x1, 
+    fig.add_trace(go.Histogram(x=y1, 
 
                         #  line_color='green',
                         #  marker_color='green', 
@@ -632,7 +632,7 @@ def create_go_Histogram(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )  
     
-    fig.add_trace(go.Histogram(x=x2, 
+    fig.add_trace(go.Histogram(x=y2, 
 
                         #  line_color='green',
                         #  marker_color='green', 
