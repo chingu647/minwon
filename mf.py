@@ -403,19 +403,20 @@ load_df('본부','KIND1')
 ##################################################################################### 세로 막대 create vbar 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-def create_go_vbar(organ, kind1): 
+def create_go_scatter(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
     t = np.linspace(0, 10, 5)
     y1 = np.random.randn(5).cumsum()
     y2 = np.random.randn(5).cumsum()
 
-
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     # Create subplot grid
     # fig = make_subplots(rows=1, cols=1)
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # # Add traces to the subplot grid 
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Scatter chart
     fig.add_trace(go.Scatter(x=t, y=y1, 
                              mode="lines+markers", fill='tozeroy',   # lines+markers+text 
                              line=dict(width=0.5, 
@@ -477,6 +478,74 @@ def create_go_vbar(organ, kind1):
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )    
+    return fig 
+
+
+
+##################################################################################### 세로 막대 create vbar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_go_candlestick(organ, kind1): 
+    # data  
+    # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    t = np.linspace(0, 10, 5)
+    y1 = np.random.randn(5).cumsum()
+    y2 = np.random.randn(5).cumsum()
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
+    # Create subplot grid
+    # fig = make_subplots(rows=1, cols=1)
+    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
+
+    # # Add traces to the subplot grid 
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Scatter chart
+    fig.add_trace(go.Candlestick(x=t,
+                                 open=y1,
+                                 high=y2,
+                                #  low=y3, 
+                                #  close=y4,
+                                 increasing_line_color='red', 
+                                 decreasing_line_color='blue',),
+                  row=1, col=1, secondary_y=False, 
+                  )
+    # fig.update_traces( )
+    # fig.update_layout( )
+    return fig 
+        
+
+
+
+
+##################################################################################### 세로 막대 create vbar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_go_vbar(organ, kind1): 
+    # data  
+    # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    t = np.linspace(0, 10, 5)
+    y1 = np.random.randn(5).cumsum()
+    y2 = np.random.randn(5).cumsum()
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
+    # Create subplot grid
+    # fig = make_subplots(rows=1, cols=1)
+    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
+
+    # # Add traces to the subplot grid 
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Bar chart 
+    fig.add_trace(go.bar(x=t, y=y2, 
+                         mode="lines+markers", fill='tonexty', 
+                         line=dict(width=0.5, 
+                                   color='indigo'),
+                         marker=dict(color='indigo',) , 
+                         name="Markers B",
+                         text=y2, textposition="top center",  # "bottom center" 
+                         hoverinfo="x+y", 
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
+
+
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
               
     return fig 
