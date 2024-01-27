@@ -688,6 +688,25 @@ def create_ff_Heatmap(organ, kind1):
 
 
 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create ff dendrograms    
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_ff_dendrogram(organ, kind1): 
+    # data  
+    # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    
+    x = np.random.rand(15, 12)
+
+    fig = ff.create_dendrogram(x)
+
+    return fig 
+
+
+# names = ['Jack', 'Oxana', 'John', 'Chelsea', 'Mark']
+# dendro = create_dendrogram(X, orientation='right', labels=names)
+
+
+
 
 
 
