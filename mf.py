@@ -448,10 +448,27 @@ def create_go_vbar(organ, kind1):
                     #                              size=12,
                     #                              color="#000000",  ),
                                     #   ), 
-        
-                    #   legend_title='variable', 
 
-    #                   showlegend=False, 
+                    #   showlegend=False,         
+
+                      # 범례 위치
+                      legend__x = 0.01,  # (0~1) 사이값
+                      legend__y = 0.99,  # (0~1) 사이값
+                      legend_xanchor = "left",  # (`auto","left","center","right")
+                      legend_yanchor = "top",   # ("auto","top","middle","bottom")
+
+                      # 범례 스타일 
+                      legend_title_text='성별',                     # 타이틀명 text 입력       
+                      legend_title_font_family = "Times New Roman", # 범례 타이틀 서체 (HTML font family)
+                      legend_title_font_color="red",                # 범례 타이틀 색
+                      legend_title_font_size= 20,                   # 범례 타이틀 글자 크기
+                      legend_font_family="Courier",         # 범례 서체 (HTML font family)
+                      legend_font_size=12,                  # 범례 글자 크기
+                      legend_font_color="black",            # 범례 색
+                      legend_bgcolor="LightSteelBlue",  # 범례 배경색
+                      legend_bordercolor="Black",       # 범례 테두리 색
+                      legend_borderwidth=2,             # 범례 테두리 두깨
+
 
     #                   margin = dict(l=10, r=10, b=10), 
     )
