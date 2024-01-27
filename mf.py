@@ -517,10 +517,10 @@ def create_go_bar(organ, kind1):
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
     t = [1, 2, 3, 4, 5]
-    y1 = range(1,6)
-    y2 = range(11,16)
-    y3 = range(21,26)
-    y4 = range(31,36)
+    y1 = list(range(1,6))
+    y2 = list(range(11,16))
+    y3 = list(range(21,26))
+    y4 = list(range(31,36))
 
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
