@@ -458,7 +458,9 @@ def create_go_vbar(organ, kind1):
                              text=y1, textposition="top center",  # "bottom center"
                              ), 
                   row=1, col=1, secondary_y=False, 
-                  )                    
+                  )      
+    fig.update_traces(mode='markers', marker_line_width=1, marker_size=10)   
+              
     return fig 
 
     # fig.add_trace(
