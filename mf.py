@@ -516,42 +516,42 @@ def create_go_candlestick(organ, kind1):
 def create_go_bar(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    t = [1, 2, 3, 4]
-    y1 = np.random.randint(1, 10, 5)
-    y2 = np.random.randint(1, 10, 5)
-    y3 = np.random.randint(1, 10, 5)
-    y4 = np.random.randint(1, 10, 5)
+    t = [1, 2, 3, 4, 5]
+    y1 = range(1,6)
+    y2 = range(11,16)
+    y3 = range(21,26)
+    y4 = range(31,36)
 
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    # fig.add_trace(go.Bar(x=t, y=y1, 
-    #                     #  mode="lines+markers", fill='tonexty', 
-    #                     #  line=dict(width=0.5, 
-    #                     #            color='indigo'),
-    #                     #  width=[1, 2.1, 0.8, 2.6, 1.4], 
-    #                      marker_color = 'crimson',  # px.colors.qualitative.Dark24,
-    #                      name="Bar A",
-    #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
-    #                      hoverinfo="x+y", 
-    #                      ), 
-    #               row=1, col=1, secondary_y=False, 
-    #               )  
+    fig.add_trace(go.Bar(x=t, y=y1, 
+                        #  mode="lines+markers", fill='tonexty', 
+                        #  line=dict(width=0.5, 
+                        #            color='indigo'),
+                        #  width=[1, 2.1, 0.8, 2.6, 1.4], 
+                         marker_color = 'crimson',  # px.colors.qualitative.Dark24,
+                         name="Bar A",
+                         text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+                         hoverinfo="x+y", 
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
     
-    # fig.add_trace(go.Bar(x=t, y=y2, 
-    #                     #  mode="lines+markers", fill='tonexty', 
-    #                     #  line=dict(width=0.5, 
-    #                     #            color='indigo'),
-    #                     #  width=[1, 2.1, 0.8, 2.6, 1.4], 
-    #                      marker_color = 'limegreen',  # px.colors.qualitative.Dark24,
-    #                      name="Bar B",
-    #                      text=y2, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
-    #                      hoverinfo="x+y", 
-    #                      ), 
-    #               row=1, col=1, secondary_y=False, 
-    #               )   
+    fig.add_trace(go.Bar(x=t, y=y2, 
+                        #  mode="lines+markers", fill='tonexty', 
+                        #  line=dict(width=0.5, 
+                        #            color='indigo'),
+                        #  width=[1, 2.1, 0.8, 2.6, 1.4], 
+                         marker_color = 'limegreen',  # px.colors.qualitative.Dark24,
+                         name="Bar B",
+                         text=y2, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+                         hoverinfo="x+y", 
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )   
     
     fig.add_trace(go.Bar(x=t, y=y3, 
                         #  mode="lines+markers", fill='tonexty', 
