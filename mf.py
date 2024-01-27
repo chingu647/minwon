@@ -599,8 +599,8 @@ def create_go_Box(organ, kind1):
     #                     #  mode="lines+markers", fill='tonexty', 
     #                     #  line=dict(width=0.5, 
     #                     #            color='indigo'),
-    #                     #  width=[1, 2.1, 0.8, 2.6, 1.4], 
-    #                      marker_color = 'crimson',  # px.colors.qualitative.Dark24,
+                         line_color='green',
+                         marker_color='olive', 
                          name="Box A",
     #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
     #                      hoverinfo="x+y", 
@@ -612,8 +612,8 @@ def create_go_Box(organ, kind1):
     #                     #  mode="lines+markers", fill='tonexty', 
     #                     #  line=dict(width=0.5, 
     #                     #            color='indigo'),
-    #                     #  width=[1, 2.1, 0.8, 2.6, 1.4], 
-    #                      marker_color = 'crimson',  # px.colors.qualitative.Dark24,
+                         line_color='royalblue', 
+                         marker_color='skyblue', 
                          name="Box B",
     #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
     #                      hoverinfo="x+y", 
