@@ -51,8 +51,8 @@ def load_df(organ, kind1):
     
     # 시계열 data
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M'))['NUMBER'].count().reset_index() 
-    # month_df['NUMBER_pct_change'] = month_df['NUMBER'].pct_change(periods=1)
-    # month_df['NUMBER_cumsum'] = month_df['NUMBER'].transform('cumsum') 
+    month_df['NUMBER_pct_change'] = month_df['NUMBER'].pct_change(periods=1)
+    month_df['NUMBER_cumsum'] = month_df['NUMBER'].transform('cumsum') 
     # month_df = month_df.assign(NUMBER_DELTA=month_df.NUMBER_CUMSUM - month_df.NUMBER) 
     
     # map data : 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
