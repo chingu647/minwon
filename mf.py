@@ -491,6 +491,8 @@ def create_go_candlestick(organ, kind1):
     t = np.linspace(0, 10, 5)
     y1 = np.random.randn(5).cumsum()
     y2 = np.random.randn(5).cumsum()
+    y3 = np.random.randn(5).cumsum()
+    y4 = np.random.randn(5).cumsum()
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     # Create subplot grid
@@ -502,8 +504,8 @@ def create_go_candlestick(organ, kind1):
     fig.add_trace(go.Candlestick(x=t,
                                  open=y1,
                                  high=y2,
-                                #  low=y3, 
-                                #  close=y4,
+                                 low=y3, 
+                                 close=y4,
                                  increasing_line_color='red', 
                                  decreasing_line_color='blue',),
                   row=1, col=1, secondary_y=False, 
