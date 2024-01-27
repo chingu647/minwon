@@ -462,7 +462,7 @@ def create_go_vbar(organ, kind1):
     fig.add_trace(go.Scatter(x=t, y=y2, 
                              mode="markers", marker_color='darkred', 
                              name="Markers",
-                             text=y1, textposition="top center",  # "bottom center"
+                             text=y2, textposition="top center",  # "bottom center"
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )    
