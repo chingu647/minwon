@@ -29,13 +29,13 @@ import mf
 
 
 import tab0 
-import tab1 
-import tab2
-import tab3 
-import tab4 
-import tab5 
-import tab6 
-import tab7 
+# import tab1 
+# import tab2
+# import tab3 
+# import tab4 
+# import tab5 
+# import tab6 
+# import tab7 
 
 st.set_page_config(layout="wide",
                    page_title="한눈에 민원 보기", 
