@@ -405,26 +405,46 @@ load_df('본부','KIND1')
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 def create_go_vbar(organ, kind1): 
     # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    t = np.linspace(0, 10, 100)
+    y1 = np.random.randn(100).cumsum()
+    y2 = np.random.randn(100).cumsum()
+
 
     # Create subplot grid
-    fig = make_subplots(rows=1, cols=1)
+    # fig = make_subplots(rows=1, cols=1)
+    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
-    # Add traces to the subplot grid
-    fig.add_trace(
-        go.Bar(x=month_df.DATE, 
-               y=month_df.NUMBER, 
-               marker_color=px.colors.qualitative.Dark24, 
-               text=month_df.NUMBER,              #["Text A", "Text B", "Text C"],
-               textposition="inside",             # ['inside', 'outside', 'auto', 'none']
-               name='bA'), 
-        row=1, col=1                  
-    )
+    # # Add traces to the subplot grid 
+    fig.add_trace(go.Scatter(x=t, y=y1, 
+                             mode="lines+markers+text", marker_color='darkblue', 
+                             name="Lines, Markers and Text",
+                             text=y1, textposition="top center",  # "bottom center"), 
+                             ), 
+                  row=1, col=1, secondary_y=False, 
+                  )                    
+
+
+    # fig.add_trace(
+    #     go.Bar(x=month_df.DATE, y=month_df.NUMBER, 
+    #            marker_color=px.colors.qualitative.Dark24, 
+    #            text=month_df.NUMBER, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+    #            name='bA'), 
+    #     row=1, col=1, secondary_y=False,                  
+    # )
+
+    # fig.add_trace(
+    #     go.Bar(x=month_df.DATE, y=month_df.NUMBER, 
+    #            marker_color=px.colors.qualitative.Dark24,
+    #            text=month_df.NUMBER, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+    #            name='bA'), 
+    #     row=1, col=1, secondary_y=True,                  
+    # )
 
     # fig.add_trace(
     #     go.Scatter(x=month_df.DATE, 
     #                y=month_df.NUMBER, 
-    #                mode="lines+markers+text", 
+    #                mode="lines+markers+text", marker_color='darkblue'
     #                name="Lines, Markers and Text",
     #                text=month_df.NUMBER,              #["Text A", "Text B", "Text C"],
     #                textposition="top center"),  # "bottom center"), 
@@ -433,22 +453,16 @@ def create_go_vbar(organ, kind1):
 
     # Update figure if necessary ????
 
-    # Update layout if necessary
-    fig.update_layout(#title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
-                                #  x=0.0, 
-                                #  y=0.9, 
-                                #  font=dict(family="Arial",
-                                #            size=25,
-                                #            color="#000000", ), 
-                                # ),
-                    #   xaxis_title=dict(text="<b>Fail Point</b>", ), 
-
-                    #   yaxis_title=dict(text="<b>Portion(%)</b>", 
-                    #                    font=dict(family="Courier New, Monospace",
-                    #                              size=12,
-                    #                              color="#000000",  ),
-                                    #   ), 
-
+    # Update layout if necessary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+    # Add figure title
+    fig.update_layout(title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+                                 x=0.0, 
+                                 y=0.9, 
+                                 font=dict(family="Arial",
+                                           size=25,
+                                           color="#000000", ), 
+                                ),
+                      # 범례  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                       showlegend=True,         
 
                       # 범례 위치
@@ -469,8 +483,34 @@ def create_go_vbar(organ, kind1):
                       legend_bordercolor="Black",       # 범례 테두리 색
                       legend_borderwidth=2,             # 범례 테두리 두깨
 
+                      margin = dict(l=10, r=10, b=10), 
+    ) 
 
-    #                   margin = dict(l=10, r=10, b=10), 
+    # Set x-axes titles    
+    fig.update_xaxes(title_text="xaxis title")
+
+    # Set y-axes titles
+    fig.update_yaxes(title_text="<b>primary</b> yaxis title", secondary_y=False)
+    fig.update_yaxes(title_text="<b>secondary</b> yaxis title", secondary_y=True)
+    
+    title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+                                x=0.0, 
+                                y=0.9, 
+                                font=dict(family="Arial",
+                                          size=25,
+                                          color="#000000", ), 
+                               ),
+    )
+                      xaxis_title=dict(text="<b>Fail Point</b>", ), 
+
+                      yaxis_title=dict(text="<b>Portion(%)</b>", 
+                                       font=dict(family="Courier New, Monospace",
+                                                 size=12,
+                                                 color="#000000",  ),
+                                    #   ), 
+    )
+        
+
     )
   
     return fig, month_df, point_df, kind1_df, wc_data 
