@@ -414,6 +414,7 @@ def create_go_vbar(organ, kind1):
     fig.add_trace(
         go.Bar(x=month_df.DATE, 
                y=month_df.NUMBER, 
+               color=month_df.NUMBER, 
                name='bA'), 
         row=1, col=1                  
     )
