@@ -516,7 +516,7 @@ def create_go_candlestick(organ, kind1):
 def create_go_bar(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    t = [1, 2, 3, 4, 5]
+    t = [1, 5, 3, 4, 2]
     y1 = list(range(1,6))
     y2 = list(range(11,16))
     y3 = list(range(21,26))
