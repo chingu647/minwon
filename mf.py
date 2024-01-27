@@ -462,7 +462,7 @@ def create_go_vbar(organ, kind1):
                             # yellow, yellowgreen
                              name="Markers A",
                              text=y1, textposition="top center",  # "bottom center" 
-                             hover_info="x+y", 
+                             hover_info="x+y1", 
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )  
@@ -473,7 +473,7 @@ def create_go_vbar(organ, kind1):
                              marker=dict(color='indigo',) , 
                              name="Markers B",
                              text=y2, textposition="top center",  # "bottom center" 
-                             hover_info="x+y", 
+                             hover_info="x+y2", 
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )    
