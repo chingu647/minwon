@@ -527,7 +527,8 @@ def create_go_bar(organ, kind1):
                         #  mode="lines+markers", fill='tonexty', 
                         #  line=dict(width=0.5, 
                         #            color='indigo'),
-                         marker=dict(color='indigo',) ,    # px.colors.qualitative.Dark24,
+                         marker=dict(size=t+5,
+                                     color='indigo',) ,    # px.colors.qualitative.Dark24,
                          name="Bar B",
                          text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
                          hoverinfo="x+y", 
