@@ -406,9 +406,9 @@ load_df('본부','KIND1')
 def create_go_vbar(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    t = np.linspace(0, 10, 100)
-    y1 = np.random.randn(100).cumsum()
-    y2 = np.random.randn(100).cumsum()
+    t = np.linspace(0, 10, 10)
+    y1 = np.random.randn(10).cumsum()
+    y2 = np.random.randn(10).cumsum()
 
 
     # Create subplot grid
