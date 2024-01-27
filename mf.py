@@ -517,20 +517,20 @@ def create_go_bar(organ, kind1):
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
     t = np.linspace(0, 10, 5)
-    y1 = np.random.randn(5).cumsum()
-    y2 = np.random.randn(5).cumsum()
+    y1 = np.random.randint(0, 5, size=5)
+    y2 = np.random.randint(0, 5, size=5)
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
-    fig.add_trace(go.bar(x=t, y=y2, 
+    fig.add_trace(go.bar(x=t, y=y1, 
                         #  mode="lines+markers", fill='tonexty', 
                         #  line=dict(width=0.5, 
                         #            color='indigo'),
                         #  marker=dict(color='indigo',) ,    # px.colors.qualitative.Dark24,
                          name="Bar B",
-                         text=y2, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+                         text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
                         #  hoverinfo="x+y", 
                          ), 
                   row=1, col=1, secondary_y=False, 
