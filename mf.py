@@ -419,7 +419,7 @@ def create_go_vbar(organ, kind1):
     fig.add_trace(go.Scatter(x=t, y=y1, 
                              mode="markers", 
                              marker=dict(size=t,
-                                         color=t, 
+                                         color='darkblue', 
                                          ), 
                             #  marker_color='darkblue', 
                             # # CSS COLOR @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
