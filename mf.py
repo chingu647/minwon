@@ -61,9 +61,6 @@ def load_df(organ, kind1):
     kind1_df = point_df.groupby(by=f'{kind1}')['NUMBER'].count().reset_index()  #.sort_values(by=f'{kind1}', ascending=False) 
 
     kind1_df['NUMBER_pct'] = month_df['NUMBER'].div(month_df['NUMBER'].sum(axis=0), axis=0)
-
-    kind1_df['NUMBER_pct'] = month_df['NUMBER'].div(month_df['NUMBER'].sum(axis=0), axis=1)
-
     
     # kind1_df = kind1_df.iloc
     # kind1_df['건수'] = kind1_df['건수'].astype(int)
