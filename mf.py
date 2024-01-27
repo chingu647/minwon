@@ -516,8 +516,12 @@ def create_go_candlestick(organ, kind1):
 def create_go_bar(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    t = np.linspace(0, 10, 5)
-    y1 = np.random.randn(5).cumsum()
+    t = [1, 2, 3, 4]
+    y1 = np.random.randint(1, 10, 5)
+    y2 = np.random.randint(1, 10, 5)
+    y3 = np.random.randint(1, 10, 5)
+    y4 = np.random.randint(1, 10, 5)
+
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
@@ -528,15 +532,38 @@ def create_go_bar(organ, kind1):
                         #  line=dict(width=0.5, 
                         #            color='indigo'),
                          marker_color = px.colors.qualitative.Dark24,
-                         name="Bar B",
+                         name="Bar A",
                          text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
                          hoverinfo="x+y", 
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
-
+    
+    fig.add_trace(go.Bar(x=t, y=y2, 
+                        #  mode="lines+markers", fill='tonexty', 
+                        #  line=dict(width=0.5, 
+                        #            color='indigo'),
+                         marker_color = px.colors.qualitative.Dark24,
+                         name="Bar B",
+                         text=y2, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+                         hoverinfo="x+y", 
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )   
+    
+    fig.add_trace(go.Bar(x=t, y=y3, 
+                        #  mode="lines+markers", fill='tonexty', 
+                        #  line=dict(width=0.5, 
+                        #            color='indigo'),
+                         marker_color = px.colors.qualitative.Dark24,
+                         name="Bar C",
+                         text=y3, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+                         hoverinfo="x+y", 
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
-    # fig.update_layout( ) 
+    # fig.update_layout(barmode='relative')
 
     return fig 
 
