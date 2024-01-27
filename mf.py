@@ -554,18 +554,6 @@ def create_go_Bar(organ, kind1):
                   row=1, col=1, secondary_y=False, 
                   )   
     
-    fig.add_trace(go.Bar(x=t, y=y3, 
-                        #  mode="lines+markers", fill='tonexty', 
-                        #  line=dict(width=0.5, 
-                        #            color='indigo'), 
-                        #  width=[1, 2.1, 0.8, 2.6, 1.4], 
-                         marker_color = 'blue',  # px.colors.qualitative.Dark24,
-                         name="Bar C",
-                         text=y3, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
-                         hoverinfo="x+y", 
-                         ), 
-                  row=1, col=1, secondary_y=False, 
-                  )  
     # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
     fig.update_layout(barmode='relative',
                       xaxis={'categoryorder':'category ascending'},   # ['trace', 'category ascending', 'category descending', 
@@ -580,7 +568,7 @@ def create_go_Bar(organ, kind1):
 
 
 
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go box  
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go Box 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 def create_go_Box(organ, kind1): 
@@ -596,27 +584,20 @@ def create_go_Box(organ, kind1):
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
     fig.add_trace(go.Box(y=y1, 
-    #                     #  mode="lines+markers", fill='tonexty', 
-    #                     #  line=dict(width=0.5, 
-    #                     #            color='indigo'),
+
                          line_color='green',
                          marker_color='green', 
                          name="Box A",
-    #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
-    #                      hoverinfo="x+y", 
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
     
     fig.add_trace(go.Box(y=y2, 
-    #                     #  mode="lines+markers", fill='tonexty', 
-    #                     #  line=dict(width=0.5, 
-    #                     #            color='indigo'),
+                         
                          line_color='royalblue', 
                          marker_color='skyblue', 
                          name="Box B",
-    #                      text=y1, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
-    #                      hoverinfo="x+y", 
+
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
@@ -629,6 +610,36 @@ def create_go_Box(organ, kind1):
 
 
 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go Histogram  
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_go_Histogram(organ, kind1): 
+    # data  
+    # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    x1 = np.random.randn(50)
+    x2 = np.random.randn(50) + 5
+
+
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
+    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
+    fig.add_trace(go.Histogram(x=x1, 
+
+                        #  line_color='green',
+                        #  marker_color='green', 
+                         name="Histogram A",
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
+
+    # fig.update_traces(mode='markers', marker_line_width=1) # , marker_size=10)   
+    # fig.update_layout(
+    #     # showlegend=False, 
+    #                   ) 
+
+    return fig 
 
 
     # fig.add_trace(
