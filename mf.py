@@ -616,8 +616,8 @@ def create_go_Box(organ, kind1):
 def create_go_Histogram(organ, kind1): 
     # data  
     # month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-    x1 = list( range(1,100)   )
-    x2 = list( range(100,200) )
+    x1 = list( range(1, 5, 0.1)   )
+    x2 = list( range(6,10, 0.1) )
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
