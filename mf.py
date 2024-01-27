@@ -555,6 +555,7 @@ def create_go_bar(organ, kind1):
                         #  mode="lines+markers", fill='tonexty', 
                         #  line=dict(width=0.5, 
                         #            color='indigo'),
+                         width=t, 
                          marker_color = 'blue',  # px.colors.qualitative.Dark24,
                          name="Bar C",
                          text=y3, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
