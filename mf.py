@@ -414,7 +414,6 @@ def create_go_vbar(organ, kind1):
     fig.add_trace(
         go.Bar(x=month_df.DATE, 
                y=month_df.NUMBER, 
-               color=month_df.NUMBER, 
                name='bA'), 
         row=1, col=1                  
     )
@@ -432,9 +431,10 @@ def create_go_vbar(organ, kind1):
     # Update figure if necessary ????
 
 
-
+    colors = ['lightslategray',] * 10
+    colors[1] = 'crimson'
     # Update layout if necessary
-    # fig.update_layout(title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+    fig.update_layout(#title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
                                 #  x=0.0, 
                                 #  y=0.9, 
                                 #  font=dict(family="Arial",
@@ -448,13 +448,15 @@ def create_go_vbar(organ, kind1):
                     #                              size=12,
                     #                              color="#000000",  ),
                                     #   ), 
+        
 
+                    marker_color=colors # marker color can be a single color value or an iterable
                     #   legend_title='variable', 
 
     #                   showlegend=False, 
 
     #                   margin = dict(l=10, r=10, b=10), 
-    # )
+    )
   
     return fig, month_df, point_df, kind1_df, wc_data 
 
