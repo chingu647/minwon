@@ -418,8 +418,8 @@ def create_go_vbar(organ, kind1):
     # # Add traces to the subplot grid 
     fig.add_trace(go.Scatter(x=t, y=y1, 
                              mode="markers", 
-                             marker=dict(size=[20, 40, 60, 80, 100,],
-                                         color=[1, 2, 3, 4, 5,] 
+                             marker=dict(size=t,
+                                         color=t, 
                                          ), 
                             #  marker_color='darkblue', 
                             # # CSS COLOR @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
