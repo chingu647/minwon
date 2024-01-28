@@ -60,7 +60,7 @@ def load_df(organ, kind1):
 
     # kind1 data
     kind1_df = point_df.groupby(by=f'{kind1}')['NUMBER'].count().reset_index().sort_values(by=f'{kind1}', ascending=False) 
-    kind1_df['NUMBER_pct'] = kind1_df['NUMBER'] / kind1_df['NUMBER'].sum() 
+    kind1_df['NUMBER_pct'] = (   kind1_df['NUMBER'] / kind1_df['NUMBER'].sum()*100   ).round(1) 
     
     # wc data
     wc_sr = df.loc[:, f'{KEYWORD}']
@@ -915,7 +915,7 @@ def create_go_ScatterBar(organ, kind1):
                   )  
     
     fig.add_trace(go.Scatter(x=month_df.DATE, y=month_df.NUMBER_pct_change, 
-                             mode="lines+markers+text", # fill='tozeroy',   # lines+markers+text 
+                             mode="lines+markers+text", fill='tonexty',   # lines+markers+text   /  tozeroy
                              line=dict(width=1.5, color='red'),   # skyblue
                              marker=dict(size=50, # month_df.NUMBER,
                                          color='antiquewhite', 
@@ -995,7 +995,7 @@ def create_go_ScatterBar(organ, kind1):
     # fig.update_xaxes(showticklabels=False) 
 
     # add a xaxis tick 옵션 
-    fig.update_xaxes(tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+    fig.update_xaxes(tickformat = '%m<br>%Y', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
     fig.update_xaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
     fig.update_xaxes(ticks='inside', tickwidth=4, tickcolor='orange', ticklen=5) 
 
