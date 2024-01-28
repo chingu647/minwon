@@ -72,14 +72,18 @@ def run_tab():
     t0b1_container = st.container(border=True)
     t0b1_container.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
 
-    t0b1_container.write(t0b1_month_df) 
-    t0b1_container.write(t0b1_kind1_df) 
+    # t0b1_container.write(t0b1_month_df) 
+    # t0b1_container.write(t0b1_point_df) 
+    t0b1_container.write(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
     
-    # t0b1_fig = mf.create_ff_Heatmap(organ_t0, kind1_t0)
-    # t0b1_container.plotly_chart(t0b1_fig, use_container_width=True) 
+    t0b1_fig = mf.create_px_pie(organ_t0, kind1_t0)
+    t0b1_container.plotly_chart(t0b1_fig, use_container_width=True) 
 
+    t0b1_fig2 = mf.create_go_Bar(organ_t0, kind1_t0)
+    t0b1_container.plotly_chart(t0b1_fig2, use_container_width=True) 
 
-
+    t0b1_fig3 = mf.create_go_Scatter(organ_t0, kind1_t0)
+    t0b1_container.plotly_chart(t0b1_fig3, use_container_width=True) 
 
     # t0b1.markdown(f"""
 	# <center>최근 이슈는 <b>{t0b1_kind1_df.index[0]}</b> > {t0b1_kind1_df.index[1]} > {t0b1_kind1_df.index[2]} 순 입니다.</center>
