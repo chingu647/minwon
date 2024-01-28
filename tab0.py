@@ -74,11 +74,11 @@ def run_tab():
 
     # t0b1_container.write(t0b1_month_df) 
     # t0b1_container.write(t0b1_point_df) 
-    t0b1_container.write(t0b1_kind1_df.style.background_gradient(cmap='Blues')) 
-    
+    t0b1_container.write(t0b1_kind1_df.style.background_gradient(cmap='Blues'))     
     t0b1_fig = mf.create_px_pie(organ_t0, kind1_t0)
     t0b1_container.plotly_chart(t0b1_fig, use_container_width=True) 
 
+    t0b1_container.write(t0b1_month_df.style.background_gradient(cmap='Blues')) 
     t0b1_fig2 = mf.create_go_Bar(organ_t0, kind1_t0)
     t0b1_container.plotly_chart(t0b1_fig2, use_container_width=True) 
 

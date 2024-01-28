@@ -433,9 +433,9 @@ def create_go_Scatter(organ, kind1):
     
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 센터 
     # Bar mode 옵션 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ center 1
-    fig.update_layout(barmode='relative',          # barmode='stack' 음수값 에러 ~~ 
-                      bargap=0.5,                  # barmode='group', bargroupgab=0.5, 
-                     )
+    # fig.update_layout(barmode='relative',          # barmode='stack' 음수값 에러 ~~ 
+    #                   bargap=0.5,                  # barmode='group', bargroupgab=0.5, 
+    #                  )
 
     # 가로 세로 마진 배경 옵션 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ center 2
     # fig.update_layout(autosize=False, width=400, height=400,
@@ -489,8 +489,8 @@ def create_go_Scatter(organ, kind1):
     # fig.update_xaxes(showticklabels=False) 
 
     # add a xaxis tick 옵션 
-    # fig.update_layout(xaxis_tickformat='%Y-%b-%d(%a)') 
-    # fig.update_xaxes(tickangle=45, tickfont=dict(family='Arial', color='orange', size=14))
+    # fig.update_xaxes(tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+    # fig.update_xaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
     # fig.update_xaxes(ticks='inside', tickwidth=4, tickcolor='orange', ticklen=5) 
 
     # fig.update_xaxes(range=[0, 5])
@@ -499,14 +499,15 @@ def create_go_Scatter(organ, kind1):
     # Set yaxis titles
     # fig.update_yaxes(title_text="<b>primary</b> yaxis title", secondary_y=False) 
     # fig.update_yaxes(title_text="<b>secondary</b> yaxis title", secondary_y=True) 
-    # fig.update_yaxes(title_font=dict(size=18, family='Courier', color='orange')) 
+
+    # fig.update_yaxes(title_font=dict(size=18, family='Courier', color='black')) 
 
     # yaxis tick 감추기 ... 
     # fig.update_yaxes(showticklabels=True)  
 
     # add a yaxis tick 옵션 
-    # fig.update_layout(yaxis_tickformat = '%') 
-    # fig.update_yaxes(tickangle=45, tickfont=dict(family='Arial', color='orange', size=14))
+    # fig.update_yaxes(tickformat = '%') 
+    # fig.update_yaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
     # fig.update_yaxes(ticks='outside', tickwidth=2, tickcolor='purple', ticklen=10, col=1) 
 
     # fig.update_yaxes(range=[0, 10])
@@ -539,6 +540,8 @@ def create_go_Bar(organ, kind1):
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
+    month_df = month_df.iloc[:5,:] 
+
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
     fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
 
@@ -563,9 +566,9 @@ def create_go_Bar(organ, kind1):
     
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 센터 
     # Bar mode 옵션 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ center 1
-    fig.update_layout(barmode='relative',          # barmode='stack' 음수값 에러 ~~ 
-                      bargap=0.5,                  # barmode='group', bargroupgab=0.5, 
-                     )
+    # fig.update_layout(barmode='relative',          # barmode='stack' 음수값 에러 ~~ 
+    #                 #   bargap=0.5,                  # barmode='group', bargroupgab=0.5, 
+    #                  )
 
     # 가로 세로 마진 배경 옵션 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ center 2
     # fig.update_layout(autosize=False, width=400, height=400,
@@ -619,9 +622,9 @@ def create_go_Bar(organ, kind1):
     # fig.update_xaxes(showticklabels=False) 
 
     # add a xaxis tick 옵션 
-    # fig.update_layout(xaxis_tickformat='%Y-%b-%d(%a)') 
-    # fig.update_xaxes(tickangle=45, tickfont=dict(family='Arial', color='orange', size=14))
-    # fig.update_xaxes(ticks='inside', tickwidth=4, tickcolor='orange', ticklen=5) 
+    fig.update_xaxes(tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+    fig.update_xaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
+    fig.update_xaxes(ticks='inside', tickwidth=4, tickcolor='orange', ticklen=5) 
 
     # fig.update_xaxes(range=[0, 5])
 
@@ -629,14 +632,15 @@ def create_go_Bar(organ, kind1):
     # Set yaxis titles
     # fig.update_yaxes(title_text="<b>primary</b> yaxis title", secondary_y=False) 
     # fig.update_yaxes(title_text="<b>secondary</b> yaxis title", secondary_y=True) 
-    # fig.update_yaxes(title_font=dict(size=18, family='Courier', color='orange')) 
+
+    # fig.update_yaxes(title_font=dict(size=18, family='Courier', color='black')) 
 
     # yaxis tick 감추기 ... 
     # fig.update_yaxes(showticklabels=True)  
 
-    # add a yaxis tick 옵션 
-    # fig.update_layout(yaxis_tickformat = '%') 
-    # fig.update_yaxes(tickangle=45, tickfont=dict(family='Arial', color='orange', size=14))
+    # add a yaxis tick 옵션
+    # fig.update_yaxes(tickformat = '%') 
+    fig.update_yaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
     # fig.update_yaxes(ticks='outside', tickwidth=2, tickcolor='purple', ticklen=10, col=1) 
 
     # fig.update_yaxes(range=[0, 10])
@@ -647,12 +651,12 @@ def create_go_Bar(organ, kind1):
     # fig.update_yaxes(showgrid=False, zeroline=False)
 
     # Set a grid 옵션  
-    fig.update_xaxes(showgrid=False, linewidth=3, linecolor='red')  #, mirror=True)
+    fig.update_xaxes(showgrid=True, linewidth=3, linecolor='red')  #, mirror=True)
     fig.update_yaxes(showgrid=True, linewidth=3, linecolor='red')   #, mirror=True)
    
     # Set a zeroline 옵션  
-    fig.update_xaxes(zeroline=True, zerolinewidth=2, zerolinecolor='blue')
-    fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='orange')
+    # fig.update_xaxes(zeroline=True, zerolinewidth=2, zerolinecolor='blue')
+    # fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='orange')
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 종료 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
