@@ -50,8 +50,8 @@ def run_tab():
     # ###################################################################### layout  
     # t0h0, t0h1, t0h2 = st.columns( [0.001, 0.998, 0.001] ) 
     
-    # t0b0, t0b1, t0b2, t0b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    # t0b4, t0b5, t0b6, t0b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t0b0, t0b1, t0b2, t0b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
+    t0b4, t0b5, t0b6, t0b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
     # t0b8, t0b9, t0b10,t0b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
 
     # t0t0, t0t1, t0t2 = st.columns( [0.001, 0.998, 0.001] ) 
@@ -71,19 +71,20 @@ def run_tab():
 
     t0b1_container = st.container(border=True)
     t0b1_container.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
+    t0b1_fig1 = mf.create_go_ScatterBar(organ_t0, kind1_t0)
+    t0b1_container.plotly_chart(t0b1_fig1, use_container_width=True) 
+    t0b1_container.dataframe(t0b1_month_df.iloc[:5,:].style.background_gradient(cmap='Blues'), use_container_width=True)   
 
-    # t0b1_container.write(t0b1_month_df) 
-    # t0b1_container.write(t0b1_point_df) 
-    t0b1_container.dataframe(t0b1_kind1_df.style.background_gradient(cmap='Blues'), use_container_width=True)    
-    t0b1_fig = mf.create_px_pie(organ_t0, kind1_t0)
-    t0b1_container.plotly_chart(t0b1_fig, use_container_width=True) 
+    t0b2_container = st.container(border=True)
+    t0b2_container.markdown(f"##### 📢 {organ_t0} :rainbow[유형별] 민원") 
+    t0b1_fig2 = mf.create_px_pie(organ_t0, kind1_t0)
+    t0b2_container.plotly_chart(t0b1_fig2, use_container_width=True) 
+    t0b2_container.dataframe(t0b1_kind1_df.style.background_gradient(cmap='Blues'), use_container_width=True) 
 
-    t0b1_container.table(t0b1_month_df.iloc[:5,:].style.background_gradient(cmap='Blues') )  
-    t0b1_fig2 = mf.create_go_ScatterBar(organ_t0, kind1_t0)
-    t0b1_container.plotly_chart(t0b1_fig2, use_container_width=True) 
-
+    t0b5_container = st.container(border=True)
+    t0b5_container.markdown(f"##### 📢 {organ_t0} :rainbow[유형별] 민원") 
     t0b1_fig3 = mf.create_go_Scatter(organ_t0, kind1_t0)
-    t0b1_container.plotly_chart(t0b1_fig3, use_container_width=True) 
+    t0b5_container.plotly_chart(t0b1_fig3, use_container_width=True) 
 
     # t0b1.markdown(f"""
 	# <center>최근 이슈는 <b>{t0b1_kind1_df.index[0]}</b> > {t0b1_kind1_df.index[1]} > {t0b1_kind1_df.index[2]} 순 입니다.</center>
@@ -96,7 +97,7 @@ def run_tab():
 
     # # # ###################################################################### body 1  
     # t0b1.markdown(f"##### 📢 {organ_t0} :rainbow[민원 건 수] 현황") 
-
+    
     # _, _, t0b1_kind1_df, _ = mf.load_df(organ_t0, kind1_t0) 
 
     # t0b1.markdown(f"""

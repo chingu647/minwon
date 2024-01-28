@@ -60,8 +60,8 @@ def load_df(organ, kind1):
 
     # kind1 data
     kind1_df = point_df.groupby(by=f'{kind1}')['NUMBER'].count().reset_index().sort_values(by=f'{kind1}', ascending=False) 
-    kind1_df['NUMBER_pct'] = (   kind1_df['NUMBER'] / kind1_df['NUMBER'].sum()*100   ).round(1) 
-    
+    kind1_df['NUMBER_pct'] = (   kind1_df['NUMBER'] / kind1_df['NUMBER'].sum()*100   ).astype(int) 
+ 
     # wc data
     wc_sr = df.loc[:, f'{KEYWORD}']
     wc_data = ' '.join( map(str,wc_sr) )
