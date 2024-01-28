@@ -915,7 +915,7 @@ def create_go_ScatterBar(organ, kind1):
                   )  
     
     fig.add_trace(go.Scatter(x=month_df.DATE, y=month_df.NUMBER_pct_change, 
-                             mode="lines+markers+text", fill='tonexty',   # lines+markers+text   /  tozeroy
+                             mode="lines+markers+text", # fill='tonexty',   # lines+markers+text   /  tozeroy
                              line=dict(width=1.5, color='red'),   # skyblue
                              marker=dict(size=50, # month_df.NUMBER,
                                          color='antiquewhite', 
@@ -951,10 +951,10 @@ def create_go_ScatterBar(organ, kind1):
     
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 타이틀  
     # add a title 옵션
-    # fig.update_layout(title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+    # fig.update_layout(title=dict(text=f'<b>📢 {organ} : 민원 건 수</b> 현황',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
     #                              x=0.0, 
     #                              y=0.9, 
-    #                              font=dict(family="Arial", size=25, color="#000000"), 
+    #                              font=dict(family="Arial", size=22, color="#000000"), 
     #                             ),
     #                  )   
     
