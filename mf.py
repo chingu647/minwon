@@ -51,7 +51,7 @@ def load_df(organ, kind1):
     
     # 시계열 data
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M'))['NUMBER'].count().reset_index() 
-    month_df['NUMBER_pct_change'] = month_df['NUMBER'].pct_change(periods=1)
+    month_df['NUMBER_pct_change'] = (   month_df['NUMBER'].pct_change(periods=1)   ).round(2)
     month_df['NUMBER_cumsum'] = month_df['NUMBER'].transform('cumsum') 
     # month_df = month_df.assign(NUMBER_DELTA=month_df.NUMBER_CUMSUM - month_df.NUMBER) 
     
@@ -413,19 +413,19 @@ def create_go_Scatter(organ, kind1):
                              mode="lines+markers+text", fill='tozeroy',   # lines+markers+text 
                              line=dict(width=0.5, 
                                        color='skyblue'),
-                             marker=dict(size=20, # month_df.NUMBER,
-                                        #  color='lightskyblue', 
-                                         color=np.random.randn(400).cumsum(), colorscale='YlOrRd', showscale=True
+                             marker=dict(size=30, # month_df.NUMBER,
+                                         color='antiquewhite', 
+                                        #  color=np.random.randn(400).cumsum(), colorscale='YlOrRd', showscale=True
                                          ), 
-                             name="Markers A",
-                             text=month_df.NUMBER, textposition="top center",  # "bottom center" 
+                             text=month_df.NUMBER, # textposition="top center",  # "bottom center" 
                              hoverinfo="x+y", 
+                             name="Markers A",
                              ), 
                   row=1, col=1, secondary_y=False, 
                   )  
 
     fig.update_traces( 
-                      textfont_size=20, 
+                      textfont_size=20, textfont_color='black', 
                      ) 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 시작 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
@@ -557,8 +557,8 @@ def create_go_Bar(organ, kind1):
                   )  
 
     fig.update_traces(
-                      textfont_size=20, 
-                     ) 
+                      textfont_size=20, textfont_color='black', 
+                     )  
     
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 시작 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
@@ -656,7 +656,9 @@ def create_go_Bar(organ, kind1):
    
     # Set a zeroline 옵션  
     # fig.update_xaxes(zeroline=True, zerolinewidth=2, zerolinecolor='blue')
-    # fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='orange')
+    # fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='orange') 
+
+
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 종료 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
@@ -799,6 +801,192 @@ def create_go_Heatmap(organ, kind1):
     fig.update_layout(
         # showlegend=False, 
                       ) 
+
+    return fig 
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ CSS COLOR 
+# aliceblue, antiquewhite, aqua, aquamarine, azure,
+# beige, bisque, black, blanchedalmond, blue,
+# blueviolet, brown, burlywood, cadetblue,
+# chartreuse, chocolate, coral, cornflowerblue,
+# cornsilk, crimson, cyan, darkblue, darkcyan,
+# darkgoldenrod, darkgray, darkgrey, darkgreen,
+# darkkhaki, darkmagenta, darkolivegreen, darkorange,
+# darkorchid, darkred, darksalmon, darkseagreen,
+# darkslateblue, darkslategray, darkslategrey,
+# darkturquoise, darkviolet, deeppink, deepskyblue,
+# dimgray, dimgrey, dodgerblue, firebrick,
+# floralwhite, forestgreen, fuchsia, gainsboro,
+# ghostwhite, gold, goldenrod, gray, grey, green,
+# greenyellow, honeydew, hotpink, indianred, indigo,
+# ivory, khaki, lavender, lavenderblush, lawngreen,
+# lemonchiffon, lightblue, lightcoral, lightcyan,
+# lightgoldenrodyellow, lightgray, lightgrey,
+# lightgreen, lightpink, lightsalmon, lightseagreen,
+# lightskyblue, lightslategray, lightslategrey,
+# lightsteelblue, lightyellow, lime, limegreen,
+# linen, magenta, maroon, mediumaquamarine,
+# mediumblue, mediumorchid, mediumpurple,
+# mediumseagreen, mediumslateblue, mediumspringgreen,
+# mediumturquoise, mediumvioletred, midnightblue,
+# mintcream, mistyrose, moccasin, navajowhite, navy,
+# oldlace, olive, olivedrab, orange, orangered,
+# orchid, palegoldenrod, palegreen, paleturquoise,
+# palevioletred, papayawhip, peachpuff, peru, pink,
+# plum, powderblue, purple, red, rosybrown,
+# royalblue, rebeccapurple, saddlebrown, salmon,
+# sandybrown, seagreen, seashell, sienna, silver,
+# skyblue, slateblue, slategray, slategrey, snow,
+# springgreen, steelblue, tan, teal, thistle, tomato,
+# turquoise, violet, wheat, white, whitesmoke,
+# yellow, yellowgreen
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create go Bar  
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+def create_go_ScatterBar(organ, kind1): 
+    # data  
+    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+
+    month_df = month_df.iloc[:5,:] 
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Create subplot grid
+    fig = make_subplots(rows=1, cols=1,   specs= [  [  {"secondary_y": True}  ]  ]   )
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Add traces to the subplot grid : Bar chart 
+    fig.add_trace(go.Bar(x=month_df.DATE, y=month_df.NUMBER, 
+
+                         marker_color = px.colors.qualitative.Dark24,  # '_pct_change'
+                         text=month_df.NUMBER, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
+                         hoverinfo="x+y",                          
+                         name="Bar A",
+                         ), 
+                  row=1, col=1, secondary_y=False, 
+                  )  
+    
+    fig.add_trace(go.Scatter(x=month_df.DATE, y=month_df.NUMBER_pct_change, 
+                             mode="lines+markers+text", # fill='tozeroy',   # lines+markers+text 
+                             line=dict(width=1.5, color='red'),   # skyblue
+                             marker=dict(size=50, # month_df.NUMBER,
+                                         color='antiquewhite', 
+                                        #  color=np.random.randn(400).cumsum(), colorscale='YlOrRd', showscale=True
+                                         ), 
+                             text=month_df.NUMBER_pct_change, # textposition="top center",  # "bottom center" 
+                             hoverinfo="x+y",                          
+                             name="Bar A",
+                             ), 
+                  row=1, col=1, secondary_y=True, 
+                  )  
+    
+    fig.update_traces(
+                      textfont_size=20, textfont_color='black', 
+                     ) 
+    
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 시작 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 센터 
+    # Bar mode 옵션 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ center 1
+    # fig.update_layout(barmode='relative',          # barmode='stack' 음수값 에러 ~~ 
+    #                 #   bargap=0.5,                  # barmode='group', bargroupgab=0.5, 
+    #                  )
+
+    # 가로 세로 마진 배경 옵션 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ center 2
+    # fig.update_layout(autosize=False, width=400, height=400,
+    #                   margin=dict(l=10, r=20, t=30, b=40, pad=4),
+
+    #                   paper_bgcolor='skyblue', 
+    #                  ) 
+    
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 타이틀  
+    # add a title 옵션
+    # fig.update_layout(title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+    #                              x=0.0, 
+    #                              y=0.9, 
+    #                              font=dict(family="Arial", size=25, color="#000000"), 
+    #                             ),
+    #                  )   
+    
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 범례  
+    # legend 감추기 ... 
+    # fig.update_layout(showlegend=True) 
+
+    # add a legend 옵션 
+    # fig.update_layout(# 범례 위치
+    #                   legend_x = 0.01,  # (0~1) 사이값
+    #                   legend_y = 0.99,  # (0~1) 사이값
+    #                   legend_xanchor = "left",  # (`auto","left","center","right")
+    #                   legend_yanchor = "top",   # ("auto","top","middle","bottom")
+
+    #                   # 범례 스타일 
+    #                   legend_title_text='성별',                     # 타이틀명 text 입력       
+    #                   legend_title_font_family = "Times New Roman", # 범례 타이틀 서체 (HTML font family)
+    #                   legend_title_font_color="red",                # 범례 타이틀 색
+    #                   legend_title_font_size= 20,                   # 범례 타이틀 글자 크기
+    #                   legend_font_family="Courier",         # 범례 서체 (HTML font family)
+    #                   legend_font_size=12,                  # 범례 글자 크기
+    #                   legend_font_color="black",            # 범례 색
+    #                   legend_bgcolor="LightSteelBlue",  # 범례 배경색
+    #                   legend_bordercolor="Black",       # 범례 테두리 색
+    #                   legend_borderwidth=2,             # 범례 테두리 두깨
+
+    #                   margin = dict(l=10, r=10, b=10), 
+    #                  ) 
+    
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ x축 
+    # Set xaxis title
+    # fig.update_xaxes(title_text="<b>xaxis</b> title") 
+    # fig.update_xaxes(title_font=dict(size=38, family='Courier', color='orange')) 
+
+    # xaxis tick 감추기 ... 
+    # fig.update_xaxes(showticklabels=False) 
+
+    # add a xaxis tick 옵션 
+    fig.update_xaxes(tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+    fig.update_xaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
+    fig.update_xaxes(ticks='inside', tickwidth=4, tickcolor='orange', ticklen=5) 
+
+    # fig.update_xaxes(range=[0, 5])
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ y축 
+    # Set yaxis titles
+    # fig.update_yaxes(title_text="<b>primary</b> yaxis title", secondary_y=False) 
+    # fig.update_yaxes(title_text="<b>secondary</b> yaxis title", secondary_y=True) 
+
+    # fig.update_yaxes(title_font=dict(size=18, family='Courier', color='black')) 
+
+    # yaxis tick 감추기 ... 
+    fig.update_yaxes(showticklabels=False)  
+
+    # add a yaxis tick 옵션
+    # fig.update_yaxes(tickformat = '%') 
+    fig.update_yaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
+    # fig.update_yaxes(ticks='outside', tickwidth=2, tickcolor='purple', ticklen=10, col=1) 
+
+    # fig.update_yaxes(range=[0, 10])
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 기타  
+    # Set a grid and zeroline 감추기 ...
+    fig.update_xaxes(showgrid=False, zeroline=False)
+    fig.update_yaxes(showgrid=False, zeroline=False)
+
+    # Set a grid 옵션  
+    # fig.update_xaxes(showgrid=True, linewidth=3, linecolor='red')  #, mirror=True)
+    # fig.update_yaxes(showgrid=True, linewidth=3, linecolor='red')   #, mirror=True)
+   
+    # Set a zeroline 옵션  
+    # fig.update_xaxes(zeroline=True, zerolinewidth=2, zerolinecolor='blue')
+    # fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='orange')
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 종료 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     return fig 
 
