@@ -623,7 +623,7 @@ def create_go_Bar(organ, kind1):
 
     # add a xaxis tick 옵션 
     fig.update_xaxes(tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-    fig.update_xaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
+    fig.update_xaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=14))
     fig.update_xaxes(ticks='inside', tickwidth=4, tickcolor='orange', ticklen=5) 
 
     # fig.update_xaxes(range=[0, 5])
@@ -640,7 +640,7 @@ def create_go_Bar(organ, kind1):
 
     # add a yaxis tick 옵션
     # fig.update_yaxes(tickformat = '%') 
-    fig.update_yaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=18))
+    fig.update_yaxes(tickangle=0, tickfont=dict(family='Arial', color='black', size=14))
     # fig.update_yaxes(ticks='outside', tickwidth=2, tickcolor='purple', ticklen=10, col=1) 
 
     # fig.update_yaxes(range=[0, 10])
