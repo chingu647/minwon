@@ -51,7 +51,7 @@ def load_df(organ, kind1):
     
     # 시계열 data
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M'))['NUMBER'].count().reset_index() 
-    month_df['NUMBER_pct_change'] = (   month_df['NUMBER'].pct_change(periods=1)   ).round(2)
+    month_df['NUMBER_pct_change'] = (   month_df['NUMBER'].pct_change(periods=1)*100   ).round(1)
     month_df['NUMBER_cumsum'] = month_df['NUMBER'].transform('cumsum') 
     # month_df = month_df.assign(NUMBER_DELTA=month_df.NUMBER_CUMSUM - month_df.NUMBER) 
     
@@ -348,6 +348,52 @@ def create_px_pie(organ, kind1):
                   )
 
     # fig.update_layout( ) 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 시작 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+   
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 타이틀  
+    # add a title 옵션
+    # fig.update_layout(title=dict(text='<b>     관련 불량 위치 수</b><br><sup>Check All Error Pin Point by Portion</sup>',        # <br> 태크와 <sup>태그 사용해서 서브 타이틀을 작성할 수 있음 
+    #                              x=0.0, 
+    #                              y=0.9, 
+    #                              font=dict(family="Arial", size=25, color="#000000"), 
+    #                             ),
+    #                  )   
+    
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 범례  
+    # legend 감추기 ... 
+    fig.update_layout(showlegend=True) 
+
+    # add a legend 옵션 
+    fig.update_layout(# 범례 위치
+    #                   legend_x = 0.01,  # (0~1) 사이값
+    #                   legend_y = 0.99,  # (0~1) 사이값
+    #                   legend_xanchor = "left",  # (`auto","left","center","right")
+    #                   legend_yanchor = "top",   # ("auto","top","middle","bottom")
+
+    #                   # 범례 스타일 
+    #                   legend_title_text='성별',                     # 타이틀명 text 입력       
+    #                   legend_title_font_family = "Times New Roman", # 범례 타이틀 서체 (HTML font family)
+    #                   legend_title_font_color="red",                # 범례 타이틀 색
+    #                   legend_title_font_size= 20,                   # 범례 타이틀 글자 크기
+    #                   legend_font_family="Courier",         # 범례 서체 (HTML font family)
+                      legend_font_size=14,                  # 범례 글자 크기
+    #                   legend_font_color="black",            # 범례 색
+    #                   legend_bgcolor="LightSteelBlue",  # 범례 배경색
+    #                   legend_bordercolor="Black",       # 범례 테두리 색
+    #                   legend_borderwidth=2,             # 범례 테두리 두깨
+
+    #                   margin = dict(l=10, r=10, b=10), 
+                     ) 
+    
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 옵션 종료 @ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
     return fig 
@@ -863,7 +909,7 @@ def create_go_ScatterBar(organ, kind1):
                          marker_color = px.colors.qualitative.Dark24,  # '_pct_change'
                          text=month_df.NUMBER, textposition="inside",   # ['inside', 'outside', 'auto', 'none']
                          hoverinfo="x+y",                          
-                         name="Bar A",
+                         name="월 발생(건)",
                          ), 
                   row=1, col=1, secondary_y=False, 
                   )  
@@ -877,7 +923,7 @@ def create_go_ScatterBar(organ, kind1):
                                          ), 
                              text=month_df.NUMBER_pct_change, # textposition="top center",  # "bottom center" 
                              hoverinfo="x+y",                          
-                             name="Bar A",
+                             name="월 증감(%)",
                              ), 
                   row=1, col=1, secondary_y=True, 
                   )  
@@ -914,29 +960,30 @@ def create_go_ScatterBar(organ, kind1):
     
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 범례  
     # legend 감추기 ... 
-    # fig.update_layout(showlegend=True) 
+    fig.update_layout(showlegend=True) 
 
     # add a legend 옵션 
-    # fig.update_layout(# 범례 위치
-    #                   legend_x = 0.01,  # (0~1) 사이값
-    #                   legend_y = 0.99,  # (0~1) 사이값
-    #                   legend_xanchor = "left",  # (`auto","left","center","right")
-    #                   legend_yanchor = "top",   # ("auto","top","middle","bottom")
+    fig.update_layout(# 범례 위치
+                      legend_orientation = "h",
+                      legend_x = 0.90,  # (0~1) 사이값
+                      legend_y = 0.01,  # (0~1) 사이값
+                      legend_xanchor = "right",  # ("auto","left","center","right")
+                      legend_yanchor = "auto",   # ("auto","top","middle","bottom")
 
     #                   # 범례 스타일 
     #                   legend_title_text='성별',                     # 타이틀명 text 입력       
     #                   legend_title_font_family = "Times New Roman", # 범례 타이틀 서체 (HTML font family)
     #                   legend_title_font_color="red",                # 범례 타이틀 색
-    #                   legend_title_font_size= 20,                   # 범례 타이틀 글자 크기
+                    #   legend_title_font_size= 20,                   # 범례 타이틀 글자 크기
     #                   legend_font_family="Courier",         # 범례 서체 (HTML font family)
-    #                   legend_font_size=12,                  # 범례 글자 크기
+                      legend_font_size=14,                  # 범례 글자 크기
     #                   legend_font_color="black",            # 범례 색
     #                   legend_bgcolor="LightSteelBlue",  # 범례 배경색
     #                   legend_bordercolor="Black",       # 범례 테두리 색
     #                   legend_borderwidth=2,             # 범례 테두리 두깨
 
     #                   margin = dict(l=10, r=10, b=10), 
-    #                  ) 
+                     ) 
     
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ x축 
