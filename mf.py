@@ -357,7 +357,7 @@ def create_px_scatter(organ, kind1):
                     #   showlegend=False,
                      ) 
 
-    return fig, kind1_df 
+    return fig, month_df, point_df, kind1_df, wc_data 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
@@ -375,7 +375,7 @@ def create_px_line(organ, kind1):
                     #   showlegend=False,
                      ) 
 
-    return fig, kind1_df 
+    return fig, month_df, point_df, kind1_df, wc_data 
 
 
 # fig = px.colors.qualitative.swatches()
@@ -399,7 +399,7 @@ def create_px_bar(organ, kind1):
                     #   showlegend=False
                      )
 
-    return fig, kind1_df 
+    return fig, month_df, point_df, kind1_df, wc_data 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px pie 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
@@ -416,4 +416,4 @@ def create_px_pie(organ, kind1):
                     #   showlegend=False
                       )
 
-    return fig, kind1_df 
+    return fig, month_df, point_df, kind1_df, wc_data 

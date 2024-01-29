@@ -44,53 +44,74 @@ def run_tab():
                 
                 </style> """, 
                 unsafe_allow_html=True
-                ) 
-    
+                )     
 
-    # ###################################################################### layout  
-    # t0h0, t0h1, t0h2 = st.columns( [0.001, 0.998, 0.001] ) 
-    
-    # t0b0, t0b1, t0b2, t0b3 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    # t0b4, t0b5, t0b6, t0b7 = st.columns( [0.001, 0.499, 0.499, 0.001] )
-    # t0b8, t0b9, t0b10,t0b11= st.columns( [0.001, 0.499, 0.499, 0.001] )
+    # # ################################################# 민원 건수 현황 
+    cont0 = st.container(border=False)
+    cont0.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
 
-    # t0t0, t0t1, t0t2 = st.columns( [0.001, 0.998, 0.001] ) 
-    # t0t3, t0t4, t0t5 = st.columns( [0.001, 0.998, 0.001] ) 
-
-
-
-    # # ###################################################################### head 1  
-    # t0h1.markdown("##### 공지사항")
-    # # t0h1.markdown(r"""
-	# # 1. 오늘의 이슈. 
-    # # """) 
-
-    
-    # # ###################################################################### st.container 1  
-    # month_df, point_df, kind1_df, wc_data = mf.load_df(organ, kind1) 
-
-    st.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
-
-    tabs = st.tabs(['📊 차트', '📈 그래프', '💾 데이터']) 
+    tabs = st.tabs(['차 트', '그래프', '데이터']) 
     with tabs[0]: 
         # df0, df1 
-        fig0, df0 = mf.create_px_pie(organ, kind1) 
-        df1 = df0.sort_values(by=f'{kind1}', ascending=True)  # 오름차순으로 ...
+        fig0_0, df0_0, df0_1, df0_2, df0_3 = mf.create_px_scatter(organ, kind1) 
+        df0_2_1 = df0_2.sort_values(by=f'{kind1}', ascending=True)  # 오름차순으로 ...
 
-        tabs[0].write(f"최다 <strong>{ df1.iloc[-1][ f'{kind1}' ] } 관련</strong> 민원은 <strong>총 { df1.iloc[-1][ 'NUMBER' ] } 건 ({ df1.iloc[-1][ f'NUMBER_pct' ] } %)</strong>' 입니다.       , ", unsafe_allow_html=True) 
+        tabs[0].write(f"최다 민원은 <strong>{ df0_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
 
-        tabs[0].plotly_chart(fig0, use_container_width=True) 
+        tabs[0].plotly_chart(fig0_0, use_container_width=True) 
 
     with tabs[1]: 
-        fig1, _ = mf.create_px_bar(organ, kind1) 
-        tabs[1].plotly_chart(fig1, use_container_width=True) 
+        fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
+        tabs[1].plotly_chart(fig0_1, use_container_width=True) 
 
     with tabs[2]: 
-        df0.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
-        tabs[2].dataframe(df0.style.background_gradient(cmap='Blues'), use_container_width=True)
+        df0_2.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
+        tabs[2].dataframe(df0_2.style.background_gradient(cmap='Blues'), use_container_width=True)
 
+    # # ################################################# 유형별 민원 현황 
+    cont1 = st.container(border=False)
+    cont1.markdown(f"##### 📢 {organ} :rainbow[유형별 민원] 현황") 
 
-    
+    tabs = st.tabs(['차 트', '그래프', '데이터']) 
+    with tabs[0]: 
+        # df0, df1 
+        fig1_0, df1_0, df1_1, df1_2, df1_3 = mf.create_px_scatter(organ, kind1) 
+        df1_2_1 = df1_2.sort_values(by=f'{kind1}', ascending=True)  # 오름차순으로 ...
+
+        tabs[0].write(f"최다 민원은 <strong>{ df1_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df1_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df1_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+
+        tabs[0].plotly_chart(fig1_0, use_container_width=True) 
+
+    with tabs[1]: 
+        fig1_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
+        tabs[1].plotly_chart(fig1_1, use_container_width=True) 
+
+    with tabs[2]: 
+        # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
+        tabs[2].dataframe(df1_2.style.background_gradient(cmap='Blues'), use_container_width=True) 
+
+    # # ################################################# 지사별 민원 현황 
+    cont2 = st.container(border=False)
+    cont2.markdown(f"##### 📢 {organ} :rainbow[지사별 민원] 현황") 
+
+    tabs = st.tabs(['차 트', '그래프', '데이터']) 
+    with tabs[0]: 
+        # df0, df1 
+        fig2_0, df2_0, df2_1, df2_2, df2_3 = mf.create_px_scatter(organ, kind1) 
+        df2_2_1 = df2_2.sort_values(by=f'{kind1}', ascending=True)  # 오름차순으로 ...
+
+        tabs[0].write(f"최다 민원은 <strong>{ df2_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df2_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df2_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+
+        tabs[0].plotly_chart(fig2_0, use_container_width=True) 
+
+    with tabs[1]: 
+        fig2_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
+        tabs[1].plotly_chart(fig2_1, use_container_width=True) 
+
+    with tabs[2]: 
+        # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
+        tabs[2].dataframe(df2_2.style.background_gradient(cmap='Blues'), use_container_width=True) 
+
     # # ###################################################################### st.container 2  
     # month_df, point_df, kind1_df, wc_data = mf.load_df(organ, kind1) 
     # container_2 = st.container(border=True) 
