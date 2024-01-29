@@ -351,11 +351,15 @@ def create_px_scatter(organ, kind1):
 
     fig = px.scatter(kind1_df, x='KIND1', y='NUMBER',                                  # kind1_df.index
                      text='NUMBER', 
-                     color='NUMBER_pct', labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, ) 
+                     color='KIND1', # color_discrete_sequence=px.colors.qualitative.D3,
+                    #  color='NUMBER', 
+                     labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, ) 
     
-    fig.update_traces(textfont_size=20, textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-                    #   showlegend=False,
+    fig.update_traces(marker=dict(size=60), 
+                      textfont_size=20, textfont_color='black', # textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+                      showlegend=False,
                      ) 
+    fig.update_coloraxes(showscale=False)
 
     return fig, month_df, point_df, kind1_df, wc_data 
 
@@ -367,7 +371,7 @@ def create_px_line(organ, kind1):
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     fig = px.line(kind1_df, x='KIND1', y='NUMBER',                                  # kind1_df.index
-                  color='NUMBER_pct', labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'},
+                  color='NUMBER', labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'},
                   text='NUMBER' ) 
                     #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols']
     

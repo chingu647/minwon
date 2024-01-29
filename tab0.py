@@ -61,7 +61,8 @@ def run_tab():
         tabs[0].plotly_chart(fig0_0, use_container_width=True) 
 
     with tabs[1]: 
-        fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
+        fig0_1 = px.colors.qualitative.swatches()
+        # fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
         tabs[1].plotly_chart(fig0_1, use_container_width=True) 
 
     with tabs[2]: 
