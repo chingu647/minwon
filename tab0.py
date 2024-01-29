@@ -75,7 +75,7 @@ def run_tab():
 
     # # ################################################# 유형별 민원 현황 
     cont1 = st.container(border=False)
-    cont1.markdown(f"##### 📢 {organ} :rainbow[유형별 민원] 현황") 
+    cont1.markdown(f"##### 📚 {organ} :rainbow[유형별 민원] 현황") 
 
     tabs = st.tabs(['차 트', '그래프', '데이터']) 
     with tabs[0]: 
@@ -97,7 +97,7 @@ def run_tab():
 
     # # ################################################# 지사별 민원 현황 
     cont2 = st.container(border=False)
-    cont2.markdown(f"##### 📢 {organ} :rainbow[지사별 민원] 현황") 
+    cont2.markdown(f"##### 🚔 {organ} :rainbow[지사별 민원] 현황") 
 
     tabs = st.tabs(['차 트', '그래프', '데이터']) 
     with tabs[0]: 
@@ -117,10 +117,28 @@ def run_tab():
         # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
         tabs[2].dataframe(df2_2.style.background_gradient(cmap='Blues'), use_container_width=True) 
 
-    # # ###################################################################### st.container 2  
-    # month_df, point_df, kind1_df, wc_data = mf.load_df(organ, kind1) 
-    # container_2 = st.container(border=True) 
-    # container_2.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
+    # ################################################# 민원 지도 보기 
+    cont9 = st.container(border=False)
+    cont9.markdown(f"##### 😎 {organ} :rainbow[민원 한눈에 보기] 👀") 
+
+    tabs = st.tabs(['지 도', '데이터']) 
+    with tabs[0]: 
+        # 테이블 데이터
+        df9_0, df9_1, df9_2, df9_3  = mf.load_df(organ, kind1) 
+
+        # map data  
+        # map_t1 = mf.load_map_kind1(organ0, kind1, base_position) 
+        mf.load_map(organ, kind1, base_position) 
+
+    with tabs[1]:
+        # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)']         
+        # cont9.dataframe(df9_1) 
+        tabs[1].dataframe(df9_1) #.style.background_gradient(cmap='Blues'), use_container_width=True) 
+
+
+    
+
+
 
 
 

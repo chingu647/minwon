@@ -155,7 +155,7 @@ def load_map_kind1(organ, kind1, base_position):
     # CSV 컬럼 변수
     LATITUDE = 'LATITUDE'
     LONGITUDE = 'LONGITUDE'
-    KIND2 = 'KIND2'
+    KIND2 = 'KIND2' 
     KEYWORD = 'KEYWORD'
 
     # data  
