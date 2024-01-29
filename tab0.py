@@ -71,88 +71,63 @@ def run_tab():
 
     st.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
 
-    tabs = st.tabs(['📊 차트', '📈 그래프', '💾 데이터'])     
+    tabs = st.tabs(['📊 차트', '📈 그래프', '💾 데이터']) 
     with tabs[0]: 
+        # df0, df1 
+        fig0, df0 = mf.create_px_pie(organ, kind1) 
+        df1 = df0.sort_values(by=f'{kind1}', ascending=True)  # 오름차순으로 ...
 
-        col1, col2, col3 = st.columns(3) 
-        with col1: 
-            col1.write( 'tabs[0] > col1 ') 
-            container_1 = st.container(border=True) 
+        tabs[0].write(f"<li>{organ} - 최다 유형은 '<strong><font color='blue'>{ df1.iloc[-1][ f'{kind1}' ] } 관련</font><strong>' 민원 입니다.</li>", unsafe_allow_html=True) 
+        tabs[0].write(f"<li>'<strong><font color='blue'>{ df1.iloc[-1][ f'{kind1}' ] } 관련</font><strong>' 민원은 '<strong><font color='red'>총 { df1.iloc[-1][ 'NUMBER' ] } 건</font> ({ df1.iloc[-1][ f'NUMBER_pct' ] } %)<strong>' 입니다.</li>", unsafe_allow_html=True) 
 
-            container_1.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
-            fig1, df1  = mf.create_px_pie(organ, kind1)
-            container_1.plotly_chart(fig1, use_container_width=True) 
-
-
-        with col2:  
-            col2.write( 'tabs[0] > col2 ') 
+        tabs[0].plotly_chart(fig0, use_container_width=True) 
 
     with tabs[1]: 
-        fig1, df1  = mf.create_go_Scatter(organ, kind1)
+        fig1, _ = mf.create_go_Scatter(organ, kind1)
         tabs[1].plotly_chart(fig1, use_container_width=True) 
 
-        col1, col2, col3 = st.columns(3) 
-        with col1: 
-            col1.write( 'tabs[1] > col1 ') 
-
-        with col2:  
-            col2.write( 'tabs[1] > col2 ') 
-
-
     with tabs[2]: 
-        fig1, df1  = mf.create_go_Bar(organ, kind1)
-        tabs[2].plotly_chart(fig1, use_container_width=True) 
+        tabs[2].dataframe(df0.style.background_gradient(cmap='Blues'), use_container_width=True)
 
-        col1, col2, col3 = st.columns(3) 
-        with col1: 
-            col1.write( 'tabs[2] > col1 ') 
-
-        with col2:  
-            col2.write( 'tabs[2] > col2 ') 
+        # fig, df  = mf.create_go_Bar(organ, kind1)
 
 
     
     # # ###################################################################### st.container 2  
     # month_df, point_df, kind1_df, wc_data = mf.load_df(organ, kind1) 
-    container_2 = st.container(border=True) 
-    container_2.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
-
-    tabs = st.tabs(['📊 차트', '📈 그래프', '💾 데이터'])     
-    with tabs[0]: 
-        fig1, df1  = mf.create_px_pie(organ, kind1)
-        tabs[0].plotly_chart(fig1, use_container_width=True) 
-
-        col1, col2, col3 = st.columns(3) 
-        with col1: 
-
-            col1.write( 'tabs[0] > col1 ') 
-
-        with col2:  
-            col2.write( 'tabs[0] > col2 ') 
-
-    with tabs[1]: 
-        fig1, df1  = mf.create_go_Scatter(organ, kind1)
-        tabs[1].plotly_chart(fig1, use_container_width=True) 
-
-        col1, col2, col3 = st.columns(3) 
-        with col1: 
-            col1.write( 'tabs[1] > col1 ') 
-
-        with col2:  
-            col2.write( 'tabs[1] > col2 ') 
+    # container_2 = st.container(border=True) 
+    # container_2.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
 
 
-    with tabs[2]: 
-        fig1, df1  = mf.create_go_Bar(organ, kind1)
-        tabs[2].plotly_chart(fig1, use_container_width=True) 
 
-        col1, col2, col3 = st.columns(3) 
-        with col1: 
-            col1.write( 'tabs[2] > col1 ') 
+    # tabs = st.tabs(['📊 차트', '📈 그래프', '💾 데이터'])     
+    # with tabs[0]: 
+    #     fig1, df1  = mf.create_px_pie(organ, kind1)
+    #     tabs[0].plotly_chart(fig1, use_container_width=True) 
 
-        with col2:  
-            col2.write( 'tabs[2] > col2 ') 
 
+    # with tabs[1]: 
+    #     fig1, df1  = mf.create_go_Scatter(organ, kind1)
+    #     tabs[1].plotly_chart(fig1, use_container_width=True) 
+
+    #     col1, col2, col3 = st.columns(3) 
+    #     with col1: 
+    #         col1.write( 'tabs[1] > col1 ') 
+
+    #     with col2:  
+    #         col2.write( 'tabs[1] > col2 ') 
+
+
+    # with tabs[2]: 
+    #     fig1, df1  = mf.create_go_Bar(organ, kind1)
+    #     tabs[2].plotly_chart(fig1, use_container_width=True) 
+
+    #     col1, col2, col3 = st.columns(3) 
+    #     with col1: 
+    #         col1.write( 'tabs[2] > col1 ') 
+
+    #     with col2:  
+    #         col2.write( 'tabs[2] > col2 ') 
             
 
     # with tabs[2]:
