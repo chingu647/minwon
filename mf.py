@@ -28,7 +28,7 @@ from wordcloud import WordCloud, STOPWORDS
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load_df 
 # arg1 : global organ_ t?? ---------- 탭 페이지에서 입력
 # arg2 : global kind1_ t?? ---------- 탭 페이지에서 입력
-# @st.cache_resource 
+@st.cache_resource 
 def load_df(organ, kind1):
     df = pd.read_csv("data/민원처리현황.csv") 
 
