@@ -22,6 +22,9 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
+import statsmodels.api as sm
+
+
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
 
@@ -82,14 +85,13 @@ def run_tab():
         tabs[0].plotly_chart(fig0, use_container_width=True) 
 
     with tabs[1]: 
-        fig1, _ = mf.create_go_Scatter(organ, kind1)
+        tabs[1].dataframe(df1) 
+        fig1, _ = mf.create_px_bar(organ, kind1) 
         tabs[1].plotly_chart(fig1, use_container_width=True) 
 
     with tabs[2]: 
         df0.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
         tabs[2].dataframe(df0.style.background_gradient(cmap='Blues'), use_container_width=True)
-
-        # fig, df  = mf.create_go_Bar(organ, kind1)
 
 
     
