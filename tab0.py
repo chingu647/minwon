@@ -61,11 +61,15 @@ def run_tab():
         tabs[0].plotly_chart(fig0_0, use_container_width=True) 
 
     with tabs[1]: 
+        tabs[1].write(f"최다 민원은 <strong>{ df0_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+
         fig0_1 = px.colors.qualitative.swatches()
         # fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
         tabs[1].plotly_chart(fig0_1, use_container_width=True) 
 
     with tabs[2]: 
+        tabs[2].write(f"최다 민원은 <strong>{ df0_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+
         df0_2.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
         tabs[2].dataframe(df0_2.style.background_gradient(cmap='Blues'), use_container_width=True)
 
