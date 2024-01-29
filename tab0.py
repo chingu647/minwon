@@ -22,14 +22,11 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
 
-import statsmodels.api as sm
 
-
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
 
 def run_tab(): 
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
     global map_t0  # ----------------------------------------------------------------------- 
     global organ
     global kind1 
@@ -39,7 +36,7 @@ def run_tab():
     kind1 = 'KIND1'
     base_position = [35.18668601, 126.87954220] 
 
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
     st.markdown(""" 
                 <style> 
                     table{background-color:#f0f0f0;} 
@@ -85,7 +82,6 @@ def run_tab():
         tabs[0].plotly_chart(fig0, use_container_width=True) 
 
     with tabs[1]: 
-        tabs[1].dataframe(df1) 
         fig1, _ = mf.create_px_bar(organ, kind1) 
         tabs[1].plotly_chart(fig1, use_container_width=True) 
 

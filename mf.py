@@ -22,8 +22,6 @@ import nltk
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS  
 
-import statsmodels.api as sm
-
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ DATABASE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 
@@ -354,7 +352,6 @@ def create_px_scatter(organ, kind1):
     fig = px.scatter(kind1_df, x='KIND1', y='NUMBER',                                  # kind1_df.index
                      text='NUMBER', 
                      color='NUMBER_pct', labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, ) 
-                    #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols'] 
     
     fig.update_traces(textfont_size=20, textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
                     #   showlegend=False,
