@@ -58,13 +58,13 @@ def run_tab():
 
         tabs[0].write(f"최다 민원은 <strong>{ df0_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
 
+        # fig0_0 = px.colors.qualitative.swatches()
         tabs[0].plotly_chart(fig0_0, use_container_width=True) 
 
     with tabs[1]: 
         tabs[1].write(f"최다 민원은 <strong>{ df0_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
 
-        fig0_1 = px.colors.qualitative.swatches()
-        # fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
+        fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
         tabs[1].plotly_chart(fig0_1, use_container_width=True) 
 
     with tabs[2]: 
@@ -80,7 +80,7 @@ def run_tab():
     tabs = st.tabs(['차 트', '그래프', '데이터']) 
     with tabs[0]: 
         # df0, df1 
-        fig1_0, df1_0, df1_1, df1_2, df1_3 = mf.create_px_scatter(organ, kind1) 
+        fig1_0, df1_0, df1_1, df1_2, df1_3 = mf.create_px_pie(organ, kind1) 
         df1_2_1 = df1_2.sort_values(by=f'{kind1}', ascending=True)  # 오름차순으로 ...
 
         tabs[0].write(f"최다 민원은 <strong>{ df1_2_1.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df1_2_1.iloc[-1][ 'NUMBER' ] } 건 ({ df1_2_1.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
