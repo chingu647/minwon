@@ -120,10 +120,9 @@ def run_tab():
         # mf.load_map_kind1(organ, kind1, base_position) 
 
     with tabs[1]: 
-        pass 
     #     # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)']         
     #     # cont9.dataframe(df9_1) 
-    #     tabs[1].dataframe(df9_1) #.style.background_gradient(cmap='Blues'), use_container_width=True) 
+        tabs[1].dataframe(df9_0) #.style.background_gradient(cmap='Blues'), use_container_width=True) 
 
   
 
