@@ -105,7 +105,7 @@ st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rain
 # 각 탭에 콘텐츠 추가
 
 selected = option_menu(menu_title=None,
-                        options=[ "광주전남", "본부","광주","담양","순천","함평","구례","보성","남원"],
+                        options=[ "ALL", "본부","광주","담양","순천","함평","구례","보성","남원"],
                         icons=[None,None,None,None,None,None,None,None,],  
                         menu_icon="cast",
                         default_index=0,
