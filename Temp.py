@@ -106,11 +106,12 @@ def run_tab():
 
 
     # ################################################# 민원 지도 보기 
-    # cont9 = st.container(border=False)
-    # cont9.markdown(f"##### 😎 {organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
+    cont9 = st.container(border=False)
+    cont9.markdown(f"##### 😎 {organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
 
-    # tabs = st.tabs(['지 도', '데이터']) 
-    # with tabs[0]: 
+    tabs = st.tabs(['🌍 지 도', '💾데이터']) 
+    with tabs[0]: 
+        pass 
     #     # 테이블 데이터
     #     df9_0, df9_1, df9_2, df9_3  = mf.load_df(organ, kind1) 
 
@@ -118,7 +119,8 @@ def run_tab():
     #     # map_t1 = mf.load_map_kind1(organ0, kind1, base_position) 
     #     mf.load_map_kind1(organ, kind1, base_position) 
 
-    # with tabs[1]:
+    with tabs[1]: 
+        pass 
     #     # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)']         
     #     # cont9.dataframe(df9_1) 
     #     tabs[1].dataframe(df9_1) #.style.background_gradient(cmap='Blues'), use_container_width=True) 
@@ -129,7 +131,7 @@ def run_tab():
 
 
 
-    # tabs = st.tabs(['📊 차트', '📈 그래프', '💾 데이터'])     
+    # tabs = st.tabs(['📊 차트', '📈 그래프', ' 🚩🌍데이터'])     
     # with tabs[0]: 
     #     fig1, df1  = mf.create_px_pie(organ, kind1)
     #     tabs[0].plotly_chart(fig1, use_container_width=True) 
