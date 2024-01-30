@@ -61,7 +61,9 @@ def load_df(organ, kind1):
     kind1_df['NUMBER_pct'] = (   kind1_df['NUMBER'] / kind1_df['NUMBER'].sum()*100   ).astype(int) 
  
     # wc data
-    wc_sr = df.loc[:, f'{KEYWORD}'].dropna() 
+    df[f'{KEYWORD}'] = df[f'{KEYWORD}'].str.replace('[\s+]', ' ') 
+    df[f'{KEYWORD}'].dropna(inplace=True) 
+    wc_sr = df.loc[:, f'{KEYWORD}'] 
     wc_data = ' '.join( map(str,wc_sr) )
 
     return month_df, point_df, kind1_df, wc_data 

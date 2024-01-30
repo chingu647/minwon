@@ -60,7 +60,7 @@ def run_tab():
         tabs[0].dataframe(df0_0)
         tabs[0].dataframe(df0_1)
         tabs[0].dataframe(df0_2)
-        tabs[0].dataframe(df0_3) 
+        tabs[0].table(df0_3) 
         tabs[0].write(f"최다 민원은 <strong>{ df0_2_temp.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_temp.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_temp.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
 
         tabs[0].plotly_chart(fig0_0, use_container_width=True) 
