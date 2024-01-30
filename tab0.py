@@ -48,31 +48,29 @@ def run_tab():
 
     # # ################################################# 민원 건수 현황 
     cont0 = st.container(border=False)
-    cont0.markdown(f"##### 📢 {organ} :rainbow[민원 건 수] 현황") 
+    cont0.markdown(f"##### 📢 :rainbow[{organ}  민원 분석]") 
 
-    tabs = st.tabs(['차 트', '그래프', '데이터']) 
+    tabs = st.tabs(['월 별', '유형별', '데이터']) 
     with tabs[0]: 
         # 
         fig0_0, df0_0, df0_1, df0_2, df0_3 = mf.create_px_scatter(organ, kind1) 
-        df0_2_temp = df0_2.copy()
-        df0_2_temp.sort_values(by=f'{kind1}', ascending=True)  # 오름차순으로 ...
-
-        tabs[0].dataframe(df0_0)
-        tabs[0].dataframe(df0_1)
-        tabs[0].table(df0_2)
-        tabs[0].write(df0_3) 
-        tabs[0].write(f"최다 민원은 <strong>{ df0_2_temp.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_temp.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_temp.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        # tabs[0].dataframe(df0_0)
+        # tabs[0].dataframe(df0_1)
+        # tabs[0].dataframe(df0_2)
+        # tabs[0].dataframe(df0_2_temp)
+        # tabs[0].write(df0_3) 
+        tabs[0].write(f"민원 건수는 <strong>총 { df0_2[ 'NUMBER' ].sum() } 건</strong> 이며, <br />최다 민원은 <strong>{ df0_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2.iloc[0][ 'NUMBER' ] } 건 ({ df0_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
 
         tabs[0].plotly_chart(fig0_0, use_container_width=True) 
 
     with tabs[1]: 
-        tabs[1].write(f"최다 민원은 <strong>{ df0_2_temp.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_temp.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_temp.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[1].write(f"최다 민원은 <strong>{ df0_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2.iloc[0][ 'NUMBER' ] } 건 ({ df0_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
 
         # fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
         # tabs[1].plotly_chart(fig0_1, use_container_width=True) 
 
     with tabs[2]: 
-        tabs[2].write(f"최다 민원은 <strong>{ df0_2_temp.iloc[-1][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2_temp.iloc[-1][ 'NUMBER' ] } 건 ({ df0_2_temp.iloc[-1][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[2].write(f"최다 민원은 <strong>{ df0_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2.iloc[0][ 'NUMBER' ] } 건 ({ df0_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
 
         # df0_2_tmp = df0_2.copy() 
         # # df0_2_tmp.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
@@ -126,7 +124,7 @@ def run_tab():
 
     # ################################################# 민원 지도 보기 
     cont9 = st.container(border=False)
-    cont9.markdown(f"##### 😎 {organ} :rainbow[민원 한눈에 보기] 👀") 
+    cont9.markdown(f"##### 😎 :rainbow[{organ}  민원 한눈에 보기] 👀") 
 
     tabs = st.tabs(['지 도', '데이터']) 
     with tabs[0]: 
