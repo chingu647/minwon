@@ -48,29 +48,53 @@ def run_tab():
 
     # # ################################################# 민원 건수 현황 
     cont0 = st.container(border=False)
-    cont0.markdown(f"##### 📢 :rainbow[{organ}  민원 분석]") 
+    # cont0.markdown(f"##### 📢 :rainbow[{organ}  민원 분석]") 
 
-    tabs = st.tabs(['월 별', '유형별', '데이터']) 
-    with tabs[0]: 
+    tabs = st.tabs(['📈월별 추이', '📚유형별', '🚔팀 별', '🚌노선별', '💾데이터']) 
+    with tabs[0]: # 월별
         # 
-        fig0_0, df0_0, df0_1, df0_2, df0_3 = mf.create_px_scatter(organ, kind1) 
         # tabs[0].dataframe(df0_0)
         # tabs[0].dataframe(df0_1)
         # tabs[0].dataframe(df0_2)
         # tabs[0].dataframe(df0_2_temp)
         # tabs[0].write(df0_3) 
-        tabs[0].write(f"민원 건수는 <strong>총 { df0_2[ 'NUMBER' ].sum() } 건</strong> 이며, <br />최다 민원은 <strong>{ df0_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2.iloc[0][ 'NUMBER' ] } 건 ({ df0_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        # cont0.markdown(f"##### 📢 :rainbow[{organ}  민원 분석]")        
+         
+        fig0_0, df0_0, df0_1, df0_2, df0_3 = mf.create_px_bar_month(organ, kind1) 
 
+        tabs[0].write(f"📢 민원 건수는 <strong>총 { df0_2[ 'NUMBER' ].sum() } 건</strong> 이며, <br /> " + 
+                      f"📢 최다 유형은 <strong>{ df0_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2.iloc[0][ 'NUMBER' ] } 건 ({ df0_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
         tabs[0].plotly_chart(fig0_0, use_container_width=True) 
 
-    with tabs[1]: 
-        tabs[1].write(f"최다 민원은 <strong>{ df0_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2.iloc[0][ 'NUMBER' ] } 건 ({ df0_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+    with tabs[1]: # 유형별 
+        fig1_0, df1_0, df1_1, df1_2, df1_3 = mf.create_px_pie_kind1(organ, kind1) 
+        tabs[1].write(f"📢 민원 건수는 <strong>총 { df1_2[ 'NUMBER' ].sum() } 건</strong> 이며, <br /> " + 
+                      f"📚 최다 유형은 <strong>{ df1_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df1_2.iloc[0][ 'NUMBER' ] } 건 ({ df1_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        # tabs[1].write(f"최다 민원은 <strong>{ df1_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df1_2.iloc[0][ 'NUMBER' ] } 건 ({ df1_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[1].plotly_chart(fig1_0, use_container_width=True) 
 
         # fig0_1, _, _, _, _ = mf.create_px_bar(organ, kind1) 
         # tabs[1].plotly_chart(fig0_1, use_container_width=True) 
 
-    with tabs[2]: 
-        tabs[2].write(f"최다 민원은 <strong>{ df0_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, <strong>총 { df0_2.iloc[0][ 'NUMBER' ] } 건 ({ df0_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+    with tabs[2]: # 팀별
+        fig2_0, df2_0, df2_1, df2_2, df2_3 = mf.create_px_scatter_kind1(organ, kind1) 
+
+        tabs[2].write(f"📢 민원 건수는 <strong>총 { df2_2[ 'NUMBER' ].sum() } 건</strong> 이며, <br /> " + 
+                      f"📚 최다 유형은 <strong>{ df2_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, " + 
+                      f"<strong>총 { df2_2.iloc[0][ 'NUMBER' ] } 건 ({ df2_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+
+    with tabs[3]: # 노선별
+        df3_0, df3_1, df3_2, df3_3 = mf.load_df(organ, kind1)
+        tabs[3].write(f"📢 최다 민원은 <strong>{ df3_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, " + 
+                      f"<strong>총 { df3_2.iloc[0][ 'NUMBER' ] } 건 ({ df3_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[3].dataframe(df3_2.style.background_gradient(cmap='Blues'), use_container_width=True) 
+
+    with tabs[4]: # 데이터
+        df4_0, df4_1, df4_2, df4_3 = mf.load_df(organ, kind1)
+        tabs[4].write(f"📢 최다 민원은 <strong>{ df4_2.iloc[0][ f'{kind1}' ] }</strong> 관련으로, " + 
+                      f"<strong>총 { df4_2.iloc[0][ 'NUMBER' ] } 건 ({ df4_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[4].dataframe(df4_2.style.background_gradient(cmap='Blues'), use_container_width=True) 
+
 
         # df0_2_tmp = df0_2.copy() 
         # # df0_2_tmp.columns = ['민원 유형', '발생 건수', '백분율 (%)'] 
@@ -124,7 +148,7 @@ def run_tab():
 
     # ################################################# 민원 지도 보기 
     cont9 = st.container(border=False)
-    cont9.markdown(f"##### 😎 :rainbow[{organ}  민원 한눈에 보기] 👀") 
+    cont9.markdown(f"##### 😎 {organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
 
     tabs = st.tabs(['지 도', '데이터']) 
     with tabs[0]: 
@@ -133,7 +157,7 @@ def run_tab():
 
         # map data  
         # map_t1 = mf.load_map_kind1(organ0, kind1, base_position) 
-        mf.load_map(organ, kind1, base_position) 
+        mf.load_map_kind1(organ, kind1, base_position) 
 
     with tabs[1]:
         # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)']         

@@ -24,11 +24,14 @@ from PIL import Image
 
 from streamlit_option_menu import option_menu 
 
+from time import localtime, strftime 
+
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
 
 
-import tab0 
+import Temp 
+# import tab0 
 # import tab1 
 # import tab2
 # import tab3 
@@ -102,7 +105,7 @@ st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rain
 # 각 탭에 콘텐츠 추가
 
 selected = option_menu(menu_title=None,
-                        options=["본부","광주","담양","순천","함평","구례","보성","남원"],
+                        options=[ "본부 전체", "광주전남본부","광주","담양","순천","함평","구례","보성","남원"],
                         icons=[None,None,None,None,None,None,None,None,],  
                         menu_icon="cast",
                         default_index=0,
@@ -125,18 +128,13 @@ selected = option_menu(menu_title=None,
 
 
 
-st.subheader(' ') 
-
-if selected == "본부":
-    tab0.run_tab()
-    st.snow()
-
-
-
-
+if selected == "광주": 
+    Temp.run_tab() 
+    st.snow() 
 
 # elif selected == "광주": 
-#     tab1.run_tab()
+#     Temp.run_tab() 
+#     st.snow() 
     
 # elif selected == "담양":
 #     tab2.run_tab()
