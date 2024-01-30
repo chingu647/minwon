@@ -128,7 +128,7 @@ selected = option_menu(menu_title=None,
 
 
 
-if selected == "본부": 
+if selected == "ALL": 
     Temp.run_tab() 
     st.snow() 
 

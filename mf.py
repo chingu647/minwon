@@ -44,7 +44,7 @@ def load_df(organ, kind1):
     LONGITUDE = 'LONGITUDE'
     KEYWORD = 'KEYWORD' 
 
-    if organ == '본부':
+    if organ == 'ALL':
         df = df 
     else:
         df = df.query( f"ORGAN == '{organ}'" ) 
