@@ -112,12 +112,12 @@ def run_tab():
     tabs = st.tabs(['🌍 지 도', '💾데이터']) 
     with tabs[0]: 
         pass 
-    #     # 테이블 데이터
-    #     df9_0, df9_1, df9_2, df9_3  = mf.load_df(organ, kind1) 
+        # 테이블 데이터
+        df9_0, df9_1, df9_2, df9_3  = mf.load_df(organ, kind1) 
 
-    #     # map data  
-    #     # map_t1 = mf.load_map_kind1(organ0, kind1, base_position) 
-    #     mf.load_map_kind1(organ, kind1, base_position) 
+        # map data  
+        map_t1 = mf.load_map(organ, kind1, base_position) 
+        # mf.load_map_kind1(organ, kind1, base_position) 
 
     with tabs[1]: 
         pass 
