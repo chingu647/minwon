@@ -353,14 +353,16 @@ def create_px_scatter(organ, kind1):
                      text='NUMBER', 
                      color='KIND1', # color_discrete_sequence=px.colors.qualitative.D3,
                     #  color='NUMBER', 
-                     labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, ) 
+                    #  labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, 
+                    ) 
     
     fig.update_traces(marker=dict(size=60), 
                       textfont_size=20, textfont_color='black', # textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
                       showlegend=False,
                      ) 
-    fig.update_coloraxes(showscale=False)
+    fig.update_coloraxes(showscale=False) 
 
+    # fig = px.colors.qualitative.swatches() 
     return fig, month_df, point_df, kind1_df, wc_data 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
@@ -371,7 +373,8 @@ def create_px_line(organ, kind1):
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     fig = px.line(kind1_df, x='KIND1', y='NUMBER',                                  # kind1_df.index
-                  color='NUMBER', labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'},
+                  color='NUMBER', 
+                #   labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'},
                   text='NUMBER' ) 
                     #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols']
     
@@ -393,7 +396,8 @@ def create_px_bar(organ, kind1):
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     fig = px.bar(kind1_df, x='KIND1', y='NUMBER',    # kind1_df.index
-                 color='KIND1', labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, 
+                 color='KIND1', 
+                #  labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, 
                  text='NUMBER', 
                 #  hover_data=['  ', '  '], 
                 #  barmode='group', 
@@ -413,7 +417,7 @@ def create_px_pie(organ, kind1):
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
 
     fig = px.pie(kind1_df, values=kind1_df.NUMBER, names=kind1_df.KIND1, 
-                 labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, 
+                #  labels={'KIND1':'민원 유형', 'NUMBER':'발생 건수'}, 
                  hole=0.4,) 
 
     fig.update_traces(textfont_size=20, textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
