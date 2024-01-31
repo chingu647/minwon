@@ -474,7 +474,7 @@ def create_px_bar_kind1(organ, kind1):
                     #   textfont_color ='black',
                       textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
                     #   textinfo='label+percent+value',   # 'label+percent+value'
-                    #   showlegend=False
+                      showlegend=False
                      ) 
     
     # fig.update_layout(legend=dict(#orientation = 'h', 
