@@ -71,13 +71,21 @@ mpl.rc('figure', titlesize=12)
 st.markdown(""" 
             <style> 
                 table{background-color:#f0f0f0;} 
-                img {max-width: 1000px; max-height: 500px; }    # 이미지 파일 최대크기 제한 
-            
+                img {max-width: 1000px; max-height: 500px; }    # 이미지 파일 최대크기 제한             
             </style> """, 
             unsafe_allow_html=True
             ) 
 
-
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ st.sidebar @@@ 
@@ -101,8 +109,8 @@ elif menu[2] == op1:
 else:
     file_name = "data/2023.csv" 
 
+st.image('data/th.jpg', width=30 ) 
 
-st.image('data/th.jpg', width=30 )
 ################################################################################# title 
 st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rainbow') 
 
