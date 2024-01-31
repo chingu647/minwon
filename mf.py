@@ -91,6 +91,8 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     fig, ax = plt.subplots(figsize=(18,8)) 
     ax.axis('off')
     ax.imshow(wc) 
+
+    plt.show(fig)
     
     return fig, month_df, point_df, kind1_df, wc_data  
 
