@@ -259,7 +259,7 @@ def load_map_choice(base_position, organ, choice):
                                   ).add_to( choice_fg_list[i] ) 
                       
               folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                            popup=f"{index} ( {row[f'{KEYWORD}']} ) ", 
+                            popup=f"{index} ( {row['ROAD_MILESTONE']} ) ", 
                             tooltip=f"{index} ( {row[f'{KEYWORD}']} ) ",                            #row[f'{LATITUDE}'], 
                             icon=folium.Icon(color=f'{color_list[i]}', icon=f'{icon_list[i]}'), 
                             # icon=folium.DivIcon(                              # 값 표시방식
