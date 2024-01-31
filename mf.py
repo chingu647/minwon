@@ -89,7 +89,8 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     # Term Frequency - word_count 옵션 ---------------------------------
     tf_words = []
     for i in range(len(text_nouns)):
-        tf_words.extend(text_nouns[i]) 
+        tf_words.append
+        (text_nouns[i]) 
     word_count = {}
     for word in tf_words:
         if word in word_count: 
