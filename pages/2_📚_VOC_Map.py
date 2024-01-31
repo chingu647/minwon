@@ -28,21 +28,21 @@ import mf
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
 global map_t0  # ----------------------------------------------------------------------- 
-global organ
-global kind1 
-global base_position 
-global keyword 
+global voc_organ
+global voc_kind1 
+global voc_base_position 
+global voc_keyword 
 
-organ = "ALL"   # ALL 광주전남본부 광주지사 담양지사 순천지사 함평지사 구례지사 보성지사 남원지사 
+voc_organ = "ALL"   # ALL 광주전남본부 광주지사 담양지사 순천지사 함평지사 구례지사 보성지사 남원지사 
 # choice 종류
-kind1 = 'KIND1' # ----------------------------------------------------------------------
-kind2 = 'KIND2' # ----------------------------------------------------------------------
-team  = 'TEAM'  # ----------------------------------------------------------------------
-road  = 'ROAD'  # ---------------------------------------------------------------------- 
+voc_kind1 = 'KIND1' # ----------------------------------------------------------------------
+voc_kind2 = 'KIND2' # ----------------------------------------------------------------------
+voc_team  = 'TEAM'  # ----------------------------------------------------------------------
+voc_road  = 'ROAD'  # ---------------------------------------------------------------------- 
 
-base_position = [35.18668601, 126.87954220] 
+voc_base_position = [35.18668601, 126.87954220] 
 # word cloud 
-keyword = 'KEYWORD'
+voc_keyword = 'KEYWORD'
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
 st.markdown(""" 
@@ -56,20 +56,20 @@ st.markdown("""
 
 # ################################################# 민원 지도 보기 
 cont9 = st.container(border=False)
-cont9.markdown(f"##### 😎 {organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
+cont9.markdown(f"##### 😎 {voc_organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
 
 tabs = st.tabs(['🌍 지 도', '🔎키워드', '💾데이터']) 
 with tabs[0]: 
     pass 
     # 테이블 데이터
-    df8_0, df8_1, df8_2, wc8  = mf.load_df(organ, kind1) 
+    df8_0, df8_1, df8_2, wc8  = mf.load_df(voc_organ, voc_kind1) 
 
     # map data  
-    map_t1 = mf.load_map(base_position, organ, kind1) 
-    # mf.load_map_kind1(organ, kind1, base_position) 
+    map_t1 = mf.load_map(voc_base_position, voc_organ, voc_kind1) 
+    # mf.load_map_voc_kind1(voc_organ, voc_kind1, voc_base_position) 
 
 with tabs[1]: 
-    fig9_0, df9_0, df9_1, df9_2, wc9 = mf.load_wc(organ, keyword) 
+    fig9_0, df9_0, df9_1, df9_2, wc9 = mf.load_wc(voc_organ, voc_keyword) 
     tabs[1].pyplot(fig9_0, use_container_width=True) 
 
 with tabs[2]: 
