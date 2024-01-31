@@ -440,7 +440,7 @@ def create_px_line_kind1(organ, kind1):
     #                               borderwidth=2 
     #                               ) 
     #                  ) 
-    fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(xaxis_visible=False)
     # fig.update_layout(yaxis_visible=False)
     
     fig.update_xaxes(showticklabels = True,
@@ -491,7 +491,7 @@ def create_px_bar_kind1(organ, kind1):
     #                               borderwidth=2 
     #                               ) 
     #                  ) 
-    fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(xaxis_visible=False)
     # fig.update_layout(yaxis_visible=False)
     
     fig.update_xaxes(showticklabels = True,
@@ -580,7 +580,7 @@ def create_px_scatter_month(organ, kind1):
     #                               borderwidth=2 
     #                               ) 
     #                  ) 
-    fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(xaxis_visible=False)
     # fig.update_layout(yaxis_visible=False)
 
     fig.update_xaxes(showticklabels = True,
@@ -629,7 +629,7 @@ def create_px_line_month(organ, kind1):
     #                               borderwidth=2 
     #                               ) 
     #                  ) 
-    fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(xaxis_visible=False)
     # fig.update_layout(yaxis_visible=False)
     
     fig.update_xaxes(showticklabels = True,
@@ -680,7 +680,7 @@ def create_px_bar_month(organ, kind1):
     #                               borderwidth=2 
     #                               ) 
     #                  ) 
-    fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(xaxis_visible=False)
     # fig.update_layout(yaxis_visible=False)
     
     fig.update_xaxes(showticklabels = True,
