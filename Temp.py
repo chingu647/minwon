@@ -122,11 +122,12 @@ def run_tab():
     with tabs[1]: 
         fig9_0, df9_0, df9_1, df9_2, df9_3, wordcount_dict = mf.load_wc(organ, road) 
         df9_1_temp = df9_1.sort_values(by='NUMBER', ascending=False) 
+        tabs[1].write(f"{wordcount_dict}")
+
         # tabs[1].write(f"📢 최다 노선은 <strong>{ df3_2_temp.iloc[0][ f'{road}' ] }</strong> 으로, " + 
         #               f"<strong>총 { df3_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ df3_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
         # tabs[1].pyplot(fig9_0)  #, use_container_width=True) 
-        fig9_0_1 = fig9_0.to_image()  
-        tabs[1].pyplot(fig9_0_1)
+        # tabs[1].pyplot(fig9_0, use_container_width=True) 
 
     with tabs[2]: 
     #     # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)']         
