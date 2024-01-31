@@ -120,9 +120,9 @@ def run_tab():
         # mf.load_map_kind1(organ, kind1, base_position) 
 
     with tabs[1]: 
-        fig9_0, df9_0, df9_1, df9_2, df9_3, wordcount_dict = mf.load_wc(organ, road) 
-        df9_1_temp = df9_1.sort_values(by='NUMBER', ascending=False) 
-        tabs[1].write(f"{wordcount_dict}")
+        fig9_0, df9_0, df9_1, df9_2, df9_3, wc9_dict = mf.load_wc(organ, road) 
+        wc9_dict_temp = sorted(wc9_dict.items(), key = lambda item:item[1], reverse=True) 
+        tabs[1].write(f"{wc9_dict_temp}")
 
         # tabs[1].write(f"📢 최다 노선은 <strong>{ df3_2_temp.iloc[0][ f'{road}' ] }</strong> 으로, " + 
         #               f"<strong>총 { df3_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ df3_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
