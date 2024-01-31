@@ -83,7 +83,6 @@ def run_tab():
         ta_df1_2_temp = ta_df1_2.sort_values(by='NUMBER', ascending=False) 
         tabs[1].write(f"📚 최다 유형은 <strong>{ ta_df1_2_temp.iloc[0][ f'{ta_kind1}' ] }</strong> 관련으로, " +
                       f"<strong>총 { ta_df1_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ ta_df1_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
-        # tabs[1].write(f"최다 민원은 <strong>{ df1_2.iloc[0][ f'{ta_kind1}' ] }</strong> 관련으로, <strong>총 { df1_2.iloc[0][ 'NUMBER' ] } 건 ({ df1_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
         tabs[1].plotly_chart(ta_fig1_0, use_container_width=True) 
 
 
