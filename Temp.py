@@ -124,7 +124,7 @@ def run_tab():
         wc9_dict_temp = sorted(wc9_dict.items(), key = lambda item:item[1], reverse=True) 
         tabs[1].write(f"{wc9_dict_temp}")
 
-        # tabs[1].write(f"📢 최다 노선은 <strong>{ df3_2_temp.iloc[0][ f'{road}' ] }</strong> 으로, " + 
+        tabs[1].write(f"📢 최다 키워드는 <strong>{ wc9_dict_temp[0] }</strong> 으로, " ) # + 
         #               f"<strong>총 { df3_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ df3_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
         # tabs[1].pyplot(fig9_0)  #, use_container_width=True) 
         # tabs[1].pyplot(fig9_0, use_container_width=True) 
