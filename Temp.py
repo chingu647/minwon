@@ -32,12 +32,14 @@ def run_tab():
     global organ
     global kind1 
     global base_position 
+    global keyword 
 
     organ = "ALL"   # ALL 광주전남본부 광주지사 담양지사 순천지사 함평지사 구례지사 보성지사 남원지사 
     kind1 = 'KIND1' # ----------------------------------------------------------------------
     team  = 'TEAM'  # ----------------------------------------------------------------------
     road  = 'ROAD'  # ----------------------------------------------------------------------
     base_position = [35.18668601, 126.87954220] 
+    keyword = 'KEYWORD'
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
     st.markdown(""" 
@@ -98,7 +100,6 @@ def run_tab():
         tabs[3].plotly_chart(fig3_0, use_container_width=True) 
 
 
-
     with tabs[4]: # 데이터
         df4_0, df4_1, df4_2, df4_3 = mf.load_df(organ, kind1)  
         df4_2_temp = df3_2.sort_values(by='NUMBER', ascending=False) 
@@ -120,14 +121,14 @@ def run_tab():
         # mf.load_map_kind1(organ, kind1, base_position) 
 
     with tabs[1]: 
-        fig9_0, df9_0, df9_1, df9_2, df9_3, wc9_dict = mf.load_wc(organ, road) 
+        fig9_0, df9_0, df9_1, df9_2, df9_3, wc9_dict = mf.load_wc(organ, keyword) 
         wc9_dict_temp = sorted(wc9_dict.items(), key = lambda item:item[1], reverse=True) 
-        # tabs[1].write(f"{wc9_dict_temp}")
 
         tabs[1].write(f"📢 최다 키워드는 <strong>{ wc9_dict_temp[0][0] }</strong> , "  + 
                       f"<strong>총 { wc9_dict_temp[0][1] } 건 입니다.       , ", unsafe_allow_html=True) 
         # tabs[1].pyplot(fig9_0)  #, use_container_width=True) 
         tabs[1].pyplot(fig9_0, use_container_width=True) 
+        tabs[1].write(f"{wc9_dict_temp}")
 
     with tabs[2]: 
     #     # df1_0.columns = ['민원 유형', '발생 건수', '백분율 (%)']         
