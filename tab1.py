@@ -28,9 +28,13 @@ import mf
 
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
-    global map_t0  # ----------------------------------------------------------------------- 
+    global t1_map  # ----------------------------------------------------------------------- 
     global t1_organ
-    global t1_kind1 
+    global t1_kind1
+    global t1_kind2 
+    global t1_team 
+    global t1_road 
+    global t1_mapchoice 
     global t1_base_position 
     global t1_keyword 
 
@@ -40,6 +44,7 @@ def run_tab():
     t1_kind2 = 'KIND2' # ----------------------------------------------------------------------
     t1_team  = 'TEAM'  # ----------------------------------------------------------------------
     t1_road  = 'ROAD'  # ---------------------------------------------------------------------- 
+    t1_mapchoice = 'KIND1'
 
     t1_base_position = [35.18668601, 126.87954220] 
     # word cloud 
@@ -113,13 +118,7 @@ def run_tab():
 
     tabs = st.tabs(['🌍 지 도', '🔎키워드', '💾데이터']) 
     with tabs[0]: 
-        pass 
-        # 테이블 데이터
-        df8_0, df8_1, df8_2, wc8  = mf.load_df(t1_organ, t1_kind1) 
-
-        # map data  
-        map_t1 = mf.load_map(t1_base_position, t1_organ, t1_kind1) 
-        # mf.load_map_t1_kind1(t1_organ, t1_kind1, t1_base_position) 
+        mf.load_map_choice(t1_base_position, t1_organ, t1_mapchoice) 
 
     with tabs[1]: 
         fig9_0, df9_0, df9_1, df9_2, wc9 = mf.load_wc(t1_organ, t1_keyword) 

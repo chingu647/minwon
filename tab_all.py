@@ -28,9 +28,13 @@ import mf
 
 def run_tab(): 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
-    global map_t0  # ----------------------------------------------------------------------- 
-    global ta_organ
-    global ta_kind1 
+    global ta_map  # ----------------------------------------------------------------------- 
+    global ta_organ 
+    global ta_kind1  
+    global ta_kind2  
+    global ta_team  
+    global ta_road 
+    global ta_mapchoice 
     global ta_base_position 
     global ta_keyword 
 
@@ -40,20 +44,17 @@ def run_tab():
     ta_kind2 = 'KIND2' # ----------------------------------------------------------------------
     ta_team  = 'TEAM'  # ----------------------------------------------------------------------
     ta_road  = 'ROAD'  # ---------------------------------------------------------------------- 
-
+    ta_mapchoice  = 'KIND1'  # ---------------------------------------------------------------- 
     ta_base_position = [35.18668601, 126.87954220] 
-    # word cloud 
-    ta_keyword = 'KEYWORD'
+    ta_keyword = 'KEYWORD' 
 
     # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
     st.markdown(""" 
                 <style> 
                     table{background-color:#f0f0f0;} 
-                    img {max-width: 1000px; max-height: 600px; }    # 이미지 파일 최대크기 제한 
-                
-                </style> """, 
-                unsafe_allow_html=True
-                )     
+                    img {max-width: 1000px; max-height: 600px; }       
+                </style> 
+                """, unsafe_allow_html=True )     
 
     # # ################################################# 민원 건수 현황 
     cont0 = st.container(border=False)
@@ -113,13 +114,7 @@ def run_tab():
 
     tabs = st.tabs(['🌍 지 도', '🔎키워드', '💾데이터']) 
     with tabs[0]: 
-        pass 
-        # 테이블 데이터
-        df8_0, df8_1, df8_2, wc8  = mf.load_df(ta_organ, ta_kind1) 
-
-        # map data  
-        map_t1 = mf.load_map(ta_base_position, ta_organ, ta_kind1) 
-        # mf.load_map_ta_kind1(ta_organ, ta_kind1, ta_base_position) 
+        ta_map = mf.load_map_choice(ta_base_position, ta_organ, ta_mapchoice) 
 
     with tabs[1]: 
         fig9_0, df9_0, df9_1, df9_2, wc9 = mf.load_wc(ta_organ, ta_keyword) 

@@ -192,7 +192,7 @@ def load_map(base_position, organ, choice):
 # base_position_ t?? --------- 탭 페이지에서 입력
 
 @st.cache_resource 
-def load_map_kind1(base_position, organ, choice): 
+def load_map_choice(base_position, organ, choice): 
 
     # CSV 컬럼 변수
     LATITUDE = 'LATITUDE'
@@ -205,147 +205,82 @@ def load_map_kind1(base_position, organ, choice):
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
     
-    # if kind1 in point_df.columns:
-    #     result = folium.FeatureGroup(name=f'@kind1_df.index[0]')
+    # if choice in choice_df.columns:
+    #     result = folium.FeatureGroup(name=f'@choice_df.index[0]')
     # else:
     #     result = "해당 열이 존재하지 않습니다." 
 
-    kind1_df_indexes_len = len(kind1_df_indexes) 
+    # choice 종류 리스트 계산 
+    choice_df = choice_df[f'{choice}']
 
-    kind1_df_indexes = list(kind1_df.index)  #   -------------------------------------------------- kind1 5개는 본부 전체로 고정하면?
+    choice_list = list( set( choice_df ) ) 
 
-    fg_k0_df = point_df.query(f' `{kind1}` == "{kind1_df_indexes[0]}" ')
-    fg_k1_df = point_df.query(f' `{kind1}` == @kind1_df.index[1] ') 
-    fg_k2_df = point_df.query(f' `{kind1}` == @kind1_df.index[2] ')
-    fg_k3_df = point_df.query(f' `{kind1}` == @kind1_df.index[3] ')
-    fg_k4_df = point_df.query(f' `{kind1}` == @kind1_df.index[4] ')
+    # fg_df 리스트 
+    choice_df_list = [] 
 
-    fg_k0 = folium.FeatureGroup(name=f'{kind1_df.index[0]}') 
-    fg_k1 = folium.FeatureGroup(name=f'{kind1_df.index[1]}') 
-    fg_k2 = folium.FeatureGroup(name=f'{kind1_df.index[2]}') 
-    fg_k3 = folium.FeatureGroup(name=f'{kind1_df.index[3]}') 
-    fg_k4 = folium.FeatureGroup(name=f'{kind1_df.index[4]}') 
+    for i in range( len(choice_df) ): 
+        fg_df = point_df.query(f" `{choice}` == @choice_list[{i}] ") 
+        # st.write( fg_df )
+        choice_df_list.append(fg_df)  
 
+    # fg 그룹 리스트 
+    choice_fg_list = [] 
+    for i in range( len(choice_df) ): 
+        fg_temp = folium.FeatureGroup(name=f"{choice_list[i]}")
+        # st.write(fg_temp)
+        choice_fg_list.append(fg_temp) 
+
+    # map 생성 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
-    gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
-    folium.GeoJson(gpf_line, 
-                    style_function=lambda feature: {
-                        'fillColor': 'blue' , #feature['properties']['color'],
-                        'color': '#F5F6CE',
-                        'weight': 3,
-                        'dashArray': '5, 5',
-                        'fillOpacity': 0.3, 
-                    }
-                ).add_to(map) 
+    # gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
+    # folium.GeoJson(gpf_line, 
+    #                 style_function=lambda feature: {
+    #                     'fillColor': 'blue' , #feature['properties']['color'],
+    #                     'color': '#F5F6CE',
+    #                     'weight': 3,
+    #                     'dashArray': '5, 5',
+    #                     'fillOpacity': 0.3, 
+    #                 }
+    #             ).add_to(map) 
     
-    # folium.Marker([, ]).add_to(fg_k0) -------------------------------
-    for index, row in fg_k0_df.iterrows(): 
-        if not pd.isna(row[f'{LATITUDE}']) and not pd.isna(row[f'{LONGITUDE}']):
-            folium.CircleMarker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 원 중심
-                                radius=1,            # 원 반지름
-                                color='blue',        # 원 테두리 색상
-                                fill=True,           # 원 채움
-                                fill_opacity=0.5,     # 원 채움 투명도
-                                ).add_to(fg_k0) 
-                      
-            folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
-                        tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='red', icon='star'), 
-                        #   icon=folium.DivIcon(                              # 값 표시방식
-                        #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                        ).add_to(fg_k0) 
+    # fg 리스트에 folium Marker 생성 # folium.Marker([, ]).add_to(fg_k0) -------------------------------
+    color_list = ['blue','red','darkgreen','orange','blue','pink','lightsalmon','lightseagreen','lightskyblue','lightslategray','lightyellow','lime','mediumvioletred', ]
+    icon_list  = ['star','star','star','star','star','star','star','star','star','star','star','star','star', ]
+    for i in range( len( choice_df) ): 
 
-    # folium.Marker([, ]).add_to(fg_k1) -------------------------------
-    for index, row in fg_k1_df.iterrows(): 
-        if not pd.isna(row[f'{LATITUDE}']) and not pd.isna(row[f'{LONGITUDE}']):
-            folium.CircleMarker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 원 중심
-                                radius=1,            # 원 반지름
-                                color='blue',        # 원 테두리 색상
-                                fill=True,           # 원 채움
-                                fill_opacity=0.5,     # 원 채움 투명도
-                                ).add_to(fg_k1) 
+      for index, row in choice_df_list[i].iterrows():           
+          if not pd.isna(row[f'{LATITUDE}']) and not pd.isna(row[f'{LONGITUDE}']):
+              folium.CircleMarker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 원 중심
+                                  radius=1,            # 원 반지름
+                                  color='blue',        # 원 테두리 색상
+                                  fill=True,           # 원 채움
+                                  fill_opacity=0.5,     # 원 채움 투명도
+                                  ).add_to( choice_fg_list[i] ) 
                       
-            folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
-                        tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='darkgreen', icon='star'), 
-                        #   icon=folium.DivIcon(                              # 값 표시방식
-                        #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                        ).add_to(fg_k1) 
-
-    # folium.Marker([, ]).add_to(fg_k2) -------------------------------
-    for index, row in fg_k2_df.iterrows(): 
-        if not pd.isna(row[f'{LATITUDE}']) and not pd.isna(row[f'{LONGITUDE}']):
-            folium.CircleMarker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 원 중심
-                                radius=1,            # 원 반지름
-                                color='blue',        # 원 테두리 색상
-                                fill=True,           # 원 채움
-                                fill_opacity=0.5,     # 원 채움 투명도
-                                ).add_to(fg_k2) 
-                      
-            folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
-                        tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='orange', icon='star'), 
-                        #   icon=folium.DivIcon(                              # 값 표시방식
-                        #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                        ).add_to(fg_k2) 
-
-    # folium.Marker([, ]).add_to(fg_k3) -------------------------------
-    for index, row in fg_k3_df.iterrows(): 
-        if not pd.isna(row[f'{LATITUDE}']) and not pd.isna(row[f'{LONGITUDE}']):
-            folium.CircleMarker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 원 중심
-                                radius=1,            # 원 반지름
-                                color='blue',        # 원 테두리 색상
-                                fill=True,           # 원 채움
-                                fill_opacity=0.5,     # 원 채움 투명도
-                                ).add_to(fg_k3) 
-                      
-            folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
-                        tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='blue', icon='star'), 
-                        #   icon=folium.DivIcon(                              # 값 표시방식
-                        #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                        ).add_to(fg_k3) 
-
-    # folium.Marker([, ]).add_to(fg_k4) -------------------------------
-    for index, row in fg_k4_df.iterrows(): 
-        if not pd.isna(row[f'{LATITUDE}']) and not pd.isna(row[f'{LONGITUDE}']):
-            folium.CircleMarker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 원 중심
-                                radius=1,            # 원 반지름
-                                color='blue',        # 원 테두리 색상
-                                fill=True,           # 원 채움
-                                fill_opacity=0.5,     # 원 채움 투명도
-                                ).add_to(fg_k4) 
-                      
-            folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
-                        tooltip=row[f'{LATITUDE}'], 
-                        icon=folium.Icon(color='yellow', icon='star'), 
-                        #   icon=folium.DivIcon(                              # 값 표시방식
-                        #       html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
-                        ).add_to(fg_k4)  
-
+              folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
+                            popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
+                            tooltip=row[f'{LATITUDE}'], 
+                            icon=folium.Icon(color=f'{color_list[i]}', icon=f'{icon_list[i]}'), 
+                            # icon=folium.DivIcon(                              # 값 표시방식
+                            #     html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
+                           ).add_to( choice_fg_list[i] )  
+              
     # map.add_child(fg_???) 
-    map.add_child(fg_k0)
-    map.add_child(fg_k1)
-    map.add_child(fg_k2)
-    map.add_child(fg_k3)
-    map.add_child(fg_k4)
+    for i in range( len( choice_df) ): 
+        map.add_child( choice_fg_list[i] ) 
 
-    # 
+    
     # folium.LayerControl(collapsed=False).add_to(map)
 
-    GroupedLayerControl(groups={  f'{kind1}': [fg_k0, fg_k1, fg_k2, fg_k3, fg_k4]  }, 
+    GroupedLayerControl(groups={  f'{choice}': choice_fg_list  }, 
                         exclusive_groups=False, 
                         collapsed=True, 
                         ).add_to(map)
 
     folium_map = map._repr_html_()
     st.components.v1.html(folium_map, height=900) #, width=800, height=600) 
+
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ p x @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
