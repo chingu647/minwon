@@ -108,7 +108,7 @@ def run_tab():
 
 
     with tabs[4]: # 데이터
-        t2_df4_0, t2_df4_1, t2_df4_2, t2_wc4 = mf.load_df(t2_organ, t2_kind1)  
+        t2_df4_0, t2_df4_1, t2_df4_2, t2_wc4 = mf.load_df(t2_organ, t2_road)  
         t2_df4_2_temp = t2_df4_2.sort_values(by='NUMBER', ascending=False) 
         tabs[4].dataframe(t2_df4_2_temp.style.background_gradient(cmap='Blues'), use_container_width=True) 
 
