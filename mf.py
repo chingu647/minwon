@@ -367,7 +367,7 @@ def create_px_scatter_kind1(organ, kind1):
                      color=f'{kind1}', # color_discrete_sequence=px.colors.qualitative.D3,
                      text='NUMBER', 
                     #  color='NUMBER', 
-                    #  labels={'NUMBER':'발생 건수'}, 
+                     labels={'NUMBER':'발생 건수'}, 
                     ) 
     
     fig.update_traces(marker=dict(size=60), 
