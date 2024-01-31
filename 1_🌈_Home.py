@@ -103,8 +103,6 @@ else:
 
 
 st.image('data/th.jpg', width=30 )
-
-
 ################################################################################# title 
 st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rainbow') 
 
