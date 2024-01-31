@@ -10,7 +10,6 @@ import matplotlib.font_manager as fm
 
 import seaborn as sns 
 
-
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
 # global map_t1  # ----------------------------------------------------------------------- 
 # global organ_t1
@@ -55,10 +54,9 @@ cb1_data = {'지사별':['광주전남본부','광주지사','담양지사','순
             }
 cb1_df = pd.DataFrame(cb1_data) 
 
-cb1.table(cb1_df) #.style.background_gradient(cmap='Blues')) 
+cb1.table(cb1_df.style.background_gradient(cmap='Blues')) 
 
 
 
-# with open('activity1.html') as file:
-#     components.html( file.read() )
+        
 

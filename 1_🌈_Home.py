@@ -26,6 +26,9 @@ from streamlit_option_menu import option_menu
 
 from time import localtime, strftime 
 
+
+import os 
+
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
 import mf 
 
@@ -73,6 +76,31 @@ st.markdown("""
             </style> """, 
             unsafe_allow_html=True
             ) 
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ st.sidebar 
+
+
+global file_name 
+
+menu = ['2023','2024', '2025']
+
+op1 = st.sidebar.selectbox(' ', menu) 
+
+if menu[0] == op1: 
+    if os.path.exists('data/2023.csv') :
+        file_name =  "data/2023.csv" 
+
+elif menu[1] == op1: 
+    if os.path.exists('data/2024.csv') :
+        file_name =  "data/2024.csv" 
+
+elif menu[2] == op1: 
+    if os.path.exists('data/2025.csv') :
+        file_name =  "data/2025.csv" 
+
+else:
+    file_name = "data/2023.csv" 
+
 
 
 ################################################################################# title 

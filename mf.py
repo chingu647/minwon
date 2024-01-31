@@ -27,12 +27,20 @@ from time import localtime, strftime
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ DATABASE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 
+
+global file_name 
+
+file_name = "data/2023.csv" 
+
+
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load_df 
 # arg1 : global organ_ t?? ---------- 탭 페이지에서 입력
 # arg2 : global kind1_ t?? ---------- 탭 페이지에서 입력
 @st.cache_resource 
 def load_df(organ, choice):         # choice -  kind1, kind2, team, road 
-    df = pd.read_csv("data/민원처리현황.csv") 
+    df = pd.read_csv(f"{file_name}") 
+    # df = pd.read_csv(f"data/민원처리현황.csv") 
+
 
     # DATE 컬럼 DatetimeIndex로 변환 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     df['DATE'] = pd.to_datetime(df['DATE'])
