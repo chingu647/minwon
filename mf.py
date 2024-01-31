@@ -101,7 +101,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     text_str = ' '.join(text_nouns)
     wc = WordCloud(background_color='#fdf0fd', font_path=r"data/NanumGothic.ttf", max_words=20).generate(text_str)   # '#ECF8E0'
     
-    방법 1 - matplotlib -> pyplot 출력
+    # 방법 1 - matplotlib -> pyplot 출력
     fig, ax = plt.subplots(figsize=(18,8)) 
     ax.axis('off')
     ax.imshow(wc) 
