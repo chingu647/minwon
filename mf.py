@@ -233,16 +233,16 @@ def load_map_choice(base_position, organ, choice):
     # map 생성 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
 
-    # gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
-    # folium.GeoJson(gpf_line, 
-    #                 style_function=lambda feature: {
-    #                     'fillColor': 'blue' , #feature['properties']['color'],
-    #                     'color': '#F5F6CE',
-    #                     'weight': 3,
-    #                     'dashArray': '5, 5',
-    #                     'fillOpacity': 0.3, 
-    #                 }
-    #             ).add_to(map) 
+    gpf_line = gpd.read_file("data/ex_line_KWANGJU.shp") 
+    folium.GeoJson(gpf_line, 
+                    style_function=lambda feature: {
+                        'fillColor': 'blue' , #feature['properties']['color'],
+                        'color': '#F5F6CE',
+                        'weight': 3,
+                        'dashArray': '5, 5',
+                        'fillOpacity': 0.3, 
+                    }
+                ).add_to(map) 
     
     # fg 리스트에 folium Marker 생성 # folium.Marker([, ]).add_to(fg_k0) -------------------------------
     color_list = ['blue','red','darkgreen','orange','blue','pink','lightsalmon','lightseagreen','lightskyblue','lightslategray','lightyellow','lime','mediumvioletred', ]
