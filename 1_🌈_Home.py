@@ -130,7 +130,7 @@ selected = option_menu(menu_title=None,
 
 if selected == "ALL": 
     Temp.run_tab() 
-    st.snow() 
+    # st.snow() 
 
 # elif selected == "광주": 
 #     Temp.run_tab() 
