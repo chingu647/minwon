@@ -30,15 +30,15 @@ from time import localtime, strftime
 import mf 
 
 
-import Temp 
-# import tab0 
-# import tab1 
-# import tab2
-# import tab3 
-# import tab4 
-# import tab5 
-# import tab6 
-# import tab7 
+import tab_all
+import tab0 
+import tab1 
+import tab2
+import tab3 
+import tab4 
+import tab5 
+import tab6 
+import tab7 
 
 st.set_page_config(layout="wide",
                    page_title="한눈에 민원 보기", 
@@ -129,30 +129,34 @@ selected = option_menu(menu_title=None,
 
 
 if selected == "ALL": 
-    Temp.run_tab() 
+    tab_all.run_tab() 
     # st.snow() 
 
-# elif selected == "광주": 
-#     Temp.run_tab() 
+elif selected == "본부": 
+    tab1.run_tab() 
+#     st.snow() 
+
+elif selected == "광주": 
+    tab2.run_tab() 
 #     st.snow() 
     
-# elif selected == "담양":
-#     tab2.run_tab()
+elif selected == "담양":
+    tab2.run_tab()
 
-# elif selected == "순천":
-#     tab3.run_tab()
+elif selected == "순천":
+    tab3.run_tab()
     
-# elif selected == "함평":
-#     tab4.run_tab()
+elif selected == "함평":
+    tab4.run_tab()
 
-# elif selected == "구례":
-#     tab5.run_tab()
+elif selected == "구례":
+    tab5.run_tab()
     
-# elif selected == "보성":
-#     tab6.run_tab()
+elif selected == "보성":
+    tab6.run_tab()
 
-# elif selected == "남원":
-#     tab7.run_tab()
+elif selected == "남원":
+    tab7.run_tab()
 
 
 
