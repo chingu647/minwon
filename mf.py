@@ -104,8 +104,9 @@ def load_wc(organ, kind1): # target_layout 에러 발생
         df_words.append( list(set( text_nouns[i] )) ) 
 
     word_count = {}
-    for word in df_words:
-        if str(word) in word_count: 
+    for words_list in df_words:
+        word = tuple(words_list)
+        if word in word_count: 
             word_count[word] += 1
         else: 
             word_count[word] = 1
