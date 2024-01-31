@@ -90,6 +90,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     # tf_words = []
     # for i in range(len(text_nouns)):
     #     tf_words.append(text_nouns[i]) 
+
     # word_count = {}
     # for word in tf_words:
     #     if word in word_count: 
@@ -98,11 +99,12 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     #         word_count[word] = 1
 
     # Documnent Frequency - word_count 옵션 ------------------------------ ok
-    tf_words = []
+    df_words = []
     for i in range(len(text_nouns)):
-        tf_words.append( list(set( text_nouns[i])) ) 
+        df_words.append( list(set( text_nouns[i] )) ) 
+
     word_count = {}
-    for word in tf_words:
+    for word in df_words:
         if word in word_count: 
             word_count[word] += 1
         else: 
