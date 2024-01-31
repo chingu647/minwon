@@ -397,6 +397,7 @@ def load_map_kind1(organ, kind1, base_position):
 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
 def create_px_scatter_kind1(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
@@ -443,6 +444,7 @@ def create_px_scatter_kind1(organ, kind1):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
 def create_px_line_kind1(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
@@ -493,6 +495,7 @@ def create_px_line_kind1(organ, kind1):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px bar 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
 def create_px_bar_kind1(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
@@ -541,6 +544,7 @@ def create_px_bar_kind1(organ, kind1):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px pie 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
 def create_px_pie_kind1(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
@@ -584,6 +588,7 @@ def create_px_pie_kind1(organ, kind1):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px scatter
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
 def create_px_scatter_month(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
@@ -632,6 +637,7 @@ def create_px_scatter_month(organ, kind1):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
 def create_px_line_month(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
@@ -682,6 +688,7 @@ def create_px_line_month(organ, kind1):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px bar 
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
 def create_px_bar_month(organ, kind1): 
     # data  
     month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
