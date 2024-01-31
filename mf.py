@@ -86,19 +86,19 @@ def load_wc(organ, kind1): # target_layout 에러 발생
                 '문의사항','내용','요청','요지','안내','일부','부분','미완료','관내','박준혁','대리','박준혁 대리','관련','저희','것','함','구간','고객']
     text_nouns = [n for n in text_nouns if n not in stopwords] 
 
-    # Term Frequency - word_count 옵션 --------------------------------- X
-    tf_words = []
-    for i in range(len(text_nouns)):
-        tf_words.append(text_nouns[i]) 
+    # # Term Frequency - word_count 옵션 --------------------------------- X
+    # tf_words = []
+    # for i in range(len(text_nouns)):
+    #     tf_words.append(text_nouns[i]) 
 
-    tf_words = list( set( tf_words ) ) 
-    
-    word_count = {} 
-    for word in tf_words:
-        if word in word_count: 
-            word_count[word] += 1
-        else: 
-            word_count[word] = 1
+    # tf_words = list( set( tf_words ) ) 
+
+    # word_count = {} 
+    # for word in tf_words:
+    #     if word in word_count: 
+    #         word_count[word] += 1
+    #     else: 
+    #         word_count[word] = 1
 
     # Documnent Frequency - word_count 옵션 ------------------------------ ok
     # df_words = []
@@ -129,7 +129,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     # cloud = wc.fit_words(word_count)
     # fig = cloud
    
-    return fig, month_df, point_df, kind1_df, wc_data, word_count 
+    return fig, month_df, point_df, kind1_df, wc_data#, word_count 
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load map 1
