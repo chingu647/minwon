@@ -105,7 +105,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
 
     word_count = {}
     for word in df_words:
-        if word in word_count: 
+        if str(word) in word_count: 
             word_count[word] += 1
         else: 
             word_count[word] = 1
