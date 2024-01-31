@@ -393,7 +393,7 @@ def create_px_scatter_kind1(organ, kind1):
     #                               borderwidth=2 
     #                               ) 
     #                  ) 
-    fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(xaxis_visible=False)
     # fig.update_layout(yaxis_visible=False)
     
     fig.update_xaxes(showticklabels = True,
