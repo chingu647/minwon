@@ -248,7 +248,8 @@ def load_map_kind1(organ, kind1, base_position):
                                 ).add_to(fg_k2) 
                       
             folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                        popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
+                        # popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
+                        popup=f"{row.index} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row[f'{LATITUDE}'], 
                         icon=folium.Icon(color='orange', icon='star'), 
                         #   icon=folium.DivIcon(                              # 값 표시방식
