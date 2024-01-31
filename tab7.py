@@ -77,7 +77,9 @@ def run_tab():
         t7_fig0_0, t7_df0_0, t7_df0_1, t7_df0_2, t7_wc0 = mf.create_px_bar_month(t7_organ, t7_kind1) 
         t7_df0_0_temp = t7_df0_0.sort_values(by='NUMBER', ascending=False) 
 
-        tabs[0].write(f"📢 민원 건수는 <strong>총 { t7_df0_0_temp[ 'NUMBER' ].sum() } 건</strong> 이며, 최다 발생 기간은 <strong>{ t7_df0_0_temp.iloc[0][ 'DATE' ].strftime('%Y') }년  { t7_df0_0_temp.iloc[0][ 'DATE' ].strftime('%m') }월</strong> <strong>( { t7_df0_0_temp.iloc[0][ 'NUMBER' ] } 건 )</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[0].write(f"📢 민원 건수는 <strong>총 { t7_df0_0_temp[ 'NUMBER' ].sum() } 건</strong> 이며, " +
+                      f"최다 발생 기간은 <strong>{ t7_df0_0_temp.iloc[0][ 'DATE' ].strftime('%Y') }년 " +
+                      f"{ t7_df0_0_temp.iloc[0][ 'DATE' ].strftime('%m') }월</strong> <strong>( { t7_df0_0_temp.iloc[0][ 'NUMBER' ] } 건 )</strong> 입니다. ", unsafe_allow_html=True) 
         tabs[0].plotly_chart(t7_fig0_0, use_container_width=True) 
 
 
@@ -85,7 +87,7 @@ def run_tab():
         t7_fig1_0, t7_df1_0, t7_df1_1, t7_df1_2, t7_wc1 = mf.create_px_pie_kind1(t7_organ, t7_kind1) 
         t7_df1_2_temp = t7_df1_2.sort_values(by='NUMBER', ascending=False) 
         tabs[1].write(f"📚 최다 유형은 <strong>{ t7_df1_2_temp.iloc[0][ f'{t7_kind1}' ] }</strong> 관련으로, " +
-                      f"<strong>총 { t7_df1_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ t7_df1_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+                      f"<strong>총 { t7_df1_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ t7_df1_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다. ", unsafe_allow_html=True) 
         tabs[1].plotly_chart(t7_fig1_0, use_container_width=True) 
 
 
@@ -93,7 +95,7 @@ def run_tab():
         t7_fig2_0, t7_df2_0, t7_df2_1, t7_df2_2, t7_wc2 = mf.create_px_bar_team(t7_organ, t7_team) 
         t7_df2_2_temp = t7_df2_2.sort_values(by='NUMBER', ascending=False) 
         tabs[2].write(f"📚 최다 처리 팀은 <strong>{ t7_df2_2_temp.iloc[0][ f'{t7_team}' ] }</strong> 으로, " +
-                      f"<strong>총 { t7_df2_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ t7_df2_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+                      f"<strong>총 { t7_df2_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ t7_df2_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다. ", unsafe_allow_html=True) 
         tabs[2].plotly_chart(t7_fig2_0, use_container_width=True) 
 
 
@@ -101,7 +103,7 @@ def run_tab():
         t7_fig3_0, t7_df3_0, t7_df3_1, t7_df3_2, t7_wc3 = mf.create_px_scatter_road(t7_organ, t7_road) 
         t7_df3_2_temp = t7_df3_2.sort_values(by='NUMBER', ascending=False) 
         tabs[3].write(f"📢 최다 노선은 <strong>{ t7_df3_2_temp.iloc[0][ f'{t7_road}' ] }</strong> 으로, " + 
-                      f"<strong>총 { t7_df3_2_temp.iloc[0][ 'NUMBER' ] } 건 ({t7_df3_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+                      f"<strong>총 { t7_df3_2_temp.iloc[0][ 'NUMBER' ] } 건 ({t7_df3_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다. ", unsafe_allow_html=True) 
         tabs[3].plotly_chart(t7_fig3_0, use_container_width=True) 
 
 
