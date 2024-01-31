@@ -1,5 +1,5 @@
 import streamlit as st 
-import plotly.express as px
+import plotly.express as px 
 import plotly.graph_objects as go 
 import plotly.figure_factory as ff 
 from plotly.subplots import make_subplots 
@@ -31,7 +31,7 @@ from time import localtime, strftime
 # arg1 : global organ_ t?? ---------- 탭 페이지에서 입력
 # arg2 : global kind1_ t?? ---------- 탭 페이지에서 입력
 @st.cache_resource 
-def load_df(organ, kind1):
+def load_df(organ, choice):         # choice -  kind1, kind2, team, road 
     df = pd.read_csv("data/민원처리현황.csv") 
 
     # DATE 컬럼 DatetimeIndex로 변환 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,9 +58,9 @@ def load_df(organ, kind1):
     # map data : 위경도 없는 자료는 제외 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
 
-    # kind1 data
-    kind1_df = point_df.groupby(by=f'{kind1}')['NUMBER'].count().reset_index().sort_values(by=f'{kind1}', ascending=False) 
-    kind1_df['NUMBER_pct'] = (   kind1_df['NUMBER'] / kind1_df['NUMBER'].sum()*100   ).astype(int) 
+    # choice data
+    choice_df = point_df.groupby(by=f'{choice}')['NUMBER'].count().reset_index().sort_values(by=f'{choice}', ascending=False) 
+    choice_df['NUMBER_pct'] = (   choice_df['NUMBER'] / choice_df['NUMBER'].sum()*100   ).astype(int) 
  
     # wc data
     df[f'{KEYWORD}'] = df[f'{KEYWORD}'].str.replace('[\s+]', ' ') 
@@ -68,7 +68,7 @@ def load_df(organ, kind1):
     wc_sr = df.loc[:, f'{KEYWORD}'] 
     wc_data = ' '.join( map(str,wc_sr) )
 
-    return month_df, point_df, kind1_df, wc_data 
+    return month_df, point_df, choice_df, wc_data 
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ M A P @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
@@ -76,9 +76,9 @@ def load_df(organ, kind1):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load wc 
 # arg1 : text_raw 
 @st.cache_resource 
-def load_wc(organ, kind1): # target_layout 에러 발생 
+def load_wc(organ, choice): # target_layout 에러 발생 
     # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <================================================== 
+    month_df, point_df, choice_df, wc_data= load_df(organ, choice)  #   <================================================== 
     t = Okt() 
     text_nouns = t.nouns(wc_data) 
     stopwords =['시어','및','조치','예정','민원','처리','해당','통해','방향','후','검토','확인','완료','내','노력','등','위해','위하여','지사',
@@ -129,7 +129,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
     # cloud = wc.fit_words(word_count)
     # fig = cloud
    
-    return fig, month_df, point_df, kind1_df, wc_data#, word_count 
+    return fig, month_df, point_df, choice_df, wc_data#, word_count 
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ load map 1
@@ -138,16 +138,16 @@ def load_wc(organ, kind1): # target_layout 에러 발생
 # base_position_ t?? --------- 탭 페이지에서 입력
 
 @st.cache_resource 
-def load_map(organ, kind1, base_position): 
+def load_map(base_position, organ, choice): 
 
     # CSV 컬럼 변수
     LATITUDE = 'LATITUDE'
     LONGITUDE = 'LONGITUDE'
-    KIND2 = 'KIND2'
+    KIND2 = 'KIND2'          ## ??????????????????????????????????????????????
     KEYWORD = 'KEYWORD'
 
     # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    month_df, point_df, choice_df, wc_data= load_df(organ, choice)  #   <==================================================
 
     map = folium.Map( location=base_position, zoom_start=9 ) #, tiles='Stamentoner') 
     
@@ -192,7 +192,7 @@ def load_map(organ, kind1, base_position):
 # base_position_ t?? --------- 탭 페이지에서 입력
 
 @st.cache_resource 
-def load_map_kind1(organ, kind1, base_position): 
+def load_map_kind1(base_position, organ, choice): 
 
     # CSV 컬럼 변수
     LATITUDE = 'LATITUDE'
@@ -201,7 +201,7 @@ def load_map_kind1(organ, kind1, base_position):
     KEYWORD = 'KEYWORD'
 
     # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    month_df, point_df, choice_df, wc_data= load_df(organ, choice)  #   <==================================================
 
     # kind1 상위 5개 : Grouped Layer Control 준비...
     
@@ -390,197 +390,6 @@ def load_map_kind1(organ, kind1, base_position):
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px chart - kind1 @@@ kind1변수에 KIND1, KIND2, TEAM, ROAD 입력 가능
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
-
-# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
-# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-@st.cache_resource 
-def create_px_scatter_kind1(organ, kind1): 
-    # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-
-    fig = px.scatter(kind1_df, x=f'{kind1}', y='NUMBER',                                  # kind1_df.index
-                     color=f'{kind1}', # color_discrete_sequence=px.colors.qualitative.D3,
-                     text='NUMBER', 
-                    #  color='NUMBER', 
-                     labels={'NUMBER':'발생 건수'}, 
-                    ) 
-    
-    fig.update_traces(marker=dict(size=60), 
-                      textfont_size=20, 
-                      textfont_color='black', 
-                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
-                      showlegend=False,
-                     ) 
-    fig.update_coloraxes(showscale=False) # ---------------------------------- @@@@@@@@@@@@@@@@@@@@@@@@
-
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
-    
-    fig.update_xaxes(showticklabels = True,
-                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-
-    # fig = px.colors.qualitative.swatches() 
-    return fig, month_df, point_df, kind1_df, wc_data 
-
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
-# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
-# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-@st.cache_resource 
-def create_px_line_kind1(organ, kind1): 
-    # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-
-    fig = px.line(month_df, x='DATE', y='NUMBER',                                  # kind1_df.index
-                #   color='NUMBER', 
-                  text='NUMBER',
-                #   title='hello',
-                  labels={'NUMBER':'발생 건수'},
-                  markers=True
-                  ) 
-                    #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols']
-    
-    fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
-                      textfont_size=20, 
-    #                   textfont_color ='white',
-    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
-    #                 #   showlegend=False,
-                     ) 
-    
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
-    
-    fig.update_xaxes(showticklabels = True,
-                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-
-    return fig, month_df, point_df, kind1_df, wc_data 
-
-
-# fig = px.colors.qualitative.swatches()
-# fig.show()
-
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px bar 
-# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
-# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-@st.cache_resource 
-def create_px_bar_kind1(organ, kind1): 
-    # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-
-    fig = px.bar(kind1_df, x=f'{kind1}', y='NUMBER',    # kind1_df.index 
-                 color=f'{kind1}', 
-                 text='NUMBER', 
-                #   title='hello',
-                 labels={ 'NUMBER':'발생 건수'}, 
-                #  hover_data=['  ', '  '], 
-                #  barmode='group', 
-                #  orientation='h'
-                      ) 
-    
-    fig.update_traces(#marker=dict(size=60), 
-                      textfont_size=20, 
-                    #   textfont_color ='black',
-                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
-                      showlegend=False
-                     ) 
-    
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
-    
-    fig.update_xaxes(showticklabels = True,
-                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-
-    return fig, month_df, point_df, kind1_df, wc_data 
-
-
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px pie 
-# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
-# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
-@st.cache_resource 
-def create_px_pie_kind1(organ, kind1): 
-    # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
-
-    fig = px.pie(kind1_df, values=kind1_df.NUMBER, names=kind1_df[f'{kind1}'], 
-                #  text = kind1_df[f'{kind1}'], 
-                #  title='hello',
-                 labels={ 'NUMBER':'발생 건수'}, 
-                 hole=0.4,) 
-
-    fig.update_traces(textfont_size=20, 
-                    #   textfont_color ='black',
-                      textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
-                      textinfo='percent+value',   # 'label+percent+value'
-                    #   showlegend=False
-                      ) 
-    
-    fig.update_layout(legend=dict(#orientation = 'h',
-                                  xanchor="auto",   # ("auto","left","center","right") 
-                                  x=0.02,   
-                                  yanchor="top",    # ("auto","top","middle","bottom")
-                                  y=0.99,
-                                  font=dict(family="Courier",
-                                            size=16, 
-                                            color="black" 
-                                            ), 
-                                #   bgcolor="LightSteelBlue", 
-                                #   bordercolor="Black", 
-                                #   borderwidth=2 
-                                  ) 
-                     ) 
-
-    return fig, month_df, point_df, kind1_df, wc_data 
-
-
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px chart - month @@@ 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -589,9 +398,9 @@ def create_px_pie_kind1(organ, kind1):
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 @st.cache_resource 
-def create_px_scatter_month(organ, kind1): 
+def create_px_scatter_month(organ, choice): 
     # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    month_df, point_df, choice_df, wc_data= load_df(organ, choice)  #   <==================================================
 
     fig = px.scatter(month_df, x='DATE', y='NUMBER',                                  # kind1_df.index
                      color='DATE', # color_discrete_sequence=px.colors.qualitative.D3,
@@ -630,7 +439,7 @@ def create_px_scatter_month(organ, kind1):
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
     # fig = px.colors.qualitative.swatches() 
-    return fig, month_df, point_df, kind1_df, wc_data 
+    return fig, month_df, point_df, choice_df, wc_data
 
 
 
@@ -638,9 +447,9 @@ def create_px_scatter_month(organ, kind1):
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 @st.cache_resource 
-def create_px_line_month(organ, kind1): 
+def create_px_line_month(organ, choice): 
     # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    month_df, point_df, choice_df, wc_data= load_df(organ, choice)  #   <==================================================
 
     fig = px.line(month_df, x='DATE', y='NUMBER',                                  # kind1_df.index
                 #   color='NUMBER', 
@@ -679,8 +488,7 @@ def create_px_line_month(organ, kind1):
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
-    return fig, month_df, point_df, kind1_df, wc_data 
-
+    return fig, month_df, point_df, choice_df, wc_data
 
 # fig = px.colors.qualitative.swatches()
 # fig.show()
@@ -689,9 +497,9 @@ def create_px_line_month(organ, kind1):
 # arg1 : organ_ t?? --------- 탭 페이지에서 입력 
 # arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
 @st.cache_resource 
-def create_px_bar_month(organ, kind1): 
+def create_px_bar_month(organ, choice): 
     # data  
-    month_df, point_df, kind1_df, wc_data = load_df(organ, kind1)  #   <==================================================
+    month_df, point_df, choice_df, wc_data= load_df(organ, choice)  #   <==================================================
 
     fig = px.bar(month_df, x='DATE', y='NUMBER',    # kind1_df.index 
                  color='DATE', 
@@ -731,6 +539,773 @@ def create_px_bar_month(organ, kind1):
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
-    return fig, month_df, point_df, kind1_df, wc_data 
+    return fig, month_df, point_df, choice_df, wc_data
 
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px chart - kind1 @@@ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px scatter
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_scatter_kind1(organ, kind1): 
+    # data  
+    month_df, point_df, kind1_df, wc_data= load_df(organ, kind1)  #   <==================================================
+
+    fig = px.scatter(kind1_df, x=f'{kind1}', y='NUMBER',                                  # kind1_df.index
+                     color=f'{kind1}', # color_discrete_sequence=px.colors.qualitative.D3,
+                     text='NUMBER', 
+                    #  color='NUMBER', 
+                     labels={ 'NUMBER':'발생 건수'}, 
+                    ) 
+    
+    fig.update_traces(marker=dict(size=60), 
+                      textfont_size=20, 
+                      textfont_color='black', 
+                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    fig.update_coloraxes(showscale=False) # ---------------------------------- @@@@@@@@@@@@@@@@@@@@@@@@
+
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    # fig = px.colors.qualitative.swatches() 
+    return fig, month_df, point_df, kind1_df, wc_data
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_line_kind1(organ, kind1): 
+    # data  
+    month_df, point_df, kind1_df, wc_data= load_df(organ, kind1)  #   <==================================================
+
+    fig = px.line(kind1_df, x=f'{kind1}', y='NUMBER',                                  # kind1_df.index
+                #   color=f'{kind1}', 
+                  text='NUMBER',
+                #   title='hello',
+                  labels={ 'NUMBER':'발생 건수'},
+                  markers=True
+                  ) 
+                    #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols']
+    
+    fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
+                      textfont_size=20, 
+    #                   textfont_color ='white',
+    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, kind1_df, wc_data
+
+# fig = px.colors.qualitative.swatches()
+# fig.show()
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px bar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_bar_kind1(organ, kind1): 
+    # data  
+    month_df, point_df, kind1_df, wc_data= load_df(organ, kind1)  #   <==================================================
+
+    fig = px.bar(kind1_df, x=f'{kind1}', y='NUMBER',    # kind1_df.index 
+                 color=f'{kind1}', 
+                 text='NUMBER', 
+                #   title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                #  hover_data=['  ', '  '], 
+                #  barmode='group', 
+                #  orientation='h'
+                      ) 
+    
+    fig.update_traces(#marker=dict(size=60), 
+                      textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, kind1_df, wc_data
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px pie 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_pie_kind1(organ, kind1): 
+    # data  
+    month_df, point_df, kind1_df, wc_data= load_df(organ, kind1)  #   <==================================================
+
+    fig = px.pie(kind1_df, values=kind1_df.NUMBER, names=kind1_df[f'{kind1}'], 
+                #  text = kind1_df[f'{kind1}'], 
+                #  title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                 hole=0.4,) 
+
+    fig.update_traces(textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
+                      textinfo='percent+value',   # 'label+percent+value'
+                    #   showlegend=False
+                      ) 
+    
+    fig.update_layout(legend=dict(#orientation = 'h',
+                                  xanchor="auto",   # ("auto","left","center","right") 
+                                  x=0.02,   
+                                  yanchor="top",    # ("auto","top","middle","bottom")
+                                  y=0.99,
+                                  font=dict(family="Courier",
+                                            size=16, 
+                                            color="black" 
+                                            ), 
+                                #   bgcolor="LightSteelBlue", 
+                                #   bordercolor="Black", 
+                                #   borderwidth=2 
+                                  ) 
+                     ) 
+
+    return fig, month_df, point_df, kind1_df, wc_data
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px chart - kind2 @@@ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px scatter
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_scatter_kind2(organ, kind2): 
+    # data  
+    month_df, point_df, kind2_df, wc_data= load_df(organ, kind2)  #   <==================================================
+
+    fig = px.scatter(kind2_df, x=f'{kind2}', y='NUMBER',                                  # kind1_df.index
+                     color=f'{kind2}', # color_discrete_sequence=px.colors.qualitative.D3,
+                     text='NUMBER', 
+                    #  color='NUMBER', 
+                     labels={ 'NUMBER':'발생 건수'}, 
+                    ) 
+    
+    fig.update_traces(marker=dict(size=60), 
+                      textfont_size=20, 
+                      textfont_color='black', 
+                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    fig.update_coloraxes(showscale=False) # ---------------------------------- @@@@@@@@@@@@@@@@@@@@@@@@
+
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    # fig = px.colors.qualitative.swatches() 
+    return fig, month_df, point_df, kind2_df, wc_data
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_line_kind2(organ, kind2): 
+    # data  
+    month_df, point_df, kind2_df, wc_data= load_df(organ, kind2)  #   <==================================================
+
+    fig = px.line(kind2_df, x=f'{kind2}', y='NUMBER',                                  # kind1_df.index
+                #   color=f'{kind2}', 
+                  text='NUMBER',
+                #   title='hello',
+                  labels={ 'NUMBER':'발생 건수'},
+                  markers=True
+                  ) 
+                    #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols']
+    
+    fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
+                      textfont_size=20, 
+    #                   textfont_color ='white',
+    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, kind2_df, wc_data
+
+# fig = px.colors.qualitative.swatches()
+# fig.show()
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px bar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_bar_kind2(organ, kind2): 
+    # data  
+    month_df, point_df, kind2_df, wc_data= load_df(organ, kind2)  #   <==================================================
+
+    fig = px.bar(kind2_df, x=f'{kind2}', y='NUMBER',    # kind1_df.index 
+                 color=f'{kind2}', 
+                 text='NUMBER', 
+                #   title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                #  hover_data=['  ', '  '], 
+                #  barmode='group', 
+                #  orientation='h'
+                      ) 
+    
+    fig.update_traces(#marker=dict(size=60), 
+                      textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, kind2_df, wc_data
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px pie 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_pie_kind2(organ, kind2): 
+    # data  
+    month_df, point_df, kind2_df, wc_data= load_df(organ, kind2)  #   <==================================================
+
+    fig = px.pie(kind2_df, values=kind2_df.NUMBER, names=kind2_df[f'{kind2}'], 
+                #  text = kind1_df[f'{kind1}'], 
+                #  title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                 hole=0.4,) 
+
+    fig.update_traces(textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
+                      textinfo='percent+value',   # 'label+percent+value'
+                    #   showlegend=False
+                      ) 
+    
+    fig.update_layout(legend=dict(#orientation = 'h',
+                                  xanchor="auto",   # ("auto","left","center","right") 
+                                  x=0.02,   
+                                  yanchor="top",    # ("auto","top","middle","bottom")
+                                  y=0.99,
+                                  font=dict(family="Courier",
+                                            size=16, 
+                                            color="black" 
+                                            ), 
+                                #   bgcolor="LightSteelBlue", 
+                                #   bordercolor="Black", 
+                                #   borderwidth=2 
+                                  ) 
+                     ) 
+
+    return fig, month_df, point_df, kind2_df, wc_data
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px chart - team  @@@ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px scatter
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_scatter_team(organ, team): 
+    # data  
+    month_df, point_df, team_df, wc_data= load_df(organ, team)  #   <==================================================
+
+    fig = px.scatter(team_df, x=f'{team}', y='NUMBER',                                  # kind1_df.index
+                     color=f'{team}', # color_discrete_sequence=px.colors.qualitative.D3,
+                     text='NUMBER', 
+                    #  color='NUMBER', 
+                     labels={ 'NUMBER':'발생 건수'}, 
+                    ) 
+    
+    fig.update_traces(marker=dict(size=60), 
+                      textfont_size=20, 
+                      textfont_color='black', 
+                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    fig.update_coloraxes(showscale=False) # ---------------------------------- @@@@@@@@@@@@@@@@@@@@@@@@
+
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    # fig = px.colors.qualitative.swatches() 
+    return fig, month_df, point_df, team_df, wc_data
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_line_team(organ, team): 
+    # data  
+    month_df, point_df, team_df, wc_data= load_df(organ, team)  #   <==================================================
+
+    fig = px.line(team_df, x=f'{team}', y='NUMBER',                                  # kind1_df.index
+                #   color=f'{team}', 
+                  text='NUMBER',
+                #   title='hello',
+                  labels={ 'NUMBER':'발생 건수'},
+                  markers=True
+                  ) 
+                    #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols']
+    
+    fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
+                      textfont_size=20, 
+    #                   textfont_color ='white',
+    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, team_df, wc_data
+
+# fig = px.colors.qualitative.swatches()
+# fig.show()
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px bar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_bar_team(organ, team): 
+    # data  
+    month_df, point_df, team_df, wc_data= load_df(organ, team)  #   <==================================================
+
+    fig = px.bar(team_df, x=f'{team}', y='NUMBER',    # kind1_df.index 
+                 color=f'{team}', 
+                 text='NUMBER', 
+                #   title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                #  hover_data=['  ', '  '], 
+                #  barmode='group', 
+                #  orientation='h'
+                      ) 
+    
+    fig.update_traces(#marker=dict(size=60), 
+                      textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, team_df, wc_data
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px pie 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_pie_team(organ, team): 
+    # data  
+    month_df, point_df, team_df, wc_data= load_df(organ, team)  #   <==================================================
+
+    fig = px.pie(team_df, values=team_df.NUMBER, names=team_df[f'{team}'], 
+                #  text = kind1_df[f'{kind1}'], 
+                #  title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                 hole=0.4,) 
+
+    fig.update_traces(textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
+                      textinfo='percent+value',   # 'label+percent+value'
+                    #   showlegend=False
+                      ) 
+    
+    fig.update_layout(legend=dict(#orientation = 'h',
+                                  xanchor="auto",   # ("auto","left","center","right") 
+                                  x=0.02,   
+                                  yanchor="top",    # ("auto","top","middle","bottom")
+                                  y=0.99,
+                                  font=dict(family="Courier",
+                                            size=16, 
+                                            color="black" 
+                                            ), 
+                                #   bgcolor="LightSteelBlue", 
+                                #   bordercolor="Black", 
+                                #   borderwidth=2 
+                                  ) 
+                     ) 
+
+    return fig, month_df, point_df, team_df, wc_data
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px chart - road  @@@ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px scatter
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_scatter_road(organ, road): 
+    # data  
+    month_df, point_df, road_df, wc_data= load_df(organ, road)  #   <==================================================
+
+    fig = px.scatter(road_df, x=f'{road}', y='NUMBER',                                  # kind1_df.index
+                     color=f'{road}', # color_discrete_sequence=px.colors.qualitative.D3,
+                     text='NUMBER', 
+                    #  color='NUMBER', 
+                     labels={ 'NUMBER':'발생 건수'}, 
+                    ) 
+    
+    fig.update_traces(marker=dict(size=60), 
+                      textfont_size=20, 
+                      textfont_color='black', 
+                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    fig.update_coloraxes(showscale=False) # ---------------------------------- @@@@@@@@@@@@@@@@@@@@@@@@
+
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    # fig = px.colors.qualitative.swatches() 
+    return fig, month_df, point_df, road_df, wc_data
+
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px line 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_line_road(organ, road): 
+    # data  
+    month_df, point_df, road_df, wc_data= load_df(organ, road)  #   <==================================================
+
+    fig = px.line(road_df, x=f'{road}', y='NUMBER',                                  # kind1_df.index
+                #   color=f'{road}', 
+                  text='NUMBER',
+                #   title='hello',
+                  labels={ 'NUMBER':'발생 건수'},
+                  markers=True
+                  ) 
+                    #  trendline='lowess')   # 연속 데이터 만 ['lowess', 'rolling', 'ewm', 'expanding', 'ols']
+    
+    fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
+                      textfont_size=20, 
+    #                   textfont_color ='white',
+    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
+    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False,
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, road_df, wc_data
+
+# fig = px.colors.qualitative.swatches()
+# fig.show()
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px bar 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_bar_road(organ, road): 
+    # data  
+    month_df, point_df, road_df, wc_data= load_df(organ, road)  #   <==================================================
+
+    fig = px.bar(road_df, x=f'{road}', y='NUMBER',    # kind1_df.index 
+                 color=f'{road}', 
+                 text='NUMBER', 
+                #   title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                #  hover_data=['  ', '  '], 
+                #  barmode='group', 
+                #  orientation='h'
+                      ) 
+    
+    fig.update_traces(#marker=dict(size=60), 
+                      textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
+                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      showlegend=False
+                     ) 
+    
+    # fig.update_layout(legend=dict(#orientation = 'h', 
+    #                               xanchor="left",   # ("auto","left","center","right") 
+    #                               x=0.01,   
+    #                               yanchor="top",    # ("auto","top","middle","bottom")
+    #                               y=0.99,
+    #                               font=dict(family="Courier",
+    #                                         size=12, 
+    #                                         color="black" 
+    #                                         ), 
+    #                               bgcolor="LightSteelBlue", 
+    #                               bordercolor="Black", 
+    #                               borderwidth=2 
+    #                               ) 
+    #                  ) 
+    # fig.update_layout(xaxis_visible=False)
+    # fig.update_layout(yaxis_visible=False)
+    
+    fig.update_xaxes(showticklabels = True,
+                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+
+    return fig, month_df, point_df, road_df, wc_data
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ create px pie 
+# arg1 : organ_ t?? --------- 탭 페이지에서 입력 
+# arg2 : kind1_ t?? --------- 탭 페이지에서 입력 
+@st.cache_resource 
+def create_px_pie_road(organ, road): 
+    # data  
+    month_df, point_df, road_df, wc_data= load_df(organ, road)  #   <==================================================
+
+    fig = px.pie(road_df, values=road_df.NUMBER, names=road_df[f'{road}'], 
+                #  text = kind1_df[f'{kind1}'], 
+                #  title='hello',
+                 labels={ 'NUMBER':'발생 건수'}, 
+                 hole=0.4,) 
+
+    fig.update_traces(textfont_size=20, 
+                    #   textfont_color ='black',
+                      textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
+                      textinfo='percent+value',   # 'label+percent+value'
+                    #   showlegend=False
+                      ) 
+    
+    fig.update_layout(legend=dict(#orientation = 'h',
+                                  xanchor="auto",   # ("auto","left","center","right") 
+                                  x=0.02,   
+                                  yanchor="top",    # ("auto","top","middle","bottom")
+                                  y=0.99,
+                                  font=dict(family="Courier",
+                                            size=16, 
+                                            color="black" 
+                                            ), 
+                                #   bgcolor="LightSteelBlue", 
+                                #   bordercolor="Black", 
+                                #   borderwidth=2 
+                                  ) 
+                     ) 
+
+    return fig, month_df, point_df, road_df, wc_data
 
