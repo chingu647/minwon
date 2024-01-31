@@ -260,7 +260,7 @@ def load_map_choice(base_position, organ, choice):
                       
               folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
                             popup=f"{index} ( {row[f'{KEYWORD}']} ) ", 
-                            tooltip=row[f'{LATITUDE}'], 
+                            tooltip=row[f'{index}'], 
                             icon=folium.Icon(color=f'{color_list[i]}', icon=f'{icon_list[i]}'), 
                             # icon=folium.DivIcon(                              # 값 표시방식
                             #     html=f"<div>{row['노선번호']} {row['latitude']} {row['longitude']}</div>"),
