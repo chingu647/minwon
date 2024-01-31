@@ -57,8 +57,8 @@ def run_tab():
                 """, unsafe_allow_html=True )     
 
     # # ################################################# 민원 건수 현황 
-    cont0 = st.container(border=False)
-    # cont0.markdown(f"##### 📢 :rainbow[{ta_organ}  민원 분석]") 
+    ta_cont0 = st.container(border=False)
+    # ta_cont0.markdown(f"##### 📢 :rainbow[{ta_organ}  민원 분석]") 
 
     tabs = st.tabs(['📈월별 추이', '📚유형별', '🚔부서별', '🚌노선별', '💾데이터']) 
     with tabs[0]: # 월별
@@ -70,56 +70,57 @@ def run_tab():
         # tabs[0].write(df0_3) 
         # cont0.markdown(f"##### 📢 :rainbow[{ta_organ}  민원 분석]")        
          
-        fig0_0, df0_0, df0_1, df0_2, wc0 = mf.create_px_bar_month(ta_organ, ta_kind1) 
-        df0_0_temp = df0_0.sort_values(by='NUMBER', ascending=False) 
+        ta_fig0_0, ta_df0_0, ta_df0_1, ta_df0_2, ta_wc0 = mf.create_px_bar_month(ta_organ, ta_kind1) 
+        ta_df0_0_temp = ta_df0_0.sort_values(by='NUMBER', ascending=False) 
 
-        tabs[0].write(f"📢 민원 건수는 <strong>총 { df0_0_temp[ 'NUMBER' ].sum() } 건</strong> 이며, 최다 발생 기간은 <strong>{ df0_0_temp.iloc[0][ 'DATE' ].strftime('%Y') }년  { df0_0_temp.iloc[0][ 'DATE' ].strftime('%m') }월</strong> <strong>( { df0_0_temp.iloc[0][ 'NUMBER' ] } 건 )</strong> 입니다.       , ", unsafe_allow_html=True) 
-        tabs[0].plotly_chart(fig0_0, use_container_width=True) 
+        tabs[0].write(f"📢 민원 건수는 <strong>총 { ta_df0_0_temp[ 'NUMBER' ].sum() } 건</strong> 이며, " +
+                      f"최다 발생 기간은 <strong>{ ta_df0_0_temp.iloc[0][ 'DATE' ].strftime('%Y') }년  { ta_df0_0_temp.iloc[0][ 'DATE' ].strftime('%m') }월</strong> <strong>( { ta_df0_0_temp.iloc[0][ 'NUMBER' ] } 건 )</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[0].plotly_chart(ta_fig0_0, use_container_width=True) 
 
 
     with tabs[1]: # 유형별 
-        fig1_0, df1_0, df1_1, df1_2, wc1 = mf.create_px_pie_kind1(ta_organ, ta_kind1) 
-        df1_2_temp = df1_2.sort_values(by='NUMBER', ascending=False) 
-        tabs[1].write(f"📚 최다 유형은 <strong>{ df1_2_temp.iloc[0][ f'{ta_kind1}' ] }</strong> 관련으로, " +
-                      f"<strong>총 { df1_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ df1_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        ta_fig1_0, ta_df1_0, ta_df1_1, ta_df1_2, ta_wc1 = mf.create_px_pie_kind1(ta_organ, ta_kind1) 
+        ta_df1_2_temp = ta_df1_2.sort_values(by='NUMBER', ascending=False) 
+        tabs[1].write(f"📚 최다 유형은 <strong>{ ta_df1_2_temp.iloc[0][ f'{ta_kind1}' ] }</strong> 관련으로, " +
+                      f"<strong>총 { ta_df1_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ ta_df1_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
         # tabs[1].write(f"최다 민원은 <strong>{ df1_2.iloc[0][ f'{ta_kind1}' ] }</strong> 관련으로, <strong>총 { df1_2.iloc[0][ 'NUMBER' ] } 건 ({ df1_2.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
-        tabs[1].plotly_chart(fig1_0, use_container_width=True) 
+        tabs[1].plotly_chart(ta_fig1_0, use_container_width=True) 
 
 
     with tabs[2]: # 팀별
-        fig2_0, df2_0, df2_1, df2_2, wc2 = mf.create_px_bar_team(ta_organ, ta_team) 
-        df2_2_temp = df2_2.sort_values(by='NUMBER', ascending=False) 
-        tabs[2].write(f"📚 최다 처리 팀은 <strong>{ df2_2_temp.iloc[0][ f'{ta_team}' ] }</strong> 으로, " +
-                      f"<strong>총 { df2_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ df2_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
-        tabs[2].plotly_chart(fig2_0, use_container_width=True) 
+        ta_fig2_0, ta_df2_0, ta_df2_1,ta_df2_2, ta_wc2 = mf.create_px_bar_team(ta_organ, ta_team) 
+        ta_df2_2_temp = ta_df2_2.sort_values(by='NUMBER', ascending=False) 
+        tabs[2].write(f"📚 최다 처리 팀은 <strong>{ ta_df2_2_temp.iloc[0][ f'{ta_team}' ] }</strong> 으로, " +
+                      f"<strong>총 { ta_df2_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ ta_df2_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[2].plotly_chart(ta_fig2_0, use_container_width=True) 
 
 
     with tabs[3]: # 노선별
-        fig3_0, df3_0, df3_1, df3_2, wc3 = mf.create_px_scatter_road(ta_organ, ta_road) 
-        df3_2_temp = df3_2.sort_values(by='NUMBER', ascending=False) 
-        tabs[3].write(f"📢 최다 노선은 <strong>{ df3_2_temp.iloc[0][ f'{ta_road}' ] }</strong> 으로, " + 
-                      f"<strong>총 { df3_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ df3_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
-        tabs[3].plotly_chart(fig3_0, use_container_width=True) 
+        ta_fig3_0, ta_df3_0, ta_df3_1, ta_df3_2, ta_wc3 = mf.create_px_scatter_road(ta_organ, ta_road) 
+        ta_df3_2_temp = ta_df3_2.sort_values(by='NUMBER', ascending=False) 
+        tabs[3].write(f"📢 최다 노선은 <strong>{ ta_df3_2_temp.iloc[0][ f'{ta_road}' ] }</strong> 으로, " + 
+                      f"<strong>총 { ta_df3_2_temp.iloc[0][ 'NUMBER' ] } 건 ({ ta_df3_2_temp.iloc[0][ f'NUMBER_pct' ] } %)</strong> 입니다.       , ", unsafe_allow_html=True) 
+        tabs[3].plotly_chart(ta_fig3_0, use_container_width=True) 
 
 
     with tabs[4]: # 데이터
-        df4_0, df4_1, df4_2, wc4 = mf.load_df(ta_organ, ta_kind1)  
-        df4_2_temp = df3_2.sort_values(by='NUMBER', ascending=False) 
-        tabs[4].dataframe(df4_2_temp.style.background_gradient(cmap='Blues'), use_container_width=True) 
+        ta_df4_0, ta_df4_1, ta_df4_2, ta_wc4 = mf.load_df(ta_organ, ta_kind1)  
+        ta_df4_2_temp = ta_df4_2.sort_values(by='NUMBER', ascending=False) 
+        tabs[4].dataframe(ta_df4_2_temp.style.background_gradient(cmap='Blues'), use_container_width=True) 
 
 
     # ################################################# 민원 지도 보기 
-    cont9 = st.container(border=False)
-    cont9.markdown(f"##### 😎 {ta_organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
+    ta_cont9 = st.container(border=False)
+    ta_cont9.markdown(f"##### 😎 {ta_organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
 
     tabs = st.tabs(['🌍 지 도', '🔎키워드', '💾데이터']) 
     with tabs[0]: 
-        ta_map = mf.load_map_choice(ta_base_position, ta_organ, ta_mapchoice) 
+        mf.load_map_choice(ta_base_position, ta_organ, ta_mapchoice) 
 
     with tabs[1]: 
-        fig9_0, df9_0, df9_1, df9_2, wc9 = mf.load_wc(ta_organ, ta_keyword) 
-        tabs[1].pyplot(fig9_0, use_container_width=True) 
+        ta_fig9_0, ta_df9_0, ta_df9_1, ta_df9_2, ta_wc9 = mf.load_wc(ta_organ, ta_keyword) 
+        tabs[1].pyplot(ta_fig9_0, use_container_width=True) 
 
     with tabs[2]: 
-        tabs[2].dataframe(df9_1, use_container_width=True) 
+        tabs[2].dataframe(ta_df9_1, use_container_width=True) 
   

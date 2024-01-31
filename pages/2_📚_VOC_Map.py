@@ -56,8 +56,18 @@ st.markdown("""
             unsafe_allow_html=True
             )     
 
-# ################################################# 민원 지도 보기 
+# ################################################# 민원 지도 보기       
 cont9 = st.container(border=False)
 cont9.markdown(f"##### 😎 {voc_organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
 
-mf.load_map_choice(voc_base_position, voc_organ, voc_mapchoice) 
+tabs = st.tabs(['🌍 지 도', '🔎키워드', '💾데이터']) 
+
+with tabs[0]: 
+    mf.load_map_choice(voc_base_position, voc_organ, voc_mapchoice) 
+
+with tabs[1]: 
+    voc_fig9_0, voc_df9_0, voc_df9_1, voc_df9_2, voc_wc9 = mf.load_wc(voc_organ, voc_keyword) 
+    tabs[1].pyplot(voc_fig9_0, use_container_width=True) 
+
+with tabs[2]: 
+    tabs[2].dataframe(voc_df9_1, use_container_width=True) 
