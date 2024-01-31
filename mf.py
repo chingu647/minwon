@@ -135,7 +135,7 @@ def load_map(organ, kind1, base_position):
                                 ).add_to(map) 
                       
             folium.Marker( location=[ row[f'{LATITUDE}'], row[f'{LONGITUDE}'] ],  # 값 중심 
-                        popup=f"{row.index} ( {row[f'{KEYWORD}']} ) ", 
+                        popup=f"{index} ( {row[f'{KEYWORD}']} ) ", 
                         # popup=f"{row[f'{KIND2}']} ( {row[f'{KEYWORD}']} ) ", 
                         tooltip=row[f'{LATITUDE}'], 
                         icon=folium.Icon(color='red', icon='star'), 
