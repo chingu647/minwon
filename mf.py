@@ -108,7 +108,7 @@ def load_wc(organ, kind1): # target_layout 에러 발생
 
     # 방법 2 - word_count 사용
     cloud = wc.fit_words(word_count)
-    fig = cloud.to_image()
+    fig = cloud
    
     return fig, month_df, point_df, kind1_df, wc_data, word_count 
 
