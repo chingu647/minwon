@@ -116,151 +116,153 @@ if (st.session_state.user_name != "hello") and (st.session_state.user_pass != "w
                 st.error("이름을 입력하세요 !!") 
             elif not user_pass: 
                 st.error("암호를 입력하세요 !!") 
-            else:
-                if user_name != "hello":
-                    st.error("이름이 일치하지 않습니다. _,._; ") 
-                elif user_pass != "world":
-                    st.error("암호가 일치하지 않습니다. _,._;;") 
-                else: 
-                    placeholder.empty()
-                    st.success("이름과 암호가 모두 일치 합니다. ^^")
-                    # st.session_state.user_name = user_name 
-                    # st.session_state.user_pass = user_pass 
-                    #=================================================================== > 
+        
+    if user_name != "hello":
+        st.error("이름을 정확히 입력하세요 !!!") 
 
-                    global file_name 
+    elif user_pass != "world":
+        st.error("암호를 정확히 입력하세요 !!!") 
 
-                    menu = ['2023','2024', '2025']
+    else: 
+        placeholder.empty() 
+        st.success("이름과 암호가 모두 일치 합니다. ^^")
+        # st.session_state.user_name = user_name 
+        # st.session_state.user_pass = user_pass 
+        #=================================================================== > 
 
-                    op1 = st.sidebar.selectbox('Source Data', menu) 
+        global file_name 
 
-                    if menu[0] == op1: 
-                        if os.path.exists('data/2023.csv') :
-                            file_name =  "data/2023.csv" 
-                    elif menu[1] == op1: 
-                        if os.path.exists('data/2024.csv') :
-                            file_name =  "data/2024.csv" 
-                    elif menu[2] == op1: 
-                        if os.path.exists('data/2025.csv') :
-                            file_name =  "data/2025.csv" 
-                    else:
-                        file_name = "data/2023.csv" 
+        menu = ['2023','2024', '2025']
 
-                    st.image('data/th.jpg', width=30 ) 
+        op1 = st.sidebar.selectbox('Source Data', menu) 
 
-                    ################################################################################# title 
-                    st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rainbow') 
+        if menu[0] == op1: 
+            if os.path.exists('data/2023.csv') :
+                file_name =  "data/2023.csv" 
+        elif menu[1] == op1: 
+            if os.path.exists('data/2024.csv') :
+                file_name =  "data/2024.csv" 
+        elif menu[2] == op1: 
+            if os.path.exists('data/2025.csv') :
+                file_name =  "data/2025.csv" 
+        else:
+            file_name = "data/2023.csv" 
 
-                    # st.markdown("""
-                    #             <center><h2>한눈에 보는 <font color='blue'>광주전남</font> 민원 지도<h2></center>
-                    #             """, 
-                    #             unsafe_allow_html=True) 
+        st.image('data/th.jpg', width=30 ) 
 
-                    ################################################################################# layout
+        ################################################################################# title 
+        st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rainbow') 
 
-                    # tab_titles = ['광주전남', '본 부', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
-                    # tabs = st.tabs(tab_titles)
+        # st.markdown("""
+        #             <center><h2>한눈에 보는 <font color='blue'>광주전남</font> 민원 지도<h2></center>
+        #             """, 
+        #             unsafe_allow_html=True) 
 
-                    # sbar.markdown(""" 
-                    #               <script>
-                    #                 function isDesktopOs() {
-                    #                     return ("win16|win32|win64|windows|mac|machine|linux|freebsd|openbsd|sunos".indexOf( navigator.platform.toLowerCase() ))
-                    #                 }  
-                    #                 if( isDesktopOs() ) { 
-                    #                     document.write("<h3>🌸 광주 민원실 </h3><p>")  
-                    #                 }
-                    #                 else {
-                    #                     document.write("<h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>")
-                    #                 }
-                    #               </script>
-                    #               """, unsafe_allow_html=True ) 
+        ################################################################################# layout
 
-                    # 각 탭에 콘텐츠 추가
+        # tab_titles = ['광주전남', '본 부', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
+        # tabs = st.tabs(tab_titles)
 
-                    selected = option_menu(menu_title=None,
-                                            options=[ "ALL", "본부","광주","담양","순천","함평","구례","보성","남원"],
-                                            icons=[None,None,None,None,None,None,None,None,],  
-                                            menu_icon="cast",
-                                            default_index=0,
-                                            orientation='horizontal', 
-                                            styles={"container": {"padding": "0px", # {"padding": "0!important", 
-                                                                "margin" : "0px",
-                                                                "background-color": "#fafafa"},
-                                                    "icon": {"color": "orange",  
-                                                            "margin":"0px", 
-                                                            "padding":"0px",
-                                                            "font-size": "0px"}, 
-                                                    "nav-link": {"font-size": "13px", 
-                                                                "text-align": "center", 
-                                                                "margin":"0px", 
-                                                                "padding":"0px",
-                                                                "--hover-color": "#eee"},
-                                                    "nav-link-selected": {"background-color": "green"}, 
-                                                    } 
-                    )
+        # sbar.markdown(""" 
+        #               <script>
+        #                 function isDesktopOs() {
+        #                     return ("win16|win32|win64|windows|mac|machine|linux|freebsd|openbsd|sunos".indexOf( navigator.platform.toLowerCase() ))
+        #                 }  
+        #                 if( isDesktopOs() ) { 
+        #                     document.write("<h3>🌸 광주 민원실 </h3><p>")  
+        #                 }
+        #                 else {
+        #                     document.write("<h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>")
+        #                 }
+        #               </script>
+        #               """, unsafe_allow_html=True ) 
 
+        # 각 탭에 콘텐츠 추가
 
-
-                    if selected == "ALL": 
-                        tab_all.run_tab() 
-                        # st.snow() 
-
-                    elif selected == "본부": 
-                        tab0.run_tab() 
-                    #     st.snow() 
-
-                    elif selected == "광주": 
-                        tab1.run_tab() 
-                    #     st.snow() 
-                        
-                    elif selected == "담양":
-                        tab2.run_tab()
-
-                    elif selected == "순천":
-                        tab3.run_tab()
-                        
-                    elif selected == "함평":
-                        tab4.run_tab()
-
-                    elif selected == "구례":
-                        tab5.run_tab()
-                        
-                    elif selected == "보성":
-                        tab6.run_tab()
-
-                    elif selected == "남원":
-                        tab7.run_tab()
+        selected = option_menu(menu_title=None,
+                                options=[ "ALL", "본부","광주","담양","순천","함평","구례","보성","남원"],
+                                icons=[None,None,None,None,None,None,None,None,],  
+                                menu_icon="cast",
+                                default_index=0,
+                                orientation='horizontal', 
+                                styles={"container": {"padding": "0px", # {"padding": "0!important", 
+                                                    "margin" : "0px",
+                                                    "background-color": "#fafafa"},
+                                        "icon": {"color": "orange",  
+                                                "margin":"0px", 
+                                                "padding":"0px",
+                                                "font-size": "0px"}, 
+                                        "nav-link": {"font-size": "13px", 
+                                                    "text-align": "center", 
+                                                    "margin":"0px", 
+                                                    "padding":"0px",
+                                                    "--hover-color": "#eee"},
+                                        "nav-link-selected": {"background-color": "green"}, 
+                                        } 
+        )
 
 
 
-                    ################################################################################# input -> layout 
+        if selected == "ALL": 
+            tab_all.run_tab() 
+            # st.snow() 
 
-                    # 라디오 ---------------------------------------------------------------------
-                    #column_list = list(df0.columns[:-1]) 
-                    #생성 rd1 = sbar.radio("what is key column ?", column_list, horizontal=True) 
+        elif selected == "본부": 
+            tab0.run_tab() 
+        #     st.snow() 
 
-                    # flag0 = True
-                    # if ms1: 
-                    #layout 	con10.dataframe(temp_df1) 
-                    # else:
-                    # 	pass
+        elif selected == "광주": 
+            tab1.run_tab() 
+        #     st.snow() 
+            
+        elif selected == "담양":
+            tab2.run_tab()
+
+        elif selected == "순천":
+            tab3.run_tab()
+            
+        elif selected == "함평":
+            tab4.run_tab()
+
+        elif selected == "구례":
+            tab5.run_tab()
+            
+        elif selected == "보성":
+            tab6.run_tab()
+
+        elif selected == "남원":
+            tab7.run_tab()
 
 
-                    # 셀렉트 박스 -----------------------------------------------------------------
-                    #sr_variety_list = list(sr_variety) 
-                    #생성 op1 = sbar.selectbox('확인하고 싶은 종을 선택하세요', sr_variety_list) 
-                    #db temp_df = df0[df0.variety == op1]
-                    #layout con10.dataframe(temp_df) 
 
-                    # 멀티셀렉트  -----------------------------------------------------------------
-                    #sr_variety_list = list(sr_variety) 
-                    #생성 ops1 = sbar.multiselect('확인하고 싶은 종은? (복수선택 가능)', sr_variety_list) 
-                    #db temp_df1 = df0[df0.variety.isin(ops1)] 
+        ################################################################################# input -> layout 
+
+        # 라디오 ---------------------------------------------------------------------
+        #column_list = list(df0.columns[:-1]) 
+        #생성 rd1 = sbar.radio("what is key column ?", column_list, horizontal=True) 
+
+        # flag0 = True
+        # if ms1: 
+        #layout 	con10.dataframe(temp_df1) 
+        # else:
+        # 	pass
 
 
-                    # 슬라이더 --------------------------------------------------------------------
-                    #생성 slider_range = sbar.slider('choose range key column', 0.0, 10.0, (2.5, 7.5) )
+        # 셀렉트 박스 -----------------------------------------------------------------
+        #sr_variety_list = list(sr_variety) 
+        #생성 op1 = sbar.selectbox('확인하고 싶은 종을 선택하세요', sr_variety_list) 
+        #db temp_df = df0[df0.variety == op1]
+        #layout con10.dataframe(temp_df) 
 
-                    # 버튼 -------------------------------------------------------------------- 
-                    #생성 start_button = sbar.button('filter apply 📊') 
-                        
+        # 멀티셀렉트  -----------------------------------------------------------------
+        #sr_variety_list = list(sr_variety) 
+        #생성 ops1 = sbar.multiselect('확인하고 싶은 종은? (복수선택 가능)', sr_variety_list) 
+        #db temp_df1 = df0[df0.variety.isin(ops1)] 
+
+
+        # 슬라이더 --------------------------------------------------------------------
+        #생성 slider_range = sbar.slider('choose range key column', 0.0, 10.0, (2.5, 7.5) )
+
+        # 버튼 -------------------------------------------------------------------- 
+        #생성 start_button = sbar.button('filter apply 📊') 
+            
