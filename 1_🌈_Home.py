@@ -101,7 +101,7 @@ if 'user_pass' not in st.session_state:
 # create an empty container 
 placeholder = st.empty() 
 
-if (st.session_state.user_name != "hello") and (st.session_state.user_pass != "world"): 
+if (st.session_state.user_name != st.secrets["user_name"]) and (st.session_state.user_pass != st.secrets["world"]): 
 
     with placeholder.form(key="form"): 
         col1, col2 = st.columns(2)
@@ -126,8 +126,8 @@ if (st.session_state.user_name != "hello") and (st.session_state.user_pass != "w
     else: 
         placeholder.empty() 
         st.success("이름과 암호가 모두 일치 합니다. ^^")
-        # st.session_state.user_name = user_name 
-        # st.session_state.user_pass = user_pass 
+        st.session_state.user_name = user_name 
+        st.session_state.user_pass = user_pass 
         #=================================================================== > 
 
         global file_name 
