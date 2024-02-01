@@ -91,8 +91,8 @@ st.markdown("""
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ st.sidebar @@@ 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 
-st.session_state.user_name = st.session_state.user_name 
-st.session_state.user_pass = st.session_state.user_pass 
+# st.session_state.user_name = st.session_state.user_name 
+# st.session_state.user_pass = st.session_state.user_pass 
 
 # st.session_state 초기화
 if 'user_name' not in st.session_state:
