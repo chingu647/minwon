@@ -101,7 +101,7 @@ if 'user_pass' not in st.session_state:
 # create an empty container 
 placeholder = st.empty() 
 
-if (st.session_state.user_name != st.secrets["user_name"]) and (st.session_state.user_pass != st.secrets["world"]): 
+if (st.session_state.user_name != st.secrets["user_name"]) and (st.session_state.user_pass != st.secrets["user_pass"]): 
 
     with placeholder.form(key="form"): 
         col1, col2 = st.columns(2)
