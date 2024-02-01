@@ -131,6 +131,9 @@ st.markdown("""
 #     st.success("이름과 암호가 모두 일치 합니다. ^^")
 #     st.session_state.user_name = user_name 
 #     st.session_state.user_pass = user_pass 
+# st.session_state.user_name = st.session_state.user_name 
+# st.session_state.user_pass = st.session_state.user_pass 
+
         #=================================================================== > 
 
 global file_name 
