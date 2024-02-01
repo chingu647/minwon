@@ -1,0 +1,271 @@
+import streamlit as st 
+import plotly.express as px
+import plotly.graph_objects as go 
+import plotly.figure_factory as ff 
+from plotly.subplots import make_subplots 
+
+import pandas as pd
+import numpy as np 
+
+import matplotlib as mpl 
+import matplotlib.pyplot as plt 
+import matplotlib.font_manager as fm 
+import seaborn as sns
+
+import geopandas as gpd 
+import folium 
+from streamlit_folium import folium_static 
+
+import nltk 
+from konlpy.tag import Kkma, Hannanum, Twitter, Okt
+from wordcloud import WordCloud, STOPWORDS 
+
+from PIL import Image 
+
+from streamlit_option_menu import option_menu 
+
+from time import localtime, strftime 
+
+
+import os 
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-1) ST CACHE 사용
+import mf 
+
+
+import tab_all
+import tab0 
+import tab1 
+import tab2
+import tab3 
+import tab4 
+import tab5 
+import tab6 
+import tab7 
+
+st.set_page_config(layout="wide",
+                   page_title="한눈에 민원 보기", 
+                   page_icon="🌈", 
+                   )  #### 1번만 실행해야 함 !!! 
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-2) mpl 한글 설정  
+font_path_ = "data/NanumGothic.ttf" 
+font_name = fm.FontProperties(fname=font_path_).get_name() 
+
+mpl.rcParams['axes.unicode_minus'] = False 
+mpl.rcParams['font.family'] = font_name 
+
+plt.style.use('ggplot') 
+
+mpl.rc('font', size=18)
+mpl.rc('axes', titlesize=18)
+mpl.rc('axes', labelsize=18) 
+mpl.rc('xtick', labelsize=18)
+mpl.rc('ytick', labelsize=18)
+mpl.rc('legend', fontsize=18)
+mpl.rc('figure', titlesize=12) 
+
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
+st.markdown(""" 
+            <style> 
+                table{background-color:#f0f0f0;} 
+                img {max-width: 1000px; max-height: 500px; }    # 이미지 파일 최대크기 제한             
+            </style> """, 
+            unsafe_allow_html=True
+            ) 
+
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    # padding-bottom: 1rem;
+                    # padding-left: 1rem;
+                    # padding-right: 1rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ st.sidebar @@@ 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+
+# # st.session_state.user_name = st.session_state.user_name 
+# # st.session_state.user_pass = st.session_state.user_pass 
+
+# # st.session_state 초기화
+# if 'user_name' not in st.session_state:
+# st.session_state.user_name = None
+
+# if 'user_pass' not in st.session_state:
+# st.session_state.user_pass = None 
+
+# # create an empty container 
+# placeholder = st.empty() 
+
+# if (st.session_state.user_name != st.secrets["user_name"]) and (st.session_state.user_pass != st.secrets["user_pass"]): 
+
+# with placeholder.form(key="form"): 
+#     col1, col2 = st.columns(2)
+#     with col1:
+#         user_name = st.text_input("아이디를 입력하세요 ! : ") 
+#     with col2: 
+#         user_pass = st.text_input("암호를 입력하세요 ! : ")
+#     submit = st.form_submit_button("login") 
+
+#     if submit: 
+#         if not user_name: 
+#             st.error("이름을 입력하세요 !!") 
+#         elif not user_pass: 
+#             st.error("암호를 입력하세요 !!") 
+    
+# if user_name != st.secrets["user_name"]:
+#     st.error("이름을 정확히 입력하세요 !!!") 
+
+# elif user_pass != st.secrets["user_pass"]:
+#     st.error("암호를 정확히 입력하세요 !!!") 
+
+# else: 
+#     placeholder.empty() 
+#     st.success("이름과 암호가 모두 일치 합니다. ^^")
+#     st.session_state.user_name = user_name 
+#     st.session_state.user_pass = user_pass 
+        #=================================================================== > 
+
+global file_name 
+
+menu = ['2023','2024', '2025']
+
+op1 = st.sidebar.selectbox('Source Data', menu) 
+
+if menu[0] == op1: 
+    if os.path.exists('data/2023.csv') :
+        file_name =  "data/2023.csv" 
+elif menu[1] == op1: 
+    if os.path.exists('data/2024.csv') :
+        file_name =  "data/2024.csv" 
+elif menu[2] == op1: 
+    if os.path.exists('data/2025.csv') :
+        file_name =  "data/2025.csv" 
+else:
+    file_name = "data/2023.csv" 
+
+st.image('data/th.jpg', width=30 ) 
+
+################################################################################# title 
+st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rainbow') 
+
+# st.markdown("""
+#             <center><h2>한눈에 보는 <font color='blue'>광주전남</font> 민원 지도<h2></center>
+#             """, 
+#             unsafe_allow_html=True) 
+
+################################################################################# layout
+
+# tab_titles = ['광주전남', '본 부', '광 주', '담 양', '순 천', '함 평', '구 례', '보 성', '남 원']
+# tabs = st.tabs(tab_titles)
+
+# sbar.markdown(""" 
+#               <script>
+#                 function isDesktopOs() {
+#                     return ("win16|win32|win64|windows|mac|machine|linux|freebsd|openbsd|sunos".indexOf( navigator.platform.toLowerCase() ))
+#                 }  
+#                 if( isDesktopOs() ) { 
+#                     document.write("<h3>🌸 광주 민원실 </h3><p>")  
+#                 }
+#                 else {
+#                     document.write("<h3>🌸 광주 <a href="tel:010-6637-4525">민원실</a></h3><p>")
+#                 }
+#               </script>
+#               """, unsafe_allow_html=True ) 
+
+# 각 탭에 콘텐츠 추가
+
+selected = option_menu(menu_title=None,
+                        options=[ "ALL", "본부","광주","담양","순천","함평","구례","보성","남원"],
+                        icons=[None,None,None,None,None,None,None,None,],  
+                        menu_icon="cast",
+                        default_index=0,
+                        orientation='horizontal', 
+                        styles={"container": {"padding": "0px", # {"padding": "0!important", 
+                                            "margin" : "0px",
+                                            "background-color": "#fafafa"},
+                                "icon": {"color": "orange",  
+                                        "margin":"0px", 
+                                        "padding":"0px",
+                                        "font-size": "0px"}, 
+                                "nav-link": {"font-size": "13px", 
+                                            "text-align": "center", 
+                                            "margin":"0px", 
+                                            "padding":"0px",
+                                            "--hover-color": "#eee"},
+                                "nav-link-selected": {"background-color": "green"}, 
+                                } 
+)
+
+
+
+if selected == "ALL": 
+    tab_all.run_tab() 
+    # st.snow() 
+
+elif selected == "본부": 
+    tab0.run_tab() 
+#     st.snow() 
+
+elif selected == "광주": 
+    tab1.run_tab() 
+#     st.snow() 
+    
+elif selected == "담양":
+    tab2.run_tab()
+
+elif selected == "순천":
+    tab3.run_tab()
+    
+elif selected == "함평":
+    tab4.run_tab()
+
+elif selected == "구례":
+    tab5.run_tab()
+    
+elif selected == "보성":
+    tab6.run_tab()
+
+elif selected == "남원":
+    tab7.run_tab()
+
+
+
+################################################################################# input -> layout 
+
+# 라디오 ---------------------------------------------------------------------
+#column_list = list(df0.columns[:-1]) 
+#생성 rd1 = sbar.radio("what is key column ?", column_list, horizontal=True) 
+
+# flag0 = True
+# if ms1: 
+#layout 	con10.dataframe(temp_df1) 
+# else:
+# 	pass
+
+
+# 셀렉트 박스 -----------------------------------------------------------------
+#sr_variety_list = list(sr_variety) 
+#생성 op1 = sbar.selectbox('확인하고 싶은 종을 선택하세요', sr_variety_list) 
+#db temp_df = df0[df0.variety == op1]
+#layout con10.dataframe(temp_df) 
+
+# 멀티셀렉트  -----------------------------------------------------------------
+#sr_variety_list = list(sr_variety) 
+#생성 ops1 = sbar.multiselect('확인하고 싶은 종은? (복수선택 가능)', sr_variety_list) 
+#db temp_df1 = df0[df0.variety.isin(ops1)] 
+
+
+# 슬라이더 --------------------------------------------------------------------
+#생성 slider_range = sbar.slider('choose range key column', 0.0, 10.0, (2.5, 7.5) )
+
+# 버튼 -------------------------------------------------------------------- 
+#생성 start_button = sbar.button('filter apply 📊') 
+    
