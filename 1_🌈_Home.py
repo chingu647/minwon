@@ -117,10 +117,10 @@ if (st.session_state.user_name != st.secrets["user_name"]) and (st.session_state
             elif not user_pass: 
                 st.error("암호를 입력하세요 !!") 
         
-    if user_name != "hello":
+    if user_name != st.secrets["user_name"]:
         st.error("이름을 정확히 입력하세요 !!!") 
 
-    elif user_pass != "world":
+    elif user_pass != st.secrets["user_pass"]:
         st.error("암호를 정확히 입력하세요 !!!") 
 
     else: 
