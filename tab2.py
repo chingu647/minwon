@@ -3,31 +3,23 @@ import plotly.express as px
 import plotly.graph_objects as go 
 import plotly.figure_factory as ff 
 from plotly.subplots import make_subplots
-
 import pandas as pd
 import numpy as np 
-
 import matplotlib as mpl 
 import matplotlib.pyplot as plt 
 import matplotlib.font_manager as fm 
 import seaborn as sns
-
 import geopandas as gpd 
-
 import folium 
 from streamlit_folium import folium_static 
 from folium.plugins import GroupedLayerControl
-
 import nltk 
 from konlpy.tag import Kkma, Hannanum, Twitter, Okt
 from wordcloud import WordCloud, STOPWORDS 
-
 from time import localtime, strftime 
-
 import mf 
-
 def run_tab(): 
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ global 변수 설정
+    # 
     global t2_map  # ----------------------------------------------------------------------- 
     global t2_organ
     global t2_kind1 
@@ -37,7 +29,6 @@ def run_tab():
     global t2_mapchoice  
     global t2_base_position 
     global t2_keyword 
-
     t2_organ = "담양지사"   # ALL 광주전남본부 광주지사 담양지사 순천지사 함평지사 구례지사 보성지사 남원지사 
     # choice 종류
     t2_kind1 = 'KIND1' # ----------------------------------------------------------------------
@@ -45,12 +36,10 @@ def run_tab():
     t2_team  = 'TEAM'  # ----------------------------------------------------------------------
     t2_road  = 'ROAD'  # ---------------------------------------------------------------------- 
     t2_mapchoice = 'KIND1'
-
     t2_base_position = [35.18668601, 126.87954220] 
     # word cloud 
     t2_keyword = 'KEYWORD'
-
-    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ (3-3) css 설정
+    # 
     st.markdown(""" 
                 <style> 
                     table{background-color:#f0f0f0;} 
@@ -59,20 +48,12 @@ def run_tab():
                 </style> """, 
                 unsafe_allow_html=True
                 )     
-
-    # # ################################################# 민원 건수 현황 
+    # 
     t2_cont0 = st.container(border=False)
-    # t2_cont0.markdown(f"##### 📢 :rainbow[{t2_organ}  민원 분석]") 
 
     tabs = st.tabs(['📈월별 추이', '📚유형별', '🚔부서별', '🚌노선별', '💾데이터']) 
     with tabs[0]: # 월별
-        # 
-        # tabs[0].dataframe(df0_0)
-        # tabs[0].dataframe(df0_1)
-        # tabs[0].dataframe(df0_2)
-        # tabs[0].dataframe(df0_2_temp)
-        # tabs[0].write(df0_3) 
-        # cont0.markdown(f"##### 📢 :rainbow[{t2_organ}  민원 분석]")        
+
          
         t2_fig0_0, t2_df0_0, t2_df0_1, t2_df0_2, t2_wc0 = mf.create_px_bar_month(t2_organ, t2_kind1) 
         t2_df0_0_temp = t2_df0_0.sort_values(by='NUMBER', ascending=False) 
@@ -113,7 +94,7 @@ def run_tab():
         tabs[4].dataframe(t2_df4_2_temp.style.background_gradient(cmap='Blues'), use_container_width=True) 
 
 
-    # ################################################# 민원 지도 보기 
+    # 
     t2_cont9 = st.container(border=False)
     t2_cont9.markdown(f"##### 😎 {t2_organ} 민원 :rainbow[노선별로 한눈에 보기] 👀") 
 
