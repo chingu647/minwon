@@ -66,8 +66,8 @@ st.markdown("""
 # 
 user_name = None
 user_pass = None
-# my_name = " "
-# my_pass = " "
+my_name = ""
+my_pass = ""
 placeholder = st.empty() 
 if (user_name != my_name ) and (user_pass != my_pass): 
     with placeholder.form(key="form"): 
