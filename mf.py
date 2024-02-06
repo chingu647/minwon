@@ -314,8 +314,8 @@ def create_px_bar_month(organ, choice):
     # fig.update_layout(xaxis_visible=False)
     # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True, 
-                    #  tickformat = f'%Y-%m',                # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-                    #  dtick="M1", 
+                     tickformat = f'%Y-%m',                # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+                     dtick="M1", 
                     #  dtick=30 * 24 * 60 * 60 * 1000,   # 한 달 간격을 밀리초로 계산 
                     ) 
     return fig, month_df, point_df, choice_df, wc_data
