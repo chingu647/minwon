@@ -283,7 +283,7 @@ def create_px_bar_month(organ, choice):
     ###############################################################################################
     ### plotly x 축 날짜표기 : 오류 때문에 억지로 한달 뺌 --------------------------------------------=================
     ###############################################################################################
-    month_df['DATE'] = pd.to_datetime(month_df['DATE']) - relativedelta(months=1)
+    month_df['DATE'] = pd.to_datetime(month_df['DATE']) - pd.DateOffset(months=1)
 
     fig = px.bar(month_df, x='DATE', y='NUMBER',  
                  color='DATE', 
