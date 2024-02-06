@@ -8,7 +8,8 @@ import numpy as np
 import matplotlib as mpl 
 import matplotlib.pyplot as plt 
 import matplotlib.font_manager as fm 
-import seaborn as sns
+import seaborn as sns 
+from datetime import datetime
 import geopandas as gpd 
 import folium 
 from streamlit_folium import folium_static 
@@ -36,6 +37,9 @@ def load_df(organ, choice):
     month_df = df.groupby(pd.Grouper(key='DATE', freq='M'))['NUMBER'].count().reset_index() 
     month_df['NUMBER_pct_change'] = (   month_df['NUMBER'].pct_change(periods=1)*100   ).round(1)
     month_df['NUMBER_cumsum'] = month_df['NUMBER'].transform('cumsum') 
+
+    ### 날짜 때문에 억지로 하루뺌
+    month_df['DATE'] = month_df['DATE'] - datetime.timedelta(days=1)
     # 
     point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
     # 
