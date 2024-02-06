@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm 
 import seaborn as sns 
 import datetime  # ---------------------------------------------- 
+from dateutil.relativedelta import relativedelta 
 import geopandas as gpd 
 import folium 
 from streamlit_folium import folium_static 
@@ -282,7 +283,7 @@ def create_px_bar_month(organ, choice):
     ###############################################################################################
     ### plotly x 축 날짜표기 : 오류 때문에 억지로 한달 뺌 --------------------------------------------=================
     ###############################################################################################
-    month_df['DATE'] = month_df['DATE'] - datetime.timedelta(months=1)
+    month_df['DATE'] = month_df['DATE'] - relativedelta(months=1)
 
     fig = px.bar(month_df, x='DATE', y='NUMBER',  
                  color='DATE', 
