@@ -38,8 +38,6 @@ def load_df(organ, choice):
     month_df['NUMBER_pct_change'] = (   month_df['NUMBER'].pct_change(periods=1)*100   ).round(1)
     month_df['NUMBER_cumsum'] = month_df['NUMBER'].transform('cumsum') 
 
-    ### 날짜 때문에 억지로 하루뺌
-    month_df['DATE'] = month_df['DATE'] - datetime.timedelta(days=1)
     # 
     point_df = df[ ~( (df[f'{LATITUDE}'].isna()) | (df[f'{LONGITUDE}'].isna()) ) ] 
     # 
@@ -279,7 +277,12 @@ def create_px_line_month(organ, choice):
 @st.cache_resource 
 def create_px_bar_month(organ, choice): 
     # data  
-    month_df, point_df, choice_df, wc_data= load_df(organ, choice)  
+    month_df, point_df, choice_df, wc_data= load_df(organ, choice) 
+    
+    ###############################################################################################
+    ### plotly x 축 날짜표기 : 오류 때문에 억지로 한달 뺌 --------------------------------------------=================
+    ###############################################################################################
+    month_df['DATE'] = month_df['DATE'] - datetime.timedelta(months=1)
 
     fig = px.bar(month_df, x='DATE', y='NUMBER',  
                  color='DATE', 
