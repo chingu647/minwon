@@ -89,7 +89,7 @@ def run_tab():
         ta_df4_0, ta_df4_1, ta_df4_2, ta_wc4 = mf.load_df(ta_organ, ta_road)  
         ta_df4_2_temp = ta_df4_2.sort_values(by='NUMBER', ascending=False) 
         tabs[4].dataframe(ta_df4_2_temp.style.background_gradient(cmap='Blues'), use_container_width=True) 
-        tabs[4].write(ta_df4_0.index.values) 
+        tabs[4].write(ta_df4_0.Date) 
 
 
     # 
