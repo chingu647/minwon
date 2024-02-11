@@ -63,41 +63,6 @@ st.markdown("""
                 }
         </style>
         """, unsafe_allow_html=True) 
-# 
-# user_name = None
-# user_pass = None
-# my_name = " "
-# my_pass = " "
-# placeholder = st.empty() 
-# if (user_name != my_name ) and (user_pass != my_pass): 
-#     with placeholder.form(key="form"): 
-#         col1, col2 = st.columns(2)
-#         with col1:
-#             user_name = st.text_input("아이디를 입력하세요 ! : ") 
-#         with col2: 
-#             user_pass = st.text_input("암호를 입력하세요 ! : ")
-#         submit = st.form_submit_button("login") 
-#     if user_name != my_name:
-#         st.error("이름을 정확히 입력하세요 !!!") 
-#     elif user_pass != my_pass:
-#         st.error("암호를 정확히 입력하세요 !!!") 
-#     else: 
-#         placeholder.empty() 
-#         global file_name 
-#         menu = ['2023','2024', '2025']
-#         op1 = st.sidebar.selectbox('Source Data', menu) 
-#         if menu[0] == op1: 
-#             if os.path.exists('data/2023.csv') :
-#                 file_name =  "data/2023.csv" 
-#         elif menu[1] == op1: 
-#             if os.path.exists('data/2024.csv') :
-#                 file_name =  "data/2024.csv" 
-#         elif menu[2] == op1: 
-#             if os.path.exists('data/2025.csv') :
-#                 file_name =  "data/2025.csv" 
-#         else:
-#             file_name = "data/2023.csv" 
-#         #===========================================================================> st.image 위치
 
 st.image('data/th.jpg', width=30 ) 
 ################################################################################# 

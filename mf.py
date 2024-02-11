@@ -190,33 +190,14 @@ def create_px_scatter_month(organ, choice):
     fig = px.scatter(month_df, x='DATE', y='NUMBER',                             
                      color='DATE', # color_discrete_sequence=px.colors.qualitative.D3,
                      text='NUMBER', 
-                    #  color='NUMBER', 
                      labels={ 'NUMBER':'발생 건수'}, 
                     )     
     fig.update_traces(marker=dict(size=60), 
                       textfont_size=20, 
                       textfont_color='black', 
-                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      ) 
     fig.update_coloraxes(showscale=False)
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
     fig.update_xaxes(showticklabels = True, 
                      tickformat = '%Y-%m',                # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
                     #  dtick="M1", 
@@ -226,7 +207,6 @@ def create_px_scatter_month(organ, choice):
         showticklabels=True,
         tickangle=45  # 텍스트 각도 (선택적)
 )
-    # fig = px.colors.qualitative.swatches() 
     return fig, month_df, point_df, choice_df, wc_data
 
 
@@ -246,29 +226,10 @@ def create_px_line_month(organ, choice):
                   )  
     fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
                       textfont_size=20, 
-    #                   textfont_color ='white',
-    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True,
-                     tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
+                     tickformat = '%Y-%m', dtick="M1") 
 
     return fig, month_df, point_df, choice_df, wc_data
 
@@ -290,39 +251,16 @@ def create_px_bar_month(organ, choice):
     fig = px.bar(month_df2, x='DATE', y='NUMBER',  
                  color='DATE', 
                  text='NUMBER', 
-                #   title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
-                #  hover_data=['  ', '  '], 
-                #  barmode='group', 
-                #  orientation='h'
                       )     
     fig.update_traces(#marker=dict(size=60), 
                       textfont_size=20, 
-                    #   textfont_color ='black',
-                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      textposition='auto',  
                       showlegend=False
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True, 
                      tickformat = f'%Y-%m',                # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
                      dtick="M1", 
-                    #  dtick=30 * 24 * 60 * 60 * 1000,   # 한 달 간격을 밀리초로 계산 
                     ) 
     return fig, month_df, point_df, choice_df, wc_data
 
@@ -336,37 +274,17 @@ def create_px_scatter_kind1(organ, kind1):
 
     fig = px.scatter(kind1_df, x=f'{kind1}', y='NUMBER',    
                      color=f'{kind1}', # color_discrete_sequence=px.colors.qualitative.D3,
-                     text='NUMBER', 
-                    #  color='NUMBER', 
+                     text='NUMBER',  
                      labels={ 'NUMBER':'발생 건수'}, 
                     )     
     fig.update_traces(marker=dict(size=60), 
                       textfont_size=20, 
                       textfont_color='black', 
-                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      ) 
     fig.update_coloraxes(showscale=False) 
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-    # fig = px.colors.qualitative.swatches() 
     return fig, month_df, point_df, kind1_df, wc_data
 
 
@@ -377,36 +295,15 @@ def create_px_line_kind1(organ, kind1):
     # data  
     month_df, point_df, kind1_df, wc_data= load_df(organ, kind1) 
 
-    fig = px.line(kind1_df, x=f'{kind1}', y='NUMBER',             
-                #   color=f'{kind1}', 
+    fig = px.line(kind1_df, x=f'{kind1}', y='NUMBER',   
                   text='NUMBER',
-                #   title='hello',
                   labels={ 'NUMBER':'발생 건수'},
                   markers=True
                   )   
     fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
                       textfont_size=20, 
-    #                   textfont_color ='white',
-    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
@@ -423,35 +320,13 @@ def create_px_bar_kind1(organ, kind1):
     fig = px.bar(kind1_df, x=f'{kind1}', y='NUMBER', 
                  color=f'{kind1}', 
                  text='NUMBER', 
-                #   title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
-                #  hover_data=['  ', '  '], 
-                #  barmode='group', 
-                #  orientation='h'
                       )     
     fig.update_traces(#marker=dict(size=60), 
                       textfont_size=20, 
-                    #   textfont_color ='black',
                       textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
@@ -466,15 +341,11 @@ def create_px_pie_kind1(organ, kind1):
     month_df, point_df, kind1_df, wc_data= load_df(organ, kind1)  
 
     fig = px.pie(kind1_df, values=kind1_df.NUMBER, names=kind1_df[f'{kind1}'], 
-                #  text = kind1_df[f'{kind1}'], 
-                #  title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
                  hole=0.4,) 
     fig.update_traces(textfont_size=20, 
-                    #   textfont_color ='black',
                       textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
                       textinfo='percent+value',   # 'label+percent+value'
-                    #   showlegend=False
                       )     
     fig.update_layout(legend=dict(#orientation = 'h',
                                   xanchor="auto",   # ("auto","left","center","right") 
@@ -485,9 +356,6 @@ def create_px_pie_kind1(organ, kind1):
                                             size=16, 
                                             color="black" 
                                             ), 
-                                #   bgcolor="LightSteelBlue", 
-                                #   bordercolor="Black", 
-                                #   borderwidth=2 
                                   ) 
                      ) 
     return fig, month_df, point_df, kind1_df, wc_data
@@ -503,36 +371,16 @@ def create_px_scatter_kind2(organ, kind2):
     fig = px.scatter(kind2_df, x=f'{kind2}', y='NUMBER',         
                      color=f'{kind2}', # color_discrete_sequence=px.colors.qualitative.D3,
                      text='NUMBER', 
-                    #  color='NUMBER', 
                      labels={ 'NUMBER':'발생 건수'}, 
                     )     
     fig.update_traces(marker=dict(size=60), 
                       textfont_size=20, 
                       textfont_color='black', 
-                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      ) 
     fig.update_coloraxes(showscale=False) 
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-    # fig = px.colors.qualitative.swatches() 
     return fig, month_df, point_df, kind2_df, wc_data
 
 
@@ -543,36 +391,15 @@ def create_px_line_kind2(organ, kind2):
     # data  
     month_df, point_df, kind2_df, wc_data= load_df(organ, kind2)  
 
-    fig = px.line(kind2_df, x=f'{kind2}', y='NUMBER',                             
-                #   color=f'{kind2}', 
+    fig = px.line(kind2_df, x=f'{kind2}', y='NUMBER',     
                   text='NUMBER',
-                #   title='hello',
                   labels={ 'NUMBER':'발생 건수'},
                   markers=True
                   )    
     fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
                       textfont_size=20, 
-    #                   textfont_color ='white',
-    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
@@ -589,35 +416,13 @@ def create_px_bar_kind2(organ, kind2):
     fig = px.bar(kind2_df, x=f'{kind2}', y='NUMBER',  
                  color=f'{kind2}', 
                  text='NUMBER', 
-                #   title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
-                #  hover_data=['  ', '  '], 
-                #  barmode='group', 
-                #  orientation='h'
                       )     
     fig.update_traces(#marker=dict(size=60), 
                       textfont_size=20, 
-                    #   textfont_color ='black',
                       textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False
-                     )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
+                     )  
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
     return fig, month_df, point_df, kind2_df, wc_data
@@ -631,15 +436,11 @@ def create_px_pie_kind2(organ, kind2):
     month_df, point_df, kind2_df, wc_data= load_df(organ, kind2)
 
     fig = px.pie(kind2_df, values=kind2_df.NUMBER, names=kind2_df[f'{kind2}'], 
-                #  text = kind1_df[f'{kind1}'], 
-                #  title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
                  hole=0.4,) 
     fig.update_traces(textfont_size=20, 
-                    #   textfont_color ='black',
                       textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
                       textinfo='percent+value',   # 'label+percent+value'
-                    #   showlegend=False
                       )     
     fig.update_layout(legend=dict(#orientation = 'h',
                                   xanchor="auto",   # ("auto","left","center","right") 
@@ -650,9 +451,6 @@ def create_px_pie_kind2(organ, kind2):
                                             size=16, 
                                             color="black" 
                                             ), 
-                                #   bgcolor="LightSteelBlue", 
-                                #   bordercolor="Black", 
-                                #   borderwidth=2 
                                   ) 
                      ) 
     return fig, month_df, point_df, kind2_df, wc_data
@@ -668,36 +466,16 @@ def create_px_scatter_team(organ, team):
     fig = px.scatter(team_df, x=f'{team}', y='NUMBER',        
                      color=f'{team}', # color_discrete_sequence=px.colors.qualitative.D3,
                      text='NUMBER', 
-                    #  color='NUMBER', 
                      labels={ 'NUMBER':'발생 건수'}, 
                     )     
     fig.update_traces(marker=dict(size=60), 
                       textfont_size=20, 
                       textfont_color='black', 
-                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      ) 
     fig.update_coloraxes(showscale=False) 
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-    # fig = px.colors.qualitative.swatches() 
     return fig, month_df, point_df, team_df, wc_data
 
 
@@ -708,36 +486,15 @@ def create_px_line_team(organ, team):
     # data  
     month_df, point_df, team_df, wc_data= load_df(organ, team) 
 
-    fig = px.line(team_df, x=f'{team}', y='NUMBER',                         
-                #   color=f'{team}', 
+    fig = px.line(team_df, x=f'{team}', y='NUMBER',    
                   text='NUMBER',
-                #   title='hello',
                   labels={ 'NUMBER':'발생 건수'},
                   markers=True
                   )    
     fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
                       textfont_size=20, 
-    #                   textfont_color ='white',
-    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
     return fig, month_df, point_df, team_df, wc_data
@@ -753,35 +510,13 @@ def create_px_bar_team(organ, team):
     fig = px.bar(team_df, x=f'{team}', y='NUMBER',    
                  color=f'{team}', 
                  text='NUMBER', 
-                #   title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
-                #  hover_data=['  ', '  '], 
-                #  barmode='group', 
-                #  orientation='h'
                       )     
     fig.update_traces(#marker=dict(size=60), 
                       textfont_size=20, 
-                    #   textfont_color ='black',
                       textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
     return fig, month_df, point_df, team_df, wc_data
@@ -795,15 +530,11 @@ def create_px_pie_team(organ, team):
     month_df, point_df, team_df, wc_data= load_df(organ, team) 
 
     fig = px.pie(team_df, values=team_df.NUMBER, names=team_df[f'{team}'], 
-                #  text = kind1_df[f'{kind1}'], 
-                #  title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
                  hole=0.4,) 
-    fig.update_traces(textfont_size=20, 
-                    #   textfont_color ='black',
+    fig.update_traces(textfont_size=20, ,
                       textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
                       textinfo='percent+value',   # 'label+percent+value'
-                    #   showlegend=False
                       )     
     fig.update_layout(legend=dict(#orientation = 'h',
                                   xanchor="auto",   # ("auto","left","center","right") 
@@ -814,9 +545,6 @@ def create_px_pie_team(organ, team):
                                             size=16, 
                                             color="black" 
                                             ), 
-                                #   bgcolor="LightSteelBlue", 
-                                #   bordercolor="Black", 
-                                #   borderwidth=2 
                                   ) 
                      ) 
     return fig, month_df, point_df, team_df, wc_data
@@ -832,36 +560,16 @@ def create_px_scatter_road(organ, road):
     fig = px.scatter(road_df, x=f'{road}', y='NUMBER',              
                      color=f'{road}', # color_discrete_sequence=px.colors.qualitative.D3,
                      text='NUMBER', 
-                    #  color='NUMBER', 
                      labels={ 'NUMBER':'발생 건수'}, 
                     )     
     fig.update_traces(marker=dict(size=60), 
                       textfont_size=20, 
                       textfont_color='black', 
-                    #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      ) 
     fig.update_coloraxes(showscale=False) 
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
-    # fig = px.colors.qualitative.swatches() 
     return fig, month_df, point_df, road_df, wc_data
 
 
@@ -872,36 +580,15 @@ def create_px_line_road(organ, road):
     # data  
     month_df, point_df, road_df, wc_data= load_df(organ, road) 
 
-    fig = px.line(road_df, x=f'{road}', y='NUMBER',              
-                #   color=f'{road}', 
+    fig = px.line(road_df, x=f'{road}', y='NUMBER',    
                   text='NUMBER',
-                #   title='hello',
                   labels={ 'NUMBER':'발생 건수'},
                   markers=True
                   )    
     fig.update_traces(marker=dict(size=30, color='#f0f5ed'), 
                       textfont_size=20, 
-    #                   textfont_color ='white',
-    #                 #   textposition='top center',   # ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'] 
-    #                 #   textinfo='label+percent+value',   # 'label+percent+value'
                       showlegend=False,
                      )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
@@ -918,35 +605,13 @@ def create_px_bar_road(organ, road):
     fig = px.bar(road_df, x=f'{road}', y='NUMBER',   
                  color=f'{road}', 
                  text='NUMBER', 
-                #   title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
-                #  hover_data=['  ', '  '], 
-                #  barmode='group', 
-                #  orientation='h'
                       )     
     fig.update_traces(#marker=dict(size=60), 
                       textfont_size=20, 
-                    #   textfont_color ='black',
-                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']   
-                    #   textinfo='label+percent+value',   # 'label+percent+value'
+                      textposition='auto',   # ['inside', 'outside', 'auto', 'none']  
                       showlegend=False
-                     )     
-    # fig.update_layout(legend=dict(#orientation = 'h', 
-    #                               xanchor="left",   # ("auto","left","center","right") 
-    #                               x=0.01,   
-    #                               yanchor="top",    # ("auto","top","middle","bottom")
-    #                               y=0.99,
-    #                               font=dict(family="Courier",
-    #                                         size=12, 
-    #                                         color="black" 
-    #                                         ), 
-    #                               bgcolor="LightSteelBlue", 
-    #                               bordercolor="Black", 
-    #                               borderwidth=2 
-    #                               ) 
-    #                  ) 
-    # fig.update_layout(xaxis_visible=False)
-    # fig.update_layout(yaxis_visible=False)    
+                     )    
     fig.update_xaxes(showticklabels = True,
                      tickformat = '%Y-%m', dtick="M1") # '%d %B (%a)<br>%Y' / '%Y-%b-%d(%a)'
 
@@ -961,15 +626,11 @@ def create_px_pie_road(organ, road):
     month_df, point_df, road_df, wc_data= load_df(organ, road) 
 
     fig = px.pie(road_df, values=road_df.NUMBER, names=road_df[f'{road}'], 
-                #  text = kind1_df[f'{kind1}'], 
-                #  title='hello',
                  labels={ 'NUMBER':'발생 건수'}, 
                  hole=0.4,) 
     fig.update_traces(textfont_size=20, 
-                    #   textfont_color ='black',
                       textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
                       textinfo='percent+value',   # 'label+percent+value'
-                    #   showlegend=False
                       )     
     fig.update_layout(legend=dict(#orientation = 'h',
                                   xanchor="auto",   # ("auto","left","center","right") 
@@ -980,9 +641,6 @@ def create_px_pie_road(organ, road):
                                             size=16, 
                                             color="black" 
                                             ), 
-                                #   bgcolor="LightSteelBlue", 
-                                #   bordercolor="Black", 
-                                #   borderwidth=2 
                                   ) 
                      ) 
     return fig, month_df, point_df, road_df, wc_data 
