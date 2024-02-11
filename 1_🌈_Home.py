@@ -64,79 +64,81 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True) 
 # 
-user_name = None
-user_pass = None
-my_name = " "
-my_pass = " "
-placeholder = st.empty() 
-if (user_name != my_name ) and (user_pass != my_pass): 
-    with placeholder.form(key="form"): 
-        col1, col2 = st.columns(2)
-        with col1:
-            user_name = st.text_input("아이디를 입력하세요 ! : ") 
-        with col2: 
-            user_pass = st.text_input("암호를 입력하세요 ! : ")
-        submit = st.form_submit_button("login") 
-    if user_name != my_name:
-        st.error("이름을 정확히 입력하세요 !!!") 
-    elif user_pass != my_pass:
-        st.error("암호를 정확히 입력하세요 !!!") 
-    else: 
-        placeholder.empty() 
-        global file_name 
-        menu = ['2023','2024', '2025']
-        op1 = st.sidebar.selectbox('Source Data', menu) 
-        if menu[0] == op1: 
-            if os.path.exists('data/2023.csv') :
-                file_name =  "data/2023.csv" 
-        elif menu[1] == op1: 
-            if os.path.exists('data/2024.csv') :
-                file_name =  "data/2024.csv" 
-        elif menu[2] == op1: 
-            if os.path.exists('data/2025.csv') :
-                file_name =  "data/2025.csv" 
-        else:
-            file_name = "data/2023.csv" 
-        st.image('data/th.jpg', width=30 ) 
-        ################################################################################# 
-        st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rainbow') 
-        ################################################################################# 
-        selected = option_menu(menu_title=None,
-                                options=[ "ALL", "본부","광주","담양","순천","함평","구례","보성","남원"],
-                                icons=[None,None,None,None,None,None,None,None,],  
-                                menu_icon="cast",
-                                default_index=0,
-                                orientation='horizontal', 
-                                styles={"container": {"padding": "0px", # {"padding": "0!important", 
-                                                    "margin" : "0px",
-                                                    "background-color": "#fafafa"},
-                                        "icon": {"color": "orange",  
-                                                "margin":"0px", 
-                                                "padding":"0px",
-                                                "font-size": "0px"}, 
-                                        "nav-link": {"font-size": "13px", 
-                                                    "text-align": "center", 
-                                                    "margin":"0px", 
-                                                    "padding":"0px",
-                                                    "--hover-color": "#eee"},
-                                        "nav-link-selected": {"background-color": "green"}, 
-                                        } 
-        )
-        if selected == "ALL": 
-            tab_all.run_tab() 
-        elif selected == "본부": 
-            tab0.run_tab() 
-        elif selected == "광주": 
-            tab1.run_tab() 
-        elif selected == "담양":
-            tab2.run_tab()
-        elif selected == "순천":
-            tab3.run_tab()
-        elif selected == "함평":
-            tab4.run_tab()
-        elif selected == "구례":
-            tab5.run_tab()
-        elif selected == "보성":
-            tab6.run_tab()
-        elif selected == "남원":
-            tab7.run_tab() 
+# user_name = None
+# user_pass = None
+# my_name = " "
+# my_pass = " "
+# placeholder = st.empty() 
+# if (user_name != my_name ) and (user_pass != my_pass): 
+#     with placeholder.form(key="form"): 
+#         col1, col2 = st.columns(2)
+#         with col1:
+#             user_name = st.text_input("아이디를 입력하세요 ! : ") 
+#         with col2: 
+#             user_pass = st.text_input("암호를 입력하세요 ! : ")
+#         submit = st.form_submit_button("login") 
+#     if user_name != my_name:
+#         st.error("이름을 정확히 입력하세요 !!!") 
+#     elif user_pass != my_pass:
+#         st.error("암호를 정확히 입력하세요 !!!") 
+#     else: 
+#         placeholder.empty() 
+#         global file_name 
+#         menu = ['2023','2024', '2025']
+#         op1 = st.sidebar.selectbox('Source Data', menu) 
+#         if menu[0] == op1: 
+#             if os.path.exists('data/2023.csv') :
+#                 file_name =  "data/2023.csv" 
+#         elif menu[1] == op1: 
+#             if os.path.exists('data/2024.csv') :
+#                 file_name =  "data/2024.csv" 
+#         elif menu[2] == op1: 
+#             if os.path.exists('data/2025.csv') :
+#                 file_name =  "data/2025.csv" 
+#         else:
+#             file_name = "data/2023.csv" 
+#         #===========================================================================> st.image 위치
+
+st.image('data/th.jpg', width=30 ) 
+################################################################################# 
+st.subheader('한눈에 보는 :blue[광주전남] 민원 지도', divider='rainbow') 
+################################################################################# 
+selected = option_menu(menu_title=None,
+                        options=[ "ALL", "본부","광주","담양","순천","함평","구례","보성","남원"],
+                        icons=[None,None,None,None,None,None,None,None,],  
+                        menu_icon="cast",
+                        default_index=0,
+                        orientation='horizontal', 
+                        styles={"container": {"padding": "0px", # {"padding": "0!important", 
+                                            "margin" : "0px",
+                                            "background-color": "#fafafa"},
+                                "icon": {"color": "orange",  
+                                        "margin":"0px", 
+                                        "padding":"0px",
+                                        "font-size": "0px"}, 
+                                "nav-link": {"font-size": "13px", 
+                                            "text-align": "center", 
+                                            "margin":"0px", 
+                                            "padding":"0px",
+                                            "--hover-color": "#eee"},
+                                "nav-link-selected": {"background-color": "green"}, 
+                                } 
+)
+if selected == "ALL": 
+    tab_all.run_tab() 
+elif selected == "본부": 
+    tab0.run_tab() 
+elif selected == "광주": 
+    tab1.run_tab() 
+elif selected == "담양":
+    tab2.run_tab()
+elif selected == "순천":
+    tab3.run_tab()
+elif selected == "함평":
+    tab4.run_tab()
+elif selected == "구례":
+    tab5.run_tab()
+elif selected == "보성":
+    tab6.run_tab()
+elif selected == "남원":
+    tab7.run_tab() 
