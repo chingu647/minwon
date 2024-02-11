@@ -532,7 +532,7 @@ def create_px_pie_team(organ, team):
     fig = px.pie(team_df, values=team_df.NUMBER, names=team_df[f'{team}'], 
                  labels={ 'NUMBER':'발생 건수'}, 
                  hole=0.4,) 
-    fig.update_traces(textfont_size=20, ,
+    fig.update_traces(textfont_size=20,
                       textposition='auto',    # ['inside', 'outside', 'auto', 'none']   
                       textinfo='percent+value',   # 'label+percent+value'
                       )     
